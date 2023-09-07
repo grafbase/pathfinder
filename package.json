@@ -1,0 +1,34 @@
+{
+  "name": "@graphql-pathfinder/monorepo",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "test:once": "turbo run test:once",
+    "test:watch": "turbo run test:watch",
+    "types": "turbo run types",
+    "ladle:build": "pnpm --filter ladle build",
+    "ladle:preview": "pnpm --filter ladle preview",
+    "ladle:serve": "pnpm --filter ladle serve"
+  },
+  "dependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0"    
+  },
+  "devDependencies": {
+    "@vanilla-extract/css": "1.12.0",
+    "@vanilla-extract/dynamic": "2.0.3",      
+    "next": "13.4.12",
+    "@types/node": "20.4.5",
+    "@types/react": "18.2.17",
+    "@types/react-dom": "18.2.7",    
+    "monaco-editor": "0.40.0",
+    "monaco-graphql": "1.2.4",    
+    "turbo": "1.10.12",
+    "typescript": "5.1.6"
+  },
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=8"
+  }
+}

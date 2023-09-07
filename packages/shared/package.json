@@ -1,0 +1,14 @@
+{
+  "name": "@graphql-pathfinder/shared",
+  "version": "0.0.1",
+  "main": "./src/index.ts",
+  "scripts": {
+    "lint": "eslint .",
+    "types": "tsc --noEmit"
+  },  
+  "devDependencies": {
+    "@graphql-pathfinder/eslint-config": "workspace:*",
+    "@graphql-pathfinder/tsconfig": "workspace:*",
+    "zustand": "4.3.9"
+  }
+}

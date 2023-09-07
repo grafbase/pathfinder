@@ -1,0 +1,16 @@
+export const space = {
+  none: "0",
+  2: "2px",
+  4: "4px",
+  8: "8px",
+  12: "12px",
+  16: "16px",
+  20: "20px",
+  24: "24px",
+  28: "28px",
+  auto: "auto",
+  full: "100%",
+  fit: "fit-content",
+  max: "max-content",
+  min: "min-content",
+};

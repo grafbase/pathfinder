@@ -1,0 +1,16 @@
+{
+  "name": "@graphql-pathfinder/eslint-config",
+  "main": "eslint-config.js",  
+  "version": "0.0.1",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "6.2.0",
+    "@typescript-eslint/parser": "6.2.0",
+    "eslint": "8.45.0",
+    "eslint-config-prettier": "8.9.0",
+    "eslint-plugin-jest-dom": "5.0.1",
+    "eslint-plugin-prettier": "5.0.0",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "eslint-plugin-testing-library": "5.11.0",
+    "prettier": "3.0.0"
+  }
+}

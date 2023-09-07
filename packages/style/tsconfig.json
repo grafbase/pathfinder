@@ -1,0 +1,6 @@
+{
+  "extends": "@graphql-pathfinder/tsconfig/base.json",
+  "compilerOptions": {
+    "lib": ["ESNext", "DOM"]
+  }
+}

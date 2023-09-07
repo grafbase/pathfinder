@@ -1,0 +1,17 @@
+#ladle-root {
+  height: 100%;
+  width: 100%;
+  position: relative;
+
+  .ladle-theme-switcher {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+  }
+}
+
+.ladle-main {
+  padding: 0;
+  position: relative;
+}

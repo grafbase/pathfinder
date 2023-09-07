@@ -1,0 +1,6 @@
+{
+  "extends": "@graphql-pathfinder/tsconfig/react.json",
+  "compilerOptions": {
+    "types": ["vite/client"]
+  },
+}
