@@ -1,5 +1,5 @@
 export default {
-  stories: ["../../packages/pathfinder/src/**/*.stories.tsx"],
+  stories: ["../../packages/core/src/**/*.stories.tsx"],
   addons: {
     theme: {
       enabled: false,
