@@ -1,5 +1,5 @@
 {
-  "name": "@graphql-pathfinder/stores",
+  "name": "@pathfinder/stores",
   "version": "0.0.1",
   "main": "./src/index.ts",
   "scripts": {
@@ -7,8 +7,8 @@
     "types": "tsc --noEmit"
   },
   "dependencies": {
-    "@graphql-pathfinder/shared": "workspace:*",
-    "@graphql-pathfinder/style": "workspace:*",
+    "@pathfinder/shared": "workspace:*",
+    "@pathfinder/style": "workspace:*",
     "@paralleldrive/cuid2": "^2.2.2",
     "graphql": "16.8.0",
     "idb-keyval": "6.2.1",
@@ -17,7 +17,7 @@
     "zustand": "4.3.9"
   },
   "devDependencies": {
-    "@graphql-pathfinder/eslint-config": "workspace:*",
-    "@graphql-pathfinder/tsconfig": "workspace:*"
+    "@pathfinder/eslint-config": "workspace:*",
+    "@pathfinder/tsconfig": "workspace:*"
   }
 }

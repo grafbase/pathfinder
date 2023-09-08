@@ -9,7 +9,7 @@ import type {
 import {
   DOCUMENT_EDITOR_ID,
   INACTIVE_DEFINITION_CLASSNAME,
-} from "@graphql-pathfinder/shared";
+} from "@pathfinder/shared";
 
 export const handleActiveDefinition: GraphQLDocumentStoreActions["handleActiveDefinition"] =
   ({ definition, range }) => {

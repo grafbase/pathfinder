@@ -3,20 +3,20 @@
 import dynamic from 'next/dynamic'
 
 const Trailblazer = dynamic(
-  () => import('@graphql-pathfinder/pathfinder').then(mod => mod.Trailblazer),
+  () => import('@pathfinder/core').then(mod => mod.Trailblazer),
   {
     ssr: false
   }
 )
 
 const Scout = dynamic(
-  () => import('@graphql-pathfinder/pathfinder').then(mod => mod.Scout),
+  () => import('@pathfinder/core').then(mod => mod.Scout),
   {
     ssr: false
   }
 )
 
-import "@graphql-pathfinder/pathfinder/dist/style.css";
+import "@pathfinder/pathfinder/dist/style.css";
 
 
 export default function Home() {

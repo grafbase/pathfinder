@@ -1,7 +1,8 @@
 {
-  "name": "@graphql-pathfinder/eslint-config",
+  "name": "@pathfinder/eslint-config",
   "main": "eslint-config.js",  
   "version": "0.0.1",
+  "private": true,  
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "6.2.0",
     "@typescript-eslint/parser": "6.2.0",

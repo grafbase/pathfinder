@@ -1,6 +1,7 @@
 {
-  "name": "@graphql-pathfinder/ladle",
+  "name": "ladle",
   "version": "0.0.1",
+  "private": true,  
   "scripts": {
     "build": "ladle build",
     "lint": "eslint .",
@@ -14,10 +15,10 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@graphql-pathfinder/pathfinder": "workspace:*",
-    "@graphql-pathfinder/eslint-config": "workspace:*",
-    "@graphql-pathfinder/style": "workspace:*",
-    "@graphql-pathfinder/tsconfig": "workspace:*",
+    "@pathfinder/core": "workspace:*",
+    "@pathfinder/eslint-config": "workspace:*",
+    "@pathfinder/style": "workspace:*",
+    "@pathfinder/tsconfig": "workspace:*",
     "@types/react": "18.2.17",
     "@types/react-dom": "18.2.7",
     "@vanilla-extract/vite-plugin": "3.8.2",

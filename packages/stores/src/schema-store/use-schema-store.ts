@@ -1,5 +1,5 @@
 import { schemaStore } from "./schema-store";
 
-import { createZustandSelectors } from "@graphql-pathfinder/shared";
+import { createZustandSelectors } from "@pathfinder/shared";
 
 export const useSchemaStore = createZustandSelectors(schemaStore);

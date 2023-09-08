@@ -1,6 +1,6 @@
 {
   "extends": [
-    "@graphql-pathfinder/eslint-config"
+    "@pathfinder/eslint-config"
   ],
   "ignorePatterns": [
     "!.ladle"

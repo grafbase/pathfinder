@@ -2,12 +2,12 @@ import * as React from "react";
 
 import { GlobalProvider } from "@ladle/react";
 
-import { ThemeSwitcher } from "../../../packages/pathfinder/src";
+import { ThemeSwitcher } from "../../../packages/core/src";
 
 // 👇 a simple override of ladle-main styles
 import "./styles.css";
 
-import { contract } from "@graphql-pathfinder/style";
+import { contract } from "@pathfinder/style";
 
 export const Provider: GlobalProvider = ({ children, globalState }) => {
   return (

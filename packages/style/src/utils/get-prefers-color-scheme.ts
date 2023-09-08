@@ -1,4 +1,4 @@
-import type { AvailableThemes } from "@graphql-pathfinder/shared";
+import type { AvailableThemes } from "@pathfinder/shared";
 
 export const getPrefersColorScheme = (): AvailableThemes => {
   if (window.matchMedia("(prefers-color-scheme:dark)").matches) {

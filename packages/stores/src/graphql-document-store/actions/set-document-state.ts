@@ -6,7 +6,7 @@ import { graphQLDocumentStore } from "../graphql-document-store";
 
 import { getMonacoEditor } from "../../monaco-editor-store";
 
-import { DOCUMENT_EDITOR_ID } from "@graphql-pathfinder/shared";
+import { DOCUMENT_EDITOR_ID } from "@pathfinder/shared";
 
 import { DocumentEntry } from "../graphql-document-store.types";
 import { handleActiveDefinition } from "./handle-active-definition";

@@ -1,0 +1,10 @@
+{
+  "extends": "@pathfinder/tsconfig/react.json",
+  "compilerOptions": {
+    "types": [
+      "@testing-library/jest-dom",
+      "vite/client", 
+      "vitest/globals"
+    ]
+  }  
+}

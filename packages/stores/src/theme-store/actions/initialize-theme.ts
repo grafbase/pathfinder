@@ -1,10 +1,10 @@
 import {
   ThemeContractOverrides,
   getPrefersColorScheme,
-} from "@graphql-pathfinder/style";
+} from "@pathfinder/style";
 import { setTheme } from "./set-theme";
 import { setThemeOverrides } from "./set-theme-overrides";
-import { AvailableThemes } from "@graphql-pathfinder/shared";
+import { AvailableThemes } from "@pathfinder/shared";
 
 export const initializeTheme = ({
   overrides,
