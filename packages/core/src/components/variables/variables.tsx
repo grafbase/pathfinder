@@ -4,14 +4,14 @@ import {
   VARIABLES_MODEL_NAME,
 } from "@pathfinder/shared";
 
-import { graphQLDocumentStore, runExecuteOperation } from "@pathfinder/stores";
+import { runExecuteOperation, variablesStore } from "@pathfinder/stores";
 
 import { Editor } from "../editor";
 
 import { variablesClass, variablesEditorWrapClass } from "./variables.css";
 
 export const Variables = () => {
-  const variablesString = graphQLDocumentStore.getState().variablesString;
+  const variablesString = variablesStore.getState().variablesString;
   return (
     <div className={variablesClass}>
       <div className={variablesEditorWrapClass}>
@@ -28,7 +28,7 @@ export const Variables = () => {
             language: "json",
           }}
           onDidChangeCursorPositionCallback={({ editorValue }) => {
-            graphQLDocumentStore.setState({
+            variablesStore.setState({
               variablesString: editorValue,
             });
           }}

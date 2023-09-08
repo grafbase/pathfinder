@@ -38,7 +38,6 @@ export const graphQLDocumentStore = createStore<GraphQLDocumentStoreState>()(
         documentEntries: state.documentEntries,
         documentNotifications: state.documentNotifications,
         documentString: state.documentString,
-        variablesString: state.variablesString,
       }),
       storage: storage<StateToPersist>(),
       version: 0,

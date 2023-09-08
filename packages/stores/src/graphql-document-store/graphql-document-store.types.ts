@@ -68,10 +68,6 @@ export type GraphQLDocumentStoreState = {
    * A boolean indicating whether or not the document is parseable
    */
   isParseable: boolean;
-  /**
-   * The full string value of the variables editor, used during rehydration
-   */
-  variablesString: string;
 };
 
 export type GraphQLDocumentStoreActions = {
