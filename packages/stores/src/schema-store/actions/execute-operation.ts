@@ -1,6 +1,6 @@
 import { OperationDefinitionNode, print } from "graphql";
 
-import { VARIABLES_EDITOR_ID } from "@graphql-pathfinder/shared";
+import { VARIABLES_EDITOR_ID } from "@pathfinder/shared";
 
 import { HTTPHeadersStore } from "../../http-headers-store";
 import { getMonacoEditor } from "../../monaco-editor-store";

@@ -1,7 +1,7 @@
 import {
   DOCUMENT_EDITOR_DEFAULT_VALUE,
   VARIABLES_EDITOR_DEFAULT_VALUE,
-} from "@graphql-pathfinder/shared";
+} from "@pathfinder/shared";
 
 import type { GraphQLDocumentStoreState } from "./graphql-document-store.types";
 

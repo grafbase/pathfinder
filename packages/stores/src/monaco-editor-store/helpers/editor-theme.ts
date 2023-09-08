@@ -1,4 +1,4 @@
-import type { AvailableThemes } from "@graphql-pathfinder/shared";
+import type { AvailableThemes } from "@pathfinder/shared";
 // import { editor as MONACO_EDITOR } from "monaco-editor";
 
 import type monaco from "monaco-editor/esm/vs/editor/editor.api";

@@ -1,6 +1,7 @@
 {
-  "name": "@graphql-pathfinder/monorepo",
+  "name": "pathfinder",
   "version": "0.0.1",
+  "private": true,  
   "scripts": {
     "build": "turbo run build",
     "lint": "turbo run lint",

@@ -2,7 +2,7 @@ import {
   DOCUMENT_EDITOR_ID,
   RESPONSE_EDITOR_ID,
   VARIABLES_EDITOR_ID,
-} from "@graphql-pathfinder/shared";
+} from "@pathfinder/shared";
 
 import type { MonacoEditorStoreState } from "./monaco-editor-store.types";
 

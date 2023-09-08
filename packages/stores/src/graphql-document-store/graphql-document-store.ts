@@ -3,7 +3,7 @@ import { persist } from "zustand/middleware";
 
 import { storage } from "../storage";
 import { graphQLDocumentState } from "./state";
-import { STORAGE_NAME_GRAPHQL_DOCUMENT } from "@graphql-pathfinder/shared";
+import { STORAGE_NAME_GRAPHQL_DOCUMENT } from "@pathfinder/shared";
 
 import { GraphQLDocumentStoreState } from "./graphql-document-store.types";
 

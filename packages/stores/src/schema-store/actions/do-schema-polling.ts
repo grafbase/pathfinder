@@ -2,7 +2,7 @@ import { schemaStore } from "../schema-store";
 import { pushMonacoEditorEdit } from "../../monaco-editor-store";
 import { setMonacoGraphQLSchema } from "../../monaco-graphql-store";
 
-import { DOCUMENT_EDITOR_ID } from "@graphql-pathfinder/shared";
+import { DOCUMENT_EDITOR_ID } from "@pathfinder/shared";
 
 import { setSchemaPollingTimer } from "./set-schema-polling-timer";
 import { getSchemaViaIntrospection } from "./get-schema-via-introspection";

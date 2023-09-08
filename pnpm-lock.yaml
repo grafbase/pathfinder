@@ -58,16 +58,16 @@ importers:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
     devDependencies:
-      '@graphql-pathfinder/eslint-config':
+      '@pathfinder/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@pathfinder/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@graphql-pathfinder/pathfinder':
-        specifier: workspace:*
-        version: link:../../packages/pathfinder
-      '@graphql-pathfinder/style':
+      '@pathfinder/style':
         specifier: workspace:*
         version: link:../../packages/style
-      '@graphql-pathfinder/tsconfig':
+      '@pathfinder/tsconfig':
         specifier: workspace:*
         version: link:../../packages/tsconfig
       '@types/react':
@@ -91,9 +91,9 @@ importers:
 
   examples/nextjs-example:
     dependencies:
-      '@graphql-pathfinder/pathfinder':
+      '@pathfinder/core':
         specifier: workspace:*
-        version: link:../../packages/pathfinder
+        version: link:../../packages/core
       '@types/node':
         specifier: 20.4.5
         version: 20.4.5
@@ -143,50 +143,20 @@ importers:
         specifier: 5.1.6
         version: 5.1.6
 
-  packages/eslint-config:
-    devDependencies:
-      '@typescript-eslint/eslint-plugin':
-        specifier: 6.2.0
-        version: 6.2.0(@typescript-eslint/parser@6.2.0)(eslint@8.45.0)(typescript@5.1.6)
-      '@typescript-eslint/parser':
-        specifier: 6.2.0
-        version: 6.2.0(eslint@8.45.0)(typescript@5.1.6)
-      eslint:
-        specifier: 8.45.0
-        version: 8.45.0
-      eslint-config-prettier:
-        specifier: 8.9.0
-        version: 8.9.0(eslint@8.45.0)
-      eslint-plugin-jest-dom:
-        specifier: 5.0.1
-        version: 5.0.1(@testing-library/dom@9.3.1)(eslint@8.45.0)
-      eslint-plugin-prettier:
-        specifier: 5.0.0
-        version: 5.0.0(eslint-config-prettier@8.9.0)(eslint@8.45.0)(prettier@3.0.0)
-      eslint-plugin-react-hooks:
-        specifier: 4.6.0
-        version: 4.6.0(eslint@8.45.0)
-      eslint-plugin-testing-library:
-        specifier: 5.11.0
-        version: 5.11.0(eslint@8.45.0)(typescript@5.1.6)
-      prettier:
-        specifier: 3.0.0
-        version: 3.0.0
-
-  packages/pathfinder:
+  packages/core:
     dependencies:
-      '@graphql-pathfinder/shared':
-        specifier: workspace:*
-        version: link:../shared
-      '@graphql-pathfinder/stores':
-        specifier: workspace:*
-        version: link:../stores
-      '@graphql-pathfinder/style':
-        specifier: workspace:*
-        version: link:../style
       '@headlessui/react':
         specifier: 1.7.17
         version: 1.7.17(react-dom@18.2.0)(react@18.2.0)
+      '@pathfinder/shared':
+        specifier: workspace:*
+        version: link:../shared
+      '@pathfinder/stores':
+        specifier: workspace:*
+        version: link:../stores
+      '@pathfinder/style':
+        specifier: workspace:*
+        version: link:../style
       monaco-editor:
         specifier: 0.40.0
         version: 0.40.0
@@ -203,10 +173,10 @@ importers:
         specifier: 4.3.9
         version: 4.3.9(react@18.2.0)
     devDependencies:
-      '@graphql-pathfinder/eslint-config':
+      '@pathfinder/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@graphql-pathfinder/tsconfig':
+      '@pathfinder/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       '@testing-library/jest-dom':
@@ -258,12 +228,42 @@ importers:
         specifier: 8.16.3
         version: 8.16.3(typescript@5.1.6)
 
+  packages/eslint-config:
+    devDependencies:
+      '@typescript-eslint/eslint-plugin':
+        specifier: 6.2.0
+        version: 6.2.0(@typescript-eslint/parser@6.2.0)(eslint@8.45.0)(typescript@5.1.6)
+      '@typescript-eslint/parser':
+        specifier: 6.2.0
+        version: 6.2.0(eslint@8.45.0)(typescript@5.1.6)
+      eslint:
+        specifier: 8.45.0
+        version: 8.45.0
+      eslint-config-prettier:
+        specifier: 8.9.0
+        version: 8.9.0(eslint@8.45.0)
+      eslint-plugin-jest-dom:
+        specifier: 5.0.1
+        version: 5.0.1(@testing-library/dom@9.3.1)(eslint@8.45.0)
+      eslint-plugin-prettier:
+        specifier: 5.0.0
+        version: 5.0.0(eslint-config-prettier@8.9.0)(eslint@8.45.0)(prettier@3.0.0)
+      eslint-plugin-react-hooks:
+        specifier: 4.6.0
+        version: 4.6.0(eslint@8.45.0)
+      eslint-plugin-testing-library:
+        specifier: 5.11.0
+        version: 5.11.0(eslint@8.45.0)(typescript@5.1.6)
+      prettier:
+        specifier: 3.0.0
+        version: 3.0.0
+
   packages/shared:
     devDependencies:
-      '@graphql-pathfinder/eslint-config':
+      '@pathfinder/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@graphql-pathfinder/tsconfig':
+      '@pathfinder/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       zustand:
@@ -272,15 +272,15 @@ importers:
 
   packages/stores:
     dependencies:
-      '@graphql-pathfinder/shared':
-        specifier: workspace:*
-        version: link:../shared
-      '@graphql-pathfinder/style':
-        specifier: workspace:*
-        version: link:../style
       '@paralleldrive/cuid2':
         specifier: ^2.2.2
         version: 2.2.2
+      '@pathfinder/shared':
+        specifier: workspace:*
+        version: link:../shared
+      '@pathfinder/style':
+        specifier: workspace:*
+        version: link:../style
       graphql:
         specifier: 16.8.0
         version: 16.8.0
@@ -297,16 +297,16 @@ importers:
         specifier: 4.3.9
         version: 4.3.9(react@18.2.0)
     devDependencies:
-      '@graphql-pathfinder/eslint-config':
+      '@pathfinder/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@graphql-pathfinder/tsconfig':
+      '@pathfinder/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
 
   packages/style:
     dependencies:
-      '@graphql-pathfinder/shared':
+      '@pathfinder/shared':
         specifier: workspace:*
         version: link:../shared
       '@radix-ui/colors':
@@ -325,10 +325,10 @@ importers:
         specifier: 4.4.0
         version: 4.4.0(@types/react@18.2.17)(react@18.2.0)
     devDependencies:
-      '@graphql-pathfinder/eslint-config':
+      '@pathfinder/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@graphql-pathfinder/tsconfig':
+      '@pathfinder/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
 

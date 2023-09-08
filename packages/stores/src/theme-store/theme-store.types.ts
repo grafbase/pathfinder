@@ -1,5 +1,5 @@
-import type { AvailableThemes } from "@graphql-pathfinder/shared";
-import { ThemeContractOverrides } from "@graphql-pathfinder/style";
+import type { AvailableThemes } from "@pathfinder/shared";
+import { ThemeContractOverrides } from "@pathfinder/style";
 
 type ThemeStoreState = {
   activeTheme: AvailableThemes | null;

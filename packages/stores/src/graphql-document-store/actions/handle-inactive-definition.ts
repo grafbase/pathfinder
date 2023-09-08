@@ -3,7 +3,7 @@ import { getMonacoEditor } from "../../monaco-editor-store";
 import {
   DOCUMENT_EDITOR_ID,
   INACTIVE_DEFINITION_CLASSNAME,
-} from "@graphql-pathfinder/shared";
+} from "@pathfinder/shared";
 
 import type { GraphQLDocumentStoreActions } from "../graphql-document-store.types";
 

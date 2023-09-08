@@ -1,5 +1,5 @@
-import type { ThemeContractOverrides } from "@graphql-pathfinder/style";
-import { toTitleCase } from "@graphql-pathfinder/style";
+import type { ThemeContractOverrides } from "@pathfinder/style";
+import { toTitleCase } from "@pathfinder/style";
 
 export const mungeThemeOverrides = ({
   overrides,

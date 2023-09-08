@@ -4,7 +4,7 @@ import { persist } from "zustand/middleware";
 
 import { schemaStore } from "../schema-store";
 
-import { STORAGE_NAME_HTTP_HEADERS } from "@graphql-pathfinder/shared";
+import { STORAGE_NAME_HTTP_HEADERS } from "@pathfinder/shared";
 
 import { httpHeadersState } from "./state";
 
