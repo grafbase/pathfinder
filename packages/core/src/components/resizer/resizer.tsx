@@ -1,22 +1,32 @@
 import { useEffect, useRef } from "react";
 
+import { shared } from "@pathfinder/style";
+
 import { resizerClass, handleClass, paneClass } from "./resizer.css";
 import type { ResizerProps } from "./resizer.types";
+
 import { ResizerProvider, useResizer } from "./use-resizer";
 
 export const Resizer = ({
+  onSurface,
   orientation = "HORIZONTAL",
   pane1,
   pane2,
 }: ResizerProps) => {
   return (
     <ResizerProvider>
-      <ResizerComponent orientation={orientation} pane1={pane1} pane2={pane2} />
+      <ResizerComponent
+        onSurface={onSurface}
+        orientation={orientation}
+        pane1={pane1}
+        pane2={pane2}
+      />
     </ResizerProvider>
   );
 };
 
 const ResizerComponent = ({
+  onSurface,
   orientation = "HORIZONTAL",
   pane1,
   pane2,
@@ -134,7 +144,13 @@ const ResizerComponent = ({
           : { gridTemplateRows: gridTemplate }
       }
     >
-      <div className={paneClass} ref={pane1Ref}>
+      <div
+        className={`${paneClass} ${shared.hairlineBorder({
+          border: orientation === "HORIZONTAL" ? "right" : "bottom",
+          onSurface,
+        })}`}
+        ref={pane1Ref}
+      >
         {pane1.component}
       </div>
       <div

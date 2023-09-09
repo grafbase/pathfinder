@@ -16,6 +16,7 @@ import {
   historyNullStateClass,
 } from "./history.css";
 import { HistoryItemRequest } from "../history-item-request";
+import { shared } from "@pathfinder/style";
 
 export const History = ({
   historyItems,
@@ -44,11 +45,17 @@ export const History = ({
   return (
     <div className={historyClass}>
       <Resizer
+        onSurface={1}
         orientation="HORIZONTAL"
         pane1={{
           component: (
             <>
-              <div className={historyListHeaderClass}>
+              <div
+                className={`${historyListHeaderClass} ${shared.hairlineBorder({
+                  border: "bottom",
+                  onSurface: 1,
+                })}`}
+              >
                 Execution History
                 <Dropdown
                   buttons={[
@@ -87,6 +94,7 @@ export const History = ({
         pane2={{
           component: (
             <Tabs
+              styles={{ buttonStyle: "INLINE", onSurface: 1 }}
               tabs={[
                 {
                   buttonContent: () => <span>Request</span>,
@@ -110,7 +118,6 @@ export const History = ({
                 },
               ]}
               tabListHeight={32}
-              variant={"INLINE"}
             />
           ),
           initialSize: { type: "PERCENT", value: 50 },

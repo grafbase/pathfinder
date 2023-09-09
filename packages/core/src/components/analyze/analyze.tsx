@@ -4,8 +4,8 @@ import { RESPONSE_EDITOR_ID, RESPONSE_MODEL_NAME } from "@pathfinder/shared";
 import {
   getMonacoEditor,
   pushMonacoEditorEdit,
-  useGraphQLDocumentStore,
   useSchemaStore,
+  useTabsStore,
 } from "@pathfinder/stores";
 
 import { Editor } from "../editor";
@@ -21,10 +21,10 @@ import {
 export const Analyze = () => {
   const isExecuting = useSchemaStore.use.isExecuting();
 
-  const activeDocumentEntry = useGraphQLDocumentStore.use.activeDocumentEntry();
+  const activeTab = useTabsStore.use.activeTab();
 
   useEffect(() => {
-    const latestResponse = activeDocumentEntry?.latestResponse;
+    const latestResponse = activeTab?.latestResponse;
 
     if (latestResponse) {
       const value = JSON.stringify(latestResponse.response.data, null, 2);
@@ -53,20 +53,17 @@ export const Analyze = () => {
     }
     // }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeDocumentEntry]);
+  }, [activeTab]);
 
   return (
     <div className={analyzeClass}>
-      {!activeDocumentEntry && (
-        <div
-          className={responseNullStateClass}
-          data-testid="response-editor-null-state"
-        >
+      {!activeTab && (
+        <div className={responseNullStateClass}>
           awaiting executable operation
         </div>
       )}
 
-      {activeDocumentEntry && !activeDocumentEntry.latestResponse && (
+      {activeTab && !activeTab.latestResponse && (
         <div className={responseNullStateClass}>
           <span>Execute operation</span>
           <KBD shortcut="COMMAND_CONTROL" />+
@@ -77,14 +74,13 @@ export const Analyze = () => {
       <div
         className={responseEditorClass({
           isExecuting,
-          hideResponseEditor:
-            !activeDocumentEntry || !activeDocumentEntry.latestResponse,
+          hideResponseEditor: !activeTab || !activeTab.latestResponse,
         })}
       >
         <Editor
           editorId={RESPONSE_EDITOR_ID}
           defaultValue={JSON.stringify(
-            activeDocumentEntry?.latestResponse?.response.data,
+            activeTab?.latestResponse?.response.data,
             null,
             2,
           )}

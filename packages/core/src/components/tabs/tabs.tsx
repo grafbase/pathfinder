@@ -1,5 +1,9 @@
 import { Tab } from "@headlessui/react";
 
+import { RecipeVariants } from "@vanilla-extract/recipes";
+
+import { shared } from "@pathfinder/style";
+
 import {
   tabListClass,
   tabButtonClass,
@@ -12,9 +16,9 @@ import { TabsProps } from "./tabs.types";
 
 export const Tabs = ({
   controlled,
+  styles,
   tabs,
   tabListHeight = 40,
-  variant,
 }: {
   /**
    * Optional: if passed, we control the tab state
@@ -23,9 +27,12 @@ export const Tabs = ({
     setSelectedTabIndex: React.Dispatch<React.SetStateAction<number>>;
     selectedTabIndex: number;
   };
+  styles: Pick<
+    NonNullable<RecipeVariants<typeof tabButtonClass>>,
+    "buttonStyle"
+  > & { onSurface: 1 | 2 | 3 };
   tabs: TabsProps;
   tabListHeight?: 32 | 40;
-  variant: "BUTTON_LIKE" | "INLINE";
 }) => {
   return (
     <Tab.Group
@@ -35,16 +42,19 @@ export const Tabs = ({
       <div className={tabGroupClass}>
         <Tab.List>
           <div
-            className={tabListClass({
+            className={`${tabListClass({
               tabListHeight,
-            })}
+            })} ${shared.hairlineBorder({
+              border: "bottom",
+              onSurface: styles.onSurface,
+            })}`}
           >
             {tabs.map((tab) => {
               const ButtonContent = tab.buttonContent;
               return (
                 <Tab
                   className={tabButtonClass({
-                    variant,
+                    buttonStyle: styles?.buttonStyle,
                   })}
                   key={tab.name}
                   onClick={() => (tab.action ? tab.action() : undefined)}

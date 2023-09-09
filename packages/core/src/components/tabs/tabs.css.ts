@@ -5,38 +5,15 @@ export const tabListClass = recipe({
     display: "flex",
     flexShrink: 0,
     position: "relative",
-
-    selectors: {
-      "&:after": {
-        content: "",
-        position: "absolute",
-        width: "100%",
-        height: 1,
-        bottom: 1,
-        left: 0,
-      },
-    },
   },
 
   variants: {
     tabListHeight: {
       32: {
         height: 32,
-        selectors: {
-          "&:after": {
-            bottom: 0,
-            backgroundColor: contract.color.neutral[4],
-          },
-        },
       },
       40: {
         height: 40,
-        selectors: {
-          "&:after": {
-            bottom: 1,
-            backgroundColor: contract.color.neutral[3],
-          },
-        },
       },
     },
   },
@@ -54,7 +31,7 @@ export const tabButtonClass = recipe({
     },
   ],
   variants: {
-    variant: {
+    buttonStyle: {
       BUTTON_LIKE: {
         width: "100%",
         height: 32,

@@ -39,6 +39,7 @@ export const HorizontalWithMinimums = () => {
     <Container
       toRender={
         <Resizer
+          onSurface={1}
           orientation="HORIZONTAL"
           pane1={{ component: <Pane1 />, minimumSize: 40 }}
           pane2={{
@@ -57,6 +58,7 @@ export const HorizontalWithoutMinimums = () => {
     <Container
       toRender={
         <Resizer
+          onSurface={1}
           orientation="HORIZONTAL"
           pane1={{ component: <Pane1 /> }}
           pane2={{
@@ -74,6 +76,7 @@ export const VerticalWithMinimums = () => {
     <Container
       toRender={
         <Resizer
+          onSurface={1}
           orientation="VERTICAL"
           pane1={{ component: <Pane1 />, minimumSize: 40 }}
           pane2={{
@@ -92,6 +95,7 @@ export const VerticalWithPane2Minimum = () => {
     <Container
       toRender={
         <Resizer
+          onSurface={1}
           orientation="VERTICAL"
           pane1={{ component: <Pane1 /> }}
           pane2={{
@@ -110,6 +114,7 @@ export const VerticalWithoutMinimums = () => {
     <Container
       toRender={
         <Resizer
+          onSurface={1}
           orientation="VERTICAL"
           pane1={{ component: <Pane1 /> }}
           pane2={{

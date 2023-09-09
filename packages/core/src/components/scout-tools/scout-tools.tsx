@@ -9,8 +9,6 @@ import { Variables } from "../variables";
 
 import { scoutToolsClass } from "./scout-tools.css";
 
-// import type { ScoutToolsProps } from "./scout-tools.types";
-
 export const ScoutTools = () => {
   const [selectedTabIndex, setSelectedTabIndex] = useState<number>(0);
 
@@ -29,6 +27,7 @@ export const ScoutTools = () => {
           selectedTabIndex,
           setSelectedTabIndex,
         }}
+        styles={{ buttonStyle: "INLINE", onSurface: 1 }}
         tabs={[
           ...[
             {
@@ -49,7 +48,6 @@ export const ScoutTools = () => {
           name: tool.name,
           panelContent: tool.content,
         }))}
-        variant={"INLINE"}
       />
     </div>
   );

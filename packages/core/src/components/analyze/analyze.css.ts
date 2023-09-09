@@ -7,7 +7,6 @@ export const analyzeClass = style({
   flexDirection: "column",
   justifyContent: "flex-end",
   position: "relative",
-  borderLeft: `1px solid ${contract.color.neutral[6]}`,
 });
 
 export const responseEditorClass = recipe({

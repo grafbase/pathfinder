@@ -1,4 +1,7 @@
 import { Fragment } from "react";
+
+import { shared } from "@pathfinder/style";
+
 import {
   actionsBarClass,
   actionsBarLeadClass,
@@ -14,7 +17,12 @@ export const ActionsBar = ({
   title: string;
 }) => {
   return (
-    <div className={actionsBarClass}>
+    <div
+      className={`${actionsBarClass} ${shared.hairlineBorder({
+        border: "bottom",
+        onSurface: 1,
+      })}`}
+    >
       <div className={actionsBarLeftClass}>
         <span className={actionsBarLeadClass}>{title}</span>
       </div>
