@@ -1,3 +1,5 @@
+import { WheelEvent, useRef } from "react";
+
 import { shared } from "@pathfinder/style";
 
 import {
@@ -17,24 +19,23 @@ import {
   tabWrapClass,
 } from "./editor-tabs.css";
 
-const AddTabButton = () => {
-  return (
-    <div className={addTabButtonWrapClass}>
-      <IconButton
-        action={() => initNewEditorTab()}
-        iconName="Plus"
-        size="medium"
-        title={`Add new editor tab`}
-      />
-    </div>
-  );
-};
-
 export const EditorTabs = () => {
+  const ref = useRef<HTMLDivElement>(null);
+
   const activeTab = useEditorTabsStore.use.activeTab();
   const tabs = useEditorTabsStore.use.tabs();
 
   const showRemoveTabButton = tabs.length > 1;
+
+  const onWheel = (e: WheelEvent) => {
+    const el = ref.current;
+    if (el) {
+      if (e.deltaY == 0) return;
+      el.scrollTo({
+        left: el.scrollLeft + e.deltaY,
+      });
+    }
+  };
 
   if (tabs.length < 1) {
     return <p>There are no tabs. This is a terrible message</p>;
@@ -42,6 +43,8 @@ export const EditorTabs = () => {
 
   return (
     <div
+      ref={ref}
+      onWheel={onWheel}
       className={`${editorTabsClass} ${shared.hairlineBorder({
         border: "bottom",
         onSurface: 1,
@@ -78,7 +81,14 @@ export const EditorTabs = () => {
           </div>
         );
       })}
-      <AddTabButton />
+      <div className={addTabButtonWrapClass}>
+        <IconButton
+          action={() => initNewEditorTab()}
+          iconName="Plus"
+          size="medium"
+          title={`Add new editor tab`}
+        />
+      </div>
     </div>
   );
 };
