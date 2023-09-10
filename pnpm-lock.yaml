@@ -157,6 +157,9 @@ importers:
       '@pathfinder/style':
         specifier: workspace:*
         version: link:../style
+      graphql:
+        specifier: 16.8.0
+        version: 16.8.0
       monaco-editor:
         specifier: 0.40.0
         version: 0.40.0

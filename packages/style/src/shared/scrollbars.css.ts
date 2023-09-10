@@ -4,7 +4,6 @@ import { contract } from "../theme";
 export const scrollbars = style({
   scrollbarWidth: "thin",
   scrollbarColor: `${contract.color.neutral[4]} ${contract.color.neutral[5]}`,
-  // marginRight: 12,
 
   selectors: {
     // Chrome, Edge, and Safari

@@ -1,7 +1,7 @@
 // import type monaco from "monaco-graphql/esm/monaco-editor";
 import type monaco from "monaco-editor/esm/vs/editor/editor.api";
 
-type MonacoIPosition = monaco.IPosition;
+export type MonacoIPosition = monaco.IPosition;
 export type MonacoIRange = monaco.IRange;
 
 type MonacoEditorIStandaloneCodeEditor = monaco.editor.IStandaloneCodeEditor;
@@ -64,7 +64,7 @@ export type CreateEditorParams = {
   ref: HTMLDivElement;
 };
 
-type EditorEdit = {
+export type EditorEdit = {
   /**
    * A valid range or an explicit call for the model's full range.
    * Source docs indicate that this can be "empty", but the source _type_ doesn't allow it.
