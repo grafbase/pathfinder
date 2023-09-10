@@ -4,9 +4,9 @@ import { Trailblazer } from "./trailblazer";
 import { Scout } from "../scout";
 
 import {
+  editorTabsStore,
   pluginsStore,
   setTheme,
-  tabsStore,
   themeStore,
 } from "@pathfinder/stores";
 
@@ -108,11 +108,11 @@ describe("Trailblazer props", () => {
     );
 
     act(() => {
-      tabsStore.setState({ _hasHydrated: true });
+      editorTabsStore.setState({ _hasHydrated: true });
     });
 
     const scoutTools = pluginsStore.getState().scoutTools;
-    console.log("scoutTools", { scoutTools });
+
     expect(JSON.stringify(scoutTools)).toEqual(
       JSON.stringify([
         {
