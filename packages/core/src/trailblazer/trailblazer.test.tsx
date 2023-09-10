@@ -4,9 +4,9 @@ import { Trailblazer } from "./trailblazer";
 import { Scout } from "../scout";
 
 import {
-  graphQLDocumentStore,
   pluginsStore,
   setTheme,
+  tabsStore,
   themeStore,
 } from "@pathfinder/stores";
 
@@ -108,7 +108,7 @@ describe("Trailblazer props", () => {
     );
 
     act(() => {
-      graphQLDocumentStore.setState({ _hasHydrated: true });
+      tabsStore.setState({ _hasHydrated: true });
     });
 
     const scoutTools = pluginsStore.getState().scoutTools;

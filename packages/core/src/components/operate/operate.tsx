@@ -1,10 +1,11 @@
 import { DOCUMENT_EDITOR_ID, DOCUMENT_MODEL_NAME } from "@pathfinder/shared";
 
 import {
-  graphQLDocumentStore,
   runExecuteOperation,
   setDocumentState,
+  updateActiveEditorTab,
   useGraphQLDocumentStore,
+  useEditorTabsStore,
 } from "@pathfinder/stores";
 
 import { ActionExecute } from "../action-execute";
@@ -23,6 +24,12 @@ export const Operate = () => {
   const documentNotifications =
     useGraphQLDocumentStore.use.documentNotifications();
 
+  const activeTab = useEditorTabsStore.use.activeTab();
+
+  if (!activeTab) {
+    return <p>no activeTab</p>;
+  }
+
   return (
     <div className={operateClass}>
       <ActionsBar
@@ -40,22 +47,19 @@ export const Operate = () => {
       <div className={documentEditorWrapClass}>
         <Editor
           actions={[runExecuteOperation]}
-          defaultValue={
-            graphQLDocumentStore.getState().documentString ||
-            `no value to restore from previous session`
-          }
+          defaultValue={activeTab.documentString}
           editorId={DOCUMENT_EDITOR_ID}
-          initialCursorPosition={
-            graphQLDocumentStore.getState().cursorPosition || undefined
-          }
+          initialCursorPosition={activeTab.cursorPosition || undefined}
           modelDetails={{
             fileName: DOCUMENT_MODEL_NAME,
             language: "graphql",
           }}
           onDidChangeCursorPositionCallback={({ position }) => {
             setDocumentState();
-            graphQLDocumentStore.setState({
-              cursorPosition: position,
+            updateActiveEditorTab({
+              partialTab: {
+                cursorPosition: position,
+              },
             });
           }}
         />

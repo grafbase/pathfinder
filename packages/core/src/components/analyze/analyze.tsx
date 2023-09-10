@@ -5,7 +5,7 @@ import {
   getMonacoEditor,
   pushMonacoEditorEdit,
   useSchemaStore,
-  useTabsStore,
+  useEditorTabsStore,
 } from "@pathfinder/stores";
 
 import { Editor } from "../editor";
@@ -21,7 +21,7 @@ import {
 export const Analyze = () => {
   const isExecuting = useSchemaStore.use.isExecuting();
 
-  const activeTab = useTabsStore.use.activeTab();
+  const activeTab = useEditorTabsStore.use.activeTab();
 
   useEffect(() => {
     const latestResponse = activeTab?.latestResponse;

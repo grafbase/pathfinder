@@ -1,5 +1,5 @@
 export const DOCUMENT_EDITOR_ID = "pathfinder-document-editor";
-export const DOCUMENT_EDITOR_DEFAULT_VALUE = ``;
+export const DOCUMENT_EDITOR_DEFAULT_VALUE = `# this is the default document editor value...change me`;
 export const DOCUMENT_MODEL_NAME = "pathfinder-document-model";
 
 export const RESPONSE_EDITOR_ID = "pathfinder-response-editor";
@@ -12,8 +12,8 @@ export const VARIABLES_EDITOR_DEFAULT_VALUE = `{
 }`;
 export const VARIABLES_MODEL_NAME = "pathfinder-variables-model";
 
-export const STORAGE_NAME_GRAPHQL_DOCUMENT =
-  "grafbase-storage-graphql-document";
-export const STORAGE_NAME_HTTP_HEADERS = "grafbase-storage-http-headers";
+export const STORAGE_NAME_HTTP_HEADERS = "pathfinder-storage-http-headers";
+export const STORAGE_NAME_VARIABLES = "pathfinder-storage-variables";
+export const STORAGE_NAME_TABS = "pathfinder-storage-tabs";
 
 export const INACTIVE_DEFINITION_CLASSNAME = "inactive-definition";

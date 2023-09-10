@@ -20,20 +20,7 @@ export const variablesStore = createStore<VariablesStore>()(
       ...variablesState,
     }),
     {
-      // we skip automatic hydration here and manually call rehydrate() when Pathfinder loads.
-      skipHydration: true,
       name: STORAGE_NAME_VARIABLES,
-      onRehydrateStorage: () => {
-        return (_state, error) => {
-          if (error) {
-            console.warn("an error occurred during hydration", error);
-          } else {
-            variablesStore.setState({
-              _hasHydrated: true,
-            });
-          }
-        };
-      },
       partialize: (state) => ({
         variablesString: state.variablesString,
       }),

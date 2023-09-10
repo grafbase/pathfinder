@@ -1,14 +1,21 @@
-import { Kind, isExecutableDefinitionNode } from "graphql";
-
-import { getLocationAndRangeForDefinition, parseDocument } from "../utils";
-
-import { graphQLDocumentStore } from "../graphql-document-store";
-
-import { getMonacoEditor } from "../../monaco-editor-store";
+import {
+  Kind,
+  OperationDefinitionNode,
+  isExecutableDefinitionNode,
+} from "graphql";
 
 import { DOCUMENT_EDITOR_ID } from "@pathfinder/shared";
 
-import { DocumentEntry } from "../graphql-document-store.types";
+import { getLocationAndRangeForDefinition, parseDocument } from "../utils";
+
+import { updateActiveEditorTab } from "../../editor-tabs-store";
+
+import { graphQLDocumentStore } from "../graphql-document-store";
+
+import type { DocumentEntry } from "../graphql-document-store.types";
+
+import { getMonacoEditor } from "../../monaco-editor-store";
+
 import { handleActiveDefinition } from "./handle-active-definition";
 import { handleInactiveDefinition } from "./handle-inactive-definition";
 import { handleNewDefinition } from "./handle-new-definition";
@@ -124,12 +131,18 @@ export const setDocumentState: SetDocumentStateSignature = () => {
         }
       });
 
-      // write our new entries to state
-      return graphQLDocumentStore.setState({
+      graphQLDocumentStore.setState({
         activeDocumentEntry: newActiveDocumentEntry,
         documentEntries: newEntries,
-        documentString: modelValue,
         isParseable: true,
+      });
+
+      return updateActiveEditorTab({
+        partialTab: {
+          documentString: modelValue,
+          tabName: (parsedDocument.definitions[0] as OperationDefinitionNode)
+            .name?.value,
+        },
       });
     }
   }

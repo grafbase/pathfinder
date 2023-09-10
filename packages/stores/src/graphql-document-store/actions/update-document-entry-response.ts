@@ -1,5 +1,7 @@
 import { graphQLDocumentStore } from "../graphql-document-store";
 
+import { updateActiveEditorTab } from "../../editor-tabs-store";
+
 import type {
   GraphQLDocumentStoreActions,
   OperationEntry,
@@ -32,6 +34,12 @@ export const updateDocumentEntryResponse: GraphQLDocumentStoreActions["updateDoc
         // this is not our target entry, just return it without modification
         return entry;
       }
+    });
+
+    updateActiveEditorTab({
+      partialTab: {
+        latestResponse: executionResponse,
+      },
     });
 
     return graphQLDocumentStore.setState({

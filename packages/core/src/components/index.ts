@@ -4,6 +4,8 @@ export { Dropdown } from "./dropdown";
 
 export { Editor } from "./editor";
 
+export { EditorTabs } from "./editor-tabs";
+
 export { Icon } from "./icon";
 
 export { Operate } from "./operate";

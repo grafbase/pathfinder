@@ -7,7 +7,6 @@ import {
 // import type monaco from "monaco-graphql/esm/monaco-editor";
 import type monaco from "monaco-editor/esm/vs/editor/editor.api";
 
-type MonacoIPosition = monaco.IPosition;
 type MonacoRange = monaco.Range;
 
 import { ExecutionResponse } from "../schema-store";
@@ -18,12 +17,6 @@ export type DocumentNotificationType =
   | "ANONYMOUS_MUST_BE_ONLY_DEFINED"
   | "DISALLOW_LIVE_FOR_NON_QUERY";
 
-// export type HistoryItem = FetchError | FetchResponse;
-
-// type FetchResponse = {
-//   duration:
-// }
-
 // graphql document state
 type FragmentEntry = {
   entryType: "FRAGMENT";
@@ -32,7 +25,6 @@ type FragmentEntry = {
 
 export type OperationEntry = {
   latestResponse: ExecutionResponse | null;
-  // operationHistory: HistoryItem[];
   node: OperationDefinitionNode;
 };
 
@@ -40,18 +32,10 @@ export type DocumentEntry = FragmentEntry | OperationEntry;
 
 export type GraphQLDocumentStoreState = {
   /**
-   * A boolean indicating whether Zustand's persist middleware has rehydrated our state
-   */
-  _hasHydrated: boolean;
-  /**
    * The DocumentEntry with a definition that is currently highlighted in the document editor.
    * The visual operation builder uses this entry to build its UI.
    */
   activeDocumentEntry: OperationEntry | null;
-  /**
-   * The cursor position within the document editor
-   */
-  cursorPosition: MonacoIPosition | null;
   /**
    * Definitions within the editor along with their run history
    */
@@ -60,10 +44,6 @@ export type GraphQLDocumentStoreState = {
    * Notifications to display within the document editor UI
    */
   documentNotifications: DocumentNotificationType[];
-  /**
-   * The full string value of the document editor, used during rehydration
-   */
-  documentString: string;
   /**
    * A boolean indicating whether or not the document is parseable
    */

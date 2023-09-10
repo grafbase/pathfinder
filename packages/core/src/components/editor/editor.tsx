@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 import {
   createMonacoEditor,
   disposeMonacoEditor,
+  setDocumentState,
   useMonacoEditorStore,
 } from "@pathfinder/stores";
 
@@ -47,6 +48,10 @@ export const Editor = ({
 
       if (editor && initialCursorPosition) {
         editor.setPosition(initialCursorPosition);
+        setDocumentState();
+        setTimeout(() => {
+          editor.focus();
+        }, 150);
       }
 
       if (editor && actions) {
