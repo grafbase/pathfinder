@@ -5,7 +5,7 @@ import { PluginsStoreState } from "@pathfinder/stores";
 
 type SchemaStoreProps = Pick<
   SchemaStoreState,
-  "executionCallback" | "fetcherOptions" | "withPolling"
+  "fetcherOptions" | "withPolling"
 >;
 
 type PathfinderPlugins = {
