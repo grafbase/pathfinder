@@ -7,6 +7,7 @@ export const iconButtonClass = recipe({
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
+      flexShrink: 0,
       borderRadius: contract.space[4],
       transition: `all .05s ${shared.transitions.authenticMotion}`,
     },
