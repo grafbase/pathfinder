@@ -5,6 +5,7 @@ import { Close } from "./close";
 import { Delete } from "./delete";
 import { Ellipsis } from "./ellipsis";
 import { Gear } from "./gear";
+import { Plus } from "./plus";
 import { Prettier } from "./prettier";
 
 import { iconClass } from "./icon.css";
@@ -15,6 +16,7 @@ export const IconMap = {
   Delete,
   Ellipsis,
   Gear,
+  Plus,
   Prettier,
 };
 

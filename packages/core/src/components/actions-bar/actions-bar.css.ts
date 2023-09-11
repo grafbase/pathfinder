@@ -6,7 +6,6 @@ export const actionsBarClass = style({
   alignItems: "center",
   minHeight: 48,
   paddingLeft: contract.space[12],
-  borderBottom: `1px solid ${contract.color.neutral[3]}`,
 });
 
 export const actionsBarLeadClass = style({

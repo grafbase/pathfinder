@@ -5,6 +5,7 @@ export type ResizerInitialSize =
   | { type: "PERCENT"; value: number };
 
 export type ResizerProps = {
+  onSurface: 1 | 2 | 3;
   orientation: ResizerOrientation;
   pane1: {
     component: React.ReactElement;

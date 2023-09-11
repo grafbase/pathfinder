@@ -32,7 +32,7 @@ export const separatorClass = style({
       marginTop: 2,
       height: 20,
       width: 1,
-      backgroundColor: contract.color.neutral[4],
+      backgroundColor: contract.color.neutral[3],
     },
   },
 });

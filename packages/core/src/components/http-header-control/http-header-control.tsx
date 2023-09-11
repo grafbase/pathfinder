@@ -65,7 +65,6 @@ export const HTTPHeaderControl = () => {
               size="SMALL"
             />
             <Control
-              alignment="LEFT"
               control={{
                 controlType: "INPUT",
                 handleChange,
@@ -77,7 +76,6 @@ export const HTTPHeaderControl = () => {
               labelCopy={`Value for Key`}
             />
             <Control
-              alignment="LEFT"
               control={{
                 controlType: "INPUT",
                 handleChange,

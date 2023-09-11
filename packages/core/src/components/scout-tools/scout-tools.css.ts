@@ -7,5 +7,4 @@ export const scoutToolsClass = style({
   width: "100%",
   position: "relative",
   backgroundColor: contract.color.neutral[2],
-  borderTop: `1px solid ${contract.color.neutral[4]}`,
 });

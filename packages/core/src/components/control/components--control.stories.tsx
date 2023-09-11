@@ -133,7 +133,6 @@ export const ControlStory = () => {
             </span>
           </div>
           <Control
-            alignment={control.alignment}
             control={{
               ...control.control,
               value: values[control.control.name]

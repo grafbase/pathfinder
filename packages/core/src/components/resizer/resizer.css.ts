@@ -36,17 +36,6 @@ export const handleClass = recipe({
     backgroundColor: "transparent",
 
     selectors: {
-      // this pseudo element is the 1px line between panes
-      "&::before": {
-        content: "",
-        position: "absolute",
-        zIndex: 1,
-        left: "50%",
-        top: "50%",
-        transform: "translate3d(-50%, -50%, 0)",
-        backgroundColor: contract.color.neutral[3],
-      },
-
       // this pseudo element is a small handle meant to appear on hover
       "&::after": {
         content: "",
@@ -76,11 +65,6 @@ export const handleClass = recipe({
         cursor: "row-resize",
 
         selectors: {
-          "&::before": {
-            height: 1,
-            width: "100%",
-          },
-
           "&::after": {
             height: 4,
             width: 110,
@@ -94,11 +78,6 @@ export const handleClass = recipe({
         cursor: "col-resize",
 
         selectors: {
-          "&::before": {
-            height: "100%",
-            width: 1,
-          },
-
           "&::after": {
             width: 4,
             height: 110,

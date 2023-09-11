@@ -19,7 +19,6 @@ export const historyListClass = style([
     padding: 0,
     display: "flex",
     flexDirection: "column",
-    backgroundColor: contract.color.neutral[2],
   },
 ]);
 
@@ -31,7 +30,6 @@ export const historyListHeaderClass = style({
   padding: `0 ${contract.space[16]}`,
   fontSize: 11,
   color: contract.color.neutral[12],
-  borderBottom: `1px solid ${contract.color.neutral[5]}`,
 });
 
 export const historyNullStateClass = style({

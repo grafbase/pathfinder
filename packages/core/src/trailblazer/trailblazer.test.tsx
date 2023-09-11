@@ -4,7 +4,7 @@ import { Trailblazer } from "./trailblazer";
 import { Scout } from "../scout";
 
 import {
-  graphQLDocumentStore,
+  editorTabsStore,
   pluginsStore,
   setTheme,
   themeStore,
@@ -108,11 +108,11 @@ describe("Trailblazer props", () => {
     );
 
     act(() => {
-      graphQLDocumentStore.setState({ _hasHydrated: true });
+      editorTabsStore.setState({ _hasHydrated: true });
     });
 
     const scoutTools = pluginsStore.getState().scoutTools;
-    console.log("scoutTools", { scoutTools });
+
     expect(JSON.stringify(scoutTools)).toEqual(
       JSON.stringify([
         {

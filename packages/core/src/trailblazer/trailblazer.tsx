@@ -1,21 +1,22 @@
 import { useEffect } from "react";
 
 import {
-  STORAGE_NAME_GRAPHQL_DOCUMENT,
   STORAGE_NAME_HTTP_HEADERS,
+  STORAGE_NAME_TABS,
 } from "@pathfinder/shared";
+
 import {
   getNamespacedStorageName,
-  graphQLDocumentStore,
   initializeTheme,
   loadSchema,
+  pluginsStore,
   resetSchemaPolling,
-  useGraphQLDocumentStore,
+  schemaStore,
   useSchemaStore,
   useThemeStore,
   HTTPHeadersStore,
-  pluginsStore,
-  schemaStore,
+  useEditorTabsStore,
+  editorTabsStore,
 } from "@pathfinder/stores";
 
 import { Spinner } from "../components/spinner";
@@ -32,7 +33,7 @@ export const Trailblazer = ({
 }: TrailblazerProps) => {
   const activeTheme = useThemeStore.use.activeTheme();
 
-  const hasHydrated = useGraphQLDocumentStore.use._hasHydrated();
+  const hasHydrated = useEditorTabsStore.use._hasHydrated();
 
   useEffect(() => {
     initializeTheme({ overrides: themeProps?.theme?.overrides });
@@ -58,10 +59,10 @@ export const Trailblazer = ({
     const endpoint = useSchemaStore.getState().fetcherOptions?.endpoint;
 
     if (endpoint) {
-      graphQLDocumentStore.persist.setOptions({
+      editorTabsStore.persist.setOptions({
         name: getNamespacedStorageName({
           endpoint,
-          storageName: STORAGE_NAME_GRAPHQL_DOCUMENT,
+          storageName: STORAGE_NAME_TABS,
         }),
       });
       HTTPHeadersStore.persist.setOptions({
@@ -70,11 +71,13 @@ export const Trailblazer = ({
           storageName: STORAGE_NAME_HTTP_HEADERS,
         }),
       });
-      graphQLDocumentStore.persist.rehydrate();
+      editorTabsStore.persist.rehydrate();
       HTTPHeadersStore.persist.rehydrate();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  console.log("rendering Trailblazer", { activeTheme, hasHydrated });
 
   if (!activeTheme || !hasHydrated) {
     return <Spinner variant={{ size: 24 }} />;
