@@ -19,8 +19,8 @@ importers:
         specifier: 20.4.5
         version: 20.4.5
       '@types/react':
-        specifier: 18.2.17
-        version: 18.2.17
+        specifier: 18.2.21
+        version: 18.2.21
       '@types/react-dom':
         specifier: 18.2.7
         version: 18.2.7
@@ -71,8 +71,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/tsconfig
       '@types/react':
-        specifier: 18.2.17
-        version: 18.2.17
+        specifier: 18.2.21
+        version: 18.2.21
       '@types/react-dom':
         specifier: 18.2.7
         version: 18.2.7
@@ -323,7 +323,7 @@ importers:
         version: 0.5.0(@vanilla-extract/css@1.12.0)
       zustand:
         specifier: 4.4.0
-        version: 4.4.0(@types/react@18.2.17)(react@18.2.0)
+        version: 4.4.0(@types/react@18.2.21)(react@18.2.0)
     devDependencies:
       '@pathfinder/eslint-config':
         specifier: workspace:*
@@ -2679,17 +2679,18 @@ packages:
   /@types/react-dom@18.2.7:
     resolution: {integrity: sha512-GRaAEriuT4zp9N4p1i8BDBYmEyfo+xQ3yHjJU4eiK5NDa1RmUZG+unZABUTK4/Ox/M+GaHwb6Ow8rUITrtjszA==}
     dependencies:
-      '@types/react': 18.2.18
+      '@types/react': 18.2.21
 
-  /@types/react@18.2.17:
-    resolution: {integrity: sha512-u+e7OlgPPh+aryjOm5UJMX32OvB2E3QASOAqVMY6Ahs90djagxwv2ya0IctglNbNTexC12qCSMZG47KPfy1hAA==}
+  /@types/react@18.2.18:
+    resolution: {integrity: sha512-da4NTSeBv/P34xoZPhtcLkmZuJ+oYaCxHmyHzwaDQo9RQPBeXV+06gEk2FpqEcsX9XrnNLvRpVh6bdavDSjtiQ==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.3
       csstype: 3.1.2
+    dev: false
 
-  /@types/react@18.2.18:
-    resolution: {integrity: sha512-da4NTSeBv/P34xoZPhtcLkmZuJ+oYaCxHmyHzwaDQo9RQPBeXV+06gEk2FpqEcsX9XrnNLvRpVh6bdavDSjtiQ==}
+  /@types/react@18.2.21:
+    resolution: {integrity: sha512-neFKG/sBAwGxHgXiIxnbm3/AAVQ/cMRS93hvBpg8xYRbeQSPVABp9U2bRnPf0iI4+Ucdv3plSxKK+3CW2ENJxA==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.3
@@ -9733,7 +9734,7 @@ packages:
       react: 18.2.0
       use-sync-external-store: 1.2.0(react@18.2.0)
 
-  /zustand@4.4.0(@types/react@18.2.17)(react@18.2.0):
+  /zustand@4.4.0(@types/react@18.2.21)(react@18.2.0):
     resolution: {integrity: sha512-2dq6wq4dSxbiPTamGar0NlIG/av0wpyWZJGeQYtUOLegIUvhM2Bf86ekPlmgpUtS5uR7HyetSiktYrGsdsyZgQ==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
@@ -9748,7 +9749,7 @@ packages:
       react:
         optional: true
     dependencies:
-      '@types/react': 18.2.17
+      '@types/react': 18.2.21
       react: 18.2.0
       use-sync-external-store: 1.2.0(react@18.2.0)
     dev: false
