@@ -7,7 +7,7 @@ export const editorTabsClass = style([
     height: 40,
     display: "flex",
     alignItems: "center",
-    minWidth: 0,
+    flexShrink: 0,
     backgroundColor: contract.color.neutral[2],
     overflowX: "auto",
   },

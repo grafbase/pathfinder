@@ -1,7 +1,7 @@
 import { contract, shared, style } from "@pathfinder/style";
 
 export const historyItemRequestClass = style({
-  padding: contract.space[16],
+  padding: contract.space[12],
 });
 
 export const disclosureButtonClass = style([

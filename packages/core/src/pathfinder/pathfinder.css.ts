@@ -1,5 +1,6 @@
 import { style } from "@pathfinder/style";
 
-export const container = style({
+export const pathfinderContainer = style({
   display: "block",
+  height: "100%",
 });

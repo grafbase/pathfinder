@@ -1,5 +1,5 @@
 import { Pathfinder } from "../pathfinder";
-import { addToHistory, PluginScoutHistory } from "../plugin-scout-history";
+import { PluginScoutHistory } from "../plugin-scout-history";
 import { Scout } from "../scout";
 import { Trailblazer } from "./trailblazer";
 
@@ -24,6 +24,9 @@ const overrides = {
 export const WithPathfinder = () => {
   return (
     <Trailblazer
+      plugins={{
+        scoutTools: [PluginScoutHistory],
+      }}
       schemaProps={{
         fetcherOptions: {
           endpoint: import.meta.env.VITE_GRAPHQL_ENDPOINT,
@@ -43,11 +46,6 @@ export const WithScoutPlugins = () => {
         scoutTools: [PluginScoutHistory],
       }}
       schemaProps={{
-        executionCallback: async ({ executionResponse }) => {
-          if (executionResponse) {
-            addToHistory({ executionResponse });
-          }
-        },
         fetcherOptions: {
           endpoint: import.meta.env.VITE_GRAPHQL_ENDPOINT,
           headers: [["x-api-key", import.meta.env.VITE_GRAPHQL_API_KEY]],

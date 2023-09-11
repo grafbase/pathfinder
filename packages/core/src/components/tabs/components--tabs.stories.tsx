@@ -30,7 +30,7 @@ export const SideBySide = () => {
           selectedTabIndex,
           setSelectedTabIndex,
         }}
-        styles={{ buttonStyle: "INLINE", onSurface: 1 }}
+        styles={{ onSurface: 1 }}
         tabs={tabs}
       />
       <Tabs
@@ -38,7 +38,7 @@ export const SideBySide = () => {
           selectedTabIndex,
           setSelectedTabIndex,
         }}
-        styles={{ buttonStyle: "BUTTON_LIKE", onSurface: 1 }}
+        styles={{ onSurface: 1 }}
         tabs={tabs}
       />
     </div>
@@ -53,7 +53,7 @@ export const Inline = () => {
         selectedTabIndex,
         setSelectedTabIndex,
       }}
-      styles={{ buttonStyle: "INLINE", onSurface: 1 }}
+      styles={{ onSurface: 1 }}
       tabs={tabs}
     />
   );
@@ -67,7 +67,7 @@ export const Buttons = () => {
         selectedTabIndex,
         setSelectedTabIndex,
       }}
-      styles={{ buttonStyle: "BUTTON_LIKE", onSurface: 1 }}
+      styles={{ onSurface: 1 }}
       tabs={tabs}
     />
   );

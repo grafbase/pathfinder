@@ -1,4 +1,4 @@
-export { addToHistory, clearHistory, deleteFromHistory } from "./actions";
+export { clearHistory, deleteFromHistory } from "./actions";
 
 export { pluginHistoryStore } from "./plugin-history-store";
 

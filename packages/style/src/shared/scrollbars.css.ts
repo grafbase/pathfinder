@@ -2,9 +2,9 @@ import { style } from "@vanilla-extract/css";
 import { contract } from "../theme";
 
 export const scrollbars = style({
+  // firefox
   scrollbarWidth: "thin",
-  scrollbarColor: `${contract.color.neutral[4]} ${contract.color.neutral[5]}`,
-  // marginRight: 12,
+  scrollbarColor: `${contract.color.neutral[7]} transparent`,
 
   selectors: {
     // Chrome, Edge, and Safari

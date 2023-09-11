@@ -91,19 +91,15 @@ export const executeOperation: SchemaStoreActions["executeOperation"] =
         timestamp: new Date(),
       };
 
-      const executionCallback = schemaStore.getState().executionCallback;
-
-      if (executionCallback) {
-        executionCallback({
-          executionResponse,
-        });
-      }
-
       // const xGrafbaseCache = fetchResponse.headers.get("x-grafbase-cache");
 
       updateDocumentEntryResponse({
         executionResponse,
       });
+
+      return schemaStore.setState({
+        isExecuting: false,
+        latestResponse: executionResponse,
+      });
     }
-    return schemaStore.setState({ isExecuting: false });
   };

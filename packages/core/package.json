@@ -24,6 +24,7 @@
     "@pathfinder/stores": "workspace:*",
     "@pathfinder/style": "workspace:*",
     "@headlessui/react": "1.7.17",
+    "graphql": "16.8.0",    
     "monaco-editor": "0.40.0",
     "monaco-graphql": "1.2.4",
     "zustand": "4.3.9"

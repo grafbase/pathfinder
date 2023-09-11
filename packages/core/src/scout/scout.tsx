@@ -8,7 +8,7 @@ import {
   ScoutTools,
 } from "../components";
 
-import { scoutClass } from "./scout.css";
+import { scoutClass, scoutEditorWrapClass } from "./scout.css";
 
 export const Scout = () => {
   const activeTheme = useThemeStore.use.activeTheme();
@@ -24,7 +24,7 @@ export const Scout = () => {
         orientation="VERTICAL"
         pane1={{
           component: (
-            <>
+            <div className={scoutEditorWrapClass}>
               <EditorTabs />
               <Resizer
                 onSurface={2}
@@ -37,7 +37,7 @@ export const Scout = () => {
                   initialSize: { type: "PERCENT", value: 50 },
                 }}
               />
-            </>
+            </div>
           ),
         }}
         pane2={{

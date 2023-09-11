@@ -1,4 +1,4 @@
-# @grafbase/pathfinder
+# pathfinder
 
 ## Clone the repository
 

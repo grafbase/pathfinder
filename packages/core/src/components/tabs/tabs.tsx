@@ -1,7 +1,5 @@
 import { Tab } from "@headlessui/react";
 
-import { RecipeVariants } from "@vanilla-extract/recipes";
-
 import { shared } from "@pathfinder/style";
 
 import {
@@ -27,10 +25,7 @@ export const Tabs = ({
     setSelectedTabIndex: React.Dispatch<React.SetStateAction<number>>;
     selectedTabIndex: number;
   };
-  styles: Pick<
-    NonNullable<RecipeVariants<typeof tabButtonClass>>,
-    "buttonStyle"
-  > & { onSurface: 1 | 2 | 3 };
+  styles: { onSurface: 1 | 2 | 3 };
   tabs: TabsProps;
   tabListHeight?: 32 | 40;
 }) => {
@@ -53,9 +48,7 @@ export const Tabs = ({
               const ButtonContent = tab.buttonContent;
               return (
                 <Tab
-                  className={tabButtonClass({
-                    buttonStyle: styles?.buttonStyle,
-                  })}
+                  className={tabButtonClass}
                   key={tab.name}
                   onClick={() => (tab.action ? tab.action() : undefined)}
                 >

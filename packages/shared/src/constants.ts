@@ -1,5 +1,5 @@
 export const DOCUMENT_EDITOR_ID = "pathfinder-document-editor";
-export const DOCUMENT_EDITOR_DEFAULT_VALUE = `# this is the default document editor value...change me`;
+export const DOCUMENT_EDITOR_DEFAULT_VALUE = ``;
 export const DOCUMENT_MODEL_NAME = "pathfinder-document-model";
 
 export const RESPONSE_EDITOR_ID = "pathfinder-response-editor";

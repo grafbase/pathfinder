@@ -1,0 +1,1 @@
+export { Interpunct } from "./interpunct";

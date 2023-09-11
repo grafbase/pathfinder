@@ -26,7 +26,7 @@ export const historyListItemClass = recipe({
     all: "unset",
     boxSizing: "border-box",
     display: "grid",
-    gridTemplateColumns: "12px 180px 1fr 1fr 32px",
+    gridTemplateColumns: "12px max(120px) 1fr 1fr 32px",
     gridTemplateRows: 36,
     gap: 8,
     alignItems: "center",

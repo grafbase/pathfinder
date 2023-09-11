@@ -60,14 +60,6 @@ export type SchemaStoreActions = {
 
 export type SchemaStoreState = {
   /**
-   * An optional callback to be fired after each execution
-   */
-  executionCallback?: ({
-    executionResponse,
-  }: {
-    executionResponse: ExecutionResponse | void;
-  }) => void;
-  /**
    * Options to be used within our fetcher implementation
    */
   fetcherOptions?: {
@@ -76,6 +68,7 @@ export type SchemaStoreState = {
   } | null;
   isExecuting: boolean;
   isLoadingSchema: boolean;
+  latestResponse: ExecutionResponse | null;
   pollingTimer: NodeJS.Timeout | null;
   schema: GraphQLSchema | null;
   /**

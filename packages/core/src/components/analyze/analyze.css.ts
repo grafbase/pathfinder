@@ -28,9 +28,9 @@ export const responseEditorClass = recipe({
         overflowY: "auto",
         height: "100%",
         position: "relative",
-        paddingTop: contract.space[16],
-        paddingRight: contract.space[4],
-        paddingBottom: contract.space[16],
+        paddingTop: contract.space[12],
+        paddingRight: contract.space[12],
+        paddingBottom: contract.space[12],
       },
     },
     isExecuting: {

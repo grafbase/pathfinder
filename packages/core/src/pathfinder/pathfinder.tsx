@@ -1,8 +1,10 @@
-import { container } from "./pathfinder.css";
-
 import { useThemeStore } from "@pathfinder/stores";
 
+import { Compass } from "../compass";
+import { Resizer } from "../components";
 import { Scout } from "../scout";
+
+import { pathfinderContainer } from "./pathfinder.css";
 
 export const Pathfinder = () => {
   const activeTheme = useThemeStore.use.activeTheme();
@@ -12,9 +14,18 @@ export const Pathfinder = () => {
   }
 
   return (
-    <>
-      <div className={container}>pathfinder -- {activeTheme}</div>
-      <Scout />
-    </>
+    <div className={pathfinderContainer}>
+      <Resizer
+        onSurface={1}
+        orientation="HORIZONTAL"
+        pane1={{
+          component: <Compass />,
+        }}
+        pane2={{
+          component: <Scout />,
+          initialSize: { type: "PERCENT", value: 70 },
+        }}
+      />
+    </div>
   );
 };

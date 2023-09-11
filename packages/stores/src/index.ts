@@ -19,7 +19,13 @@ export {
   useMonacoEditorStore,
 } from "./monaco-editor-store";
 
-export type { AvailableEditors } from "./monaco-editor-store";
+export type {
+  AvailableEditors,
+  EditorEdit,
+  MonacoIPosition,
+  MonacoIRange,
+  MonacoEditorITextModel,
+} from "./monaco-editor-store";
 
 export { pluginsStore } from "./plugins-store";
 
