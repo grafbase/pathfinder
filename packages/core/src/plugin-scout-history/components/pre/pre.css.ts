@@ -6,6 +6,6 @@ export const preClass = style({
   lineHeight: 1.5,
   color: contract.color.neutral[11],
   fontWeight: 400,
-  fontSize: 12,
+  fontSize: 10,
   fontFamily: contract.fonts.mono,
 });

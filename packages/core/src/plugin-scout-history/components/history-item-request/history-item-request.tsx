@@ -26,6 +26,24 @@ export const HistoryItemRequest = ({
                 rotate={open ? "90" : undefined}
                 size="medium"
               />
+              Endpoint
+            </Disclosure.Button>
+            <Disclosure.Panel>
+              <Pre code={historyItem.request.endpoint} />
+            </Disclosure.Panel>
+          </>
+        )}
+      </Disclosure>
+
+      <Disclosure defaultOpen={true}>
+        {({ open }) => (
+          <>
+            <Disclosure.Button className={disclosureButtonClass}>
+              <Icon
+                name="Caret"
+                rotate={open ? "90" : undefined}
+                size="medium"
+              />
               Operation Name
             </Disclosure.Button>
             <Disclosure.Panel>
