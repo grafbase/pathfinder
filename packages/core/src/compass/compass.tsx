@@ -123,7 +123,6 @@ const CompassComponent = () => {
             setSelectedTabIndex,
           }}
           styles={{
-            buttonStyle: "BUTTON_LIKE",
             onSurface: 1,
           }}
           tabs={buildTabData()}

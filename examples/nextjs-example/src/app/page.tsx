@@ -24,10 +24,10 @@ export default function Home() {
     <Trailblazer
     schemaProps={{
       fetcherOptions:{
-        endpoint: "https://meowwoof-grafbase-main-jonathanawesome.grafbase.app/graphql",
+        endpoint: "https://.com",
         headers: [[
           "x-api-key",
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NzgwNjY5NTQsImlzcyI6ImdyYWZiYXNlIiwiYXVkIjoiMDFHVFQ5QkNGNDM1RkRDWEtFUDdYUlJTS1oiLCJqdGkiOiIwMUdUVDlCQ0Y0UkJOVFY1NzFNNTk2V1MwNSIsImVudiI6InByb2R1Y3Rpb24iLCJwdXJwb3NlIjoicHJvamVjdC1hcGkta2V5In0.m2cmHEvgkD3-4z59lyKNppjafvgVKqLdypJ2UbiQ1qU"
+          "XXX"
         ]]
       }
     }}

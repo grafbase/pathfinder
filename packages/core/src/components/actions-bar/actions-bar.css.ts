@@ -4,8 +4,7 @@ export const actionsBarClass = style({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
-  minHeight: 48,
-  paddingLeft: contract.space[12],
+  height: 48,
 });
 
 export const actionsBarLeadClass = style({

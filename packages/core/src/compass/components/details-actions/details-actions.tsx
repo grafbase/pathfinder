@@ -43,7 +43,7 @@ export const DetailsActions = ({
             alert("fix me!");
             // setActiveTertiaryPane({ destinationPane: type });
           }}
-          iconName="Prettier"
+          iconName="Docs"
           title="View Quick Docs"
           size="small"
         />
@@ -58,7 +58,7 @@ export const DetailsActions = ({
                 range: "END",
               })
             }
-            iconName="Prettier"
+            iconName="InsertNewOperation"
             title={`Insert ${generateSelectionBreadcrumbsFromAncestors({
               ancestors,
             })} as new operation`}

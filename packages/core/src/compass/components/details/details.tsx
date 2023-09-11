@@ -8,7 +8,6 @@ import type { ListItemTypeTypes, ListItemVariants } from "../list-item";
 
 import {
   detailsClass,
-  detailsNameAndControlsClass,
   detailsTogglerClass,
   inlineFragmentClass,
 } from "./details.css";
@@ -17,6 +16,7 @@ type DetailsProps = {
   ancestors: AncestorsArray;
   breadcrumbs: string;
   isSelected: boolean;
+  onClick: () => void;
   type: ListItemTypeTypes;
   variant: ListItemVariants;
 };
@@ -25,6 +25,7 @@ export const Details = ({
   ancestors,
   breadcrumbs,
   isSelected,
+  onClick,
   type,
   variant,
 }: DetailsProps) => {
@@ -54,40 +55,39 @@ export const Details = ({
       onMouseEnter={() => setShowActions(true)}
       onMouseLeave={() => setShowActions(false)}
     >
-      <div className={detailsNameAndControlsClass}>
-        {variant === "INLINE_FRAGMENT" ? (
-          <div
-            className={inlineFragmentClass({ isSelected })}
-          >{`... on ${type.name}`}</div>
-        ) : (
-          <button
-            className={detailsTogglerClass({
-              isSelected,
-              variant,
-            })}
-            aria-label={title}
-            aria-pressed={isSelected}
-            disabled={isDisabled}
-            onClick={() => {
-              return toggle({
-                ancestors,
-              });
-            }}
-            title={title}
-            type="button"
-          >
-            {`${type.name}${ifRequiredShowAsterisk || ""}`}
-          </button>
-        )}
-        {self.type === "FIELD" && (
-          <DetailsActions
-            ancestors={ancestors}
-            previousAncestor={previousAncestor}
-            showActions={showActions}
-            type={type}
-          />
-        )}
-      </div>
+      {variant === "INLINE_FRAGMENT" ? (
+        <div
+          className={inlineFragmentClass({ isSelected })}
+        >{`... on ${type.name}`}</div>
+      ) : (
+        <button
+          className={detailsTogglerClass({
+            isSelected,
+            variant,
+          })}
+          aria-label={title}
+          aria-pressed={isSelected}
+          disabled={isDisabled}
+          onClick={() => {
+            onClick();
+            return toggle({
+              ancestors,
+            });
+          }}
+          title={title}
+          type="button"
+        >
+          {`${type.name}${ifRequiredShowAsterisk || ""}`}
+        </button>
+      )}
+      {self.type === "FIELD" && (
+        <DetailsActions
+          ancestors={ancestors}
+          previousAncestor={previousAncestor}
+          showActions={showActions}
+          type={type}
+        />
+      )}
     </div>
   );
 };

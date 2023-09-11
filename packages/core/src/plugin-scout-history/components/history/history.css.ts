@@ -8,6 +8,13 @@ export const historyClass = style({
   color: contract.color.neutral[5],
 });
 
+export const historyExecutionsClass = style({
+  display: "flex",
+  flexDirection: "column",
+  height: "100%",
+  width: "100%",
+});
+
 export const historyListClass = style([
   shared.scrollbars,
   {
@@ -24,6 +31,7 @@ export const historyListClass = style([
 
 export const historyListHeaderClass = style({
   display: "flex",
+  flexShrink: 0,
   alignItems: "center",
   justifyContent: "space-between",
   height: 32,

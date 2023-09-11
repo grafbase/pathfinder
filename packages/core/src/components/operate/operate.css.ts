@@ -15,9 +15,9 @@ export const documentEditorWrapClass = style({
   overflowY: "auto",
   height: "100%",
   position: "relative",
-  paddingTop: contract.space[16],
-  paddingBottom: contract.space[16],
-  paddingLeft: contract.space[16],
+  paddingTop: contract.space[12],
+  paddingBottom: contract.space[12],
+  paddingLeft: contract.space[12],
 });
 
 export const separatorClass = style({

@@ -5,7 +5,7 @@ import { indicatorLeafClass } from "./indicator-leaf.css";
 export const IndicatorLeaf = () => {
   return (
     <div className={indicatorLeafClass}>
-      <Icon name="Prettier" />
+      <Icon name="Interpunct" size="medium" />
     </div>
   );
 };

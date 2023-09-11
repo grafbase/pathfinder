@@ -14,7 +14,8 @@ export const CollapseControl = ({
     <div className={collapseControlClass({ isExpanded })}>
       <IconButton
         action={() => setIsExpanded(!isExpanded)}
-        iconName="Caret"
+        iconName="Chevron"
+        onSurface={1}
         title={title}
         size="small"
       />

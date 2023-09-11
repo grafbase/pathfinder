@@ -1,4 +1,4 @@
-import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
+import { recipe } from "@vanilla-extract/recipes";
 
 import { contract } from "../theme";
 
@@ -14,11 +14,6 @@ const rightBorder = (value: CSSVarFunction) =>
   `inset calc(-1 * var(${HAIRLINE_BORDER_VAR})) 0 0 ${value}`;
 const bottomBorder = (value: CSSVarFunction) =>
   `inset 0 calc(-1 * var(${HAIRLINE_BORDER_VAR})) 0 0 ${value}`;
-
-type TestType = Omit<
-  NonNullable<RecipeVariants<typeof hairlineBorder>>,
-  "onSurface"
->;
 
 export const hairlineBorder = recipe({
   variants: {

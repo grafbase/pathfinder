@@ -30,7 +30,7 @@ export const iconButtonClass = recipe({
       1: {
         selectors: {
           "&:hover": {
-            backgroundColor: contract.color.neutral[4],
+            backgroundColor: contract.color.neutral[3],
           },
         },
       },

@@ -5,7 +5,6 @@ import {
 } from "../../compass-store";
 
 import { Details } from "../details";
-import { IndicatorLeaf } from "../indicator-leaf";
 
 import { argumentClass } from "./argument.css";
 
@@ -16,11 +15,11 @@ export const Argument = ({ ancestors }: { ancestors: AncestorsArray }) => {
 
   return (
     <div className={argumentClass}>
-      <IndicatorLeaf />
       <Details
         ancestors={ancestors}
         breadcrumbs={generateSelectionBreadcrumbsFromAncestors({ ancestors })}
         isSelected={!!selection}
+        onClick={() => undefined}
         type={argument}
         variant={"ARGUMENT"}
       />

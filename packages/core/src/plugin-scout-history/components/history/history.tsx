@@ -11,6 +11,7 @@ import { Pre } from "../pre";
 
 import {
   historyClass,
+  historyExecutionsClass,
   historyListClass,
   historyListHeaderClass,
   historyNullStateClass,
@@ -49,7 +50,7 @@ export const History = ({
         orientation="HORIZONTAL"
         pane1={{
           component: (
-            <>
+            <div className={historyExecutionsClass}>
               <div
                 className={`${historyListHeaderClass} ${shared.hairlineBorder({
                   border: "bottom",
@@ -88,7 +89,7 @@ export const History = ({
                   />
                 ))}
               </ul>
-            </>
+            </div>
           ),
         }}
         pane2={{
@@ -120,7 +121,7 @@ export const History = ({
               tabListHeight={32}
             />
           ),
-          initialSize: { type: "PERCENT", value: 50 },
+          initialSize: { type: "PERCENT", value: 40 },
         }}
       />
     </div>

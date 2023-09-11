@@ -19,63 +19,43 @@ export const tabListClass = recipe({
   },
 });
 
-export const tabButtonClass = recipe({
-  base: [
-    shared.resets.buttonReset,
-    {
-      color: contract.color.neutral[9],
-      textAlign: "center",
-      fontSize: 12,
-      position: "relative",
-      paddingBottom: 2,
-    },
-  ],
-  variants: {
-    buttonStyle: {
-      BUTTON_LIKE: {
-        width: "100%",
-        height: 32,
-        borderRadius: contract.space[4],
+export const tabButtonClass = style([
+  shared.resets.buttonReset,
+  {
+    width: "auto",
+    position: "relative",
+    paddingBottom: 2,
+    paddingLeft: contract.space[12],
+    paddingRight: contract.space[12],
+    textAlign: "center",
+    fontSize: 12,
+    color: contract.color.neutral[9],
 
-        '&[data-headlessui-state="selected"]': {
-          backgroundColor: contract.color.neutral[2],
-        },
+    selectors: {
+      "&:hover": {
+        color: contract.color.neutral[12],
       },
-      INLINE: {
-        width: "auto",
-        paddingLeft: contract.space[12],
-        paddingRight: contract.space[12],
-        position: "relative",
-        borderLeft: `1px solid transparent`,
-        borderRight: `1px solid transparent`,
 
-        selectors: {
-          "&:hover": {
-            color: contract.color.neutral[12],
-          },
+      "&:after": {
+        content: "",
+        position: "absolute",
+        width: `calc(100% - ${contract.space[24]})`,
+        height: 2,
+        bottom: 1,
+        left: contract.space[12],
+        zIndex: 1,
+      },
 
-          "&:after": {
-            content: "",
-            position: "absolute",
-            width: `calc(100% - ${contract.space[24]})`,
-            height: 2,
-            bottom: 1,
-            left: contract.space[12],
-            zIndex: 1,
-          },
+      '&[data-headlessui-state="selected"]': {
+        color: contract.color.neutral[12],
+      },
 
-          '&[data-headlessui-state="selected"]': {
-            color: contract.color.neutral[12],
-          },
-
-          '&[data-headlessui-state="selected"]&:after': {
-            backgroundColor: contract.color.green[10],
-          },
-        },
+      '&[data-headlessui-state="selected"]&:after': {
+        backgroundColor: contract.color.green[10],
       },
     },
   },
-});
+]);
 
 export const tabGroupClass = style({
   width: "100%",

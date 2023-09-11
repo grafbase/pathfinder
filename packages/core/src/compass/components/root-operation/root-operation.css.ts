@@ -1,4 +1,4 @@
-import { shared, style } from "@pathfinder/style";
+import { contract, shared, style } from "@pathfinder/style";
 
 export const rootOperationClass = style([
   shared.scrollbars,
@@ -6,7 +6,7 @@ export const rootOperationClass = style([
     height: "100%",
     width: "100%",
     overflowX: "hidden",
-    padding: 0,
+    padding: contract.space[16],
     margin: 0,
     display: "flex",
     flexDirection: "column",

@@ -5,21 +5,24 @@ export const detailsTogglerClass = recipe({
     shared.resets.buttonReset,
     {
       whiteSpace: "nowrap",
+      height: 20,
+      fontSize: 12,
       display: "flex",
+      alignItems: "center",
       transition: `all .1s ${shared.transitions.authenticMotion}`,
 
       selectors: {
         "&:hover": {
-          color: contract.color.neutral[7],
+          color: contract.color.neutral[12],
         },
 
         "&:disabled": {
           cursor: "not-allowed",
-          color: contract.color.neutral[7],
+          color: contract.color.neutral[6],
         },
 
         "&:disabled&:hover": {
-          color: contract.color.neutral[7],
+          color: contract.color.neutral[6],
         },
       },
     },
@@ -27,24 +30,25 @@ export const detailsTogglerClass = recipe({
 
   variants: {
     variant: {
-      ARGUMENT: {
-        fontSize: 12,
+      ARGUMENT: {},
+      FIELD: {
+        paddingRight: 4,
+        paddingLeft: 4,
+        borderRadius: 4,
       },
-      FIELD: {},
       INLINE_FRAGMENT: {},
       INPUT_OBJECT: {},
     },
     isSelected: {
       true: {
-        color: contract.color.neutral[7],
         fontWeight: 600,
+        color: contract.color.purple[11],
         "&:hover": {
-          color: contract.color.neutral[7],
+          color: contract.color.neutral[12],
         },
       },
       false: {
-        fontWeight: 400,
-        color: contract.color.neutral[5],
+        color: contract.color.neutral[11],
       },
     },
   },
@@ -52,18 +56,8 @@ export const detailsTogglerClass = recipe({
 
 export const detailsClass = style({
   display: "flex",
-  gap: 6,
-  fontSize: 14,
-  marginLeft: contract.space[8],
-  width: `100%`,
-});
-
-export const detailsNameAndControlsClass = style({
-  display: "flex",
   alignItems: "center",
   gap: contract.space[4],
-  borderBottom: "1px solid transparent",
-  fontSize: 14,
   width: `100%`,
 });
 
@@ -71,12 +65,10 @@ export const inlineFragmentClass = recipe({
   variants: {
     isSelected: {
       true: {
-        color: contract.color.neutral[7],
-        fontWeight: 600,
+        color: contract.color.orange[7],
       },
       false: {
-        fontWeight: 400,
-        color: contract.color.neutral[5],
+        color: contract.color.orange[5],
       },
     },
   },

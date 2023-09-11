@@ -7,6 +7,7 @@ import { Details } from "../details";
 import { IndicatorLeaf } from "../indicator-leaf";
 
 import {
+  listItemChildFieldsClass,
   listItemClass,
   listItemContentClass,
   listItemLeadClass,
@@ -21,7 +22,13 @@ export const ListItem = ({
   type,
   variant,
 }: ListItemProps) => {
-  const [isExpanded, setIsExpanded] = useState<boolean>(false);
+  const [isExpanded, setIsExpanded] = useState<boolean>(isSelected);
+
+  const breadcrumbs = generateSelectionBreadcrumbsFromAncestors({
+    ancestors,
+  });
+
+  const hasParent = ancestors.length > 2;
 
   useEffect(() => {
     // this effect ensures the field is initially expanded when selected
@@ -33,11 +40,14 @@ export const ListItem = ({
     }
   }, [isSelected]);
 
-  const breadcrumbs = generateSelectionBreadcrumbsFromAncestors({ ancestors });
-
   if (collapsibleContent) {
     return (
-      <li className={listItemClass}>
+      <li
+        className={listItemClass({
+          hasParent,
+          isCollapsible: true,
+        })}
+      >
         <div
           className={listItemLeadClass({
             isCollapsible: true,
@@ -55,6 +65,7 @@ export const ListItem = ({
             isSelected={isSelected}
             type={type}
             variant={variant}
+            onClick={() => setIsExpanded(!isExpanded)}
           />
         </div>
         <div
@@ -70,7 +81,7 @@ export const ListItem = ({
 
               {collapsibleContent.arguments && collapsibleContent.arguments}
               {isExpanded && collapsibleContent.childFields && (
-                <ul className="child-fields">
+                <ul className={listItemChildFieldsClass}>
                   {collapsibleContent.childFields}
                 </ul>
               )}
@@ -82,7 +93,12 @@ export const ListItem = ({
   }
 
   return (
-    <li className={listItemClass}>
+    <li
+      className={listItemClass({
+        hasParent,
+        isCollapsible: false,
+      })}
+    >
       <div
         className={listItemLeadClass({
           isCollapsible: false,
@@ -93,6 +109,7 @@ export const ListItem = ({
           ancestors={ancestors}
           breadcrumbs={breadcrumbs}
           isSelected={isSelected}
+          onClick={() => undefined}
           type={type}
           variant={variant}
         />

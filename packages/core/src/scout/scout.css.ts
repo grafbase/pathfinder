@@ -8,3 +8,10 @@ export const scoutClass = style({
   fontFamily: contract.fonts.body,
   color: contract.color.neutral[12],
 });
+
+export const scoutEditorWrapClass = style({
+  height: "100%",
+  width: "100%",
+  display: "flex",
+  flexDirection: "column",
+});

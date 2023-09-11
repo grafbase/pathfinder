@@ -7,7 +7,7 @@ export const buttonClass = recipe({
       userSelect: "none",
       display: "flex",
       alignItems: "center",
-      gap: contract.space[4],
+      gap: contract.space[2],
       borderRadius: contract.space[2],
       fontSize: 12,
       fontWeight: 400,
