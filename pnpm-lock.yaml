@@ -142,27 +142,12 @@ importers:
       "@vitejs/plugin-react":
         specifier: ^4.0.3
         version: 4.0.3(vite@4.4.7)
-      monaco-editor:
-        specifier: 0.40.0
-        version: 0.40.0
-      monaco-graphql:
-        specifier: 1.2.4
-        version: 1.2.4(graphql@16.8.0)(monaco-editor@0.40.0)(prettier@3.0.0)
       typescript:
         specifier: ^5.0.2
         version: 5.1.6
-      ui:
-        specifier: workspace:*
-        version: link:../../packages/ui
       vite:
         specifier: 4.4.7
         version: 4.4.7(@types/node@20.4.5)
-      vite-plugin-monaco-editor:
-        specifier: 1.1.0
-        version: 1.1.0(monaco-editor@0.40.0)
-      zustand:
-        specifier: 4.3.9
-        version: 4.3.9(react@18.2.0)
 
   examples/nextjs-example:
     dependencies:
@@ -10967,6 +10952,7 @@ packages:
       loose-envify: 1.4.0
       object-assign: 4.1.1
       react-is: 16.13.1
+    dev: false
 
   /property-information@6.3.0:
     resolution:

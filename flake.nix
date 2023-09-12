@@ -57,7 +57,7 @@
 
         shellHook = ''
           project_root="$(git rev-parse --show-toplevel 2>/dev/null || jj workspace root 2>/dev/null)"
-          export CARGO_INSTALL_ROOT="$project_root/apps/pathfinder-desktop/.cargo";
+          export CARGO_INSTALL_ROOT="$project_root/apps/desktop/.cargo";
           export PATH="$CARGO_INSTALL_ROOT/bin:$project_root/node_modules/.bin:$PATH";
         '';
       };
