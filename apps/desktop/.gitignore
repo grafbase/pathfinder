@@ -36,6 +36,10 @@ coverage
 *.profraw
 .nyc_output
 
+## Nix
+.direnv/
+.envrc
+
 #=================================#
 # Rust
 #=================================#
@@ -107,7 +111,3 @@ dist-ssr
 ## Parcel
 .cache
 .parcel-cache
-
-## Nix
-.direnv/
-.envrc
