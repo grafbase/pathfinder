@@ -45,6 +45,43 @@ importers:
         specifier: 5.2.2
         version: 5.2.2
 
+  apps/desktop:
+    dependencies:
+      "@tauri-apps/api":
+        specifier: ^1.4.0
+        version: 1.4.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
+    devDependencies:
+      "@pathfinder/core":
+        specifier: workspace:*
+        version: link:../../packages/core
+      "@tauri-apps/cli":
+        specifier: ^1.4.0
+        version: 1.4.0
+      "@types/react":
+        specifier: ^18.2.15
+        version: 18.2.17
+      "@types/react-dom":
+        specifier: ^18.2.7
+        version: 18.2.7
+      "@vanilla-extract/vite-plugin":
+        specifier: 3.8.2
+        version: 3.8.2(@types/node@20.4.5)(vite@4.4.7)
+      "@vitejs/plugin-react":
+        specifier: ^4.0.3
+        version: 4.0.3(vite@4.4.7)
+      typescript:
+        specifier: ^5.0.2
+        version: 5.1.6
+      vite:
+        specifier: 4.4.7
+        version: 4.4.7(@types/node@20.4.5)
+
   apps/ladle:
     dependencies:
       "@ladle/react":

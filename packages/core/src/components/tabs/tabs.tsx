@@ -25,7 +25,7 @@ export const Tabs = ({
     setSelectedTabIndex: React.Dispatch<React.SetStateAction<number>>;
     selectedTabIndex: number;
   };
-  styles: { onSurface: 1 | 2 | 3 };
+  styles: { buttonStyle?: string; onSurface: 1 | 2 | 3 };
   tabs: TabsProps;
   tabListHeight?: 32 | 40;
 }) => {
