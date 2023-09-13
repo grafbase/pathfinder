@@ -21,7 +21,7 @@
     "@pathfinder/tsconfig": "workspace:*",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
-    "@vanilla-extract/vite-plugin": "3.8.2",
+    "@vanilla-extract/vite-plugin": "3.9.0",
     "@vitejs/plugin-react": "4.0.4",
     "vite": "4.4.9",
     "vite-plugin-monaco-editor": "1.1.0"
