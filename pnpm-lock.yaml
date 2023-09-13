@@ -246,8 +246,8 @@ importers:
         specifier: 8.10.0
         version: 8.10.0(eslint@8.49.0)
       eslint-plugin-jest-dom:
-        specifier: 5.0.1
-        version: 5.0.1(@testing-library/dom@9.3.1)(eslint@8.49.0)
+        specifier: 5.1.0
+        version: 5.1.0(eslint@8.49.0)
       eslint-plugin-prettier:
         specifier: 5.0.0
         version: 5.0.0(eslint-config-prettier@8.10.0)(eslint@8.49.0)(prettier@3.0.3)
@@ -4305,15 +4305,17 @@ packages:
       - supports-color
     dev: false
 
-  /eslint-plugin-jest-dom@5.0.1(@testing-library/dom@9.3.1)(eslint@8.49.0):
-    resolution: {integrity: sha512-zD/BjNk12R5R9cxIu8oa2HfNeDSknI3ewtN8nygIUMQuieWDnTY9Np//6a1Z3G7Y3dx3l45hCUR4EphsgRmUtA==}
+  /eslint-plugin-jest-dom@5.1.0(eslint@8.49.0):
+    resolution: {integrity: sha512-JIXZp+E/h/aGlP/rQc4tuOejiHlZXg65qw8JAJMIJA5VsdjOkss/SYcRSqBrQuEOytEM8JvngUjcz31d1RrCrA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0, npm: '>=6', yarn: '>=1'}
     peerDependencies:
       '@testing-library/dom': ^8.0.0 || ^9.0.0
       eslint: ^6.8.0 || ^7.0.0 || ^8.0.0
+    peerDependenciesMeta:
+      '@testing-library/dom':
+        optional: true
     dependencies:
       '@babel/runtime': 7.22.11
-      '@testing-library/dom': 9.3.1
       eslint: 8.49.0
       requireindex: 1.2.0
     dev: true
