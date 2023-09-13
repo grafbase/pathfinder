@@ -23,7 +23,7 @@
     "@types/node": "20.6.0",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",    
-    "monaco-editor": "0.40.0",
+    "monaco-editor": "0.43.0",
     "monaco-graphql": "1.2.4",    
     "turbo": "1.10.13",
     "typescript": "5.1.6"
