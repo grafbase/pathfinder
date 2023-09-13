@@ -31,11 +31,11 @@ importers:
         specifier: 2.0.3
         version: 2.0.3
       monaco-editor:
-        specifier: 0.40.0
-        version: 0.40.0
+        specifier: 0.43.0
+        version: 0.43.0
       monaco-graphql:
         specifier: 1.2.4
-        version: 1.2.4(graphql@16.8.0)(monaco-editor@0.40.0)(prettier@3.0.3)
+        version: 1.2.4(graphql@16.8.0)(monaco-editor@0.43.0)(prettier@3.0.3)
       next:
         specifier: 13.4.19
         version: 13.4.19(react-dom@18.2.0)(react@18.2.0)
@@ -87,7 +87,7 @@ importers:
         version: 4.4.9(@types/node@20.6.0)
       vite-plugin-monaco-editor:
         specifier: 1.1.0
-        version: 1.1.0(monaco-editor@0.40.0)
+        version: 1.1.0(monaco-editor@0.43.0)
 
   examples/nextjs-example:
     dependencies:
@@ -161,11 +161,11 @@ importers:
         specifier: 16.8.0
         version: 16.8.0
       monaco-editor:
-        specifier: 0.40.0
-        version: 0.40.0
+        specifier: 0.43.0
+        version: 0.43.0
       monaco-graphql:
         specifier: 1.2.4
-        version: 1.2.4(graphql@16.8.0)(monaco-editor@0.40.0)(prettier@3.0.3)
+        version: 1.2.4(graphql@16.8.0)(monaco-editor@0.43.0)(prettier@3.0.3)
       react:
         specifier: ^18.0.0
         version: 18.2.0
@@ -220,7 +220,7 @@ importers:
         version: 3.5.3(@types/node@20.6.0)(rollup@2.79.1)(typescript@5.1.6)(vite@4.4.9)
       vite-plugin-monaco-editor:
         specifier: 1.1.0
-        version: 1.1.0(monaco-editor@0.40.0)
+        version: 1.1.0(monaco-editor@0.43.0)
       vitest:
         specifier: 0.34.4
         version: 0.34.4(@vitest/browser@0.34.4)(jsdom@22.1.0)(webdriverio@8.16.6)
@@ -291,11 +291,11 @@ importers:
         specifier: 6.2.1
         version: 6.2.1
       monaco-editor:
-        specifier: 0.40.0
-        version: 0.40.0
+        specifier: 0.43.0
+        version: 0.43.0
       monaco-graphql:
         specifier: 1.2.4
-        version: 1.2.4(graphql@16.8.0)(monaco-editor@0.40.0)(prettier@3.0.3)
+        version: 1.2.4(graphql@16.8.0)(monaco-editor@0.43.0)(prettier@3.0.3)
       zustand:
         specifier: 4.4.1
         version: 4.4.1(@types/react@18.2.21)(react@18.2.0)
@@ -6790,6 +6790,10 @@ packages:
 
   /monaco-editor@0.40.0:
     resolution: {integrity: sha512-1wymccLEuFSMBvCk/jT1YDW/GuxMLYwnFwF9CDyYCxoTw2Pt379J3FUhwy9c43j51JdcxVPjwk0jm0EVDsBS2g==}
+    dev: false
+
+  /monaco-editor@0.43.0:
+    resolution: {integrity: sha512-cnoqwQi/9fml2Szamv1XbSJieGJ1Dc8tENVMD26Kcfl7xGQWp7OBKMjlwKVGYFJ3/AXJjSOGvcqK7Ry/j9BM1Q==}
 
   /monaco-graphql@1.2.4(graphql@16.8.0)(monaco-editor@0.40.0)(prettier@3.0.3):
     resolution: {integrity: sha512-TVM55ItTKbUXxXwHhbxuhwugL5BG2Fc54EM9m04K6Ig86PyFMax8zE64IkSFZLF4IpyM0L1Rz6yzE2GoCGOKrA==}
@@ -6801,6 +6805,20 @@ packages:
       graphql: 16.8.0
       graphql-language-service: 5.1.7(graphql@16.8.0)
       monaco-editor: 0.40.0
+      picomatch-browser: 2.2.6
+      prettier: 3.0.3
+    dev: false
+
+  /monaco-graphql@1.2.4(graphql@16.8.0)(monaco-editor@0.43.0)(prettier@3.0.3):
+    resolution: {integrity: sha512-TVM55ItTKbUXxXwHhbxuhwugL5BG2Fc54EM9m04K6Ig86PyFMax8zE64IkSFZLF4IpyM0L1Rz6yzE2GoCGOKrA==}
+    peerDependencies:
+      graphql: ^15.5.0 || ^16.0.0
+      monaco-editor: '>= 0.20.0 < 1'
+      prettier: ^2.8.0 || ^3.0.0
+    dependencies:
+      graphql: 16.8.0
+      graphql-language-service: 5.1.7(graphql@16.8.0)
+      monaco-editor: 0.43.0
       picomatch-browser: 2.2.6
       prettier: 3.0.3
 
@@ -9066,12 +9084,12 @@ packages:
       - supports-color
     dev: true
 
-  /vite-plugin-monaco-editor@1.1.0(monaco-editor@0.40.0):
+  /vite-plugin-monaco-editor@1.1.0(monaco-editor@0.43.0):
     resolution: {integrity: sha512-IvtUqZotrRoVqwT0PBBDIZPNraya3BxN/bfcNfnxZ5rkJiGcNtO5eAOWWSgT7zullIAEqQwxMU83yL9J5k7gww==}
     peerDependencies:
       monaco-editor: '>=0.33.0'
     dependencies:
-      monaco-editor: 0.40.0
+      monaco-editor: 0.43.0
     dev: true
 
   /vite-tsconfig-paths@3.6.0(vite@4.4.9):
