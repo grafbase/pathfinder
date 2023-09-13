@@ -81,6 +81,9 @@ importers:
       vite:
         specifier: 4.4.7
         version: 4.4.7(@types/node@20.4.5)
+      vite-plugin-monaco-editor:
+        specifier: 1.1.0
+        version: 1.1.0(monaco-editor@0.40.0)
 
   apps/ladle:
     dependencies:
