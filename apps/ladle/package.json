@@ -19,10 +19,10 @@
     "@pathfinder/eslint-config": "workspace:*",
     "@pathfinder/style": "workspace:*",
     "@pathfinder/tsconfig": "workspace:*",
-    "@types/react": "18.2.17",
+    "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "@vanilla-extract/vite-plugin": "3.8.2",
-    "@vitejs/plugin-react": "4.0.3",
+    "@vitejs/plugin-react": "4.0.4",
     "vite": "4.4.7",
     "vite-plugin-monaco-editor": "1.1.0"
   }
