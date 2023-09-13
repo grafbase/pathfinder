@@ -25,8 +25,8 @@ importers:
         specifier: 18.2.7
         version: 18.2.7
       '@vanilla-extract/css':
-        specifier: 1.12.0
-        version: 1.12.0
+        specifier: 1.13.0
+        version: 1.13.0
       '@vanilla-extract/dynamic':
         specifier: 2.0.3
         version: 2.0.3
@@ -196,7 +196,7 @@ importers:
         version: 5.14.9
       '@vanilla-extract/recipes':
         specifier: 0.5.0
-        version: 0.5.0(@vanilla-extract/css@1.12.0)
+        version: 0.5.0(@vanilla-extract/css@1.13.0)
       '@vanilla-extract/vite-plugin':
         specifier: 3.8.2
         version: 3.8.2(@types/node@20.4.5)(vite@4.4.9)
@@ -316,14 +316,14 @@ importers:
         specifier: 2.1.0
         version: 2.1.0
       '@vanilla-extract/css':
-        specifier: 1.12.0
-        version: 1.12.0
+        specifier: 1.13.0
+        version: 1.13.0
       '@vanilla-extract/dynamic':
         specifier: 2.0.3
         version: 2.0.3
       '@vanilla-extract/recipes':
         specifier: 0.5.0
-        version: 0.5.0(@vanilla-extract/css@1.12.0)
+        version: 0.5.0(@vanilla-extract/css@1.13.0)
       zustand:
         specifier: 4.4.1
         version: 4.4.1(@types/react@18.2.21)(react@18.2.0)
@@ -2212,8 +2212,8 @@ packages:
       - supports-color
     dev: true
 
-  /@vanilla-extract/css@1.12.0:
-    resolution: {integrity: sha512-TEttZfnqTRtwgVYiBWQSGGUiVaYWReHp59DsavITEvh4TpJNifZFGhBznHx4wQFEsyio6xA513jps4tmqR6zmw==}
+  /@vanilla-extract/css@1.13.0:
+    resolution: {integrity: sha512-JFFBXhnJrPlGqHBabagXqo5ghXw9mtV270ycIGyLDZG8NAK5eRwAYkMowAxuzK7wZSm67GnETWYB7b0AUmyttg==}
     dependencies:
       '@emotion/hash': 0.9.1
       '@vanilla-extract/private': 1.0.3
@@ -2238,7 +2238,7 @@ packages:
       '@babel/core': 7.22.11
       '@babel/plugin-syntax-typescript': 7.22.5(@babel/core@7.22.11)
       '@vanilla-extract/babel-plugin-debug-ids': 1.0.3
-      '@vanilla-extract/css': 1.12.0
+      '@vanilla-extract/css': 1.13.0
       esbuild: 0.17.6
       eval: 0.1.8
       find-up: 5.0.0
@@ -2262,12 +2262,12 @@ packages:
   /@vanilla-extract/private@1.0.3:
     resolution: {integrity: sha512-17kVyLq3ePTKOkveHxXuIJZtGYs+cSoev7BlP+Lf4916qfDhk/HBjvlYDe8egrea7LNPHKwSZJK/bzZC+Q6AwQ==}
 
-  /@vanilla-extract/recipes@0.5.0(@vanilla-extract/css@1.12.0):
+  /@vanilla-extract/recipes@0.5.0(@vanilla-extract/css@1.13.0):
     resolution: {integrity: sha512-NfdZ8XyqCDG2RsO3FmYPALDMKg5045dRD97NbBb0Fog3LMDVXZxYgDOct5FAWob8U6W4GbhVpRZt1X9hNnH6fA==}
     peerDependencies:
       '@vanilla-extract/css': ^1.0.0
     dependencies:
-      '@vanilla-extract/css': 1.12.0
+      '@vanilla-extract/css': 1.13.0
 
   /@vanilla-extract/vite-plugin@3.8.2(@types/node@20.4.5)(vite@4.4.9):
     resolution: {integrity: sha512-i0vpuBUoh10Obl0hJr0dWQa6M3Udu/irm4tnsg1lUze8DXTbv3ctHmVu/wrRZHKw1EzzW/v+nLoJJRvisApspQ==}
