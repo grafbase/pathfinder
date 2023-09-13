@@ -3,7 +3,7 @@ name = "desktop"
 version = "0.0.0"
 description = "The Pathfinder desktop application"
 authors = ["Grafbase"]
-license = "Apache-2.0"
+license = "MPL-2.0"
 repository = "https://github.com/grafbase/pathfinder"
 edition = "2021"
 
