@@ -173,8 +173,8 @@ importers:
         specifier: ^18.0.0
         version: 18.2.0(react@18.2.0)
       zustand:
-        specifier: 4.3.9
-        version: 4.3.9(react@18.2.0)
+        specifier: 4.4.1
+        version: 4.4.1(@types/react@18.2.21)(react@18.2.0)
     devDependencies:
       '@pathfinder/eslint-config':
         specifier: workspace:*
@@ -270,8 +270,8 @@ importers:
         specifier: workspace:*
         version: link:../tsconfig
       zustand:
-        specifier: 4.3.9
-        version: 4.3.9(react@18.2.0)
+        specifier: 4.4.1
+        version: 4.4.1(@types/react@18.2.21)(react@18.2.0)
 
   packages/stores:
     dependencies:
@@ -297,8 +297,8 @@ importers:
         specifier: 1.2.4
         version: 1.2.4(graphql@16.8.0)(monaco-editor@0.40.0)(prettier@3.0.0)
       zustand:
-        specifier: 4.3.9
-        version: 4.3.9(react@18.2.0)
+        specifier: 4.4.1
+        version: 4.4.1(@types/react@18.2.21)(react@18.2.0)
     devDependencies:
       '@pathfinder/eslint-config':
         specifier: workspace:*
@@ -325,8 +325,8 @@ importers:
         specifier: 0.5.0
         version: 0.5.0(@vanilla-extract/css@1.12.0)
       zustand:
-        specifier: 4.4.0
-        version: 4.4.0(@types/react@18.2.21)(react@18.2.0)
+        specifier: 4.4.1
+        version: 4.4.1(@types/react@18.2.21)(react@18.2.0)
     devDependencies:
       '@pathfinder/eslint-config':
         specifier: workspace:*
@@ -9722,23 +9722,8 @@ packages:
   /zod@3.21.4:
     resolution: {integrity: sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==}
 
-  /zustand@4.3.9(react@18.2.0):
-    resolution: {integrity: sha512-Tat5r8jOMG1Vcsj8uldMyqYKC5IZvQif8zetmLHs9WoZlntTHmIoNM8TpLRY31ExncuUvUOXehd0kvahkuHjDw==}
-    engines: {node: '>=12.7.0'}
-    peerDependencies:
-      immer: '>=9.0'
-      react: '>=16.8'
-    peerDependenciesMeta:
-      immer:
-        optional: true
-      react:
-        optional: true
-    dependencies:
-      react: 18.2.0
-      use-sync-external-store: 1.2.0(react@18.2.0)
-
-  /zustand@4.4.0(@types/react@18.2.21)(react@18.2.0):
-    resolution: {integrity: sha512-2dq6wq4dSxbiPTamGar0NlIG/av0wpyWZJGeQYtUOLegIUvhM2Bf86ekPlmgpUtS5uR7HyetSiktYrGsdsyZgQ==}
+  /zustand@4.4.1(@types/react@18.2.21)(react@18.2.0):
+    resolution: {integrity: sha512-QCPfstAS4EBiTQzlaGP1gmorkh/UL1Leaj2tdj+zZCZ/9bm0WS7sI2wnfD5lpOszFqWJ1DcPnGoY8RDL61uokw==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
       '@types/react': '>=16.8'
@@ -9755,4 +9740,3 @@ packages:
       '@types/react': 18.2.21
       react: 18.2.0
       use-sync-external-store: 1.2.0(react@18.2.0)
-    dev: false
