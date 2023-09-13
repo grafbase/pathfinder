@@ -13,6 +13,17 @@
   "tauri": {
     "allowlist": {
       "all": false,
+      "window": {
+        "all": false,
+        "close": true,
+        "hide": true,
+        "show": true,
+        "maximize": true,
+        "minimize": true,
+        "unmaximize": true,
+        "unminimize": true,
+        "startDragging": true
+      },
       "shell": {
         "all": false,
         "open": true
@@ -29,9 +40,10 @@
     },
     "windows": [
       {
+        "titleBarStyle": "Overlay",
         "fullscreen": false,
         "resizable": true,
-        "title": "Pathfinder",
+        "title": "",
         "width": 1200,
         "height": 1000
       }
