@@ -5,7 +5,7 @@ export const App = () => {
     <Trailblazer
       schemaProps={{
         fetcherOptions: {
-          endpoint: "http://localhos]t:4000/graphql",
+          endpoint: "http://localhost:4000/graphql",
           headers: [["x-api-key", ""]],
         },
       }}
