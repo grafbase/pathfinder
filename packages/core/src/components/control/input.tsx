@@ -6,16 +6,12 @@ export const Input = ({
   isDisabled,
   name,
   placeholder,
-  displayLabel,
   value,
 }: InputProps) => {
   return (
     <input
-      className={inputClass({
-        displayLabel,
-      })}
+      className={inputClass}
       autoComplete="off"
-      data-testid={`input-${name}`}
       disabled={isDisabled}
       id={name}
       name={name}

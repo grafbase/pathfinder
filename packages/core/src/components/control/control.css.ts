@@ -1,17 +1,19 @@
 import { contract, recipe, style } from "@pathfinder/style";
 
+export const controlClass = style({
+  display: "flex",
+  flexDirection: "column",
+  gap: 4,
+  width: "100%",
+});
+
 export const labelClass = recipe({
   base: {
     width: "auto",
     whiteSpace: "nowrap",
-    display: "flex",
-    alignItems: "center",
-    gap: contract.space[8],
-    padding: `0 ${contract.space[8]}`,
-    border: `1px solid ${contract.color.neutral[4]}`,
-    backgroundColor: contract.color.neutral[2],
-    color: contract.color.neutral[8],
+    color: contract.color.neutral[12],
     fontSize: 12,
+    lineHeight: 1,
   },
 
   variants: {
@@ -25,54 +27,26 @@ export const labelClass = recipe({
   },
 });
 
-export const inputClass = recipe({
-  base: {
-    all: "unset",
-    boxSizing: "border-box",
-    width: "100%",
-    height: 32,
-    paddingLeft: 8,
-    borderRadius: 2,
-    fontFamily: contract.fonts.mono,
-    fontSize: 11,
-    lineHeight: 1,
-    color: contract.color.neutral[12],
+export const inputClass = style({
+  all: "unset",
+  boxSizing: "border-box",
+  width: "100%",
+  height: 32,
+  paddingLeft: 8,
+  borderRadius: 2,
+  fontFamily: contract.fonts.mono,
+  fontSize: 11,
+  lineHeight: 1,
+  color: contract.color.neutral[1],
+  backgroundColor: contract.color.neutralAlpha[11],
 
-    selectors: {
-      "&:focus": {
-        backgroundColor: contract.color.neutral[4],
-      },
-
-      "&::placeholder": {
-        color: contract.color.neutral[7],
-      },
+  selectors: {
+    "&:focus": {
+      backgroundColor: contract.color.neutralAlpha[12],
     },
-  },
 
-  variants: {
-    displayLabel: {
-      false: {
-        border: `1px solid ${contract.color.neutral[7]}`,
-
-        selectors: {
-          "&:focus": {
-            border: `1px solid ${contract.color.neutral[8]}`,
-          },
-        },
-      },
-      true: {
-        borderTop: `1px solid ${contract.color.neutral[7]}`,
-        borderRight: `1px solid ${contract.color.neutral[7]}`,
-        borderBottom: `1px solid ${contract.color.neutral[7]}`,
-
-        selectors: {
-          "&:focus": {
-            borderTop: `1px solid ${contract.color.neutral[8]}`,
-            borderRight: `1px solid ${contract.color.neutral[8]}`,
-            borderBottom: `1px solid ${contract.color.neutral[8]}`,
-          },
-        },
-      },
+    "&::placeholder": {
+      color: contract.color.neutral[8],
     },
   },
 });
@@ -111,7 +85,32 @@ export const selectDecorationClass = style({
   width: 10,
 });
 
-export const controlClass = style({
-  display: "flex",
-  width: "100%",
+export const col = style({
+  display: `flex`,
+  flexDirection: `column`,
+  gap: 24,
+  // backgroundColor: contract.color.neutral[1],
+});
+
+export const row = style({
+  display: `grid`,
+  gridTemplateColumns: `160px 1fr`,
+  gap: 24,
+});
+
+export const info = style({
+  display: `flex`,
+  flexDirection: `column`,
+  alignItems: `center`,
+  color: contract.color.neutral[8],
+
+  // span: {
+  //   fontSize: 10,
+  // },
+});
+
+export const dataClass = style({
+  display: `flex`,
+  alignItems: `center`,
+  color: contract.color.neutral[12],
 });

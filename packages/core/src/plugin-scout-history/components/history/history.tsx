@@ -4,10 +4,9 @@ import type { ExecutionResponse } from "@pathfinder/stores";
 
 import { clearHistory } from "../../store";
 
-import { Dropdown, Resizer, Tabs } from "../../../components";
+import { Dropdown, Pre, Resizer, Tabs } from "../../../components";
 
 import { HistoryListItem } from "../history-list-item";
-import { Pre } from "../pre";
 
 import {
   historyClass,
@@ -18,6 +17,7 @@ import {
 } from "./history.css";
 import { HistoryItemRequest } from "../history-item-request";
 import { shared } from "@pathfinder/style";
+import { HistoryItemResponse } from "../history-item-response";
 
 export const History = ({
   historyItems,
@@ -95,7 +95,7 @@ export const History = ({
         pane2={{
           component: (
             <Tabs
-              styles={{ buttonStyle: "INLINE", onSurface: 1 }}
+              styles={{ onSurface: 1 }}
               tabs={[
                 {
                   buttonContent: () => <span>Request</span>,
@@ -108,13 +108,7 @@ export const History = ({
                   buttonContent: () => <span>Response</span>,
                   name: "PluginHistoryItemResponse",
                   panelContent: () => (
-                    <Pre
-                      code={JSON.stringify(
-                        activeHistoryItem?.response.data,
-                        null,
-                        2,
-                      )}
-                    />
+                    <HistoryItemResponse historyItem={activeHistoryItem} />
                   ),
                 },
               ]}

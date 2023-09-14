@@ -27,7 +27,7 @@ export const ScoutTools = () => {
           selectedTabIndex,
           setSelectedTabIndex,
         }}
-        styles={{ buttonStyle: "INLINE", onSurface: 1 }}
+        styles={{ onSurface: 1 }}
         tabs={[
           ...[
             {
@@ -37,7 +37,7 @@ export const ScoutTools = () => {
             },
             {
               buttonCopy: () => <span>Headers</span>,
-              content: () => <HTTPHeaderControl />,
+              content: () => <HTTPHeaderControl placement="IN_APP" />,
               name: "Headers",
             },
           ],

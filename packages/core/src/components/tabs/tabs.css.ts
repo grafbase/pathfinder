@@ -68,18 +68,6 @@ export const tabPanelClass = style({
   color: contract.color.neutral[7],
   position: "relative",
   height: "100%",
-
-  selectors: {
-    "&::before": {
-      content: "",
-      zIndex: 2,
-      position: "absolute",
-      top: 0,
-      right: 0,
-      width: contract.space[16],
-      height: "100%",
-    },
-  },
 });
 
 export const tabPanelsClass = style([

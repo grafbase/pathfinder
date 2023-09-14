@@ -7,7 +7,6 @@ export const Control = ({
   control,
   displayLabel = true,
   isDisabled = false,
-  labelAddon,
   labelCopy,
 }: ControlProps) => {
   return (
@@ -19,7 +18,6 @@ export const Control = ({
         htmlFor={control.name}
       >
         {labelCopy}
-        {labelAddon && labelAddon}
       </label>
 
       {control.controlType === "SELECT" && (
@@ -36,7 +34,6 @@ export const Control = ({
       {control.controlType === "INPUT" && (
         <Input
           controlType={control.controlType}
-          displayLabel={displayLabel}
           handleChange={control.handleChange}
           isDisabled={isDisabled}
           name={control.name}

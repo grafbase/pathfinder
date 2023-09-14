@@ -19,3 +19,7 @@ export const disclosureButtonClass = style([
     color: contract.color.neutral[12],
   },
 ]);
+
+export const disclosurePanelClass = style({
+  padding: `${contract.space[4]} ${contract.space[16]} ${contract.space[16]} `,
+});

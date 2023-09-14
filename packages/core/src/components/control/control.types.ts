@@ -35,6 +35,5 @@ export type ControlProps = {
   control: InputProps | SelectProps;
   displayLabel?: boolean;
   isDisabled?: boolean;
-  labelAddon?: React.ReactNode;
   labelCopy: string;
 };

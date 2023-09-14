@@ -3,10 +3,11 @@ import { Disclosure } from "@headlessui/react";
 import type { ExecutionResponse } from "@pathfinder/stores";
 
 import { Icon } from "../../../components/icon";
-import { Pre } from "../pre";
+import { Pre } from "../../../components/pre";
 
 import {
   disclosureButtonClass,
+  disclosurePanelClass,
   historyItemRequestClass,
 } from "./history-item-request.css";
 
@@ -28,8 +29,8 @@ export const HistoryItemRequest = ({
               />
               Endpoint
             </Disclosure.Button>
-            <Disclosure.Panel>
-              <Pre code={historyItem.request.endpoint} />
+            <Disclosure.Panel className={disclosurePanelClass}>
+              <Pre code={historyItem.request.endpoint} status={"info"} />
             </Disclosure.Panel>
           </>
         )}
@@ -46,12 +47,13 @@ export const HistoryItemRequest = ({
               />
               Operation Name
             </Disclosure.Button>
-            <Disclosure.Panel>
+            <Disclosure.Panel className={disclosurePanelClass}>
               <Pre
                 code={
                   historyItem.request.graphQLOperationParams.operationName ||
                   "Anonymous operation"
                 }
+                status={"info"}
               />
             </Disclosure.Panel>
           </>
@@ -69,8 +71,11 @@ export const HistoryItemRequest = ({
               />
               Query
             </Disclosure.Button>
-            <Disclosure.Panel>
-              <Pre code={historyItem.request.graphQLOperationParams.query} />
+            <Disclosure.Panel className={disclosurePanelClass}>
+              <Pre
+                code={historyItem.request.graphQLOperationParams.query}
+                status={"info"}
+              />
             </Disclosure.Panel>
           </>
         )}
@@ -87,13 +92,14 @@ export const HistoryItemRequest = ({
               />
               Variables
             </Disclosure.Button>
-            <Disclosure.Panel>
+            <Disclosure.Panel className={disclosurePanelClass}>
               <Pre
                 code={JSON.stringify(
                   historyItem.request.graphQLOperationParams.variables,
                   null,
                   2,
                 )}
+                status={"info"}
               />
             </Disclosure.Panel>
           </>

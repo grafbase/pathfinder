@@ -1,43 +1,14 @@
 import { useState } from "react";
 
-import { contract, style } from "@pathfinder/style";
-
 import { Control } from "./control";
+
 import type {
   ControlData,
   ControlProps,
   HandleChangeSignature,
 } from "./control.types";
 
-const col = style({
-  display: `flex`,
-  flexDirection: `column`,
-  gap: 24,
-  // backgroundColor: contract.color.neutral[1],
-});
-
-const row = style({
-  display: `grid`,
-  gridTemplateColumns: `160px 1fr`,
-  gap: 24,
-});
-
-const info = style({
-  display: `flex`,
-  flexDirection: `column`,
-  alignItems: `center`,
-  color: contract.color.neutral[8],
-
-  // span: {
-  //   fontSize: 10,
-  // },
-});
-
-const dataClass = style({
-  display: `flex`,
-  alignItems: `center`,
-  color: contract.color.neutral[12],
-});
+import { col, row, info, dataClass } from "./control.css";
 
 const controls: (
   handleChange: HandleChangeSignature,
@@ -139,7 +110,6 @@ export const ControlStory = () => {
                 ? values[control.control.name].value
                 : "",
             }}
-            displayLabel={control.displayLabel}
             labelCopy={control.labelCopy}
           />
         </div>
