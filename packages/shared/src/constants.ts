@@ -12,8 +12,6 @@ export const VARIABLES_EDITOR_DEFAULT_VALUE = `{
 }`;
 export const VARIABLES_MODEL_NAME = "pathfinder-variables-model";
 
-export const STORAGE_NAME_HTTP_HEADERS = "pathfinder-storage-http-headers";
-export const STORAGE_NAME_VARIABLES = "pathfinder-storage-variables";
-export const STORAGE_NAME_TABS = "pathfinder-storage-tabs";
+export const STORAGE_NAME_SESSION = "pathfinder-storage-session";
 
 export const INACTIVE_DEFINITION_CLASSNAME = "inactive-definition";

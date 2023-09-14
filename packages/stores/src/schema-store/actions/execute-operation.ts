@@ -2,7 +2,6 @@ import { OperationDefinitionNode, print } from "graphql";
 
 import { VARIABLES_EDITOR_ID } from "@pathfinder/shared";
 
-import { HTTPHeadersStore } from "../../http-headers-store";
 import { getMonacoEditor } from "../../monaco-editor-store";
 
 import {
@@ -10,12 +9,12 @@ import {
   updateDocumentEntryResponse,
 } from "../../graphql-document-store";
 
+import { httpFetcher } from "./http-fetcher";
+import { prepareRequest } from "./prepare-request";
+
 import { schemaStore } from "../schema-store";
 
-import { httpFetcher } from "./http-fetcher";
-
 import type {
-  AcceptableHeaders,
   ExecutionResponse,
   SchemaStoreActions,
 } from "../schema-store.types";
@@ -25,13 +24,7 @@ export const executeOperation: SchemaStoreActions["executeOperation"] =
   async () => {
     schemaStore.setState({ isExecuting: true });
 
-    // get our endpoint
-    const endpoint = schemaStore.getState().fetcherOptions?.endpoint;
-
-    // get our headers, filtering out those that are not enabled
-    const headers: AcceptableHeaders = HTTPHeadersStore.getState()
-      .headers.filter((header) => header.enabled)
-      .map((header) => [header.key, header.value]);
+    const { endpoint, headers } = prepareRequest();
 
     // get our activeDocumentEntry
     const activeDocumentEntry =
@@ -63,9 +56,11 @@ export const executeOperation: SchemaStoreActions["executeOperation"] =
       };
 
       const fetchResponse = await httpFetcher({
-        endpoint,
+        fetchOptions: {
+          endpoint,
+          headers,
+        },
         graphQLParams,
-        headers,
       });
 
       const t1 = performance.now();
@@ -74,8 +69,6 @@ export const executeOperation: SchemaStoreActions["executeOperation"] =
         // TODO: how do we get here?
         return schemaStore.setState({ isExecuting: false });
       }
-
-      console.log("execute", { fetchResponse });
 
       const executionResponse: ExecutionResponse = {
         duration: t1 - t0,

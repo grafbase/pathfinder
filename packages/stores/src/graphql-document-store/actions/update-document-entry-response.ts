@@ -1,6 +1,6 @@
 import { graphQLDocumentStore } from "../graphql-document-store";
 
-import { updateActiveEditorTab } from "../../editor-tabs-store";
+import { updateActiveEditorTab } from "../../session-store";
 
 import type {
   GraphQLDocumentStoreActions,

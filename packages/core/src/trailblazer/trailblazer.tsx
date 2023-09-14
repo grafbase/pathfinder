@@ -1,9 +1,7 @@
 import { useEffect } from "react";
+import { init as initCuid } from "@paralleldrive/cuid2";
 
-import {
-  STORAGE_NAME_HTTP_HEADERS,
-  STORAGE_NAME_TABS,
-} from "@pathfinder/shared";
+import { STORAGE_NAME_SESSION } from "@pathfinder/shared";
 
 import {
   getNamespacedStorageName,
@@ -11,15 +9,12 @@ import {
   loadSchema,
   pluginsStore,
   resetSchemaPolling,
-  schemaStore,
+  useSessionStore,
   useSchemaStore,
-  useThemeStore,
-  HTTPHeadersStore,
-  useEditorTabsStore,
-  editorTabsStore,
 } from "@pathfinder/stores";
 
-import { Spinner } from "../components/spinner";
+import { CompassAnimated } from "../components/compass-animated";
+import { Welcome } from "../components/welcome";
 
 import { trailblazerClass } from "./trailblazer.css";
 
@@ -31,57 +26,71 @@ export const Trailblazer = ({
   schemaProps,
   themeProps,
 }: TrailblazerProps) => {
-  const activeTheme = useThemeStore.use.activeTheme();
-
-  const hasHydrated = useEditorTabsStore.use._hasHydrated();
+  const schema = useSchemaStore.use.schema();
 
   useEffect(() => {
+    // set the theme and handle overrides if provided
     initializeTheme({ overrides: themeProps?.theme?.overrides });
 
+    // set our plugins into state
     pluginsStore.setState({
       ...plugins,
     });
 
-    schemaStore.setState({
-      ...schemaProps,
-    });
+    if (schemaProps) {
+      // if the implementer has provided an endpoint via props, we use the endpoint to namespace the local storage
+      if (schemaProps.fetcherOptions.endpoint) {
+        const name = getNamespacedStorageName({
+          endpoint: schemaProps.fetcherOptions.endpoint,
+          storageName: STORAGE_NAME_SESSION,
+        });
 
-    loadSchema();
+        useSessionStore.persist.setOptions({
+          name,
+        });
+
+        // manually rehydrate
+        useSessionStore.persist.rehydrate();
+
+        loadSchema({
+          fetchOptions: {
+            endpoint: schemaProps.fetcherOptions.endpoint,
+            headers: schemaProps.fetcherOptions.headers?.map((header) => [
+              header.key,
+              header.value,
+            ]),
+          },
+        });
+
+        // write our fetcherOptions into session state/storage after a short timeout to prevent hydration collisions
+        setTimeout(() => {
+          useSessionStore.setState({
+            endpoint: schemaProps.fetcherOptions.endpoint,
+            headers: schemaProps.fetcherOptions.headers?.map((header) => ({
+              id: initCuid({ length: 10 })(),
+              enabled: true,
+              key: header.key,
+              value: header.value,
+            })),
+          });
+        }, 100);
+      }
+    }
 
     return () => {
       // clear our polling timer if it exists
       resetSchemaPolling();
     };
-  }, [plugins, schemaProps, themeProps]);
-
-  // trigger our store rehydration once
-  useEffect(() => {
-    const endpoint = useSchemaStore.getState().fetcherOptions?.endpoint;
-
-    if (endpoint) {
-      editorTabsStore.persist.setOptions({
-        name: getNamespacedStorageName({
-          endpoint,
-          storageName: STORAGE_NAME_TABS,
-        }),
-      });
-      HTTPHeadersStore.persist.setOptions({
-        name: getNamespacedStorageName({
-          endpoint,
-          storageName: STORAGE_NAME_HTTP_HEADERS,
-        }),
-      });
-      editorTabsStore.persist.rehydrate();
-      HTTPHeadersStore.persist.rehydrate();
-    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log("rendering Trailblazer", { activeTheme, hasHydrated });
-
-  if (!activeTheme || !hasHydrated) {
-    return <Spinner variant={{ size: 24 }} />;
+  if (schema) {
+    return <div className={trailblazerClass}>{children}</div>;
   }
 
-  return <div className={trailblazerClass}>{children}</div>;
+  if (!schemaProps) {
+    return <Welcome />;
+  }
+
+  return <CompassAnimated size="small" speed="standard" />;
 };

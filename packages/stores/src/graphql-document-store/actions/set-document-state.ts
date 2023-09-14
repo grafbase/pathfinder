@@ -8,13 +8,12 @@ import { DOCUMENT_EDITOR_ID } from "@pathfinder/shared";
 
 import { getLocationAndRangeForDefinition, parseDocument } from "../utils";
 
-import { updateActiveEditorTab } from "../../editor-tabs-store";
-
 import { graphQLDocumentStore } from "../graphql-document-store";
 
 import type { DocumentEntry } from "../graphql-document-store.types";
 
 import { getMonacoEditor } from "../../monaco-editor-store";
+import { updateActiveEditorTab } from "../../session-store";
 
 import { handleActiveDefinition } from "./handle-active-definition";
 import { handleInactiveDefinition } from "./handle-inactive-definition";

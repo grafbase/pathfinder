@@ -21,6 +21,17 @@ const overrides = {
   },
 };
 
+const headers = [
+  {
+    key: "x-api-key",
+    value: import.meta.env.VITE_GRAPHQL_API_KEY,
+  },
+  {
+    key: "Content-Type",
+    value: "application/graphql-response+json",
+  },
+];
+
 export const WithPathfinder = () => {
   return (
     <Trailblazer
@@ -30,8 +41,20 @@ export const WithPathfinder = () => {
       schemaProps={{
         fetcherOptions: {
           endpoint: import.meta.env.VITE_GRAPHQL_ENDPOINT,
-          headers: [["x-api-key", import.meta.env.VITE_GRAPHQL_API_KEY]],
+          headers,
         },
+      }}
+    >
+      <Pathfinder />
+    </Trailblazer>
+  );
+};
+
+export const WithPathfinderWithoutSchemaProps = () => {
+  return (
+    <Trailblazer
+      plugins={{
+        scoutTools: [PluginScoutHistory],
       }}
     >
       <Pathfinder />
@@ -48,7 +71,7 @@ export const WithScoutPlugins = () => {
       schemaProps={{
         fetcherOptions: {
           endpoint: import.meta.env.VITE_GRAPHQL_ENDPOINT,
-          headers: [["x-api-key", import.meta.env.VITE_GRAPHQL_API_KEY]],
+          headers,
         },
       }}
     >
@@ -63,7 +86,7 @@ export const WithScout = () => {
       schemaProps={{
         fetcherOptions: {
           endpoint: import.meta.env.VITE_GRAPHQL_ENDPOINT,
-          headers: [["x-api-key", import.meta.env.VITE_GRAPHQL_API_KEY]],
+          headers,
         },
       }}
     >
@@ -78,13 +101,21 @@ export const WithThemeOverrides = () => {
       schemaProps={{
         fetcherOptions: {
           endpoint: import.meta.env.VITE_GRAPHQL_ENDPOINT,
-          headers: [["x-api-key", import.meta.env.VITE_GRAPHQL_API_KEY]],
+          headers,
         },
       }}
       themeProps={{
         theme: { overrides },
       }}
     >
+      <Scout />
+    </Trailblazer>
+  );
+};
+
+export const WithScoutWithoutSchemaProps = () => {
+  return (
+    <Trailblazer>
       <Scout />
     </Trailblazer>
   );

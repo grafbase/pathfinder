@@ -1,5 +1,4 @@
 import { contract } from "@pathfinder/style";
-import { Trailblazer } from "../../trailblazer";
 import { IconButton } from "./icon-button";
 
 const buttonClick = () => {
@@ -8,14 +7,7 @@ const buttonClick = () => {
 
 export const Sizes = () => {
   return (
-    <Trailblazer
-      schemaProps={{
-        fetcherOptions: {
-          endpoint: "123",
-          headers: [["x-api-key", "123"]],
-        },
-      }}
-    >
+    <>
       <div
         style={{
           display: "flex",
@@ -160,6 +152,6 @@ export const Sizes = () => {
           />
         </div>
       </div>
-    </Trailblazer>
+    </>
   );
 };

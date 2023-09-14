@@ -1,9 +1,10 @@
 import type { SchemaStoreState } from "./schema-store.types";
 
 export const INITIAL_SCHEMA_STORE_STATE: SchemaStoreState = {
-  fetcherOptions: null,
+  introspectionErrors: [],
   isExecuting: false,
-  isLoadingSchema: true,
+  isIntrospecting: false,
+  isLoadingSchema: false,
   latestResponse: null,
   pollingTimer: null,
   schema: null,

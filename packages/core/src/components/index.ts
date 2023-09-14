@@ -12,6 +12,8 @@ export { Operate } from "./operate";
 
 export { Pill } from "./pill";
 
+export { Pre } from "./pre";
+
 export { Resizer } from "./resizer";
 
 export { ScoutTools } from "./scout-tools";

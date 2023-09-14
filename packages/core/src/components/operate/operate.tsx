@@ -5,7 +5,7 @@ import {
   setDocumentState,
   updateActiveEditorTab,
   useGraphQLDocumentStore,
-  useEditorTabsStore,
+  useSessionStore,
 } from "@pathfinder/stores";
 
 import { ActionExecute } from "../action-execute";
@@ -24,7 +24,7 @@ export const Operate = () => {
   const documentNotifications =
     useGraphQLDocumentStore.use.documentNotifications();
 
-  const activeTab = useEditorTabsStore.use.activeTab();
+  const activeTab = useSessionStore.use.activeTab();
 
   if (!activeTab) {
     return <p>no activeTab</p>;

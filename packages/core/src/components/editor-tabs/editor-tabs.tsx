@@ -6,7 +6,7 @@ import {
   closeEditorTab,
   initNewEditorTab,
   switchEditorTab,
-  useEditorTabsStore,
+  useSessionStore,
 } from "@pathfinder/stores";
 
 import { IconButton } from "../icon-button";
@@ -22,8 +22,8 @@ import {
 export const EditorTabs = () => {
   const ref = useRef<HTMLDivElement>(null);
 
-  const activeTab = useEditorTabsStore.use.activeTab();
-  const tabs = useEditorTabsStore.use.tabs();
+  const activeTab = useSessionStore.use.activeTab();
+  const tabs = useSessionStore.use.tabs();
 
   const showRemoveTabButton = tabs.length > 1;
 
@@ -55,7 +55,7 @@ export const EditorTabs = () => {
           <div
             key={tab.tabId}
             className={tabWrapClass({
-              isActive: activeTab.tabId === tab.tabId,
+              isActive: activeTab?.tabId === tab.tabId,
             })}
           >
             <div

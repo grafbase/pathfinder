@@ -4,16 +4,17 @@ import {
   VARIABLES_MODEL_NAME,
 } from "@pathfinder/shared";
 
-import { runExecuteOperation, variablesStore } from "@pathfinder/stores";
+import { runExecuteOperation, useSessionStore } from "@pathfinder/stores";
 
 import { Editor } from "../editor";
 
-import { variablesClass, variablesEditorWrapClass } from "./variables.css";
+import { variablesWrapClass, variablesEditorWrapClass } from "./variables.css";
 
 export const Variables = () => {
-  const variablesString = variablesStore.getState().variablesString;
+  const variablesString = useSessionStore.getState().variablesString;
+
   return (
-    <div className={variablesClass}>
+    <div className={variablesWrapClass}>
       <div className={variablesEditorWrapClass}>
         <Editor
           actions={[runExecuteOperation]}
@@ -28,7 +29,7 @@ export const Variables = () => {
             language: "json",
           }}
           onDidChangeCursorPositionCallback={({ editorValue }) => {
-            variablesStore.setState({
+            useSessionStore.setState({
               variablesString: editorValue,
             });
           }}

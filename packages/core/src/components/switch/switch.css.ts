@@ -2,9 +2,9 @@ import { contract, recipe, style } from "@pathfinder/style";
 
 export const switchClass = recipe({
   base: {
-    display: `flex`,
-    alignItems: `center`,
-    transition: `opacity .1s ease`,
+    display: "flex",
+    alignItems: "center",
+    transition: "opacity .1s ease",
   },
 
   variants: {
@@ -20,18 +20,18 @@ export const switchClass = recipe({
 export const switchInputClass = style({
   width: 0,
   height: 0,
-  visibility: `hidden`,
+  visibility: "hidden",
   margin: 0,
 });
 
 export const switchLabelClass = recipe({
   base: {
-    display: `flex`,
-    alignItems: `center`,
-    justifyContent: `space-between`,
-    cursor: `pointer`,
-    position: `relative`,
-    transition: `background-color 0.2s`,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    cursor: "pointer",
+    position: "relative",
+    transition: "background-color 0.2s",
   },
 
   variants: {
@@ -45,7 +45,7 @@ export const switchLabelClass = recipe({
     },
     isDisabled: {
       true: {
-        cursor: `not-allowed`,
+        cursor: "not-allowed",
         // background: contract.color.neutral[5],
       },
       false: {},
@@ -73,12 +73,12 @@ export const switchLabelClass = recipe({
 export const switchLabelSpanClass = recipe({
   base: {
     display: "block",
-    position: `absolute`,
+    position: "absolute",
     top: 2,
     left: 2,
     background: contract.color.neutral[2],
     boxShadow: `0 0 2px 0 ${contract.color.neutral[4]}`,
-    transition: `all 0.15s`,
+    transition: "all 0.15s",
   },
   variants: {
     isChecked: {
@@ -86,9 +86,9 @@ export const switchLabelSpanClass = recipe({
         background: contract.color.neutral[11],
       },
       true: {
-        background: contract.color.neutral[3],
-        left: `calc(100% - 2px) !important`,
-        transform: `translateX(-100%) !important`,
+        background: contract.color.neutral[12],
+        left: "calc(100% - 2px) !important",
+        transform: "translateX(-100%) !important",
       },
     },
     size: {

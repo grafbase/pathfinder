@@ -6,8 +6,6 @@ export {
 
 export type { DocumentNotificationType } from "./graphql-document-store";
 
-export * from "./http-headers-store";
-
 export {
   createMonacoEditor,
   disposeMonacoEditor,
@@ -43,15 +41,6 @@ export type { ExecutionResponse, SchemaStoreState } from "./schema-store";
 
 export { getNamespacedStorageName } from "./storage";
 
-export {
-  closeEditorTab,
-  editorTabsStore,
-  initNewEditorTab,
-  switchEditorTab,
-  updateActiveEditorTab,
-  useEditorTabsStore,
-} from "./editor-tabs-store";
-
 export * from "./theme-store";
 
-export { variablesStore } from "./variables-store";
+export * from "./session-store";

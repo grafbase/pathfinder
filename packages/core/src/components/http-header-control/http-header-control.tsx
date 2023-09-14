@@ -1,5 +1,5 @@
 import {
-  useHTTPHeadersStore,
+  useSessionStore,
   addEmptyHeader,
   removeHeader,
   updateHeader,
@@ -17,15 +17,27 @@ import {
   addHeaderButtonWrapClass,
   headerControlClass,
   headerControlsClass,
-  headerControlHeaderClass,
-  headerControlHeaderSpanClass,
   headerControlWrapClass,
+  removeHeaderButtonWrapClass,
 } from "./http-header-control.css";
+import { useEffect } from "react";
 
 const SEPARATOR = `--`;
 
-export const HTTPHeaderControl = () => {
-  const headers = useHTTPHeadersStore.use.headers();
+export const HTTPHeaderControl = ({
+  placement,
+}: {
+  placement: "WELCOME_SCREEN" | "IN_APP";
+}) => {
+  const headers = useSessionStore.use.headers();
+
+  useEffect(() => {
+    const initialHeaders = useSessionStore.getState().headers;
+    if (initialHeaders.length < 1) {
+      addEmptyHeader({ enabled: true });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleChange: ControlProps["control"]["handleChange"] = ({
     name,
@@ -48,22 +60,28 @@ export const HTTPHeaderControl = () => {
   };
 
   return (
-    <div className={headerControlWrapClass}>
-      <div className={headerControlHeaderClass}>
-        <span className={headerControlHeaderSpanClass}>Enable</span>
-        <span className={headerControlHeaderSpanClass}>Key</span>
-        <span className={headerControlHeaderSpanClass}>Value</span>
-      </div>
+    <div
+      className={headerControlWrapClass({
+        placement,
+      })}
+    >
       <div className={headerControlsClass}>
-        {headers.map((header) => (
-          <div className={headerControlClass} key={header.id}>
-            <Switch
-              handleChange={handleChange}
-              isChecked={header.enabled}
-              isDisabled={!header.key || !header.value}
-              name={`${header.id}${SEPARATOR}kVSwitch`}
-              size="SMALL"
-            />
+        {headers.map((header, i) => (
+          <div
+            className={headerControlClass({
+              placement,
+            })}
+            key={header.id}
+          >
+            {placement === "IN_APP" && (
+              <Switch
+                handleChange={handleChange}
+                isChecked={header.enabled}
+                isDisabled={!header.key || !header.value}
+                name={`${header.id}${SEPARATOR}kVSwitch`}
+                size="SMALL"
+              />
+            )}
             <Control
               control={{
                 controlType: "INPUT",
@@ -72,8 +90,8 @@ export const HTTPHeaderControl = () => {
                 placeholder: "Authorization",
                 value: header.key,
               }}
-              displayLabel={false}
-              labelCopy={`Value for Key`}
+              displayLabel={i === 0}
+              labelCopy={`Header key`}
             />
             <Control
               control={{
@@ -83,32 +101,38 @@ export const HTTPHeaderControl = () => {
                 placeholder: "Bearer ...",
                 value: header.value,
               }}
-              displayLabel={false}
-              labelCopy={`Value for Value`}
+              displayLabel={i === 0}
+              labelCopy={`Header value`}
             />
 
-            {!header.enabled && (
-              <IconButton
-                action={() => removeHeader({ id: header.id })}
-                iconName="Close"
-                isDisabled={header.enabled}
-                size="medium"
-                title="Remove header"
-              />
+            {placement === "IN_APP" && !header.enabled && (
+              <div
+                className={removeHeaderButtonWrapClass({
+                  withLabel: i === 0,
+                })}
+              >
+                <IconButton
+                  action={() => removeHeader({ id: header.id })}
+                  iconName="Close"
+                  isDisabled={header.enabled}
+                  size="medium"
+                  title="Remove header"
+                />
+              </div>
             )}
           </div>
         ))}
       </div>
 
-      <div className={addHeaderButtonWrapClass}>
-        <Button
-          action={() => addEmptyHeader()}
-          copy={"Add header"}
-          onSurface={3}
-          size="medium"
+      {placement === "IN_APP" && (
+        <button
+          className={addHeaderButtonWrapClass}
+          onClick={() => addEmptyHeader({})}
           title="Add header"
-        />
-      </div>
+        >
+          Add another header
+        </button>
+      )}
     </div>
   );
 };

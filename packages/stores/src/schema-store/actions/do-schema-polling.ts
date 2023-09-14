@@ -14,8 +14,7 @@ import type { SchemaStoreActions } from "../schema-store.types";
 const TIMEOUT = 10000;
 
 export const doSchemaPolling: SchemaStoreActions["doSchemaPolling"] = ({
-  endpoint,
-  headers,
+  fetchOptions,
 }) => {
   // if we have don't have a timer set, we can begin
   if (!schemaStore.getState().pollingTimer) {
@@ -26,8 +25,7 @@ export const doSchemaPolling: SchemaStoreActions["doSchemaPolling"] = ({
       const previousSchema = JSON.stringify(schemaStore.getState().schema);
 
       const introspectionResult = await getSchemaViaIntrospection({
-        endpoint,
-        headers,
+        fetchOptions,
       });
 
       // there was some error with this poll, we bail and assume we'll get a different result for the next poll
