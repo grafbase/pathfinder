@@ -1,12 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-import type { ExecutionResponse } from "@pathfinder/stores";
+import { schemaStore, type ExecutionResponse } from "@pathfinder/stores";
+import { shared } from "@pathfinder/style";
 
-import { clearHistory } from "../../store";
+import { clearHistory, usePluginHistoryStore } from "../../store";
 
-import { Dropdown, Pre, Resizer, Tabs } from "../../../components";
+import { Dropdown, Resizer, Tabs } from "../../../components";
 
 import { HistoryListItem } from "../history-list-item";
+import { HistoryItemRequest } from "../history-item-request";
+import { HistoryItemResponse } from "../history-item-response";
 
 import {
   historyClass,
@@ -15,27 +18,41 @@ import {
   historyListHeaderClass,
   historyNullStateClass,
 } from "./history.css";
-import { HistoryItemRequest } from "../history-item-request";
-import { shared } from "@pathfinder/style";
-import { HistoryItemResponse } from "../history-item-response";
 
-export const History = ({
-  historyItems,
-}: {
-  historyItems: ExecutionResponse[];
-}) => {
+export const History = () => {
+  const executions = usePluginHistoryStore.use.executions();
+
   const [activeHistoryItem, setActiveHistoryItem] =
-    useState<ExecutionResponse | null>(historyItems[0]);
+    useState<ExecutionResponse | null>(executions[0]);
 
   useEffect(() => {
-    if (historyItems.length === 0) {
+    if (executions.length === 0) {
       return setActiveHistoryItem(null);
     }
 
-    setActiveHistoryItem(historyItems[0]);
-  }, [historyItems]);
+    setActiveHistoryItem(executions[0]);
+  }, [executions]);
 
-  if (historyItems.length === 0 || !activeHistoryItem) {
+  const latestResponseRef = useRef(schemaStore.getState().latestResponse);
+
+  useEffect(
+    () =>
+      schemaStore.subscribe(({ latestResponse }) => {
+        if (latestResponse && latestResponse !== latestResponseRef.current) {
+          latestResponseRef.current = latestResponse;
+
+          return usePluginHistoryStore.setState({
+            executions: [
+              ...usePluginHistoryStore.getState().executions,
+              latestResponse,
+            ],
+          });
+        }
+      }),
+    [],
+  );
+
+  if (executions.length === 0 || !activeHistoryItem) {
     return (
       <div className={historyNullStateClass}>
         <span>No items in history. Need to work on this null state.</span>
@@ -80,9 +97,9 @@ export const History = ({
                 />
               </div>
               <ul className={historyListClass}>
-                {[...historyItems].map((item, i) => (
+                {[...executions].map((item, i) => (
                   <HistoryListItem
-                    action={() => setActiveHistoryItem(historyItems[i])}
+                    action={() => setActiveHistoryItem(executions[i])}
                     activeItemTimestamp={activeHistoryItem?.timestamp}
                     item={item}
                     key={`${item.timestamp}-${i}`}

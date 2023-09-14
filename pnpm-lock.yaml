@@ -148,6 +148,9 @@ importers:
       '@headlessui/react':
         specifier: 1.7.17
         version: 1.7.17(react-dom@18.2.0)(react@18.2.0)
+      '@paralleldrive/cuid2':
+        specifier: ^2.2.2
+        version: 2.2.2
       '@pathfinder/shared':
         specifier: workspace:*
         version: link:../shared
@@ -160,6 +163,9 @@ importers:
       graphql:
         specifier: 16.8.0
         version: 16.8.0
+      idb-keyval:
+        specifier: 6.2.1
+        version: 6.2.1
       monaco-editor:
         specifier: 0.40.0
         version: 0.40.0

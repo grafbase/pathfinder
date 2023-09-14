@@ -56,6 +56,10 @@ export const executeOperation: SchemaStoreActions["executeOperation"] =
       };
 
       const fetchResponse = await httpFetcher({
+        fetchOptions: {
+          endpoint,
+          headers,
+        },
         graphQLParams,
       });
 

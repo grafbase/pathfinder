@@ -1,16 +1,46 @@
 import { act, render, screen } from "@testing-library/react";
 import { Trailblazer } from "./trailblazer";
 
-import { Scout } from "../scout";
+import { Pathfinder } from "../pathfinder";
 
 import {
-  editorTabsStore,
+  useSessionStore,
   pluginsStore,
   setTheme,
   themeStore,
 } from "@pathfinder/stores";
 
+// TODO: reset store between tests
+
 describe("Trailblazer props", () => {
+  it("should correctly render Welcome when Trailblazer does not receive schemaProps", async () => {
+    render(
+      <Trailblazer>
+        <Pathfinder />
+      </Trailblazer>,
+    );
+
+    const welcomeContainer = screen.getByTestId("welcome-container");
+    expect(welcomeContainer).toBeInTheDocument();
+  });
+
+  it("should correctly render Pathfinder when Trailblazer receives schemaProps", async () => {
+    render(
+      <Trailblazer
+        schemaProps={{
+          fetcherOptions: {
+            endpoint: "ENDPOINT",
+          },
+        }}
+      >
+        <Pathfinder />
+      </Trailblazer>,
+    );
+
+    const pathfinderContainer = screen.getByTestId("pathfinder-container");
+    expect(pathfinderContainer).toBeInTheDocument();
+  });
+
   it("should correctly render Trailblazer without theme override props", async () => {
     render(
       <Trailblazer
@@ -20,7 +50,7 @@ describe("Trailblazer props", () => {
           },
         }}
       >
-        <Scout />
+        <Pathfinder />
       </Trailblazer>,
     );
 
@@ -57,7 +87,7 @@ describe("Trailblazer props", () => {
           theme: { overrides },
         }}
       >
-        <Scout />
+        <Pathfinder />
       </Trailblazer>,
     );
 
@@ -103,12 +133,12 @@ describe("Trailblazer props", () => {
           },
         }}
       >
-        <Scout />
+        <Pathfinder />
       </Trailblazer>,
     );
 
     act(() => {
-      editorTabsStore.setState({ _hasHydrated: true });
+      useSessionStore.setState({ _hasHydrated: true });
     });
 
     const scoutTools = pluginsStore.getState().scoutTools;

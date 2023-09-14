@@ -24,16 +24,35 @@ export type ExecutionResponse = {
 
 export type AcceptableHeaders = [string, string][];
 
+export type LoadSchemaFetchOptions = {
+  endpoint: string;
+  headers?: HeadersInit;
+};
+
 export type SchemaStoreActions = {
-  doSchemaPolling: () => void;
+  doSchemaPolling: ({
+    fetchOptions,
+  }: {
+    fetchOptions: LoadSchemaFetchOptions;
+  }) => void;
   executeOperation: () => Promise<void>;
-  getSchemaViaIntrospection: () => Promise<GraphQLSchema | null>;
+  getSchemaViaIntrospection: ({
+    fetchOptions,
+  }: {
+    fetchOptions: LoadSchemaFetchOptions;
+  }) => Promise<GraphQLSchema | null>;
   httpFetcher: ({
+    fetchOptions,
     graphQLParams,
   }: {
+    fetchOptions: LoadSchemaFetchOptions;
     graphQLParams: GraphQLOperationParams;
   }) => Promise<Response | void>;
-  loadSchema: () => Promise<void>;
+  loadSchema: ({
+    fetchOptions,
+  }: {
+    fetchOptions?: LoadSchemaFetchOptions;
+  }) => Promise<void>;
   prepareRequest: () => { endpoint: string; headers: HeadersInit };
   resetSchemaPolling: () => void;
   setSchemaPollingTimer: ({

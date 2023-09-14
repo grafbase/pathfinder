@@ -1,32 +1,29 @@
 import type { SchemaStoreActions } from "../schema-store.types";
-
-import { prepareRequest } from "./prepare-request";
+import { useSchemaStore } from "../use-schema-store";
 
 export const httpFetcher: SchemaStoreActions["httpFetcher"] = async ({
   graphQLParams,
+  fetchOptions,
 }) => {
-  const { endpoint, headers } = prepareRequest();
+  const body = JSON.stringify(graphQLParams);
 
-  console.log("httpFetcher", {
-    endpoint,
-    graphQLParams,
-    headers,
+  const fetchResponse = await fetch(fetchOptions.endpoint, {
+    method: "POST",
+    headers: fetchOptions.headers,
+    credentials: "same-origin",
+    body,
+  }).catch((error) => {
+    console.warn("Error during fetch attempt:", {
+      error,
+    });
   });
 
-  if (endpoint) {
-    const body = JSON.stringify(graphQLParams);
-
-    const fetchResponse = await fetch(endpoint, {
-      method: "POST",
-      headers,
-      credentials: "same-origin",
-      body,
-    }).catch((error) => {
-      console.warn("Error during fetch attempt:", {
-        error,
-      });
-    });
-
+  if (fetchResponse && fetchResponse.ok) {
     return fetchResponse;
+  } else {
+    useSchemaStore.setState({
+      isIntrospecting: false,
+      introspectionErrors: ["Response not OK. Do you need to add headers?"],
+    });
   }
 };

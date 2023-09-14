@@ -4,7 +4,7 @@ import type { EditorTab, EditorTabsActions } from "../editor-tabs.types";
 
 export const updateActiveEditorTab: EditorTabsActions["updateActiveEditorTab"] =
   ({ partialTab }) => {
-    const activeTab = sessionStore.getState().activeTab;
+    const activeTab = sessionStore.getState().activeTab as EditorTab;
     const tabs = sessionStore.getState().tabs;
 
     const updatedTab: EditorTab = {

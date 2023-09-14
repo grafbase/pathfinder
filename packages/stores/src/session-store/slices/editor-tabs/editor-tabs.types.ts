@@ -20,7 +20,7 @@ export type EditorTab = {
 };
 
 export type EditorTabsState = {
-  activeTab: EditorTab;
+  activeTab: EditorTab | null;
   tabs: EditorTab[];
 };
 

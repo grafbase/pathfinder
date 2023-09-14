@@ -55,7 +55,7 @@ export const EditorTabs = () => {
           <div
             key={tab.tabId}
             className={tabWrapClass({
-              isActive: activeTab.tabId === tab.tabId,
+              isActive: activeTab?.tabId === tab.tabId,
             })}
           >
             <div

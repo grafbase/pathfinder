@@ -7,7 +7,7 @@ import type { EditorTabsActions } from "..//editor-tabs.types";
 export const closeEditorTab: EditorTabsActions["closeEditorTab"] = ({
   tabId,
 }) => {
-  const isActiveTab = tabId === sessionStore.getState().activeTab.tabId;
+  const isActiveTab = tabId === sessionStore.getState().activeTab?.tabId;
 
   const filteredTabs = sessionStore
     .getState()

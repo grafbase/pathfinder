@@ -14,7 +14,7 @@ export const Pathfinder = () => {
   }
 
   return (
-    <div className={pathfinderContainer}>
+    <div className={pathfinderContainer} data-testid="pathfinder-container">
       <Resizer
         onSurface={1}
         orientation="HORIZONTAL"

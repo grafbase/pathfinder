@@ -2,18 +2,20 @@ import { buildClientSchema, getIntrospectionQuery } from "graphql";
 
 import type { GraphQLError, IntrospectionQuery } from "graphql";
 
+import { schemaStore } from "../schema-store";
+
 import { httpFetcher } from "./http-fetcher";
 
 import type { SchemaStoreActions } from "../schema-store.types";
-import { schemaStore } from "../schema-store";
 
 export const getSchemaViaIntrospection: SchemaStoreActions["getSchemaViaIntrospection"] =
-  async () => {
+  async ({ fetchOptions }) => {
     schemaStore.setState({
       isIntrospecting: true,
     });
 
     const fetchResult = await httpFetcher({
+      fetchOptions,
       graphQLParams: {
         query: getIntrospectionQuery(),
         operationName: "IntrospectionQuery",
@@ -29,8 +31,6 @@ export const getSchemaViaIntrospection: SchemaStoreActions["getSchemaViaIntrospe
     }
 
     const { data, errors } = await fetchResult.json();
-
-    console.log("getSchemaViaIntrospection", { fetchResult, data, errors });
 
     if (errors) {
       schemaStore.setState({

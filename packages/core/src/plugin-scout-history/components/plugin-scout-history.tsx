@@ -1,32 +1,27 @@
-import { useRef, useEffect } from "react";
+import { useEffect } from "react";
 
-import { schemaStore } from "@pathfinder/stores";
+import { getNamespacedStorageName, useSessionStore } from "@pathfinder/stores";
+
+import { STORAGE_NAME_SCOUT_HISTORY } from "../store/plugin-history-store";
 
 import { usePluginHistoryStore } from "../store";
 
 import { History } from "./history";
 
 export const PluginScoutHistory = () => {
-  const executions = usePluginHistoryStore.use.executions();
+  useEffect(() => {
+    const name = getNamespacedStorageName({
+      endpoint: useSessionStore.getState().endpoint as string,
+      storageName: STORAGE_NAME_SCOUT_HISTORY,
+    });
 
-  const latestResponseRef = useRef(schemaStore.getState().latestResponse);
+    usePluginHistoryStore.persist.setOptions({
+      name,
+    });
 
-  useEffect(
-    () =>
-      schemaStore.subscribe(({ latestResponse }) => {
-        if (latestResponse && latestResponse !== latestResponseRef.current) {
-          latestResponseRef.current = latestResponse;
+    // manually rehydrate
+    usePluginHistoryStore.persist.rehydrate();
+  }, []);
 
-          return usePluginHistoryStore.setState({
-            executions: [
-              ...usePluginHistoryStore.getState().executions,
-              latestResponse,
-            ],
-          });
-        }
-      }),
-    [],
-  );
-
-  return <History historyItems={executions} />;
+  return <History />;
 };
