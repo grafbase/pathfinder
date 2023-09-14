@@ -1,7 +1,5 @@
 import { Tab } from "@headlessui/react";
 
-import { shared } from "@pathfinder/style";
-
 import {
   tabListClass,
   tabButtonClass,
@@ -14,7 +12,7 @@ import { TabsProps } from "./tabs.types";
 
 export const Tabs = ({
   controlled,
-  styles,
+  styles: _,
   tabs,
   tabListHeight = 40,
 }: {
@@ -34,14 +32,12 @@ export const Tabs = ({
       onChange={controlled?.setSelectedTabIndex || undefined}
       selectedIndex={controlled?.selectedTabIndex || undefined}
     >
+      <div style={{ height: "25px" }} />
       <div className={tabGroupClass}>
         <Tab.List>
           <div
             className={`${tabListClass({
               tabListHeight,
-            })} ${shared.hairlineBorder({
-              border: "bottom",
-              onSurface: styles.onSurface,
             })}`}
           >
             {tabs.map((tab) => {
