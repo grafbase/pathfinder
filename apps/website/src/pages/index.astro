@@ -4,9 +4,9 @@ import Layout from '../layouts/Layout.astro';
 import previewImage from '../images/preview.jpg';
 ---
 
-<Layout title="Pathfinder">
+<Layout>
 	<section class="flex flex-col items-center justify-center mt-[142px]">
-		<iframe src="https://ghbtns.com/github-btn.html?user=grafbase&repo=grafbase&type=star&count=true&size=large" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
+		<iframe style="margin-left: 38px" src="https://ghbtns.com/github-btn.html?user=grafbase&repo=grafbase&type=star&count=true&size=large" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
 		<h1 class="text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 mt-12">Pathfinder</h1>
 		<p class="text-gray-300 mt-4 text-xl">Interact with your GraphQL API with ease.</p>
 		<button class="bg-gradient-to-r from-purple-500 to-blue-500 px-6 py-4 rounded-md mt-10 flex items-center gap-2 justify-center">
@@ -14,7 +14,7 @@ import previewImage from '../images/preview.jpg';
 			<!--	<path d="M16.8617 12.3181C16.8617 10.796 17.5851 9.68519 18.9894 8.82126C18.1809 7.71048 16.9894 7.13452 15.4149 7.0111C13.883 6.88768 12.2234 7.8339 11.6277 7.8339C10.9894 7.8339 9.54255 7.05224 8.39362 7.05224C6.01064 7.09338 3.5 8.8624 3.5 12.5238C3.5 13.5935 3.67021 14.7043 4.09574 15.8562C4.64894 17.3783 6.60638 21.0809 8.64894 20.9986C9.71277 20.9986 10.4787 20.2581 11.883 20.2581C13.2447 20.2581 13.9255 20.9986 15.117 20.9986C17.2021 20.9986 18.9894 17.6252 19.5 16.103C16.734 14.8277 16.8617 12.4004 16.8617 12.3181Z" fill="white"/>-->
 			<!--	<path d="M15.4958 1C15.4958 1.41044 15.623 2.52983 14.4783 3.72384C13.6304 4.58204 12.613 5.06711 11.5107 4.99248C11.4259 3.98503 11.8499 3.05221 12.613 2.30595C13.2913 1.63432 14.4783 1.07463 15.4958 1Z" fill="white"/>-->
 			<!--</svg>-->
-			<span class="text-white font-medium">Coming soon!</span>
+			<span class="text-white font-medium text-xl">Coming soon!</span>
 		</button>
 	</section>
 	<section>
@@ -198,7 +198,7 @@ import previewImage from '../images/preview.jpg';
 				<div class="h-[750px] rounded-md  bg-gradient-to-r from-purple-500 to-blue-500 blur-3xl opacity-50">
 				</div>
 			</div>
-			<Image src={previewImage} alt="Pathfinder preview image" class="w-10/12 mx-auto opacity-80 hover:opacity-90 transition"/>
+			<Image src={previewImage} alt="Pathfinder preview image" class="w-10/12 mx-auto relative"/>
 		</div>
 	</section>
 </Layout>
