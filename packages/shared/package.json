@@ -9,6 +9,6 @@
   "devDependencies": {
     "@pathfinder/eslint-config": "workspace:*",
     "@pathfinder/tsconfig": "workspace:*",
-    "zustand": "4.3.9"
+    "zustand": "4.4.1"
   }
 }
