@@ -3,6 +3,7 @@ import { RecipeVariants } from "@pathfinder/style";
 import { Caret } from "./caret";
 import { Chevron } from "./chevron";
 import { Close } from "./close";
+import { Compass } from "./compass";
 import { Delete } from "./delete";
 import { Docs } from "./docs";
 import { Ellipsis } from "./ellipsis";
@@ -18,6 +19,7 @@ export const IconMap = {
   Caret,
   Chevron,
   Close,
+  Compass,
   Delete,
   Docs,
   Ellipsis,
