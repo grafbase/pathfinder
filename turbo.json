@@ -3,6 +3,7 @@
   "pipeline": {
     "lint": {},
     "types": {},
+    "dev": {},
     "test:once": {},
     "test:watch": {}
   }
