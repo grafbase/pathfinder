@@ -1,21 +1,21 @@
-import { editorTabsStore } from "../editor-tabs-store";
-
-import type { EditorTabsStoreActions } from "../editor-tabs-store.types";
+import { sessionStore } from "../../../session-store";
 
 import { setEditorValues } from "./set-editor-values";
 
-export const closeEditorTab: EditorTabsStoreActions["closeEditorTab"] = ({
+import type { EditorTabsActions } from "..//editor-tabs.types";
+
+export const closeEditorTab: EditorTabsActions["closeEditorTab"] = ({
   tabId,
 }) => {
-  const isActiveTab = tabId === editorTabsStore.getState().activeTab.tabId;
+  const isActiveTab = tabId === sessionStore.getState().activeTab.tabId;
 
-  const filteredTabs = editorTabsStore
+  const filteredTabs = sessionStore
     .getState()
     .tabs.filter((tab) => tab.tabId !== tabId);
 
   if (isActiveTab) {
     // if we're closing the active tab, we set the first tab as the activeTab
-    editorTabsStore.setState({
+    sessionStore.setState({
       activeTab: filteredTabs[0],
       tabs: filteredTabs,
     });
@@ -29,7 +29,7 @@ export const closeEditorTab: EditorTabsStoreActions["closeEditorTab"] = ({
       ),
     });
   } else {
-    return editorTabsStore.setState({
+    return sessionStore.setState({
       tabs: filteredTabs,
     });
   }

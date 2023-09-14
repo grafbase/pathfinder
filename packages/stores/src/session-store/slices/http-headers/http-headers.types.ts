@@ -14,8 +14,8 @@ export type UpdateHeaderStatus = {
   enabled: boolean;
 };
 
-export type HTTPHeadersStoreActions = {
-  addEmptyHeader: () => void;
+export type HTTPHeadersActions = {
+  addEmptyHeader: ({ enabled }: { enabled?: boolean }) => void;
   removeHeader: ({ id }: { id: string }) => void;
   updateHeader: ({
     id,
@@ -26,6 +26,6 @@ export type HTTPHeadersStoreActions = {
   }) => void;
 };
 
-export type HTTPHeadersStoreState = {
+export type HTTPHeadersState = {
   headers: HTTPHeaderValue[];
 };

@@ -1,8 +1,8 @@
 import { VARIABLES_EDITOR_DEFAULT_VALUE } from "@pathfinder/shared";
 
-import type { VariablesStoreState } from "./variables-store.types";
+import type { VariablesState } from "./variables.types";
 
-export const INITIAL_VARIABLES_STATE: VariablesStoreState = {
+export const INITIAL_VARIABLES_STATE: VariablesState = {
   variablesString: VARIABLES_EDITOR_DEFAULT_VALUE,
 };
 

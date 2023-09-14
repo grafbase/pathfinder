@@ -1,9 +1,6 @@
-// import type monaco from "monaco-graphql/esm/monaco-editor";
-import type monaco from "monaco-editor/esm/vs/editor/editor.api";
+import type { MonacoIPosition } from "../../../monaco-editor-store";
 
-type MonacoIPosition = monaco.IPosition;
-
-import { ExecutionResponse } from "../schema-store";
+import type { ExecutionResponse } from "../../../schema-store";
 
 export type EditorTab = {
   tabId: string;
@@ -22,17 +19,12 @@ export type EditorTab = {
   latestResponse: ExecutionResponse | null;
 };
 
-export type EditorTabsStoreState = {
-  /**
-   * A boolean indicating whether Zustand's persist middleware has rehydrated our state
-   */
-  _hasHydrated: boolean;
-
+export type EditorTabsState = {
   activeTab: EditorTab;
   tabs: EditorTab[];
 };
 
-export type EditorTabsStoreActions = {
+export type EditorTabsActions = {
   closeEditorTab: ({ tabId }: { tabId: string }) => void;
   initNewEditorTab: () => void;
   switchEditorTab: ({ destinationTabId }: { destinationTabId: string }) => void;

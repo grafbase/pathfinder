@@ -1,33 +1,58 @@
 import { buildClientSchema, getIntrospectionQuery } from "graphql";
 
-import type { IntrospectionQuery } from "graphql";
+import type { GraphQLError, IntrospectionQuery } from "graphql";
 
 import { httpFetcher } from "./http-fetcher";
 
 import type { SchemaStoreActions } from "../schema-store.types";
+import { schemaStore } from "../schema-store";
 
 export const getSchemaViaIntrospection: SchemaStoreActions["getSchemaViaIntrospection"] =
-  async ({ endpoint, headers }) => {
+  async () => {
+    schemaStore.setState({
+      isIntrospecting: true,
+    });
+
     const fetchResult = await httpFetcher({
-      endpoint,
       graphQLParams: {
         query: getIntrospectionQuery(),
         operationName: "IntrospectionQuery",
       },
-      headers,
     });
 
     if (!fetchResult) {
+      // TODO: report introspection error here
+      schemaStore.setState({
+        isIntrospecting: false,
+      });
       return null;
     }
 
-    const { data } = await fetchResult.json();
+    const { data, errors } = await fetchResult.json();
+
+    console.log("getSchemaViaIntrospection", { fetchResult, data, errors });
+
+    if (errors) {
+      schemaStore.setState({
+        isIntrospecting: false,
+        introspectionErrors: errors.map((error: GraphQLError) => error.message),
+      });
+      return null;
+    }
 
     try {
       const schema = buildClientSchema(data as unknown as IntrospectionQuery);
+      schemaStore.setState({
+        introspectionErrors: [],
+        isIntrospecting: false,
+      });
       return schema;
     } catch (error) {
       console.error("Error when attempting to buildClientSchema", { error });
+      schemaStore.setState({
+        introspectionErrors: [error as string],
+        isIntrospecting: false,
+      });
       return null;
     }
   };

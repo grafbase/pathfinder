@@ -1,15 +1,15 @@
 import { RESPONSE_EDITOR_DEFAULT_VALUE } from "@pathfinder/shared";
 
+import { sessionStore } from "../../../session-store";
+
 import { setEditorValues } from "./set-editor-values";
 
-import { editorTabsStore } from "../editor-tabs-store";
+import type { EditorTabsActions } from "../editor-tabs.types";
 
-import type { EditorTabsStoreActions } from "../editor-tabs-store.types";
-
-export const switchEditorTab: EditorTabsStoreActions["switchEditorTab"] = ({
+export const switchEditorTab: EditorTabsActions["switchEditorTab"] = ({
   destinationTabId,
 }) => {
-  const tabs = editorTabsStore.getState().tabs;
+  const tabs = sessionStore.getState().tabs;
 
   const destinationTab = tabs.find((tab) => tab.tabId === destinationTabId);
 
@@ -19,7 +19,7 @@ export const switchEditorTab: EditorTabsStoreActions["switchEditorTab"] = ({
     // the call to setDocumentState will update the documentString and tabName for our activeTab,
     // so we need to set the activeTab _first_
 
-    editorTabsStore.setState({
+    sessionStore.setState({
       activeTab: destinationTab,
     });
 

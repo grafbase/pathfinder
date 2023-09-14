@@ -1,10 +1,11 @@
 import { contract, style } from "@pathfinder/style";
 
-export const variablesClass = style({
+export const variablesWrapClass = style({
   display: "flex",
   flexDirection: "column",
   width: "100%",
   height: "100%",
+  padding: contract.space[12],
 });
 
 export const variablesEditorWrapClass = style({

@@ -1,8 +1,8 @@
-import { HTTPHeadersStore } from "../http-headers-store";
+import { sessionStore } from "../../../session-store";
 
-import type { HTTPHeadersStoreActions } from "../http-headers-store.types";
+import type { HTTPHeadersActions } from "../http-headers.types";
 
-export const updateHeader: HTTPHeadersStoreActions["updateHeader"] = ({
+export const updateHeader: HTTPHeadersActions["updateHeader"] = ({
   id,
   payload,
 }) => {
@@ -11,7 +11,7 @@ export const updateHeader: HTTPHeadersStoreActions["updateHeader"] = ({
       ? { [payload.keyOrValue]: payload.value }
       : { enabled: payload.enabled };
 
-  const headers = [...HTTPHeadersStore.getState().headers];
+  const headers = [...sessionStore.getState().headers];
   const existingHeaderIndex = headers.findIndex((header) => header.id === id);
 
   headers[existingHeaderIndex] = {
@@ -19,5 +19,5 @@ export const updateHeader: HTTPHeadersStoreActions["updateHeader"] = ({
     ...update,
   };
 
-  HTTPHeadersStore.setState({ headers });
+  return sessionStore.setState({ headers });
 };

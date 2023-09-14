@@ -11,7 +11,7 @@ export type ExecutionResponse = {
   duration: number;
   request: {
     endpoint: string;
-    headers: AcceptableHeaders;
+    headers: HeadersInit;
     graphQLOperationParams: GraphQLOperationParams;
   };
   response: {
@@ -25,31 +25,16 @@ export type ExecutionResponse = {
 export type AcceptableHeaders = [string, string][];
 
 export type SchemaStoreActions = {
-  doSchemaPolling: ({
-    endpoint,
-    headers,
-  }: {
-    endpoint: string;
-    headers: AcceptableHeaders;
-  }) => void;
+  doSchemaPolling: () => void;
   executeOperation: () => Promise<void>;
-  getSchemaViaIntrospection: ({
-    endpoint,
-    headers,
-  }: {
-    endpoint: string;
-    headers: AcceptableHeaders;
-  }) => Promise<GraphQLSchema | null>;
+  getSchemaViaIntrospection: () => Promise<GraphQLSchema | null>;
   httpFetcher: ({
-    endpoint,
     graphQLParams,
-    headers,
   }: {
-    endpoint: string;
     graphQLParams: GraphQLOperationParams;
-    headers: AcceptableHeaders;
   }) => Promise<Response | void>;
   loadSchema: () => Promise<void>;
+  prepareRequest: () => { endpoint: string; headers: HeadersInit };
   resetSchemaPolling: () => void;
   setSchemaPollingTimer: ({
     pollingTimer,
@@ -59,14 +44,9 @@ export type SchemaStoreActions = {
 };
 
 export type SchemaStoreState = {
-  /**
-   * Options to be used within our fetcher implementation
-   */
-  fetcherOptions?: {
-    endpoint: string;
-    headers?: AcceptableHeaders;
-  } | null;
+  introspectionErrors: Array<string>;
   isExecuting: boolean;
+  isIntrospecting: boolean;
   isLoadingSchema: boolean;
   latestResponse: ExecutionResponse | null;
   pollingTimer: NodeJS.Timeout | null;

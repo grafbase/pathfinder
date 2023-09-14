@@ -1,14 +1,11 @@
-import { editorTabsStore } from "../editor-tabs-store";
+import { sessionStore } from "../../../session-store";
 
-import type {
-  EditorTab,
-  EditorTabsStoreActions,
-} from "../editor-tabs-store.types";
+import type { EditorTab, EditorTabsActions } from "../editor-tabs.types";
 
-export const updateActiveEditorTab: EditorTabsStoreActions["updateActiveEditorTab"] =
+export const updateActiveEditorTab: EditorTabsActions["updateActiveEditorTab"] =
   ({ partialTab }) => {
-    const activeTab = editorTabsStore.getState().activeTab;
-    const tabs = editorTabsStore.getState().tabs;
+    const activeTab = sessionStore.getState().activeTab;
+    const tabs = sessionStore.getState().tabs;
 
     const updatedTab: EditorTab = {
       tabId: partialTab.tabId || activeTab.tabId,
@@ -24,7 +21,7 @@ export const updateActiveEditorTab: EditorTabsStoreActions["updateActiveEditorTa
       tabs[index] = updatedTab;
     }
 
-    return editorTabsStore.setState({
+    return sessionStore.setState({
       activeTab: updatedTab,
       tabs,
     });

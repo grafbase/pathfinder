@@ -13,10 +13,7 @@ import type { SchemaStoreActions } from "../schema-store.types";
 
 const TIMEOUT = 10000;
 
-export const doSchemaPolling: SchemaStoreActions["doSchemaPolling"] = ({
-  endpoint,
-  headers,
-}) => {
+export const doSchemaPolling: SchemaStoreActions["doSchemaPolling"] = () => {
   // if we have don't have a timer set, we can begin
   if (!schemaStore.getState().pollingTimer) {
     // get a reference to our editor so we can calculate the cursor position down below
@@ -25,10 +22,7 @@ export const doSchemaPolling: SchemaStoreActions["doSchemaPolling"] = ({
     const fetchSchema = async () => {
       const previousSchema = JSON.stringify(schemaStore.getState().schema);
 
-      const introspectionResult = await getSchemaViaIntrospection({
-        endpoint,
-        headers,
-      });
+      const introspectionResult = await getSchemaViaIntrospection();
 
       // there was some error with this poll, we bail and assume we'll get a different result for the next poll
       if (!introspectionResult) {
