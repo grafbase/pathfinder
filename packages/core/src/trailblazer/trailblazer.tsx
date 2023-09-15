@@ -7,7 +7,7 @@ import {
   getNamespacedStorageName,
   initializeTheme,
   loadSchema,
-  pluginsStore,
+  usePluginsStore,
   resetSchemaPolling,
   useSessionStore,
   useSchemaStore,
@@ -33,7 +33,7 @@ export const Trailblazer = ({
     initializeTheme({ overrides: themeProps?.theme?.overrides });
 
     // set our plugins into state
-    pluginsStore.setState({
+    usePluginsStore.setState({
       ...plugins,
     });
 

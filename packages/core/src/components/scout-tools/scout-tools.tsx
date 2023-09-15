@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { pluginsStore } from "@pathfinder/stores";
+import { usePluginsStore } from "@pathfinder/stores";
 
 import { useResizer } from "../resizer";
 import { HTTPHeaderControl } from "../http-header-control";
@@ -14,11 +14,13 @@ export const ScoutTools = () => {
 
   const { initialSize, pane1Size, resetPane } = useResizer();
 
-  const scoutToolsPlugins = pluginsStore.getState().scoutTools.map((tool) => ({
-    buttonCopy: tool.buttonCopy,
-    content: tool.content,
-    name: tool.name,
-  }));
+  const scoutToolsPlugins = usePluginsStore
+    .getState()
+    .scoutTools.map((tool) => ({
+      buttonCopy: tool.buttonCopy,
+      content: tool.content,
+      name: tool.name,
+    }));
 
   return (
     <div className={scoutToolsClass}>

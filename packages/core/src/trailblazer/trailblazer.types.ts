@@ -12,7 +12,8 @@ type SchemaStoreProps = Pick<SchemaStoreState, "withPolling"> & {
 };
 
 type PathfinderPlugins = {
-  scoutTools: PluginsStoreState["scoutTools"];
+  schemaAwarePlugins?: PluginsStoreState["schemaAwarePlugins"];
+  scoutTools?: PluginsStoreState["scoutTools"];
 };
 
 export type TrailblazerProps = {

@@ -5,7 +5,7 @@ import { Pathfinder } from "../pathfinder";
 
 import {
   useSessionStore,
-  pluginsStore,
+  usePluginsStore,
   setTheme,
   themeStore,
 } from "@pathfinder/stores";
@@ -141,7 +141,7 @@ describe("Trailblazer props", () => {
       useSessionStore.setState({ _hasHydrated: true });
     });
 
-    const scoutTools = pluginsStore.getState().scoutTools;
+    const scoutTools = usePluginsStore.getState().scoutTools;
 
     expect(JSON.stringify(scoutTools)).toEqual(
       JSON.stringify([

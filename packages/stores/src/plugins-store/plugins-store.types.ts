@@ -6,7 +6,14 @@ export type ScoutToolPlugin = {
   name: string;
 };
 
+export type SchemaAwarePlugin = {
+  buttonContent: ElementType;
+  pluginContent: ElementType;
+  name: string;
+};
+
 export type PluginsStoreState = {
+  schemaAwarePlugins: SchemaAwarePlugin[];
   scoutTools: ScoutToolPlugin[];
 };
 
