@@ -10,7 +10,7 @@ import {
 import { editorClass } from "./editor.css";
 import type { EditorProps } from "./editor.types";
 
-// import "./workers";
+import "./workers";
 
 export const Editor = ({
   actions,
