@@ -2,7 +2,7 @@ import { Pathfinder, Trailblazer } from "@pathfinder/core";
 import { useState } from "react";
 
 export const App = () => {
-  const [url, setUrl] = useState("https://api.react-finland.fi/graphql");
+  const [url, setUrl] = useState("https://graphql.earthdata.nasa.gov/api");
 
   return (
     <div style={{ height: "100%", width: "100%", padding: 0, margin: 0 }}>
