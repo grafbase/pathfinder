@@ -32,7 +32,7 @@ export const App = () => {
             padding: "7px",
             width: "75%",
             color: "rgb(191,191,191)",
-            backgroundColor: "rgb(24,24,24)",
+            backgroundColor: "rgba(24,24,24,0.75)",
             borderRadius: "8px",
             border: "1px solid transparent",
           }}
