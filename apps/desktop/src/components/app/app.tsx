@@ -5,8 +5,8 @@ export const App = () => {
     <Trailblazer
       schemaProps={{
         fetcherOptions: {
-          endpoint: "http://localhost:4000/graphql",
-          headers: [["x-api-key", ""]],
+          endpoint: "https://graphql.earthdata.nasa.gov/api",
+          headers: [],
         },
       }}
     >
