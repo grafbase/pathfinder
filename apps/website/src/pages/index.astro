@@ -19,7 +19,7 @@ import previewImage from '../images/preview.jpg';
 	</section>
 	<section>
 		<div class="my-32 relative container mx-auto">
-			<div class="absolute top-0 overflow-hidden">
+			<div class="absolute top-0 overflow-hidden opacity-50">
 				<svg height="750" viewBox="0 0 1398 663" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<g opacity="0.4">
 						<line opacity="0.3" y1="-0.517969" x2="626.742" y2="-0.517969" transform="matrix(-4.37114e-08 -1 -1 4.37114e-08 900.25 662.742)" stroke="url(#paint0_linear_2_14)" stroke-width="1.03594"/>
@@ -194,12 +194,98 @@ import previewImage from '../images/preview.jpg';
 					</defs>
 				</svg>
 			</div>
-			<div class="absolute h-[750px] w-full top-0">
-				<div class="h-[750px] rounded-md  bg-gradient-to-r from-purple-500 to-blue-500 blur-3xl opacity-50">
+			<div class="absolute h-[750px] w-full top-52 items-center justify-center">
+				<div class="h-[100px] rounded-md  bg-gradient-to-r from-purple-500 to-blue-500 blur-xl opacity-25 scale-[5]">
 				</div>
 			</div>
-			<Image src={previewImage} alt="Pathfinder preview image" class="w-10/12 mx-auto relative"/>
+			<img src={previewImage.src} alt="Pathfinder preview image" class="w-10/12 mx-auto relative"/>
 		</div>
+	</section>
+	<section class="relative flex flex-col items-center justify-center my-[220px]">
+		<div class="absolute h-[250px] w-[250px] top-52">
+			<div class="h-[200px] w-[200px] rounded-md bg-gradient-to-r from-purple-500 to-blue-500 blur-3xl">
+			</div>
+		</div>
+		<div class="absolute top-5">
+			<svg width="1440" height="625" viewBox="0 0 1440 625" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M-24 3.99927L245 89.4993L372 233.999L590 290.499L617 283.999" stroke="url(#paint0_linear_11_18799)"/>
+				<circle opacity="0.5" cx="245" cy="89.8459" r="3.5" fill="#B9DDFF" stroke="#388CD9"/>
+				<circle opacity="0.7" cx="372" cy="233.846" r="3.5" fill="#B9DDFF" stroke="#388CD9"/>
+				<circle cx="590" cy="290.846" r="3.5" fill="#B9DDFF" stroke="#388CD9"/>
+				<path d="M-73.7728 372.732L201.938 312.277L384.173 373.918L601.217 313.848L621.349 294.719" stroke="url(#paint1_linear_11_18799)"/>
+				<circle opacity="0.5" cx="202.111" cy="312.578" r="3.5" transform="rotate(-30 202.111 312.578)" fill="#CFB9FF" stroke="#331F59"/>
+				<circle opacity="0.7" cx="384.097" cy="373.785" r="3.5" transform="rotate(-30 384.097 373.785)" fill="#CFB9FF" stroke="#331F59"/>
+				<circle cx="601.39" cy="314.149" r="3.5" transform="rotate(-30 601.39 314.149)" fill="#CFB9FF" stroke="#331F59"/>
+				<path d="M1458.23 0.999268L1189.23 86.4993L1062.23 230.999L844.228 287.499L817.228 280.999" stroke="url(#paint2_linear_11_18799)"/>
+				<circle opacity="0.5" cx="4" cy="4" r="3.5" transform="matrix(-1 0 0 1 1193.23 82.8459)" fill="#CFB9FF" stroke="#331F59"/>
+				<circle opacity="0.7" cx="4" cy="4" r="3.5" transform="matrix(-1 0 0 1 1066.23 226.846)" fill="#CFB9FF" stroke="#331F59"/>
+				<circle cx="4" cy="4" r="3.5" transform="matrix(-1 0 0 1 848.228 283.846)" fill="#CFB9FF" stroke="#331F59"/>
+				<path d="M1508 368.732L1232.29 308.277L1050.05 369.918L833.011 309.848L812.878 290.719" stroke="url(#paint3_linear_11_18799)"/>
+				<circle opacity="0.5" cx="4" cy="4" r="3.5" transform="matrix(-0.866025 -0.5 -0.5 0.866025 1237.58 307.114)" fill="#B9DDFF" stroke="#388CD9"/>
+				<circle opacity="0.7" cx="4" cy="4" r="3.5" transform="matrix(-0.866025 -0.5 -0.5 0.866025 1055.6 368.321)" fill="#B9DDFF" stroke="#388CD9"/>
+				<circle cx="4" cy="4" r="3.5" transform="matrix(-0.866025 -0.5 -0.5 0.866025 838.302 308.685)" fill="#B9DDFF" stroke="#388CD9"/>
+				<defs>
+					<linearGradient id="paint0_linear_11_18799" x1="608.544" y1="286.946" x2="28.9171" y2="23.8897" gradientUnits="userSpaceOnUse">
+						<stop stop-color="#409ACC"/>
+						<stop offset="1" stop-color="#4089CC" stop-opacity="0.19"/>
+					</linearGradient>
+					<linearGradient id="paint1_linear_11_18799" x1="615.5" y1="301.499" x2="-18" y2="363.499" gradientUnits="userSpaceOnUse">
+						<stop stop-color="#8E40CC"/>
+						<stop offset="1" stop-color="#4089CC" stop-opacity="0.11"/>
+					</linearGradient>
+					<linearGradient id="paint2_linear_11_18799" x1="825.684" y1="283.946" x2="1405.31" y2="20.8897" gradientUnits="userSpaceOnUse">
+						<stop stop-color="#8E40CC"/>
+						<stop offset="1" stop-color="#4089CC" stop-opacity="0.11"/>
+					</linearGradient>
+					<linearGradient id="paint3_linear_11_18799" x1="818.728" y1="297.499" x2="1452.23" y2="359.499" gradientUnits="userSpaceOnUse">
+						<stop stop-color="#409ACC"/>
+						<stop offset="1" stop-color="#4089CC" stop-opacity="0.19"/>
+					</linearGradient>
+				</defs>
+			</svg>
+		</div>
+		<h1 class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 mt-12">Download</h1>
+		<p class="text-gray-300 mt-4 text-xl">Experience your GraphQL api like never before.</p>
+		<svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="mt-16 relative">
+			<g filter="url(#filter0_d_75_3677)">
+				<g clip-path="url(#clip0_75_3677)">
+					<rect x="16.5" y="12.8467" width="207" height="207" rx="48" fill="#16171B"/>
+					<rect x="16.5" y="12.8467" width="207" height="207" rx="48" fill="#131316"/>
+					<path d="M-80.4228 173.923C-47.9553 167.646 88.2456 144.54 101.72 123.923C115.194 103.306 78.83 87.397 97.0118 76.845C115.194 66.2931 159.349 69.2152 166.005 61.5853C172.661 53.9555 119.782 61.1783 125.745 49.8971C130.799 40.3375 239.777 40.9027 282.306 35.1736C284.748 34.2268 286.822 33.9719 288.551 34.1946C292.965 33.3787 296.17 32.4482 297.823 31.3697C313.245 21.3048 308.862 12.0724 313.732 9.79971C318.602 7.52699 358.05 -10.6548 358.05 -10.6548L397.441 82.3644C397.441 82.3644 285.161 45.0269 291.816 46.6503C297.203 47.9641 297.061 35.2909 288.551 34.1946C286.678 34.5407 284.587 34.8662 282.306 35.1736C281.914 35.3254 281.513 35.4949 281.102 35.6832C273.845 39.0094 133.004 45.6206 137.481 50.5728C141.959 55.5249 201.882 48.7174 201.882 58.8256C201.882 68.9337 152.58 71.6502 156.914 82.3644C161.248 93.0787 285.81 128.144 285.81 128.144L280.291 235.286H178.343C175.226 235.286 20.9839 220.135 -55.7475 212.559L-63.5397 191.455L-80.4228 173.923Z" fill="url(#paint0_linear_75_3677)"/>
+				</g>
+				<rect x="17" y="13.3467" width="206" height="206" rx="47.5" stroke="url(#paint1_radial_75_3677)"/>
+			</g>
+			<defs>
+				<filter id="filter0_d_75_3677" x="0.5" y="0.84668" width="239" height="239" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+					<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+					<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+					<feOffset dy="4"/>
+					<feGaussianBlur stdDeviation="8"/>
+					<feComposite in2="hardAlpha" operator="out"/>
+					<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.35 0"/>
+					<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_75_3677"/>
+					<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_75_3677" result="shape"/>
+				</filter>
+				<linearGradient id="paint0_linear_75_3677" x1="235" y1="30" x2="-13.929" y2="146.684" gradientUnits="userSpaceOnUse">
+					<stop stop-color="#9747FF"/>
+					<stop offset="1" stop-color="#E7D5FF"/>
+				</linearGradient>
+				<radialGradient id="paint1_radial_75_3677" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(16.5 13.1427) rotate(44.6101) scale(274.616 282.832)">
+					<stop stop-color="#DFE2ED"/>
+					<stop offset="1" stop-color="#383A43" stop-opacity="0.17"/>
+				</radialGradient>
+				<clipPath id="clip0_75_3677">
+					<rect x="16.5" y="12.8467" width="207" height="207" rx="48" fill="white"/>
+				</clipPath>
+			</defs>
+		</svg>
+		<button class="bg-gradient-to-r from-purple-500 to-blue-500 px-6 py-4 rounded-md mt-10 flex items-center gap-2 justify-center">
+			<!--<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+			<!--	<path d="M16.8617 12.3181C16.8617 10.796 17.5851 9.68519 18.9894 8.82126C18.1809 7.71048 16.9894 7.13452 15.4149 7.0111C13.883 6.88768 12.2234 7.8339 11.6277 7.8339C10.9894 7.8339 9.54255 7.05224 8.39362 7.05224C6.01064 7.09338 3.5 8.8624 3.5 12.5238C3.5 13.5935 3.67021 14.7043 4.09574 15.8562C4.64894 17.3783 6.60638 21.0809 8.64894 20.9986C9.71277 20.9986 10.4787 20.2581 11.883 20.2581C13.2447 20.2581 13.9255 20.9986 15.117 20.9986C17.2021 20.9986 18.9894 17.6252 19.5 16.103C16.734 14.8277 16.8617 12.4004 16.8617 12.3181Z" fill="white"/>-->
+			<!--	<path d="M15.4958 1C15.4958 1.41044 15.623 2.52983 14.4783 3.72384C13.6304 4.58204 12.613 5.06711 11.5107 4.99248C11.4259 3.98503 11.8499 3.05221 12.613 2.30595C13.2913 1.63432 14.4783 1.07463 15.4958 1Z" fill="white"/>-->
+			<!--</svg>-->
+			<span class="text-white font-medium text-xl">Coming soon!</span>
+		</button>
 	</section>
 </Layout>
 
