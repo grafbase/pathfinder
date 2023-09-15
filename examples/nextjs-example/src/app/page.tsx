@@ -25,10 +25,16 @@ export default function Home() {
     schemaProps={{
       fetcherOptions:{
         endpoint: "https://.com",
-        headers: [[
-          "x-api-key",
-          "XXX"
-        ]]
+        headers: [
+          {
+            key: "x-api-key",
+            value: "",
+          },
+          {
+            key: "Content-Type",
+            value: "application/graphql-response+json",
+          },
+        ]
       }
     }}
     >
