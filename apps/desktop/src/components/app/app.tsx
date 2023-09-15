@@ -30,7 +30,7 @@ export const App = () => {
             fontFamily:
               "Inter, -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif",
             padding: "7px",
-            width: "75%",
+            width: "50%",
             color: "rgb(191,191,191)",
             backgroundColor: "rgba(24,24,24,0.75)",
             borderRadius: "8px",
