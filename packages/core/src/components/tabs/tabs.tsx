@@ -32,7 +32,6 @@ export const Tabs = ({
       onChange={controlled?.setSelectedTabIndex || undefined}
       selectedIndex={controlled?.selectedTabIndex || undefined}
     >
-      <div style={{ height: "25px" }} />
       <div className={tabGroupClass}>
         <Tab.List>
           <div
