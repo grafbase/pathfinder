@@ -8,6 +8,7 @@ import { Delete } from "./delete";
 import { Docs } from "./docs";
 import { Ellipsis } from "./ellipsis";
 import { Gear } from "./gear";
+import { GraphQL } from "./graphql";
 import { InsertNewOperation } from "./insert-new-operation";
 import { Interpunct } from "./interpunct";
 import { Plus } from "./plus";
@@ -24,6 +25,7 @@ export const IconMap = {
   Docs,
   Ellipsis,
   Gear,
+  GraphQL,
   InsertNewOperation,
   Interpunct,
   Plus,

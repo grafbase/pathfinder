@@ -1,4 +1,5 @@
 import { Pathfinder } from "../pathfinder";
+import { PluginSchemaAwareSchemaView } from "../plugin-schema-aware-schema-view";
 import { PluginScoutHistory } from "../plugin-scout-history";
 import { Scout } from "../scout";
 import { Trailblazer } from "./trailblazer";
@@ -36,6 +37,7 @@ export const WithPathfinder = () => {
   return (
     <Trailblazer
       plugins={{
+        schemaAwarePlugins: [PluginSchemaAwareSchemaView],
         scoutTools: [PluginScoutHistory],
       }}
       schemaProps={{

@@ -66,11 +66,6 @@ export const Welcome = () => {
     });
   }, []);
 
-  console.log("Welcome", {
-    endpointValue,
-    isIntrospecting,
-  });
-
   return (
     <div className={welcomeClass} data-testid="welcome-container">
       <div

@@ -7,11 +7,12 @@ import {
 import type { MonacoEditorStoreState } from "./monaco-editor-store.types";
 
 const INITIAL_MONACO_EDITOR_STORE_STATE: MonacoEditorStoreState = {
-  editors: {
+  managedEditors: {
     [DOCUMENT_EDITOR_ID]: null,
     [RESPONSE_EDITOR_ID]: null,
     [VARIABLES_EDITOR_ID]: null,
   },
+  unmanagedEditors: {},
   isInitialized: false,
 };
 
