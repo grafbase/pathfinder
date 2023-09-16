@@ -1,5 +1,5 @@
 export * from "./constants";
 
-export { createZustandSelectors } from "./utils";
+export * from "./utils";
 
 export type { AvailableThemes } from "./types";

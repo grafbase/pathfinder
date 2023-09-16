@@ -9,7 +9,7 @@ import { IconButton } from "../../../components/icon-button";
 
 import { type ListItemTypeTypes } from "../list-item";
 
-// import { useSchemaDocumentation } from "../../schema-documentation";
+import { useSchemaDocumentation } from "../../../schema-documentation";
 
 import {
   detailsActionsClass,
@@ -29,7 +29,7 @@ export const DetailsActions = ({
   showActions = false,
   type,
 }: DetailsActionsProps) => {
-  // const setActiveTertiaryPane = useSchemaDocumentation().setActiveTertiaryPane;
+  const setActiveTertiaryPane = useSchemaDocumentation().setActiveTertiaryPane;
 
   return (
     <div
@@ -40,8 +40,7 @@ export const DetailsActions = ({
       <div className={detailsActionsControlsClass}>
         <IconButton
           action={() => {
-            alert("fix me!");
-            // setActiveTertiaryPane({ destinationPane: type });
+            setActiveTertiaryPane({ destinationPane: type });
           }}
           iconName="Docs"
           title="View Quick Docs"

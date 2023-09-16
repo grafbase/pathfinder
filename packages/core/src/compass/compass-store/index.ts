@@ -15,5 +15,4 @@ export {
   findSelection,
   generateSelectionBreadcrumbsFromAncestors,
   insertNewOperation,
-  unwrapType,
 } from "./utils";

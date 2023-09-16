@@ -35,5 +35,3 @@ export { hasSiblingSelections } from "./has-sibling-selections";
 export { insertNewOperation } from "./insert-new-operation";
 
 export { unwrapNonNullArgumentType } from "./unwrap-non-null-argument-type";
-
-export { unwrapType } from "./unwrap-type";

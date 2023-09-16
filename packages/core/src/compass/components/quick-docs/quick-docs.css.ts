@@ -1,19 +1,22 @@
 import { contract, recipe, shared, style } from "@pathfinder/style";
 
 export const quickDocsClass = recipe({
-  base: {
-    backgroundColor: contract.color.neutral[2],
-    paddingTop: contract.space[8],
-    paddingBottom: contract.space[16],
-    borderRadius: contract.space[4],
-    position: "absolute",
-    top: contract.space[8],
-    left: contract.space[8],
-    overflowY: "auto",
-    height: `calc(100% - ${contract.space[16]})`,
-    width: `calc(100% - ${contract.space[16]})`,
-    transition: `all .15s ${shared.transitions.authenticMotion}`,
-  },
+  base: [
+    shared.scrollbars,
+    {
+      backgroundColor: contract.color.neutral[3],
+      border: `1px solid ${contract.color.neutral[5]}`,
+      paddingBottom: contract.space[12],
+      borderRadius: contract.space[4],
+      position: "absolute",
+      top: contract.space[12],
+      left: contract.space[12],
+      overflowY: "auto",
+      height: `calc(100% - ${contract.space[24]})`,
+      width: `calc(100% - ${contract.space[24]})`,
+      transition: `all .15s ${shared.transitions.authenticMotion}`,
+    },
+  ],
 
   variants: {
     dialogActive: {

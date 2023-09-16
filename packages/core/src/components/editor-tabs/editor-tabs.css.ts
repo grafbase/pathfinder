@@ -2,6 +2,10 @@ import { contract, recipe, shared, style } from "@pathfinder/style";
 
 export const editorTabsClass = style([
   shared.scrollbars,
+  shared.hairlineBorder({
+    border: "bottom",
+    onSurface: 1,
+  }),
   {
     width: "100%",
     height: 40,

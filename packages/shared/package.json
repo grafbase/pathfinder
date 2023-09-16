@@ -9,6 +9,7 @@
   "devDependencies": {
     "@pathfinder/eslint-config": "workspace:*",
     "@pathfinder/tsconfig": "workspace:*",
+    "graphql": "16.8.0",
     "zustand": "4.4.1"
   }
 }

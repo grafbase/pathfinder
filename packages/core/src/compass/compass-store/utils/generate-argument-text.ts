@@ -10,11 +10,13 @@ import {
   print,
 } from "graphql";
 
+import { unwrapType } from "@pathfinder/shared";
+
 import { DEFAULT_SCALAR_VALUES } from "../constants";
 
 import { compassStore } from "../compass-store";
 
-import { getEnumValues, unwrapType } from "../utils";
+import { getEnumValues } from "../utils";
 
 export const generateArgumentText = ({
   argument,

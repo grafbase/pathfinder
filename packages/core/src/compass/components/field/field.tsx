@@ -1,6 +1,7 @@
 import { FieldNode, isInterfaceType, isObjectType, isUnionType } from "graphql";
 
-import { unwrapType } from "../../compass-store";
+import { unwrapType } from "@pathfinder/shared";
+
 import type { AncestorField, AncestorsArray } from "../../compass-store";
 
 import { Arguments } from "../arguments";

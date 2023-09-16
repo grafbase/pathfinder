@@ -14,6 +14,7 @@ import {
   schemaAwarePluginClass,
   schemaAwarePluginsWrapClass,
 } from "./pathfinder.css";
+import { SchemaDocumentation } from "../schema-documentation";
 
 export const Pathfinder = () => {
   const activeTheme = useThemeStore.use.activeTheme();
@@ -43,6 +44,14 @@ export const Pathfinder = () => {
           onClick={() => setVisibleSchemaAwarePlugin("pathfinder_core")}
         >
           <Icon name={"Compass"} size={"large"} />
+        </button>
+        <button
+          className={schemaAwarePluginButtonClass({
+            isActive: visibleSchemaAwarePlugin === "schema_documentation",
+          })}
+          onClick={() => setVisibleSchemaAwarePlugin("schema_documentation")}
+        >
+          <Icon name={"Docs"} size={"large"} />
         </button>
         {schemaAwarePlugins.map((plugin) => {
           const Component = plugin.buttonContent;
@@ -76,6 +85,13 @@ export const Pathfinder = () => {
               initialSize: { type: "PERCENT", value: 70 },
             }}
           />
+        </div>
+        <div
+          className={schemaAwarePluginClass({
+            isVisible: visibleSchemaAwarePlugin === "schema_documentation",
+          })}
+        >
+          <SchemaDocumentation />
         </div>
         {schemaAwarePlugins.map((schemaAwarePlugin) => {
           const Component = schemaAwarePlugin.pluginContent;

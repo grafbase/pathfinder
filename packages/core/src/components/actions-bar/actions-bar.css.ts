@@ -1,11 +1,17 @@
-import { contract, style } from "@pathfinder/style";
+import { contract, shared, style } from "@pathfinder/style";
 
-export const actionsBarClass = style({
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
-  height: 48,
-});
+export const actionsBarClass = style([
+  shared.hairlineBorder({
+    border: "bottom",
+    onSurface: 1,
+  }),
+  {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    height: 48,
+  },
+]);
 
 export const actionsBarLeadClass = style({
   display: "flex",
