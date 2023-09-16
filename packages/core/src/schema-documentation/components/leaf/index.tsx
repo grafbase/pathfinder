@@ -10,7 +10,7 @@ import {
   GraphQLUnionType,
 } from "graphql";
 
-import { useSchemaDocumentation } from "../../stores";
+import { useSchemaDocumentationStore } from "../../store";
 
 import { ArgumentsList } from "../arguments-list";
 import {
@@ -70,7 +70,7 @@ export const LeafEnum = ({ type }: { type: GraphQLEnumType }) => {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const LeafField = ({ field }: { field: GraphQLField<any, any> }) => {
-  const { setActiveTertiaryPane } = useSchemaDocumentation();
+  const { setActiveTertiaryPane } = useSchemaDocumentationStore();
 
   return (
     <>

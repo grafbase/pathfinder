@@ -56,6 +56,7 @@ export const WithPathfinderWithoutSchemaProps = () => {
   return (
     <Trailblazer
       plugins={{
+        schemaAwarePlugins: [PluginSchemaAwareSchemaView],
         scoutTools: [PluginScoutHistory],
       }}
     >

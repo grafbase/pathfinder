@@ -4,6 +4,7 @@ export const sectionClass = style({
   display: "flex",
   flexDirection: "column",
   marginBottom: 24,
+  color: contract.color.neutral[12],
 });
 
 export const sectionLeadClass = style({

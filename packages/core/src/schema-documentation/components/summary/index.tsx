@@ -7,7 +7,7 @@ import type {
 
 import { unwrapType } from "@pathfinder/shared";
 
-import { useSchemaDocumentation } from "../../stores";
+import { useSchemaDocumentationStore } from "../../store";
 
 import { ArgumentsList } from "../arguments-list";
 import { DefaultValue } from "../default-value";
@@ -29,7 +29,7 @@ export const SummaryField = ({
   field: GraphQLField<any, any, any>;
   resetTertiaryPaneOnClick: boolean;
 }) => {
-  const { setActiveTertiaryPane } = useSchemaDocumentation();
+  const { setActiveTertiaryPane } = useSchemaDocumentationStore();
 
   return (
     <div className={summaryFieldClass}>
@@ -77,7 +77,7 @@ export const SummaryInputField = ({
 }: {
   inputField: GraphQLInputField;
 }) => {
-  const { setActiveTertiaryPane } = useSchemaDocumentation();
+  const { setActiveTertiaryPane } = useSchemaDocumentationStore();
 
   return (
     <div className={summaryFieldClass}>
@@ -95,9 +95,7 @@ export const SummaryInputField = ({
         {inputField.type.toString()}
       </button>
       <DefaultValue inputFieldOrArgument={inputField} />
-      {inputField.description && (
-        <Markdown content={inputField.description} showSummary={false} />
-      )}
+      {inputField.description && <Markdown content={inputField.description} />}
     </div>
   );
 };
@@ -111,7 +109,7 @@ export const SummaryType = ({
   showDescription: boolean;
   type: GraphQLNamedType | GraphQLDirective;
 }) => {
-  const { setActiveTertiaryPane } = useSchemaDocumentation();
+  const { setActiveTertiaryPane } = useSchemaDocumentationStore();
 
   return (
     <div className={summaryTypeClass}>
@@ -129,7 +127,7 @@ export const SummaryType = ({
         {type.name}
       </button>
       {showDescription && type.description && (
-        <Markdown content={type.description} showSummary={true} />
+        <Markdown content={type.description} />
       )}
     </div>
   );

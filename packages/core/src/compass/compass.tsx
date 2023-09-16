@@ -10,15 +10,15 @@ import { Tabs } from "../components";
 import { TabsProps } from "../components/tabs/tabs.types";
 
 import {
-  SchemaDocumentationProvider,
-  useSchemaDocumentation,
+  SchemaDocumentationStoreProvider,
+  useSchemaDocumentationStore,
 } from "../schema-documentation";
 
 export const Compass = () => {
   return (
-    <SchemaDocumentationProvider>
+    <SchemaDocumentationStoreProvider>
       <CompassComponent />
-    </SchemaDocumentationProvider>
+    </SchemaDocumentationStoreProvider>
   );
 };
 
@@ -26,7 +26,7 @@ const CompassComponent = () => {
   // local state to control whether we should show the query or mutation tab
   const [selectedTabIndex, setSelectedTabIndex] = useState<number>(0);
 
-  const { activeTertiaryPane } = useSchemaDocumentation();
+  const { activeTertiaryPane } = useSchemaDocumentationStore();
 
   const schema = useSchemaStore.use.schema();
 

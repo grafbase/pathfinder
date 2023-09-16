@@ -1,15 +1,15 @@
 import { init as initCuid } from "@paralleldrive/cuid2";
 
 import {
-  GetUseSchemaDocumentationStore,
-  SetUseSchemaDocumentationStore,
-  UseSchemaDocumentationActions,
-} from "./use-schema-documentation.types";
+  GetSchemaDocumentationStore,
+  SetSchemaDocumentationStore,
+  SchemaDocumentationStoreActions,
+} from "./schema-documentation-store.types";
 
-export const useSchemaDocumentationActions = (
-  set: SetUseSchemaDocumentationStore,
-  get: GetUseSchemaDocumentationStore,
-): UseSchemaDocumentationActions => ({
+export const schemaDocumentationStoreActions = (
+  set: SetSchemaDocumentationStore,
+  get: GetSchemaDocumentationStore,
+): SchemaDocumentationStoreActions => ({
   setActivePrimaryPane: ({ destinationPane }) => {
     set({ activePrimaryPane: destinationPane });
   },

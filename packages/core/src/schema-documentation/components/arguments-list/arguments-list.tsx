@@ -2,7 +2,7 @@ import { GraphQLArgument, isInputObjectType } from "graphql";
 
 import { unwrapType } from "@pathfinder/shared";
 
-import { useSchemaDocumentation } from "../../stores";
+import { useSchemaDocumentationStore } from "../../store";
 
 import { DefaultValue } from "../default-value";
 
@@ -30,7 +30,7 @@ export const ArgumentsList = ({
   showBorder?: boolean;
   showDescription?: boolean;
 }) => {
-  const { setActiveTertiaryPane } = useSchemaDocumentation();
+  const { setActiveTertiaryPane } = useSchemaDocumentationStore();
 
   if (args.length < 1) {
     return null;
@@ -67,7 +67,7 @@ export const ArgumentsList = ({
               <DefaultValue inputFieldOrArgument={a} />
             </div>
             {showDescription && a.description && (
-              <Markdown content={a.description} showSummary={true} />
+              <Markdown content={a.description} />
             )}
           </div>
         ))}

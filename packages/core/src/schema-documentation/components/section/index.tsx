@@ -74,9 +74,7 @@ export const SectionEnumValues = ({
       {enumValues.map((val) => (
         <div key={val.name}>
           <div className={enumValueClass}>{val.name}</div>
-          {val.description && (
-            <Markdown content={val.description} showSummary={false} />
-          )}
+          {val.description && <Markdown content={val.description} />}
         </div>
       ))}
     </Section>

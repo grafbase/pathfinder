@@ -1,9 +1,9 @@
 import { useSchemaStore } from "@pathfinder/stores";
 
 import {
-  SchemaDocumentationProvider,
-  useSchemaDocumentation,
-} from "../../stores";
+  SchemaDocumentationStoreProvider,
+  useSchemaDocumentationStore,
+} from "../../store";
 
 import { sortTypes } from "../../utils";
 
@@ -26,9 +26,9 @@ import { sharedPaneClass } from "../../shared.styles.css";
 
 export const SchemaDocumentation = () => {
   return (
-    <SchemaDocumentationProvider>
+    <SchemaDocumentationStoreProvider>
       <SchemaDocumentationComponent />
-    </SchemaDocumentationProvider>
+    </SchemaDocumentationStoreProvider>
   );
 };
 
@@ -36,7 +36,7 @@ const SchemaDocumentationComponent = () => {
   const schema = useSchemaStore.use.schema();
 
   const { activePrimaryPane, activeTertiaryPane, tertiaryPaneStack } =
-    useSchemaDocumentation();
+    useSchemaDocumentationStore();
 
   if (!schema) {
     return null;

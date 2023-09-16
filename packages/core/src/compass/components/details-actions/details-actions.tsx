@@ -9,7 +9,7 @@ import { IconButton } from "../../../components/icon-button";
 
 import { type ListItemTypeTypes } from "../list-item";
 
-import { useSchemaDocumentation } from "../../../schema-documentation";
+import { useSchemaDocumentationStore } from "../../../schema-documentation";
 
 import {
   detailsActionsClass,
@@ -29,7 +29,8 @@ export const DetailsActions = ({
   showActions = false,
   type,
 }: DetailsActionsProps) => {
-  const setActiveTertiaryPane = useSchemaDocumentation().setActiveTertiaryPane;
+  const setActiveTertiaryPane =
+    useSchemaDocumentationStore().setActiveTertiaryPane;
 
   return (
     <div

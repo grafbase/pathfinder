@@ -1,24 +1,11 @@
-import { contract, globalStyle, recipe } from "@pathfinder/style";
+import { contract, globalStyle, style } from "@pathfinder/style";
 
-export const markdownClass = recipe({
-  base: {
-    display: "flex",
-    flexDirection: "column",
-    paddingTop: 4,
-    paddingBottom: 4,
-    color: contract.color.neutral[12],
-  },
-
-  variants: {
-    showSummary: {
-      true: {
-        "& > :not(:first-child)": {
-          display: "none",
-        },
-        opacity: 0.7,
-      },
-    },
-  },
+export const markdownClass = style({
+  display: "flex",
+  flexDirection: "column",
+  paddingTop: 4,
+  paddingBottom: 4,
+  color: contract.color.neutral[12],
 });
 
 const sharedMarkdownStyles = {
@@ -29,28 +16,28 @@ const sharedMarkdownStyles = {
   marginBottom: 12,
 };
 
-globalStyle(`${markdownClass()} > :first-child`, {
+globalStyle(`${markdownClass} > :first-child`, {
   marginTop: 0,
 });
 
-globalStyle(`${markdownClass()} > :last-child`, {
+globalStyle(`${markdownClass} > :last-child`, {
   marginBottom: 0,
 });
 
-globalStyle(`${markdownClass()} blockquote`, {
+globalStyle(`${markdownClass} blockquote`, {
   marginLeft: 0,
   marginRight: 0,
   paddingLeft: 8,
   borderLeft: `2px solid ${contract.color.neutral[7]}`,
 });
 
-globalStyle(`${markdownClass()} code`, {
+globalStyle(`${markdownClass} code`, {
   borderRadius: 2,
   backgroundColor: contract.color.neutral[4],
   padding: 2,
 });
 
-globalStyle(`${markdownClass()} pre`, {
+globalStyle(`${markdownClass} pre`, {
   overflow: "auto",
   padding: 8,
   borderRadius: 4,
@@ -58,48 +45,48 @@ globalStyle(`${markdownClass()} pre`, {
   ...sharedMarkdownStyles,
 });
 
-globalStyle(`${markdownClass()} ol`, {
+globalStyle(`${markdownClass} ol`, {
   listStyleType: "decimal",
   paddingLeft: 16,
   ...sharedMarkdownStyles,
 });
 
-globalStyle(`${markdownClass()} p`, {
+globalStyle(`${markdownClass} p`, {
   ...sharedMarkdownStyles,
 });
 
-globalStyle(`${markdownClass()} blockquote`, {
+globalStyle(`${markdownClass} blockquote`, {
   ...sharedMarkdownStyles,
 });
 
-globalStyle(`${markdownClass()} dl`, {
+globalStyle(`${markdownClass} dl`, {
   ...sharedMarkdownStyles,
 });
 
-globalStyle(`${markdownClass()} table`, {
+globalStyle(`${markdownClass} table`, {
   ...sharedMarkdownStyles,
 });
 
-globalStyle(`${markdownClass()} details`, {
+globalStyle(`${markdownClass} details`, {
   ...sharedMarkdownStyles,
 });
 
-globalStyle(`${markdownClass()} ul`, {
+globalStyle(`${markdownClass} ul`, {
   listStyleType: "disc",
   paddingLeft: 16,
   ...sharedMarkdownStyles,
 });
 
-globalStyle(`${markdownClass()} a`, {
+globalStyle(`${markdownClass} a`, {
   color: contract.color.blue[12],
 });
 
-globalStyle(`${markdownClass()} hr`, {
+globalStyle(`${markdownClass} hr`, {
   all: "unset",
   borderTop: `1px solid ${contract.color.neutral[8]}`,
 });
 
-globalStyle(`${markdownClass()} img`, {
+globalStyle(`${markdownClass} img`, {
   maxHeight: 120,
   maxWidth: 100,
 });

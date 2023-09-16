@@ -11,7 +11,7 @@ import {
   isUnionType,
 } from "graphql";
 
-import { useSchemaDocumentation } from "../../stores";
+import { useSchemaDocumentationStore } from "../../store";
 
 import {
   LeafScalar,
@@ -43,7 +43,7 @@ export const TertiaryPane = ({ pane }: { pane: TertiaryPaneType }) => {
     clearTertiaryPaneStack,
     navigateTertiaryPaneStack,
     tertiaryPaneStack,
-  } = useSchemaDocumentation();
+  } = useSchemaDocumentationStore();
 
   if (!activeTertiaryPane) {
     return null;
