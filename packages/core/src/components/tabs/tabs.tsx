@@ -8,11 +8,13 @@ import {
   tabPanelsClass,
 } from "./tabs.css";
 
+import { shared } from "@pathfinder/style";
+
 import { TabsProps } from "./tabs.types";
 
 export const Tabs = ({
   controlled,
-  styles: _,
+  styles,
   tabs,
   tabListHeight = 40,
 }: {
@@ -37,6 +39,9 @@ export const Tabs = ({
           <div
             className={`${tabListClass({
               tabListHeight,
+            })} ${shared.hairlineBorder({
+              border: "bottom",
+              onSurface: styles.onSurface,
             })}`}
           >
             {tabs.map((tab) => {
