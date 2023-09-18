@@ -1,5 +1,7 @@
 import { Pathfinder, Trailblazer } from "@pathfinder/core";
 import { useState, useEffect } from "react";
+import { shared } from "@pathfinder/style";
+import { appContainer } from "./app.css";
 
 export const App = () => {
   const [url, setUrl] = useState("https://graphql.earthdata.nasa.gov/api");
@@ -13,7 +15,7 @@ export const App = () => {
   }, [debouncedUrl]);
 
   return (
-    <div style={{ height: "100%", width: "100%", padding: 0, margin: 0 }}>
+    <div className={appContainer}>
       <div
         data-tauri-drag-region=""
         style={{
@@ -23,6 +25,10 @@ export const App = () => {
           height: "45px",
           width: "100%",
         }}
+        className={` ${shared.hairlineBorder({
+          border: "bottom",
+          onSurface: 1,
+        })}`}
       >
         <input
           defaultValue={url}
@@ -47,7 +53,6 @@ export const App = () => {
           }}
         />
       </div>
-      <hr style={{ border: "0.1px solid rgb(43,42,42)" }} />
       <div style={{ height: "calc(100% - 45px)" }}>
         <Trailblazer
           schemaProps={{

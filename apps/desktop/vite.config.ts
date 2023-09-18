@@ -42,10 +42,7 @@ export default defineConfig(({ command }) => {
           },
         ],
       }),
-      vanillaExtractPlugin({
-        identifiers: "debug",
-        emitCssInSsr: true,
-      }),
+      vanillaExtractPlugin({}),
     ],
   };
 });
