@@ -8,9 +8,11 @@ export const appContainer = style({
 });
 
 globalStyle("html", {
-  background: "rgb(35,35,35)",
+  background: "rgb(35,35,35) !important",
 
   "@media": {
-    "(prefers-color-scheme:dark)": { background: "rgba(35, 35, 35, 0.85)" },
+    "(prefers-color-scheme:dark)": {
+      background: "rgba(35, 35, 35, 0.85) !important",
+    },
   },
 });
