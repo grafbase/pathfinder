@@ -71,7 +71,7 @@ export const Trailblazer = ({
       resetSchemaPolling();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [schemaProps?.fetcherOptions.endpoint]);
 
   if (schema) {
     return (

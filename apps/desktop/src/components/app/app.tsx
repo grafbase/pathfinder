@@ -1,8 +1,16 @@
 import { Pathfinder, Trailblazer } from "@pathfinder/core";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const App = () => {
   const [url, setUrl] = useState("https://graphql.earthdata.nasa.gov/api");
+  const [debouncedUrl, setDebouncedUrl] = useState(url);
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setUrl(debouncedUrl);
+    }, 500);
+    return () => clearTimeout(timeoutId);
+  }, [debouncedUrl]);
 
   return (
     <div style={{ height: "100%", width: "100%", padding: 0, margin: 0 }}>
@@ -17,11 +25,12 @@ export const App = () => {
         }}
       >
         <input
-          value={url}
+          defaultValue={url}
+          type="text"
           placeholder="Enter a URL..."
           onChange={(event) => {
             if (event.target.value !== url) {
-              setUrl(event.target.value);
+              setDebouncedUrl(event.target.value);
             }
           }}
           style={{
