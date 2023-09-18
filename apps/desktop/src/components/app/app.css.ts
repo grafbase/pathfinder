@@ -7,12 +7,16 @@ export const appContainer = style({
   margin: 0,
 });
 
+const DARWIN = process.platform == "darwin";
+
 globalStyle("html", {
   background: "rgb(35,35,35) !important",
 
   "@media": {
     "(prefers-color-scheme:dark)": {
-      background: "rgba(35, 35, 35, 0.85) !important",
+      background: DARWIN
+        ? "rgba(35, 35, 35, 0.85) !important"
+        : "rgb(35,35,35) !important",
     },
   },
 });
