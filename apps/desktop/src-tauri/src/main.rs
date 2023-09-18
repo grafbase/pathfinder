@@ -17,10 +17,6 @@ fn main() {
             )
             .expect("Unsupported platform! 'apply_vibrancy' is only supported on macOS");
 
-            #[cfg(target_os = "windows")]
-            window_vibrancy::apply_blur(&window, Some((18, 18, 18, 125)))
-                .expect("Unsupported platform! 'apply_blur' is only supported on Windows");
-
             Ok(())
         })
         .run(tauri::generate_context!())
