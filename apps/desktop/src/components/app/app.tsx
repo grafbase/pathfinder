@@ -25,7 +25,7 @@ export const App = () => {
           height: "45px",
           width: "100%",
         }}
-        className={` ${shared.hairlineBorder({
+        className={`${shared.hairlineBorder({
           border: "bottom",
           onSurface: 1,
         })}`}
