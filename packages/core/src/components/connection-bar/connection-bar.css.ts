@@ -41,6 +41,7 @@ export const connectionBarDialogBackdropClass = style({
   left: 0,
   height: "100%",
   width: "100%",
+  WebkitBackdropFilter: "blur(3px)",
   backdropFilter: "blur(3px)",
 });
 
