@@ -15,6 +15,7 @@ import {
   addHeaderButtonWrapClass,
   headerControlClass,
   headerControlsClass,
+  headerControlsSwitchWrapClass,
   headerControlWrapClass,
   removeHeaderButtonWrapClass,
 } from "./http-header-control.css";
@@ -63,13 +64,19 @@ export const HTTPHeaderControl = ({
             key={header.id}
           >
             {placement === "IN_APP" && (
-              <Switch
-                handleChange={handleChange}
-                isChecked={header.enabled}
-                isDisabled={!header.key || !header.value}
-                name={`${header.id}${SEPARATOR}kVSwitch`}
-                size="SMALL"
-              />
+              <div
+                className={headerControlsSwitchWrapClass({
+                  hasLabel: i === 0,
+                })}
+              >
+                <Switch
+                  handleChange={handleChange}
+                  isChecked={header.enabled}
+                  isDisabled={!header.key || !header.value}
+                  name={`${header.id}${SEPARATOR}kVSwitch`}
+                  size="SMALL"
+                />
+              </div>
             )}
             <Control
               control={{
