@@ -8,9 +8,6 @@ import PowerfulFoundation from "../images/powerful-foundation.png";
 import SchemaBrowser from "../images/schema-browser.png";
 import VisualOperation from "../images/visual-operation-builder.png";
 import { Trailblazer } from "@pathfinder/core"
-import { style, globalStyle } from "@pathfinder/style";
-
-globalStyle({})
 ---
 
 <Layout>
@@ -211,7 +208,12 @@ globalStyle({})
 				<img src={Bg.src} alt="Pathfinder preview image" class="w-full"/>
 			</div>
 			<Trailblazer client:only="react"
-						 mode="MINI">
+						 mode="MINI"
+                         schemaProps={{
+                             fetcherOptions: {
+                                 endpoint: "https://graphql.earthdata.nasa.gov/api",
+        					}
+                         }}>
 			</Trailblazer>
 		</div>
 	</section>
