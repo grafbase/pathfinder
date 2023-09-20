@@ -5,8 +5,6 @@ import {
   updateHeader,
 } from "@pathfinder/stores";
 
-import { Button } from "../button";
-
 import { IconButton } from "../icon-button";
 
 import { Control, ControlProps } from "../control";
@@ -20,7 +18,6 @@ import {
   headerControlWrapClass,
   removeHeaderButtonWrapClass,
 } from "./http-header-control.css";
-import { useEffect } from "react";
 
 const SEPARATOR = `--`;
 
@@ -30,14 +27,6 @@ export const HTTPHeaderControl = ({
   placement: "WELCOME_SCREEN" | "IN_APP";
 }) => {
   const headers = useSessionStore.use.headers();
-
-  useEffect(() => {
-    const initialHeaders = useSessionStore.getState().headers;
-    if (initialHeaders.length < 1) {
-      addEmptyHeader({ enabled: true });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   const handleChange: ControlProps["control"]["handleChange"] = ({
     name,
@@ -130,7 +119,7 @@ export const HTTPHeaderControl = ({
           onClick={() => addEmptyHeader({})}
           title="Add header"
         >
-          Add another header
+          {`Add ${headers.length > 0 ? "another" : ""} header`}
         </button>
       )}
     </div>

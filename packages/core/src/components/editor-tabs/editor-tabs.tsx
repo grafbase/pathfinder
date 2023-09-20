@@ -65,7 +65,7 @@ export const EditorTabs = () => {
               <IconButton
                 action={() => closeEditorTab({ tabId: tab.tabId })}
                 iconName="Close"
-                size="small"
+                size="medium"
                 title={`Remove tab`}
               />
             )}

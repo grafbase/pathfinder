@@ -16,6 +16,11 @@ export type UpdateHeaderStatus = {
 
 export type HTTPHeadersActions = {
   addEmptyHeader: ({ enabled }: { enabled?: boolean }) => void;
+  getEnabledTTPHeaderValues: ({
+    headers,
+  }: {
+    headers: HTTPHeaderValue[];
+  }) => HeadersInit;
   removeHeader: ({ id }: { id: string }) => void;
   updateHeader: ({
     id,

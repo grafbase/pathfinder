@@ -1,27 +1,28 @@
 import { useEffect } from "react";
-import { init as initCuid } from "@paralleldrive/cuid2";
+import { get as findSession } from "idb-keyval";
 
-import { STORAGE_NAME_SESSION } from "@pathfinder/shared";
+import { STORAGE_NAME_SESSION, generateCuid } from "@pathfinder/shared";
 
 import {
   getNamespacedStorageName,
   initializeTheme,
-  loadSchema,
   usePluginsStore,
   resetSchemaPolling,
-  useSessionStore,
   useSchemaStore,
+  initSession,
+  loadSession,
 } from "@pathfinder/stores";
 
-import { CompassAnimated } from "../components/compass-animated";
-import { Welcome } from "../components/welcome";
+import { Connect } from "../components/connect";
+import { Pathfinder } from "../pathfinder";
+import { Scout } from "../scout";
 
-import { trailblazerClass } from "./trailblazer.css";
+import { connectWrapClass, trailblazerClass } from "./trailblazer.css";
 
 import type { TrailblazerProps } from "./trailblazer.types";
 
 export const Trailblazer = ({
-  children,
+  mode = "FULL",
   plugins,
   schemaProps,
   themeProps,
@@ -37,44 +38,32 @@ export const Trailblazer = ({
       ...plugins,
     });
 
-    if (schemaProps) {
-      // if the implementer has provided an endpoint via props, we use the endpoint to namespace the local storage
-      if (schemaProps.fetcherOptions.endpoint) {
-        const name = getNamespacedStorageName({
-          endpoint: schemaProps.fetcherOptions.endpoint,
-          storageName: STORAGE_NAME_SESSION,
-        });
+    // if the implementer has provided an endpoint via props, we use the endpoint to namespace the local storage
+    if (schemaProps && schemaProps.fetcherOptions.endpoint) {
+      const name = getNamespacedStorageName({
+        endpoint: schemaProps.fetcherOptions.endpoint as string,
+        storageName: STORAGE_NAME_SESSION,
+      });
 
-        useSessionStore.persist.setOptions({
-          name,
-        });
-
-        // manually rehydrate
-        useSessionStore.persist.rehydrate();
-
-        loadSchema({
-          fetchOptions: {
-            endpoint: schemaProps.fetcherOptions.endpoint,
-            headers: schemaProps.fetcherOptions.headers?.map((header) => [
-              header.key,
-              header.value,
-            ]),
-          },
-        });
-
-        // write our fetcherOptions into session state/storage after a short timeout to prevent hydration collisions
-        setTimeout(() => {
-          useSessionStore.setState({
-            endpoint: schemaProps.fetcherOptions.endpoint,
-            headers: schemaProps.fetcherOptions.headers?.map((header) => ({
-              id: initCuid({ length: 10 })(),
-              enabled: true,
-              key: header.key,
-              value: header.value,
-            })),
+      // look up an existing session based on this endpoint
+      findSession(name).then((session) => {
+        if (session) {
+          loadSession({ sessionName: name });
+        } else {
+          // we don't have an existing session using this endpoint, so let's initialize a new session
+          initSession({
+            fetchOptions: {
+              endpoint: schemaProps.fetcherOptions.endpoint as string,
+              headers: schemaProps.fetcherOptions.headers?.map((header) => ({
+                id: generateCuid({}),
+                enabled: true,
+                key: header.key,
+                value: header.value,
+              })),
+            },
           });
-        }, 100);
-      }
+        }
+      });
     }
 
     return () => {
@@ -85,12 +74,21 @@ export const Trailblazer = ({
   }, []);
 
   if (schema) {
-    return <div className={trailblazerClass}>{children}</div>;
+    return (
+      <div className={trailblazerClass}>
+        {mode === "FULL" && (
+          <Pathfinder withSchemaProps={schemaProps ? true : false} />
+        )}
+        {mode === "MINI" && <Scout />}
+      </div>
+    );
   }
 
   if (!schemaProps) {
-    return <Welcome />;
+    return (
+      <div className={connectWrapClass}>
+        <Connect />
+      </div>
+    );
   }
-
-  return <CompassAnimated size="small" speed="standard" />;
 };

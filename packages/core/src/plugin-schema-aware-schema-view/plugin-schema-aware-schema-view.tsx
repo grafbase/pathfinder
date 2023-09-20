@@ -1,6 +1,7 @@
+import { useEffect } from "react";
 import { printSchema } from "graphql";
 
-import { useSchemaStore } from "@pathfinder/stores";
+import { getMonacoEditor, useSchemaStore } from "@pathfinder/stores";
 
 import { Editor } from "../components";
 
@@ -11,6 +12,15 @@ import {
 
 export const PluginSchemaAwareSchemaView = () => {
   const schema = useSchemaStore.use.schema();
+
+  useEffect(() => {
+    if (schema) {
+      const schemaViewEditor = getMonacoEditor({
+        editorId: "schema-view-editor",
+      });
+      schemaViewEditor?.setValue(printSchema(schema));
+    }
+  }, [schema]);
 
   if (!schema) {
     return null;

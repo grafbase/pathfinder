@@ -11,6 +11,10 @@ export type SessionStoreBaseState = {
    * The current target GraphQL endpoint
    */
   endpoint?: string | null;
+  /**
+   * A boolean indicating whether the connection dialog is open
+   */
+  connectionDialogOpen: boolean;
 };
 
 export type SessionStoreState = SessionStoreBaseState &

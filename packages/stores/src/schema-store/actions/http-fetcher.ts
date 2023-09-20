@@ -1,3 +1,4 @@
+import { getEnabledTTPHeaderValues } from "../../session-store";
 import type { SchemaStoreActions } from "../schema-store.types";
 import { useSchemaStore } from "../use-schema-store";
 
@@ -9,7 +10,9 @@ export const httpFetcher: SchemaStoreActions["httpFetcher"] = async ({
 
   const fetchResponse = await fetch(fetchOptions.endpoint, {
     method: "POST",
-    headers: fetchOptions.headers,
+    headers: fetchOptions.headers
+      ? getEnabledTTPHeaderValues({ headers: fetchOptions.headers })
+      : undefined,
     credentials: "same-origin",
     body,
   }).catch((error) => {
@@ -18,12 +21,12 @@ export const httpFetcher: SchemaStoreActions["httpFetcher"] = async ({
     });
   });
 
-  if (fetchResponse && fetchResponse.ok) {
-    return fetchResponse;
-  } else {
+  if (fetchResponse && !fetchResponse.ok) {
     useSchemaStore.setState({
       isIntrospecting: false,
       introspectionErrors: ["Response not OK. Do you need to add headers?"],
     });
+  } else {
+    return fetchResponse;
   }
 };

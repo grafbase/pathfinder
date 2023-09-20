@@ -1,4 +1,5 @@
 import { GraphQLSchema } from "graphql";
+import { HTTPHeaderValue } from "../session-store";
 
 export type GraphQLOperationParams = {
   query: string;
@@ -22,38 +23,35 @@ export type ExecutionResponse = {
   timestamp: Date;
 };
 
-export type AcceptableHeaders = [string, string][];
-
-export type LoadSchemaFetchOptions = {
+export type EndpointConnectionDetails = {
   endpoint: string;
-  headers?: HeadersInit;
+  headers?: HTTPHeaderValue[];
 };
 
 export type SchemaStoreActions = {
+  doIntrospection: ({
+    fetchOptions,
+  }: {
+    fetchOptions: EndpointConnectionDetails;
+  }) => Promise<GraphQLSchema | null>;
   doSchemaPolling: ({
     fetchOptions,
   }: {
-    fetchOptions: LoadSchemaFetchOptions;
+    fetchOptions: EndpointConnectionDetails;
   }) => void;
   executeOperation: () => Promise<void>;
-  getSchemaViaIntrospection: ({
-    fetchOptions,
-  }: {
-    fetchOptions: LoadSchemaFetchOptions;
-  }) => Promise<GraphQLSchema | null>;
   httpFetcher: ({
     fetchOptions,
     graphQLParams,
   }: {
-    fetchOptions: LoadSchemaFetchOptions;
+    fetchOptions: EndpointConnectionDetails;
     graphQLParams: GraphQLOperationParams;
   }) => Promise<Response | void>;
   loadSchema: ({
     fetchOptions,
   }: {
-    fetchOptions?: LoadSchemaFetchOptions;
-  }) => Promise<void>;
-  prepareRequest: () => { endpoint: string; headers: HeadersInit };
+    fetchOptions: EndpointConnectionDetails;
+  }) => Promise<GraphQLSchema | null>;
   resetSchemaPolling: () => void;
   setSchemaPollingTimer: ({
     pollingTimer,

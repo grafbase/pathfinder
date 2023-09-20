@@ -17,7 +17,7 @@ type PathfinderPlugins = {
 };
 
 export type TrailblazerProps = {
-  children: React.ReactNode;
+  mode?: "FULL" | "MINI";
   plugins?: PathfinderPlugins;
   schemaProps?: SchemaStoreProps;
   themeProps?: {

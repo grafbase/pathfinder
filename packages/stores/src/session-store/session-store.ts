@@ -13,7 +13,10 @@ import { sessionStoreState } from "./session-store-state";
 
 import { SessionStoreState } from "./session-store.types";
 
-type StateToPersist = Omit<SessionStoreState, "_hasHydrated">;
+type StateToPersist = Omit<
+  SessionStoreState,
+  "_hasHydrated" | "connectionDialogOpen"
+>;
 
 export const sessionStore = createStore<SessionStoreState>()(
   persist(
@@ -39,10 +42,14 @@ export const sessionStore = createStore<SessionStoreState>()(
         };
       },
       partialize: (state) => ({
+        // editor tabs
         activeTab: state.activeTab,
         tabs: state.tabs,
+        // http-headers
         headers: state.headers,
+        // variables
         variablesString: state.variablesString,
+        // sessions
         endpoint: state.endpoint,
       }),
       storage: storage<StateToPersist>(),

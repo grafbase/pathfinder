@@ -3,7 +3,7 @@ import { contract, recipe, style } from "@pathfinder/style";
 export const controlClass = style({
   display: "flex",
   flexDirection: "column",
-  gap: 4,
+  gap: 6,
   width: "100%",
 });
 
@@ -37,12 +37,15 @@ export const inputClass = style({
   fontFamily: contract.fonts.mono,
   fontSize: 11,
   lineHeight: 1,
-  color: contract.color.neutral[1],
-  backgroundColor: contract.color.neutralAlpha[11],
+  color: contract.color.neutral[11],
+  backgroundColor: contract.color.neutral[3],
+  border: `1px solid ${contract.color.neutral[4]}`,
 
   selectors: {
     "&:focus": {
-      backgroundColor: contract.color.neutralAlpha[12],
+      color: contract.color.neutral[12],
+      backgroundColor: contract.color.neutral[5],
+      border: `1px solid ${contract.color.neutral[6]}`,
     },
 
     "&::placeholder": {

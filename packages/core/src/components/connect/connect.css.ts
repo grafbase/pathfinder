@@ -20,7 +20,7 @@ export const loadingWrapClass = recipe({
   },
 });
 
-export const welcomeClass = style({
+export const connectClass = style({
   height: "100%",
   width: "100%",
   display: "flex",
@@ -30,17 +30,15 @@ export const welcomeClass = style({
   position: "relative",
 });
 
-export const welcomeContentClass = recipe({
+export const connectContentClass = recipe({
   base: {
     position: "relative",
     zIndex: 2,
     color: contract.color.neutral[12],
     width: "100%",
-    minWidth: 380,
-    maxWidth: "45%",
     display: "flex",
     flexDirection: "column",
-    gap: 20,
+    gap: 16,
     fontSize: 12,
     transition: `all 0.35s ${shared.transitions.authenticMotion}`,
   },
@@ -53,7 +51,29 @@ export const welcomeContentClass = recipe({
   },
 });
 
-export const welcomeContentControlsClass = style({
+export const connectContentHeadersClass = recipe({
+  base: {
+    display: "flex",
+    flexDirection: "column",
+    gap: 16,
+    transition: `all .15s ease-in-out`,
+    overflow: "hidden",
+  },
+
+  variants: {
+    isVisible: {
+      true: {
+        maxHeight: 300,
+      },
+      false: {
+        maxHeight: 0,
+        marginBottom: -16,
+      },
+    },
+  },
+});
+
+export const connectContentControlsClass = style({
   display: "flex",
   justifyContent: "space-between",
   width: "100%",
@@ -69,18 +89,25 @@ export const backToPreviousSessionsButton = style([
     marginLeft: -8,
     marginBottom: 8,
     alignContent: "center",
-    textDecoration: "underline",
+    // textDecoration: "underline",
+    color: contract.color.neutral[11],
+
+    selectors: {
+      "&:hover": {
+        color: contract.color.neutral[12],
+      },
+    },
   },
 ]);
 
-export const welcomeContentControlsAddHeadersButtonClass = style([
+export const connectContentControlsAddHeadersButtonClass = style([
   shared.resets.buttonReset,
   {
     textDecoration: "underline",
   },
 ]);
 
-export const welcomeContentControlsDoIntrospectionButtonClass = style([
+export const connectContentControlsDoIntrospectionButtonClass = style([
   shared.resets.buttonReset,
   {
     height: 32,
@@ -112,29 +139,6 @@ export const welcomeContentControlsDoIntrospectionButtonClass = style([
   },
 ]);
 
-export const sessionSelectButtonClass = style([
-  shared.resets.buttonReset,
-  {
-    padding: 12,
-    marginBottom: 12,
-    width: "100%",
-    border: `1px solid ${contract.color.neutralAlpha[5]}`,
-    fontFamily: contract.fonts.mono,
-    fontSize: 10,
-    backgroundColor: contract.color.neutralAlpha[4],
-    color: contract.color.neutralAlpha[12],
-    borderRadius: 4,
-    transition: `all .1s ${shared.transitions.authenticMotion}`,
-
-    selectors: {
-      "&:hover": {
-        backgroundColor: contract.color.neutralAlpha[8],
-        color: contract.color.neutralAlpha[12],
-      },
-    },
-  },
-]);
-
 export const startNewSessionButtonWrapClass = style({
   display: "flex",
   width: "100%",
@@ -142,44 +146,21 @@ export const startNewSessionButtonWrapClass = style({
   paddingTop: 12,
 });
 
-export const startNewSessionButtonClass = style([
-  shared.resets.buttonReset,
-  {
-    height: 32,
-    padding: `0 ${contract.space[12]}`,
-    marginBottom: 12,
-    textAlign: "right",
-    width: "fit-content",
-    border: `1px solid ${contract.color.neutral[12]}`,
-    backgroundColor: "transparent",
-    color: contract.color.neutral[12],
-    borderRadius: 4,
-    transition: `all .1s ${shared.transitions.authenticMotion}`,
-
-    selectors: {
-      "&:hover": {
-        backgroundColor: contract.color.neutral[12],
-        color: contract.color.neutral[1],
-      },
-    },
-  },
-]);
-
-export const introspectionStatusWrapClass = style({
-  borderTop: `1px solid ${contract.color.neutralAlpha[4]}`,
-});
-
 export const introspectionStatusClass = recipe({
   base: {
     borderRadius: 4,
     padding: 12,
     marginTop: 12,
-    backgroundColor: contract.color.neutralAlpha[11],
+    backgroundColor: contract.color.neutral[2],
   },
   variants: {
+    isAttemptingIntrospection: {
+      true: {},
+      false: {},
+    },
     status: {
       info: {
-        border: `1px solid ${contract.color.neutral[10]}`,
+        border: `1px dotted ${contract.color.neutral[11]}`,
       },
       error: {
         border: `1px solid ${contract.color.red[10]}`,

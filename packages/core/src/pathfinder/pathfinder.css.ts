@@ -1,5 +1,22 @@
 import { contract, recipe, shared, style } from "@pathfinder/style";
 
+export const pathfinderWrapClass = recipe({
+  base: {
+    display: "grid",
+    height: "100%",
+    overflow: "hidden",
+  },
+
+  variants: {
+    withSchemaProps: {
+      true: {},
+      false: {
+        gridTemplateRows: "48px 1fr",
+      },
+    },
+  },
+});
+
 export const pathfinderClass = style({
   display: "grid",
   gridTemplateColumns: "60px 1fr",
@@ -7,7 +24,15 @@ export const pathfinderClass = style({
   overflow: "hidden",
 });
 
-export const pathfinderPluginNavigation = style({
+export const pathfinderPluginNavigationWrapClass = style({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "space-between",
+  paddingBottom: 12,
+});
+
+export const pathfinderPluginNavigationClass = style({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",

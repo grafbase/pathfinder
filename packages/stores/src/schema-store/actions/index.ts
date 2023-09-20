@@ -1,8 +1,8 @@
+export { doIntrospection } from "./do-introspection";
+
 export { doSchemaPolling } from "./do-schema-polling";
 
 export { executeOperation } from "./execute-operation";
-
-export { getSchemaViaIntrospection } from "./get-schema-via-introspection";
 
 export { httpFetcher } from "./http-fetcher";
 

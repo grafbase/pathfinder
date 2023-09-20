@@ -1,3 +1,5 @@
+export { getSessions, initSession, loadSession } from "./actions";
+
 export {
   closeEditorTab,
   initNewEditorTab,
@@ -7,6 +9,7 @@ export {
 
 export {
   addEmptyHeader,
+  getEnabledTTPHeaderValues,
   removeHeader,
   updateHeader,
 } from "./slices/http-headers/actions";
