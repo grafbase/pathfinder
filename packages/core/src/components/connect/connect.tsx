@@ -20,15 +20,16 @@ import { Button } from "../button";
 
 import {
   backToPreviousSessionsButton,
-  introspectionStatusClass,
-  loadingWrapClass,
-  startNewSessionButtonWrapClass,
   connectClass,
   connectContentClass,
   connectContentControlsAddHeadersButtonClass,
   connectContentControlsClass,
   connectContentControlsDoIntrospectionButtonClass,
   connectContentHeadersClass,
+  introspectionStatusClass,
+  loadStoredSessionCopyClass,
+  loadingWrapClass,
+  startNewSessionButtonWrapClass,
 } from "./connect.css";
 
 export const Connect = () => {
@@ -99,7 +100,9 @@ export const Connect = () => {
 
         {!showNewSession && storedSessions && storedSessions.length > 0 && (
           <div>
-            <p>Load a stored session: </p>
+            <p className={loadStoredSessionCopyClass}>
+              Load a stored session:{" "}
+            </p>
             <Sessions sessionNames={storedSessions} />
 
             <div className={startNewSessionButtonWrapClass}>

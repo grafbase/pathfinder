@@ -20,6 +20,12 @@ export const loadingWrapClass = recipe({
   },
 });
 
+export const loadStoredSessionCopyClass = style({
+  padding: 0,
+  margin: 0,
+  paddingBottom: 16,
+});
+
 export const connectClass = style({
   height: "100%",
   width: "100%",
