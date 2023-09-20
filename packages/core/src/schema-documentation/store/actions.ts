@@ -1,4 +1,4 @@
-import { init as initCuid } from "@paralleldrive/cuid2";
+import { generateCuid } from "@pathfinder/shared";
 
 import {
   GetSchemaDocumentationStore,
@@ -30,7 +30,7 @@ export const schemaDocumentationStoreActions = (
   },
   setActiveTertiaryPane: ({ destinationPane, reset = false }) => {
     // generate a unique id for our pane
-    const paneHash = initCuid({ length: 10 })();
+    const paneHash = generateCuid({});
 
     const pane = { hash: paneHash, pane: destinationPane };
     if (reset) {

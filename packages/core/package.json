@@ -21,7 +21,6 @@
   },
   "dependencies": {
     "@headlessui/react": "1.7.17",
-    "@paralleldrive/cuid2": "^2.2.2",
     "@pathfinder/shared": "workspace:*",
     "@pathfinder/stores": "workspace:*",
     "@pathfinder/style": "workspace:*",
