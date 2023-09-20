@@ -1,25 +1,30 @@
 ---
-import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import previewImage from '../images/preview.jpg';
+import Card from "../components/Card.astro";
+import Oss from "../images/oss.png";
+import Bg from "../images/bg.png";
+import PowerfulFoundation from "../images/powerful-foundation.png";
+import SchemaBrowser from "../images/schema-browser.png";
+import VisualOperation from "../images/visual-operation-builder.png";
 ---
 
 <Layout>
-	<section class="flex flex-col items-center justify-center mt-[142px]">
-		<iframe style="margin-left: 38px" src="https://ghbtns.com/github-btn.html?user=grafbase&repo=grafbase&type=star&count=true&size=large" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
-		<h1 class="text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 mt-12">Pathfinder</h1>
-		<p class="text-gray-300 mt-4 text-xl">Interact with your GraphQL API with ease.</p>
-		<button class="bg-gradient-to-r from-purple-500 to-blue-500 px-6 py-4 rounded-md mt-10 flex items-center gap-2 justify-center">
+	<section class="flex flex-col items-center justify-center mt-[80px]">
+		<iframe style="margin-left: 38px" class="scale-75" src="https://ghbtns.com/github-btn.html?user=grafbase&repo=grafbase&type=star&count=true&size=large" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
+		<h1 class="text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 max-w-xl text-center mt-8">The missing GraphQL IDE</h1>
+		<p class="text-gray-300 mt-3 text-lg max-w-2xl text-center">Pathfinder enables you to interact with GraphQL APIs using an intuitive user interface.</p>
+		<button class="bg-gradient-to-r from-purple-500 to-blue-500 px-6 py-4 rounded-md mt-8 flex items-center gap-2 justify-center">
 			<!--<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">-->
 			<!--	<path d="M16.8617 12.3181C16.8617 10.796 17.5851 9.68519 18.9894 8.82126C18.1809 7.71048 16.9894 7.13452 15.4149 7.0111C13.883 6.88768 12.2234 7.8339 11.6277 7.8339C10.9894 7.8339 9.54255 7.05224 8.39362 7.05224C6.01064 7.09338 3.5 8.8624 3.5 12.5238C3.5 13.5935 3.67021 14.7043 4.09574 15.8562C4.64894 17.3783 6.60638 21.0809 8.64894 20.9986C9.71277 20.9986 10.4787 20.2581 11.883 20.2581C13.2447 20.2581 13.9255 20.9986 15.117 20.9986C17.2021 20.9986 18.9894 17.6252 19.5 16.103C16.734 14.8277 16.8617 12.4004 16.8617 12.3181Z" fill="white"/>-->
 			<!--	<path d="M15.4958 1C15.4958 1.41044 15.623 2.52983 14.4783 3.72384C13.6304 4.58204 12.613 5.06711 11.5107 4.99248C11.4259 3.98503 11.8499 3.05221 12.613 2.30595C13.2913 1.63432 14.4783 1.07463 15.4958 1Z" fill="white"/>-->
 			<!--</svg>-->
-			<span class="text-white font-medium text-xl">Coming soon!</span>
+			<span class="text-white font-medium text-lg">Coming soon!</span>
 		</button>
 	</section>
 	<section>
-		<div class="my-32 relative container mx-auto">
-			<div class="absolute top-0 overflow-hidden">
+		<div class="my-20 relative container mx-auto">
+			<div class="absolute top-0 overflow-hidden opacity-50">
 				<svg height="750" viewBox="0 0 1398 663" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<g opacity="0.4">
 						<line opacity="0.3" y1="-0.517969" x2="626.742" y2="-0.517969" transform="matrix(-4.37114e-08 -1 -1 4.37114e-08 900.25 662.742)" stroke="url(#paint0_linear_2_14)" stroke-width="1.03594"/>
@@ -194,11 +199,23 @@ import previewImage from '../images/preview.jpg';
 					</defs>
 				</svg>
 			</div>
-			<div class="absolute h-[750px] w-full top-0">
-				<div class="h-[750px] rounded-md  bg-gradient-to-r from-purple-500 to-blue-500 blur-3xl opacity-50">
+			<div class="absolute h-[750px] top-52 items-center justify-center">
+				<div class="h-[100px] rounded-md  bg-gradient-to-r from-purple-500 to-blue-500 blur-xl opacity-25 scale-[5]">
 				</div>
 			</div>
-			<Image src={previewImage} alt="Pathfinder preview image" class="w-10/12 mx-auto relative"/>
+			<div class="absolute items-center justify-center -top-40 ml-10">
+				<img src={Bg.src} alt="Pathfinder preview image" class="w-full"/>
+			</div>
+			<img src={previewImage.src} alt="Pathfinder preview image" class="w-10/12 mx-auto relative"/>
+		</div>
+	</section>
+	<section class="container mx-auto my-[220px]">
+		<h1 class="text-5xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 mt-12">Features</h1>
+		<div class="mt-12 grid sm:grid-cols-2 gap-8">
+			<Card image={Oss} title="Open Source" description="Built on top of React, zustand, monaco-editor, monaco-graphql, and vanilla-extract" />
+			<Card image={VisualOperation} title="Visual Operation Builder" description="Browse operations in a tree-like view and build them with the click of a button" />
+			<Card image={SchemaBrowser} title="Schema Browser" description="Explore your GraphQL schema with a built-in reference view"/>
+			<Card image={PowerfulFoundation} title="Built on a Powerful Foundation" description="A familiar, Visual Studio Code-like editing experience powered by Monaco Editor" />
 		</div>
 	</section>
 </Layout>
