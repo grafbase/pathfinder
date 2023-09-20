@@ -5,16 +5,16 @@ export const preClass = recipe({
     margin: 0,
     lineHeight: 1.5,
     fontWeight: 400,
-    fontSize: 10,
+    fontSize: 11,
     fontFamily: contract.fonts.mono,
   },
   variants: {
     status: {
       info: {
-        color: contract.color.neutral[8],
+        color: contract.color.neutral[10],
       },
       error: {
-        color: contract.color.red[8],
+        color: contract.color.red[10],
       },
     },
   },

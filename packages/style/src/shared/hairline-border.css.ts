@@ -39,10 +39,10 @@ export const hairlineBorder = recipe({
       },
       style: {
         boxShadow: `
-        ${leftBorder(contract.color.neutral[5])},
-        ${topBorder(contract.color.neutral[5])},
-        ${rightBorder(contract.color.neutral[5])},
-        ${bottomBorder(contract.color.neutral[5])}`,
+        ${leftBorder(contract.color.neutral[4])},
+        ${topBorder(contract.color.neutral[4])},
+        ${rightBorder(contract.color.neutral[4])},
+        ${bottomBorder(contract.color.neutral[4])}`,
       },
     },
     {
@@ -51,7 +51,7 @@ export const hairlineBorder = recipe({
         onSurface: 1,
       },
       style: {
-        boxShadow: `${leftBorder(contract.color.neutral[5])}`,
+        boxShadow: `${leftBorder(contract.color.neutral[4])}`,
       },
     },
     {
@@ -60,7 +60,7 @@ export const hairlineBorder = recipe({
         onSurface: 1,
       },
       style: {
-        boxShadow: `${topBorder(contract.color.neutral[5])}`,
+        boxShadow: `${topBorder(contract.color.neutral[4])}`,
       },
     },
     {
@@ -69,7 +69,7 @@ export const hairlineBorder = recipe({
         onSurface: 1,
       },
       style: {
-        boxShadow: `${rightBorder(contract.color.neutral[5])}`,
+        boxShadow: `${rightBorder(contract.color.neutral[4])}`,
       },
     },
     {
@@ -78,7 +78,7 @@ export const hairlineBorder = recipe({
         onSurface: 1,
       },
       style: {
-        boxShadow: `${bottomBorder(contract.color.neutral[5])}`,
+        boxShadow: `${bottomBorder(contract.color.neutral[4])}`,
       },
     },
 
