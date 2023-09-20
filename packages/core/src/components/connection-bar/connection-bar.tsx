@@ -2,7 +2,6 @@ import { useSessionStore } from "@pathfinder/stores";
 
 import { Dialog } from "@headlessui/react";
 
-import { IconButton } from "../icon-button";
 import { Connect } from "../connect/connect";
 import { CompassAnimated } from "../compass-animated";
 
@@ -21,23 +20,18 @@ export const ConnectionBar = () => {
   const endpoint = useSessionStore.use.endpoint();
 
   return (
-    <div className={connectionBarClass}>
-      <div className={connectionBarContentClass}>
+    <div className={connectionBarClass} data-tauri-drag-region="">
+      <div
+        role="button"
+        className={connectionBarContentClass}
+        onClick={() => useSessionStore.setState({ connectionDialogOpen: true })}
+        style={{ cursor: "pointer" }}
+      >
         {endpoint ? (
           endpoint
         ) : (
           <CompassAnimated size="small" speed="standard" />
         )}
-        <div className={connectionBarContentIconClass}>
-          <IconButton
-            action={() =>
-              useSessionStore.setState({ connectionDialogOpen: true })
-            }
-            iconName="Gear"
-            title="Open Connection Settings dialog"
-            size="medium"
-          />
-        </div>
       </div>
 
       <Dialog

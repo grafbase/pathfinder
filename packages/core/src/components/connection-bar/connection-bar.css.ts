@@ -10,7 +10,6 @@ export const connectionBarClass = style([
     justifyContent: "center",
     paddingTop: 8,
     paddingBottom: 8,
-    backgroundColor: contract.color.neutral[1],
   },
 ]);
 
@@ -56,9 +55,10 @@ export const connectionBarContentClass = style([
     alignContent: "center",
     alignItems: "center",
     gap: 12,
-    borderRadius: 2,
-    fontSize: 12,
-    paddingLeft: 16,
+    borderRadius: 9,
+    fontSize: 14,
+    justifyContent: "center",
+    width: "40%",
     backgroundColor: contract.color.neutral[2],
     color: contract.color.neutral[10],
   },
