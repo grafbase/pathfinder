@@ -8,7 +8,6 @@ import { CompassAnimated } from "../compass-animated";
 import {
   connectionBarClass,
   connectionBarContentClass,
-  connectionBarContentIconClass,
   connectionBarDialogBackdropClass,
   connectionBarDialogClass,
 } from "./connection-bar.css";

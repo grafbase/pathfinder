@@ -27,7 +27,7 @@ export const DetailsActions = ({
   ancestors,
   previousAncestor,
   showActions = false,
-  type: _,
+  type,
 }: DetailsActionsProps) => {
   const setActiveTertiaryPane =
     useSchemaDocumentationStore().setActiveTertiaryPane;
