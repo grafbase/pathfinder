@@ -37,8 +37,7 @@ export default function Home() {
           ]
         }
       }}
-    >
-      <Scout />
-    </Trailblazer>
+    />
+
   )
 }

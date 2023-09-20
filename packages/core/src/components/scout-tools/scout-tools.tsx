@@ -2,8 +2,9 @@ import { useState } from "react";
 
 import { usePluginsStore } from "@pathfinder/stores";
 
-import { useResizer } from "../resizer";
+import { History } from "../history";
 import { HTTPHeaderControl } from "../http-header-control";
+import { useResizer } from "../resizer";
 import { Tabs } from "../tabs";
 import { Variables } from "../variables";
 
@@ -41,6 +42,11 @@ export const ScoutTools = () => {
               buttonCopy: () => <span>Headers</span>,
               content: () => <HTTPHeaderControl placement="IN_APP" />,
               name: "Headers",
+            },
+            {
+              buttonCopy: () => <span>History</span>,
+              content: () => <History />,
+              name: "History",
             },
           ],
           ...scoutToolsPlugins,

@@ -28,6 +28,7 @@ export const initSession = async ({
   useSessionStore.setState({
     endpoint: fetchOptions.endpoint,
     headers: fetchOptions.headers,
+    executions: [],
     activeTab: INITIAL_EDITOR_TAB,
     tabs: [INITIAL_EDITOR_TAB],
     variablesString: VARIABLES_EDITOR_DEFAULT_VALUE,

@@ -1,5 +1,4 @@
 import { PluginSchemaAwareSchemaView } from "../plugin-schema-aware-schema-view";
-import { PluginScoutHistory } from "../plugin-scout-history";
 import { Trailblazer } from "./trailblazer";
 
 const overrides = {
@@ -36,7 +35,6 @@ export const WithPathfinder = () => {
     <Trailblazer
       plugins={{
         schemaAwarePlugins: [PluginSchemaAwareSchemaView],
-        scoutTools: [PluginScoutHistory],
       }}
       schemaProps={{
         fetcherOptions: {
@@ -53,7 +51,6 @@ export const WithPathfinderWithoutSchemaProps = () => {
     <Trailblazer
       plugins={{
         schemaAwarePlugins: [PluginSchemaAwareSchemaView],
-        scoutTools: [PluginScoutHistory],
       }}
     />
   );
@@ -63,9 +60,6 @@ export const WithScoutPlugins = () => {
   return (
     <Trailblazer
       mode="MINI"
-      plugins={{
-        scoutTools: [PluginScoutHistory],
-      }}
       schemaProps={{
         fetcherOptions: {
           endpoint: import.meta.env.VITE_GRAPHQL_ENDPOINT,

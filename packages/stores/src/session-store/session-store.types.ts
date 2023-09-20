@@ -1,4 +1,5 @@
 import type { EditorTabsState } from "./slices/editor-tabs";
+import type { HistoryState } from "./slices/history";
 import type { HTTPHeadersState } from "./slices/http-headers";
 import type { VariablesState } from "./slices/variables";
 
@@ -19,5 +20,6 @@ export type SessionStoreBaseState = {
 
 export type SessionStoreState = SessionStoreBaseState &
   EditorTabsState &
+  HistoryState &
   HTTPHeadersState &
   VariablesState;

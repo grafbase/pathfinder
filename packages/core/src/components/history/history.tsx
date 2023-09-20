@@ -1,15 +1,20 @@
 import { useEffect, useRef, useState } from "react";
 
-import { schemaStore, type ExecutionResponse } from "@pathfinder/stores";
+import {
+  schemaStore,
+  type ExecutionResponse,
+  useSessionStore,
+  clearHistory,
+} from "@pathfinder/stores";
 import { shared } from "@pathfinder/style";
 
-import { clearHistory, usePluginHistoryStore } from "../../store";
+import { HistoryListItem } from "./history-list-item";
+import { HistoryItemRequest } from "./history-item-request";
+import { HistoryItemResponse } from "./history-item-response";
 
-import { Dropdown, Resizer, Tabs } from "../../../components";
-
-import { HistoryListItem } from "../history-list-item";
-import { HistoryItemRequest } from "../history-item-request";
-import { HistoryItemResponse } from "../history-item-response";
+import { Resizer } from "../resizer";
+import { Dropdown } from "../dropdown";
+import { Tabs } from "../tabs";
 
 import {
   historyClass,
@@ -20,7 +25,7 @@ import {
 } from "./history.css";
 
 export const History = () => {
-  const executions = usePluginHistoryStore.use.executions();
+  const executions = useSessionStore.use.executions();
 
   const [activeHistoryItem, setActiveHistoryItem] =
     useState<ExecutionResponse | null>(executions[0]);
@@ -41,9 +46,9 @@ export const History = () => {
         if (latestResponse && latestResponse !== latestResponseRef.current) {
           latestResponseRef.current = latestResponse;
 
-          return usePluginHistoryStore.setState({
+          return useSessionStore.setState({
             executions: [
-              ...usePluginHistoryStore.getState().executions,
+              ...useSessionStore.getState().executions,
               latestResponse,
             ],
           });

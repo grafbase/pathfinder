@@ -7,6 +7,8 @@ export {
   updateActiveEditorTab,
 } from "./slices/editor-tabs/actions";
 
+export { clearHistory, deleteFromHistory } from "./slices/history/actions";
+
 export {
   addEmptyHeader,
   getEnabledTTPHeaderValues,

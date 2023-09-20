@@ -1,10 +1,10 @@
-import { ExecutionResponse } from "@pathfinder/stores";
+import { ExecutionResponse } from "../../../schema-store";
 
-export type PluginHistoryStoreActions = {
+export type HistoryActions = {
   clearHistory: () => void;
   deleteFromHistory: ({ timestamp }: { timestamp: Date }) => void;
 };
 
-export type PluginHistoryStoreState = {
+export type HistoryState = {
   executions: ExecutionResponse[];
 };
