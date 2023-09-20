@@ -210,12 +210,14 @@ globalStyle({})
 			<div class="absolute items-center justify-center -top-40 ml-10">
 				<img src={Bg.src} alt="Pathfinder preview image" class="w-full"/>
 			</div>
-			<Trailblazer client:only="react" mode="MINI"
+			<Trailblazer client:only="react"
+						 mode="MINI"
                          schemaProps={{
                              fetcherOptions: {
-                                 endpoint: "https://graphql.earthdata.nasa.gov/api,
-        },
-                         }}></Trailblazer>
+                                 endpoint: "https://graphql.earthdata.nasa.gov/api",
+        					}
+                         }}>
+			</Trailblazer>
 		</div>
 	</section>
 	<section class="container mx-auto my-[220px]">
