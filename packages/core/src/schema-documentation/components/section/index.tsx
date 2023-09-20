@@ -133,7 +133,6 @@ export const SectionInterface = ({
 }: {
   interfaces: readonly GraphQLInterfaceType[];
 }) => {
-  console.log("interfaces", { interfaces });
   return (
     <>
       {interfaces.length > 0 ? (
