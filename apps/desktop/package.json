@@ -10,22 +10,22 @@
     "tauri": "tauri"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "@tauri-apps/api": "^1.4.0"
   },
   "devDependencies": {
-    "@types/react": "^18.2.15",
-    "@types/react-dom": "^18.2.7",
-    "@vitejs/plugin-react": "^4.0.3",
-    "typescript": "^5.0.2",
+    "@types/react": "18.2.22",
+    "@types/react-dom": "18.2.7",
+    "@vitejs/plugin-react": "4.0.4",
     "@tauri-apps/cli": "^1.4.0",
     "@pathfinder/core": "workspace:*",
     "@pathfinder/stores": "workspace:*",
     "@pathfinder/shared": "workspace:*",
     "@pathfinder/style": "workspace:*",
-    "@vanilla-extract/vite-plugin": "3.8.2",
-    "vite": "4.4.7",
+    "@vanilla-extract/vite-plugin": "3.9.0",
+    "typescript": "5.2.2",
+    "vite": "4.4.9",
     "vite-plugin-monaco-editor": "1.1.0"
   }
 }
