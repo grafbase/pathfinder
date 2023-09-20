@@ -14,10 +14,14 @@
     "@astrojs/react": "^3.0.2",
     "@astrojs/tailwind": "^5.0.0",
     "@fontsource/inter": "^5.0.8",
+    "@pathfinder/core": "workspace:*",
+    "@vanilla-extract/vite-plugin": "3.9.0",
+    "@vitejs/plugin-react": "4.0.4",
     "astro": "^3.0.12",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "sharp": "^0.32.5",
-    "tailwindcss": "^3.3.3"
+    "tailwindcss": "^3.3.3",
+    "vite-plugin-monaco-editor": "1.1.0"
   }
 }

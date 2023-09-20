@@ -7,6 +7,7 @@ import Bg from "../images/bg.png";
 import PowerfulFoundation from "../images/powerful-foundation.png";
 import SchemaBrowser from "../images/schema-browser.png";
 import VisualOperation from "../images/visual-operation-builder.png";
+import { Trailblazer } from "@pathfinder/core"
 ---
 
 <Layout>
@@ -206,7 +207,7 @@ import VisualOperation from "../images/visual-operation-builder.png";
 			<div class="absolute items-center justify-center -top-40 ml-10">
 				<img src={Bg.src} alt="Pathfinder preview image" class="w-full"/>
 			</div>
-			<img src={previewImage.src} alt="Pathfinder preview image" class="w-10/12 mx-auto relative"/>
+			<Trailblazer client:only="react"></Trailblazer>
 		</div>
 	</section>
 	<section class="container mx-auto my-[220px]">
