@@ -9,16 +9,6 @@ import monacoEditorPlugin from "vite-plugin-monaco-editor";
 export default defineConfig({
     integrations: [tailwind(), react()],
     vite: {
-        base: "/",
-        build: {
-            rollupOptions: {
-                output: {
-                    entryFileNames: `assets/[name].js`,
-                    chunkFileNames: `assets/[name].js`,
-                    assetFileNames: `assets/[name].[ext]`,
-                },
-            },
-        },
         plugins: [
             reactVite(),
             monacoEditorPlugin.default({
