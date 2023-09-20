@@ -6,10 +6,11 @@ export const actionsBarClass = style([
     onSurface: 1,
   }),
   {
+    height: 48,
     display: "flex",
+    flexShrink: 0,
     justifyContent: "space-between",
     alignItems: "center",
-    height: 48,
   },
 ]);
 
