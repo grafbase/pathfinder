@@ -57,14 +57,6 @@ export const History = () => {
     [],
   );
 
-  if (executions.length === 0 || !activeHistoryItem) {
-    return (
-      <div className={historyNullStateClass}>
-        <span>No items in history. Need to work on this null state.</span>
-      </div>
-    );
-  }
-
   return (
     <div className={historyClass}>
       <Resizer
@@ -101,16 +93,22 @@ export const History = () => {
                   }}
                 />
               </div>
-              <ul className={historyListClass}>
-                {[...executions].map((item, i) => (
-                  <HistoryListItem
-                    action={() => setActiveHistoryItem(executions[i])}
-                    activeItemTimestamp={activeHistoryItem?.timestamp}
-                    item={item}
-                    key={`${item.timestamp}-${i}`}
-                  />
-                ))}
-              </ul>
+              {executions && activeHistoryItem ? (
+                <ul className={historyListClass}>
+                  {[...executions].map((item, i) => (
+                    <HistoryListItem
+                      action={() => setActiveHistoryItem(executions[i])}
+                      activeItemTimestamp={activeHistoryItem?.timestamp}
+                      item={item}
+                      key={`${item.timestamp}-${i}`}
+                    />
+                  ))}
+                </ul>
+              ) : (
+                <span className={historyNullStateClass}>
+                  No items in history
+                </span>
+              )}
             </div>
           ),
         }}
@@ -122,16 +120,22 @@ export const History = () => {
                 {
                   buttonContent: () => <span>Request</span>,
                   name: "PluginHistoryItemRequest",
-                  panelContent: () => (
-                    <HistoryItemRequest historyItem={activeHistoryItem} />
-                  ),
+                  panelContent: () =>
+                    activeHistoryItem ? (
+                      <HistoryItemRequest historyItem={activeHistoryItem} />
+                    ) : (
+                      <></>
+                    ),
                 },
                 {
                   buttonContent: () => <span>Response</span>,
                   name: "PluginHistoryItemResponse",
-                  panelContent: () => (
-                    <HistoryItemResponse historyItem={activeHistoryItem} />
-                  ),
+                  panelContent: () =>
+                    activeHistoryItem ? (
+                      <HistoryItemResponse historyItem={activeHistoryItem} />
+                    ) : (
+                      <></>
+                    ),
                 },
               ]}
               tabListHeight={32}
