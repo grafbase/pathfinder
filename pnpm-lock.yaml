@@ -103,6 +103,9 @@ importers:
       '@pathfinder/core':
         specifier: workspace:*
         version: link:../../packages/core
+      '@pathfinder/style':
+        specifier: workspace:*
+        version: link:../../packages/style
       '@vanilla-extract/vite-plugin':
         specifier: 3.9.0
         version: 3.9.0(@types/node@20.6.3)(vite@4.4.9)
