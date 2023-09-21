@@ -1,29 +1,118 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import previewImage from '../images/preview.jpg';
+import previewImage from '../images/preview.png';
 import Card from "../components/Card.astro";
 import Oss from "../images/oss.png";
 import Bg from "../images/bg.png";
 import PowerfulFoundation from "../images/powerful-foundation.png";
 import SchemaBrowser from "../images/schema-browser.png";
 import VisualOperation from "../images/visual-operation-builder.png";
----
+import DownloadButton from "../components/DownloadButton";
 
+---
 <Layout>
 	<section class="flex flex-col items-center justify-center mt-[80px]">
-		<iframe style="margin-left: 38px" class="scale-75" src="https://ghbtns.com/github-btn.html?user=grafbase&repo=grafbase&type=star&count=true&size=large" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
-		<h1 class="text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 max-w-xl text-center mt-8">The missing GraphQL IDE</h1>
-		<p class="text-gray-300 mt-3 text-lg max-w-2xl text-center">Pathfinder enables you to interact with GraphQL APIs using an intuitive user interface.</p>
-		<button class="bg-gradient-to-r from-purple-500 to-blue-500 px-6 py-4 rounded-md mt-8 flex items-center gap-2 justify-center">
-			<!--<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">-->
-			<!--	<path d="M16.8617 12.3181C16.8617 10.796 17.5851 9.68519 18.9894 8.82126C18.1809 7.71048 16.9894 7.13452 15.4149 7.0111C13.883 6.88768 12.2234 7.8339 11.6277 7.8339C10.9894 7.8339 9.54255 7.05224 8.39362 7.05224C6.01064 7.09338 3.5 8.8624 3.5 12.5238C3.5 13.5935 3.67021 14.7043 4.09574 15.8562C4.64894 17.3783 6.60638 21.0809 8.64894 20.9986C9.71277 20.9986 10.4787 20.2581 11.883 20.2581C13.2447 20.2581 13.9255 20.9986 15.117 20.9986C17.2021 20.9986 18.9894 17.6252 19.5 16.103C16.734 14.8277 16.8617 12.4004 16.8617 12.3181Z" fill="white"/>-->
-			<!--	<path d="M15.4958 1C15.4958 1.41044 15.623 2.52983 14.4783 3.72384C13.6304 4.58204 12.613 5.06711 11.5107 4.99248C11.4259 3.98503 11.8499 3.05221 12.613 2.30595C13.2913 1.63432 14.4783 1.07463 15.4958 1Z" fill="white"/>-->
-			<!--</svg>-->
-			<span class="text-white font-medium text-lg">Coming soon!</span>
-		</button>
+		<iframe style="margin-left: 38px" class="scale-75" src="https://ghbtns.com/github-btn.html?user=grafbase&repo=pathfinder&type=star&count=true&size=large" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
+		<div class="relative flex justify-center items-center">
+			<div class="absolute -top-1/2">
+				<svg width="1440" height="596" viewBox="0 0 1440 596" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M-21.2272 -25L247.773 60.5L374.773 205L592.773 261.5L619.773 255" stroke="url(#paint0_linear_258_7281)"/>
+					<circle opacity="0.5" cx="247.773" cy="60.8467" r="3.5" fill="#B9DDFF" stroke="#388CD9"/>
+					<circle opacity="0.7" cx="374.773" cy="204.847" r="3.5" fill="#B9DDFF" stroke="#388CD9"/>
+					<circle cx="592.773" cy="261.847" r="3.5" fill="#B9DDFF" stroke="#388CD9"/>
+					<path d="M-71 343.733L204.711 283.278L386.946 344.919L603.99 284.849L624.122 265.72" stroke="url(#paint1_linear_258_7281)"/>
+					<circle opacity="0.5" cx="204.884" cy="283.578" r="3.5" transform="rotate(-30 204.884 283.578)" fill="#CFB9FF" stroke="#331F59"/>
+					<circle opacity="0.7" cx="386.869" cy="344.786" r="3.5" transform="rotate(-30 386.869 344.786)" fill="#CFB9FF" stroke="#331F59"/>
+					<circle cx="604.163" cy="285.149" r="3.5" transform="rotate(-30 604.163 285.149)" fill="#CFB9FF" stroke="#331F59"/>
+					<path d="M1461 -28L1192 57.5L1065 202L847.001 258.5L820.001 252" stroke="url(#paint2_linear_258_7281)"/>
+					<circle opacity="0.5" cx="4" cy="4" r="3.5" transform="matrix(-1 0 0 1 1196 53.8467)" fill="#CFB9FF" stroke="#331F59"/>
+					<circle opacity="0.7" cx="4" cy="4" r="3.5" transform="matrix(-1 0 0 1 1069 197.847)" fill="#CFB9FF" stroke="#331F59"/>
+					<circle cx="4" cy="4" r="3.5" transform="matrix(-1 0 0 1 851.001 254.847)" fill="#CFB9FF" stroke="#331F59"/>
+					<path d="M1510.77 339.733L1235.06 279.278L1052.83 340.919L835.784 280.849L815.651 261.72" stroke="url(#paint3_linear_258_7281)"/>
+					<circle opacity="0.5" cx="4" cy="4" r="3.5" transform="matrix(-0.866025 -0.5 -0.5 0.866025 1240.35 278.114)" fill="#B9DDFF" stroke="#388CD9"/>
+					<circle opacity="0.7" cx="4" cy="4" r="3.5" transform="matrix(-0.866025 -0.5 -0.5 0.866025 1058.37 339.322)" fill="#B9DDFF" stroke="#388CD9"/>
+					<circle cx="4" cy="4" r="3.5" transform="matrix(-0.866025 -0.5 -0.5 0.866025 841.075 279.685)" fill="#B9DDFF" stroke="#388CD9"/>
+					<defs>
+						<linearGradient id="paint0_linear_258_7281" x1="611.317" y1="257.947" x2="31.6899" y2="-5.10953" gradientUnits="userSpaceOnUse">
+							<stop stop-color="#409ACC"/>
+							<stop offset="1" stop-color="#4089CC" stop-opacity="0.19"/>
+						</linearGradient>
+						<linearGradient id="paint1_linear_258_7281" x1="618.273" y1="272.5" x2="-15.2272" y2="334.5" gradientUnits="userSpaceOnUse">
+							<stop stop-color="#8E40CC"/>
+							<stop offset="1" stop-color="#4089CC" stop-opacity="0.11"/>
+						</linearGradient>
+						<linearGradient id="paint2_linear_258_7281" x1="828.456" y1="254.947" x2="1408.08" y2="-8.10953" gradientUnits="userSpaceOnUse">
+							<stop stop-color="#8E40CC"/>
+							<stop offset="1" stop-color="#4089CC" stop-opacity="0.11"/>
+						</linearGradient>
+						<linearGradient id="paint3_linear_258_7281" x1="821.501" y1="268.5" x2="1455" y2="330.5" gradientUnits="userSpaceOnUse">
+							<stop stop-color="#409ACC"/>
+							<stop offset="1" stop-color="#4089CC" stop-opacity="0.19"/>
+						</linearGradient>
+					</defs>
+				</svg>
+
+			</div>
+			<svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="mt-4 relative">
+				<g filter="url(#filter0_d_258_7227)">
+					<g clip-path="url(#clip0_258_7227)">
+						<rect x="16.4233" y="12" width="207.153" height="207.153" rx="48" fill="#16171B"/>
+						<rect x="16.4233" y="12" width="207.153" height="207.153" rx="48" fill="#131316"/>
+						<g opacity="0.35" filter="url(#filter1_f_258_7227)">
+							<path d="M108.151 18.7159C115.501 14.5499 124.499 14.5499 131.849 18.7159L165.056 37.5375L197.959 56.8846C205.242 61.167 209.741 68.9594 209.808 77.4079L210.112 115.577L209.808 153.745C209.741 162.194 205.242 169.986 197.959 174.268L165.056 193.616L131.849 212.437C124.499 216.603 115.501 216.603 108.151 212.437L74.9442 193.616L42.0408 174.268C34.7579 169.986 30.2589 162.194 30.1917 153.745L29.8883 115.577L30.1917 77.4079C30.2589 68.9595 34.7578 61.167 42.0408 56.8846L74.9442 37.5375L108.151 18.7159Z" fill="url(#paint0_linear_258_7227)"/>
+						</g>
+						<path d="M91.4048 66.0481L120 49.8404L148.595 66.0481L176.929 82.7085L177.191 115.577L176.929 148.445L148.595 165.105L120 181.313L91.4047 165.105L63.0708 148.445L62.8095 115.577L63.0708 82.7085L91.4048 66.0481Z" stroke="url(#paint1_linear_258_7227)" stroke-width="24.0298"/>
+						<rect x="103.635" y="33.9581" width="33.1445" height="33.1445" rx="16.5723" fill="white"/>
+						<rect x="103.428" y="99.0043" width="33.1445" height="33.1445" rx="16.5723" fill="white"/>
+						<rect x="103.635" y="164.05" width="33.1445" height="33.1445" rx="16.5723" fill="white"/>
+						<rect x="46.4606" y="67.724" width="33.1445" height="33.1445" rx="16.5723" fill="white"/>
+						<rect x="159.566" y="67.724" width="33.1445" height="33.1445" rx="16.5723" fill="white"/>
+						<rect x="46.4606" y="131.32" width="33.1445" height="33.1445" rx="16.5723" fill="white"/>
+						<rect x="159.566" y="131.32" width="33.1445" height="33.1445" rx="16.5723" fill="white"/>
+					</g>
+					<rect x="16.9233" y="12.5" width="206.153" height="206.153" rx="47.5" stroke="url(#paint2_radial_258_7227)"/>
+				</g>
+				<defs>
+					<filter id="filter0_d_258_7227" x="0.42334" y="0" width="239.153" height="239.153" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+						<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+						<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+						<feOffset dy="4"/>
+						<feGaussianBlur stdDeviation="8"/>
+						<feComposite in2="hardAlpha" operator="out"/>
+						<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.35 0"/>
+						<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_258_7227"/>
+						<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_258_7227" result="shape"/>
+					</filter>
+					<filter id="filter1_f_258_7227" x="-11.5424" y="-25.8393" width="263.085" height="282.832" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+						<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+						<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+						<feGaussianBlur stdDeviation="20.7153" result="effect1_foregroundBlur_258_7227"/>
+					</filter>
+					<linearGradient id="paint0_linear_258_7227" x1="32.9525" y1="85.2309" x2="214.256" y2="105.154" gradientUnits="userSpaceOnUse">
+						<stop stop-color="#A033F5"/>
+						<stop offset="1" stop-color="#42DDFF"/>
+					</linearGradient>
+					<linearGradient id="paint1_linear_258_7227" x1="132.826" y1="162.628" x2="160.115" y2="162.628" gradientUnits="userSpaceOnUse">
+						<stop stop-color="#B695FF"/>
+						<stop offset="1" stop-color="#4CA4F8"/>
+					</linearGradient>
+					<radialGradient id="paint2_radial_258_7227" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(16.4234 12.2962) rotate(44.6101) scale(274.82 283.041)">
+						<stop stop-color="#DFE2ED"/>
+						<stop offset="1" stop-color="#383A43" stop-opacity="0.17"/>
+					</radialGradient>
+					<clipPath id="clip0_258_7227">
+						<rect x="16.4233" y="12" width="207.153" height="207.153" rx="48" fill="white"/>
+					</clipPath>
+				</defs>
+			</svg>
+		</div>
+		<h1 class="text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 max-w-xl text-center mt-8">Pathfinder</h1>
+		<DownloadButton client:load />
 	</section>
-	<section>
-		<div class="my-20 relative container mx-auto">
+	<section class="container mx-auto my-[220px]">
+		<h1 class="text-5xl font-bold text-white text-center">The missing GraphQL IDE</h1>
+		<p class="text-gray-400 mt-3 text-lg text-center">Free, open-source and cross-platform.</p>
+		<div class="my-12 relative container mx-auto">
 			<div class="absolute top-0 overflow-hidden opacity-50">
 				<svg height="750" viewBox="0 0 1398 663" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<g opacity="0.4">
@@ -199,18 +288,18 @@ import VisualOperation from "../images/visual-operation-builder.png";
 					</defs>
 				</svg>
 			</div>
-			<div class="absolute h-[750px] top-52 items-center justify-center">
+			<div class="absolute h-[750px] top-52 items-center justify-center pointer-events-none">
 				<div class="h-[100px] rounded-md  bg-gradient-to-r from-purple-500 to-blue-500 blur-xl opacity-25 scale-[5]">
 				</div>
 			</div>
-			<div class="absolute items-center justify-center -top-40 ml-10">
+			<div class="absolute items-center justify-center -top-52 ml-10 pointer-events-none">
 				<img src={Bg.src} alt="Pathfinder preview image" class="w-full"/>
 			</div>
 			<img src={previewImage.src} alt="Pathfinder preview image" class="w-10/12 mx-auto relative"/>
 		</div>
 	</section>
-	<section class="container mx-auto my-[220px]">
-		<h1 class="text-5xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 mt-12">Features</h1>
+	<section class="container mx-auto my-[120px]">
+		<h1 class="text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 mt-12">Features</h1>
 		<div class="mt-12 grid sm:grid-cols-2 gap-8">
 			<Card image={Oss} title="Open Source" description="Built on top of React, zustand, monaco-editor, monaco-graphql, and vanilla-extract" />
 			<Card image={VisualOperation} title="Visual Operation Builder" description="Browse operations in a tree-like view and build them with the click of a button" />
