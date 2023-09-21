@@ -129,18 +129,6 @@ export const HistoryListItem = ({
               width: "100%",
               withBorder: false,
             },
-            {
-              action: () => {
-                alert("clicked!");
-              },
-              copy: "Load operation into new tab",
-              iconName: "Prettier",
-              onSurface: 3,
-              size: "small",
-              title: "Load operation into new tab",
-              width: "100%",
-              withBorder: false,
-            },
           ]}
           iconButtonProps={{
             iconName: "Ellipsis",

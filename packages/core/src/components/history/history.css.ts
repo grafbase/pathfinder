@@ -41,5 +41,10 @@ export const historyListHeaderClass = style({
 });
 
 export const historyNullStateClass = style({
-  padding: contract.space[24],
+  paddingTop: 24,
+  paddingBottom: 12,
+  fontSize: 12,
+  width: "100%",
+  textAlign: "center",
+  color: contract.color.neutral[9],
 });

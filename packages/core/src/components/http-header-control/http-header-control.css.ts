@@ -54,9 +54,24 @@ export const headerControlClass = recipe({
 });
 
 export const headerControlsClass = style({
-  display: `flex`,
-  flexDirection: `column`,
+  display: "flex",
+  flexDirection: "column",
   gap: contract.space[12],
+});
+
+export const headerControlsSwitchWrapClass = recipe({
+  base: {},
+  variants: {
+    hasLabel: {
+      true: {
+        marginTop: 16,
+      },
+      false: {},
+    },
+  },
+  // display: "flex",
+  // flexDirection: "column",
+  // gap: contract.space[12],
 });
 
 export const addHeaderButtonWrapClass = style([
