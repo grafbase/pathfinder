@@ -5,7 +5,7 @@ const DownloadButton = () => {
   const [platform, setPlatform] = useState();
 
   useEffect(() => {
-    if (navigator.platform.indexOf("") > -1) {
+    if (navigator.platform.indexOf("Mac") > -1) {
       setPlatform("Mac");
     } else if (navigator.platform.indexOf("Win") > -1) {
       setPlatform("Windows");
