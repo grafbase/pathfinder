@@ -10,7 +10,7 @@
     "@paralleldrive/cuid2": "^2.2.2",
     "@pathfinder/eslint-config": "workspace:*",
     "@pathfinder/tsconfig": "workspace:*",
-    "graphql": "16.8.0",
+    "graphql": "16.8.1",
     "zustand": "4.4.1"
   }
 }
