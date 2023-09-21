@@ -75,7 +75,11 @@ export const Connect = () => {
   }, []);
 
   return (
-    <div className={connectClass} data-testid="welcome-container">
+    <div
+      className={connectClass}
+      data-testid="welcome-container"
+      data-tauri-drag-region=""
+    >
       <div
         className={loadingWrapClass({
           isVisible: loading,

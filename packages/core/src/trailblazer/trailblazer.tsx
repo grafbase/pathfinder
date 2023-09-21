@@ -86,7 +86,7 @@ export const Trailblazer = ({
 
   if (!schemaProps) {
     return (
-      <div className={connectWrapClass}>
+      <div className={connectWrapClass} data-tauri-drag-region="">
         <Connect />
       </div>
     );
