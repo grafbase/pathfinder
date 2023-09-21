@@ -104,7 +104,7 @@ const DownloadButton = () => {
         </svg>
       )}
       <span className="text-white font-medium text-lg">
-        Download for {platform}
+        {platform === "Mac" ? `Download for ${platform}` : "Coming Soon"}
       </span>
     </a>
   );
