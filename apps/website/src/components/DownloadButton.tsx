@@ -5,7 +5,7 @@ const DownloadButton = () => {
   const [platform, setPlatform] = useState();
 
   useEffect(() => {
-    if (navigator.platform.indexOf("Mac") > -1) {
+    if (navigator.platform.indexOf("") > -1) {
       setPlatform("Mac");
     } else if (navigator.platform.indexOf("Win") > -1) {
       setPlatform("Windows");
@@ -17,7 +17,7 @@ const DownloadButton = () => {
   return (
     <a
       download
-      href="https://github.com/grafbase/pathfinder/releases/download/0.1.0/Pathfinder-0.1.0-universal-apple-darwin.dmg"
+      href="https://github.com/grafbase/pathfinder/releases/download/0.1.1/Pathfinder-0.1.1-universal-apple-darwin.dmg"
       className={
         "cursor-pointer bg-gradient-to-r from-purple-500 to-blue-500 px-6 py-4 rounded-md mt-8 flex items-center gap-2 justify-center transition duration-200" +
         (!platform ? " opacity-0" : " opacity-100")
