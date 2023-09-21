@@ -3,7 +3,7 @@
     <h3 align="center">Pathfinder</h3>
     <p align="center"><b>The missing GraphQL IDE</b></p>
     <p align="center"><sub><sup><b>Free, open-source and cross-platform</b></sup></sub></p>
-    <img width="1000" src="https://github.com/grafbase/pathfinder/assets/14347895/7332349b-333d-40a7-bb92-baf0b74dda8f" alt="An image of Pathfinder" />
+    <img width="1000" src="https://github.com/grafbase/pathfinder/assets/14347895/462f08ac-c8fd-42ab-9f4b-e1be4520c6af" alt="An image of Pathfinder" />
 </p>
 <br />
 
