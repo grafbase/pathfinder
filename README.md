@@ -5,8 +5,6 @@
     <p align="center"><sub><sup><b>Free, open-source and cross-platform</b></sup></sub></p>
     <img width="1000" src="https://github.com/grafbase/pathfinder/assets/14347895/462f08ac-c8fd-42ab-9f4b-e1be4520c6af" alt="An image of Pathfinder" />
 </p>
-<br />
-
 
 ## Clone the repository
 
