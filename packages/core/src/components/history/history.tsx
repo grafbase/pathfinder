@@ -60,7 +60,7 @@ export const History = () => {
   if (executions.length === 0 || !activeHistoryItem) {
     return (
       <div className={historyNullStateClass}>
-        <span>No items in history. Need to work on this null state.</span>
+        <span>No items in history.</span>
       </div>
     );
   }
