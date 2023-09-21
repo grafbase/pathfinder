@@ -81,14 +81,8 @@ export const buttonClass = recipe({
       true: {},
     },
     withIcon: {
-      false: {
-        paddingRight: contract.space[8],
-        paddingLeft: contract.space[8],
-      },
-      true: {
-        paddingRight: contract.space[8],
-        paddingLeft: contract.space[4],
-      },
+      false: {},
+      true: {},
     },
   },
 
@@ -118,6 +112,68 @@ export const buttonClass = recipe({
       },
       style: {
         border: `1px solid ${contract.color.neutral[8]}`,
+      },
+    },
+    {
+      variants: {
+        size: "small",
+        withIcon: true,
+      },
+      style: {
+        paddingRight: contract.space[8],
+        paddingLeft: contract.space[4],
+      },
+    },
+    {
+      variants: {
+        size: "small",
+        withIcon: false,
+      },
+      style: {
+        paddingRight: contract.space[8],
+        paddingLeft: contract.space[8],
+      },
+    },
+
+    {
+      variants: {
+        size: "medium",
+        withIcon: true,
+      },
+      style: {
+        paddingRight: contract.space[8],
+        paddingLeft: contract.space[4],
+      },
+    },
+    {
+      variants: {
+        size: "medium",
+        withIcon: false,
+      },
+      style: {
+        paddingRight: contract.space[8],
+        paddingLeft: contract.space[8],
+      },
+    },
+
+    {
+      variants: {
+        size: "large",
+        withIcon: true,
+      },
+      style: {
+        paddingRight: contract.space[12],
+        paddingLeft: contract.space[8],
+      },
+    },
+    {
+      variants: {
+        size: "large",
+        withIcon: false,
+      },
+      style: {
+        paddingRight: contract.space[12],
+        paddingLeft: contract.space[12],
       },
     },
   ],

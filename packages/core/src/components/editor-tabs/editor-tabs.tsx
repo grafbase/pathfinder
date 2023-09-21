@@ -1,7 +1,5 @@
 import { WheelEvent, useRef } from "react";
 
-import { shared } from "@pathfinder/style";
-
 import {
   closeEditorTab,
   initNewEditorTab,
@@ -42,14 +40,7 @@ export const EditorTabs = () => {
   }
 
   return (
-    <div
-      ref={ref}
-      onWheel={onWheel}
-      className={`${editorTabsClass} ${shared.hairlineBorder({
-        border: "bottom",
-        onSurface: 1,
-      })}`}
-    >
+    <div ref={ref} onWheel={onWheel} className={editorTabsClass}>
       {tabs.map((tab) => {
         return (
           <div
@@ -74,7 +65,7 @@ export const EditorTabs = () => {
               <IconButton
                 action={() => closeEditorTab({ tabId: tab.tabId })}
                 iconName="Close"
-                size="small"
+                size="medium"
                 title={`Remove tab`}
               />
             )}

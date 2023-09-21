@@ -1,4 +1,4 @@
-import { init as initCuid } from "@paralleldrive/cuid2";
+import { generateCuid } from "@pathfinder/shared";
 
 import { sessionStore } from "../../../session-store";
 
@@ -26,7 +26,7 @@ export const addEmptyHeader: HTTPHeadersActions["addEmptyHeader"] = ({
   sessionStore.setState({
     headers: [
       ...sessionStore.getState().headers,
-      baseHeader({ enabled, id: initCuid({ length: 10 })() }),
+      baseHeader({ enabled, id: generateCuid({}) }),
     ],
   });
 };

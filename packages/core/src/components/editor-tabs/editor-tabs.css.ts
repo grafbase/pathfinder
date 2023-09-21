@@ -2,6 +2,10 @@ import { contract, recipe, shared, style } from "@pathfinder/style";
 
 export const editorTabsClass = style([
   shared.scrollbars,
+  shared.hairlineBorder({
+    border: "bottom",
+    onSurface: 1,
+  }),
   {
     width: "100%",
     height: 40,
@@ -48,7 +52,6 @@ export const tabWrapClass = recipe({
       minWidth: 0,
       paddingLeft: 8,
       paddingRight: 8,
-      paddingTop: 2,
       fontSize: 12,
       transition: `opacity .15s ${shared.transitions.authenticMotion}`,
 

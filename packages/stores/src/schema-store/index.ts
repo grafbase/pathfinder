@@ -1,12 +1,13 @@
 export {
   executeOperation,
-  getSchemaViaIntrospection,
+  doIntrospection,
   httpFetcher,
   loadSchema,
   resetSchemaPolling,
 } from "./actions";
 
 export type {
+  EndpointConnectionDetails,
   ExecutionResponse,
   GraphQLOperationParams,
   SchemaStoreState,

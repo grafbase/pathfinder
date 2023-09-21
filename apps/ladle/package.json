@@ -10,7 +10,7 @@
     "types": "tsc --noEmit"
   },
   "dependencies": {
-    "@ladle/react": "2.17.2",
+    "@ladle/react": "2.5.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
@@ -23,7 +23,6 @@
     "@types/react-dom": "18.2.7",
     "@vanilla-extract/vite-plugin": "3.9.0",
     "@vitejs/plugin-react": "4.0.4",
-    "vite": "4.4.9",
-    "vite-plugin-monaco-editor": "1.1.0"
+    "vite": "4.4.9"
   }
 }

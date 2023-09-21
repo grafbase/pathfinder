@@ -54,8 +54,13 @@ const ResizerComponent = ({
       setInitialSize(initialSize as number);
       setPane1Size(initialSize as number);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [
+    determineInitialSize,
+    orientation,
+    pane2.initialSize,
+    setInitialSize,
+    setPane1Size,
+  ]);
 
   const gridTemplate = `minmax(0, ${pane1Size}fr) 0px minmax(0, ${
     1 - pane1Size

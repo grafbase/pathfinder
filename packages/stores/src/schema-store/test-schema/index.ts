@@ -194,7 +194,7 @@ const Person: GraphQLObjectType = new GraphQLObjectType({
     friends: {
       type: new GraphQLList(Person),
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      async *resolve(_value, args) {
+      async *resolve(_value, _args) {
         const names = ["James", "Mary", "John", "Patrica"]; // Top 4 names https://www.ssa.gov/oact/babynames/decades/century.html
         for (const name of names) {
           await sleep(100);
@@ -356,7 +356,7 @@ const TestSubscriptionType = new GraphQLObjectType({
       args: {
         delay: delayArgument(600),
       },
-      async *subscribe(root, args) {
+      async *subscribe(_root, args) {
         for (const hi of ["Hi", "Bonjour", "Hola", "Ciao", "Zdravo"]) {
           if (args && args.delay) {
             await sleep(args.delay);

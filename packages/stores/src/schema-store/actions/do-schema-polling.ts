@@ -4,8 +4,8 @@ import { setMonacoGraphQLSchema } from "../../monaco-graphql-store";
 
 import { DOCUMENT_EDITOR_ID } from "@pathfinder/shared";
 
+import { doIntrospection } from "./do-introspection";
 import { setSchemaPollingTimer } from "./set-schema-polling-timer";
-import { getSchemaViaIntrospection } from "./get-schema-via-introspection";
 
 import { getMonacoEditor } from "../../monaco-editor-store";
 
@@ -24,7 +24,7 @@ export const doSchemaPolling: SchemaStoreActions["doSchemaPolling"] = ({
     const fetchSchema = async () => {
       const previousSchema = JSON.stringify(schemaStore.getState().schema);
 
-      const introspectionResult = await getSchemaViaIntrospection({
+      const introspectionResult = await doIntrospection({
         fetchOptions,
       });
 

@@ -1,12 +1,13 @@
-import { init as initCuid } from "@paralleldrive/cuid2";
-
-import { DOCUMENT_EDITOR_DEFAULT_VALUE } from "@pathfinder/shared";
+import {
+  DOCUMENT_EDITOR_DEFAULT_VALUE,
+  generateCuid,
+} from "@pathfinder/shared";
 
 import type { EditorTab, EditorTabsState } from "./editor-tabs.types";
 
-const INITIAL_EDITOR_TAB_ID = initCuid({ length: 10 })();
+const INITIAL_EDITOR_TAB_ID = generateCuid({});
 
-const INITIAL_EDITOR_TAB: EditorTab = {
+export const INITIAL_EDITOR_TAB: EditorTab = {
   tabId: INITIAL_EDITOR_TAB_ID,
   tabName: INITIAL_EDITOR_TAB_ID,
   cursorPosition: null,

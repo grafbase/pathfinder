@@ -9,7 +9,7 @@ export const kbdClass = style({
   minWidth: contract.space[20],
   padding: `0 ${contract.space[4]}`,
   backgroundColor: contract.color.neutral[1],
-  color: contract.color.neutral[12],
+  color: contract.color.neutral[10],
   borderRadius: contract.space[4],
   border: `1px solid ${contract.color.neutral[6]}`,
   fontSize: 11,

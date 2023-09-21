@@ -5,6 +5,7 @@ export const tabListClass = recipe({
     display: "flex",
     flexShrink: 0,
     position: "relative",
+    paddingLeft: 8,
   },
 
   variants: {

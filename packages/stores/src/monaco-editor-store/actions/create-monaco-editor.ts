@@ -1,3 +1,9 @@
+import {
+  DOCUMENT_EDITOR_ID,
+  RESPONSE_EDITOR_ID,
+  VARIABLES_EDITOR_ID,
+} from "@pathfinder/shared";
+
 import type {
   MonacoEditorStoreActions,
   MonacoEditorITextModel,
@@ -8,6 +14,7 @@ import { editorOptions } from "../helpers/editor-options";
 import { monacoEditorStore } from "../../monaco-editor-store";
 
 import { getMonacoEditor } from "./get-monaco-editor";
+
 import { initializeMonacoEditor } from "./initialize-monaco-editor";
 
 export const createMonacoEditor: MonacoEditorStoreActions["createMonacoEditor"] =
@@ -58,12 +65,25 @@ export const createMonacoEditor: MonacoEditorStoreActions["createMonacoEditor"] 
       model: existingModel ? existingModel : model,
     });
 
-    monacoEditorStore.setState({
-      editors: {
-        ...monacoEditorStore.getState().editors,
-        [editorId]: newlyCreatedEditor,
-      },
-    });
+    if (
+      editorId === DOCUMENT_EDITOR_ID ||
+      editorId === RESPONSE_EDITOR_ID ||
+      editorId === VARIABLES_EDITOR_ID
+    ) {
+      monacoEditorStore.setState({
+        managedEditors: {
+          ...monacoEditorStore.getState().managedEditors,
+          [editorId]: newlyCreatedEditor,
+        },
+      });
+    } else {
+      monacoEditorStore.setState({
+        unmanagedEditors: {
+          ...monacoEditorStore.getState().unmanagedEditors,
+          [editorId]: newlyCreatedEditor,
+        },
+      });
+    }
 
     return newlyCreatedEditor;
   };

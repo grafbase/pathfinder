@@ -4,20 +4,21 @@ import { Kind, OperationTypeNode } from "graphql";
 
 import { useGraphQLDocumentStore, useSchemaStore } from "@pathfinder/stores";
 
-// import {
-//   SchemaDocumentationProvider,
-//   useSchemaDocumentation,
-// } from "../schema-documentation";
 import { QuickDocs, RootOperation } from "./components";
 import { compassClass } from "./compass.css";
 import { Tabs } from "../components";
 import { TabsProps } from "../components/tabs/tabs.types";
 
+import {
+  SchemaDocumentationStoreProvider,
+  useSchemaDocumentationStore,
+} from "../schema-documentation";
+
 export const Compass = () => {
   return (
-    // <SchemaDocumentationProvider>
-    <CompassComponent />
-    // </SchemaDocumentationProvider>
+    <SchemaDocumentationStoreProvider>
+      <CompassComponent />
+    </SchemaDocumentationStoreProvider>
   );
 };
 
@@ -25,8 +26,7 @@ const CompassComponent = () => {
   // local state to control whether we should show the query or mutation tab
   const [selectedTabIndex, setSelectedTabIndex] = useState<number>(0);
 
-  // const { activeTertiaryPane } = useSchemaDocumentation();
-  const activeTertiaryPane = false;
+  const { activeTertiaryPane } = useSchemaDocumentationStore();
 
   const schema = useSchemaStore.use.schema();
 
@@ -44,9 +44,13 @@ const CompassComponent = () => {
     }
     if (operationDefinition?.operation === "query") {
       return setSelectedTabIndex(0);
-    } else {
+    }
+    if (operationDefinition?.operation === "mutation") {
       return setSelectedTabIndex(1);
     }
+
+    // "subscription"
+    return setSelectedTabIndex(2);
   }, [operationDefinition, schema]);
 
   if (!schema) {

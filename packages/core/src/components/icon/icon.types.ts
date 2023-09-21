@@ -3,10 +3,12 @@ import { RecipeVariants } from "@pathfinder/style";
 import { Caret } from "./caret";
 import { Chevron } from "./chevron";
 import { Close } from "./close";
+import { Compass } from "./compass";
 import { Delete } from "./delete";
 import { Docs } from "./docs";
 import { Ellipsis } from "./ellipsis";
 import { Gear } from "./gear";
+import { GraphQL } from "./graphql";
 import { InsertNewOperation } from "./insert-new-operation";
 import { Interpunct } from "./interpunct";
 import { Plus } from "./plus";
@@ -18,10 +20,12 @@ export const IconMap = {
   Caret,
   Chevron,
   Close,
+  Compass,
   Delete,
   Docs,
   Ellipsis,
   Gear,
+  GraphQL,
   InsertNewOperation,
   Interpunct,
   Plus,

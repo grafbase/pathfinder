@@ -1,3 +1,7 @@
-export { pluginsStore } from "./plugins-store";
+export type {
+  PluginsStoreState,
+  ScoutToolPlugin,
+  SchemaAwarePlugin,
+} from "./plugins-store.types";
 
-export type { PluginsStoreState, ScoutToolPlugin } from "./plugins-store.types";
+export { usePluginsStore } from "./use-plugins-store";

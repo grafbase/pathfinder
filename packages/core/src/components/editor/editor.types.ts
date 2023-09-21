@@ -20,7 +20,7 @@ export type EditorProps = {
   /**
    * A unique ID denoting the placement of this editor
    */
-  editorId: AvailableEditors;
+  editorId: AvailableEditors | string;
   /**
    * the initial cursor position for this editor
    */

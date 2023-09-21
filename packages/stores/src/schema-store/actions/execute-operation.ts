@@ -4,14 +4,14 @@ import { VARIABLES_EDITOR_ID } from "@pathfinder/shared";
 
 import { getMonacoEditor } from "../../monaco-editor-store";
 
+import { useSessionStore } from "../../session-store";
+
 import {
   graphQLDocumentStore,
   updateDocumentEntryResponse,
 } from "../../graphql-document-store";
 
 import { httpFetcher } from "./http-fetcher";
-import { prepareRequest } from "./prepare-request";
-
 import { schemaStore } from "../schema-store";
 
 import type {
@@ -24,7 +24,9 @@ export const executeOperation: SchemaStoreActions["executeOperation"] =
   async () => {
     schemaStore.setState({ isExecuting: true });
 
-    const { endpoint, headers } = prepareRequest();
+    const endpoint = useSessionStore.getState().endpoint as string;
+
+    const headers = useSessionStore.getState().headers;
 
     // get our activeDocumentEntry
     const activeDocumentEntry =
@@ -74,7 +76,7 @@ export const executeOperation: SchemaStoreActions["executeOperation"] =
         duration: t1 - t0,
         request: {
           endpoint,
-          headers,
+          headers: headers.map((header) => [header.key, header.value]),
           graphQLOperationParams: graphQLParams,
         },
         response: {
@@ -83,8 +85,6 @@ export const executeOperation: SchemaStoreActions["executeOperation"] =
         },
         timestamp: new Date(),
       };
-
-      // const xGrafbaseCache = fetchResponse.headers.get("x-grafbase-cache");
 
       updateDocumentEntryResponse({
         executionResponse,

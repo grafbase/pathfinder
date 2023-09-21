@@ -1,3 +1,5 @@
+export { getSessions, initSession, loadSession } from "./actions";
+
 export {
   closeEditorTab,
   initNewEditorTab,
@@ -5,8 +7,11 @@ export {
   updateActiveEditorTab,
 } from "./slices/editor-tabs/actions";
 
+export { clearHistory, deleteFromHistory } from "./slices/history/actions";
+
 export {
   addEmptyHeader,
+  getEnabledTTPHeaderValues,
   removeHeader,
   updateHeader,
 } from "./slices/http-headers/actions";

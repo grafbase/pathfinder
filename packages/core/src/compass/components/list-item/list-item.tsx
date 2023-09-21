@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { generateSelectionBreadcrumbsFromAncestors } from "../../compass-store";
 
@@ -29,16 +29,6 @@ export const ListItem = ({
   });
 
   const hasParent = ancestors.length > 2;
-
-  useEffect(() => {
-    // this effect ensures the field is initially expanded when selected
-    // this is one of the many micro-interactions in pathfinder that need tweaking/testing
-    if (isSelected) {
-      setIsExpanded(true);
-    } else {
-      setIsExpanded(false);
-    }
-  }, [isSelected]);
 
   if (collapsibleContent) {
     return (

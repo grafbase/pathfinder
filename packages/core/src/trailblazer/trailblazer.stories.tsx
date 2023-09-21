@@ -1,6 +1,4 @@
-import { Pathfinder } from "../pathfinder";
-import { PluginScoutHistory } from "../plugin-scout-history";
-import { Scout } from "../scout";
+import { PluginSchemaAwareSchemaView } from "../plugin-schema-aware-schema-view";
 import { Trailblazer } from "./trailblazer";
 
 const overrides = {
@@ -36,7 +34,7 @@ export const WithPathfinder = () => {
   return (
     <Trailblazer
       plugins={{
-        scoutTools: [PluginScoutHistory],
+        schemaAwarePlugins: [PluginSchemaAwareSchemaView],
       }}
       schemaProps={{
         fetcherOptions: {
@@ -44,9 +42,7 @@ export const WithPathfinder = () => {
           headers,
         },
       }}
-    >
-      <Pathfinder />
-    </Trailblazer>
+    />
   );
 };
 
@@ -54,44 +50,23 @@ export const WithPathfinderWithoutSchemaProps = () => {
   return (
     <Trailblazer
       plugins={{
-        scoutTools: [PluginScoutHistory],
+        schemaAwarePlugins: [PluginSchemaAwareSchemaView],
       }}
-    >
-      <Pathfinder />
-    </Trailblazer>
+    />
   );
 };
 
 export const WithScoutPlugins = () => {
   return (
     <Trailblazer
-      plugins={{
-        scoutTools: [PluginScoutHistory],
-      }}
+      mode="MINI"
       schemaProps={{
         fetcherOptions: {
           endpoint: import.meta.env.VITE_GRAPHQL_ENDPOINT,
           headers,
         },
       }}
-    >
-      <Scout />
-    </Trailblazer>
-  );
-};
-
-export const WithScout = () => {
-  return (
-    <Trailblazer
-      schemaProps={{
-        fetcherOptions: {
-          endpoint: import.meta.env.VITE_GRAPHQL_ENDPOINT,
-          headers,
-        },
-      }}
-    >
-      <Scout />
-    </Trailblazer>
+    />
   );
 };
 
@@ -107,16 +82,24 @@ export const WithThemeOverrides = () => {
       themeProps={{
         theme: { overrides },
       }}
-    >
-      <Scout />
-    </Trailblazer>
+    />
+  );
+};
+
+export const WithScout = () => {
+  return (
+    <Trailblazer
+      mode="MINI"
+      schemaProps={{
+        fetcherOptions: {
+          endpoint: import.meta.env.VITE_GRAPHQL_ENDPOINT,
+          headers,
+        },
+      }}
+    />
   );
 };
 
 export const WithScoutWithoutSchemaProps = () => {
-  return (
-    <Trailblazer>
-      <Scout />
-    </Trailblazer>
-  );
+  return <Trailblazer mode="MINI" />;
 };

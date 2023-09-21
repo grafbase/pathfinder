@@ -1,4 +1,4 @@
-import { useThemeStore } from "@pathfinder/stores";
+import { useSessionStore, useThemeStore } from "@pathfinder/stores";
 
 import {
   Analyze,
@@ -12,6 +12,9 @@ import { scoutClass, scoutEditorWrapClass } from "./scout.css";
 
 export const Scout = () => {
   const activeTheme = useThemeStore.use.activeTheme();
+
+  //@ts-ignore
+  const endpoint = useSessionStore.use.endpoint();
 
   if (!activeTheme) {
     return <p>you must wrap Scout with the Trailblazer component</p>;
@@ -41,7 +44,7 @@ export const Scout = () => {
           ),
         }}
         pane2={{
-          component: <ScoutTools />,
+          component: endpoint ? <ScoutTools /> : <></>,
           initialSize: { type: "PIXELS", value: 40 },
           minimumSize: 40,
         }}

@@ -1,7 +1,5 @@
 import { Tab } from "@headlessui/react";
 
-import { shared } from "@pathfinder/style";
-
 import {
   tabListClass,
   tabButtonClass,
@@ -9,6 +7,8 @@ import {
   tabPanelClass,
   tabPanelsClass,
 } from "./tabs.css";
+
+import { shared } from "@pathfinder/style";
 
 import { TabsProps } from "./tabs.types";
 
@@ -25,7 +25,7 @@ export const Tabs = ({
     setSelectedTabIndex: React.Dispatch<React.SetStateAction<number>>;
     selectedTabIndex: number;
   };
-  styles: { onSurface: 1 | 2 | 3 };
+  styles: { buttonStyle?: string; onSurface: 1 | 2 | 3 };
   tabs: TabsProps;
   tabListHeight?: 32 | 40;
 }) => {

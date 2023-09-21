@@ -43,8 +43,11 @@ export const detailsTogglerClass = recipe({
       true: {
         fontWeight: 600,
         color: contract.color.purple[11],
-        "&:hover": {
-          color: contract.color.neutral[12],
+
+        selectors: {
+          "&:hover": {
+            color: contract.color.neutral[12],
+          },
         },
       },
       false: {
@@ -62,6 +65,7 @@ export const detailsClass = style({
 });
 
 export const inlineFragmentClass = recipe({
+  base: {},
   variants: {
     isSelected: {
       true: {

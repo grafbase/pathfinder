@@ -12,11 +12,12 @@ type SchemaStoreProps = Pick<SchemaStoreState, "withPolling"> & {
 };
 
 type PathfinderPlugins = {
-  scoutTools: PluginsStoreState["scoutTools"];
+  schemaAwarePlugins?: PluginsStoreState["schemaAwarePlugins"];
+  scoutTools?: PluginsStoreState["scoutTools"];
 };
 
 export type TrailblazerProps = {
-  children: React.ReactNode;
+  mode?: "FULL" | "MINI";
   plugins?: PathfinderPlugins;
   schemaProps?: SchemaStoreProps;
   themeProps?: {

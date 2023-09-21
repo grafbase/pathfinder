@@ -7,8 +7,10 @@
     "types": "tsc --noEmit"
   },  
   "devDependencies": {
+    "@paralleldrive/cuid2": "^2.2.2",
     "@pathfinder/eslint-config": "workspace:*",
     "@pathfinder/tsconfig": "workspace:*",
+    "graphql": "16.8.0",
     "zustand": "4.4.1"
   }
 }

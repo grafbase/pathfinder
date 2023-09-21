@@ -1,10 +1,10 @@
-// import type monaco from "monaco-graphql/esm/monaco-editor";
 import type monaco from "monaco-editor/esm/vs/editor/editor.api";
 
 export type MonacoIPosition = monaco.IPosition;
 export type MonacoIRange = monaco.IRange;
 
-type MonacoEditorIStandaloneCodeEditor = monaco.editor.IStandaloneCodeEditor;
+export type MonacoEditorIStandaloneCodeEditor =
+  monaco.editor.IStandaloneCodeEditor;
 
 type MonacoEditorIStandaloneEditorConstructionOptions =
   monaco.editor.IStandaloneEditorConstructionOptions;
@@ -31,13 +31,18 @@ export type AvailableEditors =
 
 export type MonacoEditorStoreState = {
   /**
-   * We maintain our own collection of editors outside of the Monaco global instance
+   * We maintain our own collection of unmanaged editors outside of the Monaco global instance
    */
-  editors: {
+  unmanagedEditors: Record<string, MonacoEditorIStandaloneCodeEditor | null>;
+  /**
+   * We maintain our own collection of managed editors outside of the Monaco global instance
+   */
+  managedEditors: {
     [DOCUMENT_EDITOR_ID]: MonacoEditorIStandaloneCodeEditor | null;
     [RESPONSE_EDITOR_ID]: MonacoEditorIStandaloneCodeEditor | null;
     [VARIABLES_EDITOR_ID]: MonacoEditorIStandaloneCodeEditor | null;
   };
+
   /**
    * A boolean indicating whether or not we have initialized monaco editor features
    */
@@ -52,7 +57,7 @@ export type CreateEditorParams = {
   /**
    * A unique ID denoting the placement of this editor
    */
-  editorId: AvailableEditors;
+  editorId: AvailableEditors | string;
   /**
    * Must be unique. Use the utility function `generateModelName` to generate this parameter
    */
@@ -86,14 +91,18 @@ export type MonacoEditorStoreActions = {
   /**
    * Dispose of the editor via monaco's built-in method and filter from our editors array
    */
-  disposeMonacoEditor: ({ editorId }: { editorId: AvailableEditors }) => void;
+  disposeMonacoEditor: ({
+    editorId,
+  }: {
+    editorId: AvailableEditors | string;
+  }) => void;
   /**
    * Returns an active editor instance
    */
   getMonacoEditor: ({
     editorId,
   }: {
-    editorId: AvailableEditors;
+    editorId: AvailableEditors | string;
   }) => MonacoEditorIStandaloneCodeEditor | null;
   /**
    * Initialize monaco-editor features:
