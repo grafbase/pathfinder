@@ -149,6 +149,9 @@ importers:
       astro:
         specifier: ^3.0.12
         version: 3.0.13(@types/node@20.6.3)
+      prettier:
+        specifier: 3.0.3
+        version: 3.0.3
       react:
         specifier: 18.2.0
         version: 18.2.0
