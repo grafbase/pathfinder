@@ -55,7 +55,7 @@ export const HistoryItemRequest = ({
         code={historyItem.request.graphQLOperationParams.query}
       />
       <Disclosure
-        buttonCopy="EnVariablesdpoint"
+        buttonCopy="Variables"
         code={JSON.stringify(
           historyItem.request.graphQLOperationParams.variables,
           null,
