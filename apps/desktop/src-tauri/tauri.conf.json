@@ -8,7 +8,7 @@
   },
   "package": {
     "productName": "Pathfinder",
-    "version": "0.0.0"
+    "version": "0.1.0"
   },
   "tauri": {
     "allowlist": {
@@ -44,10 +44,8 @@
     "security": {
       "csp": null
     },
-    "macOSPrivateApi": true,
     "windows": [
       {
-        "transparent": true,
         "titleBarStyle": "Overlay",
         "fullscreen": false,
         "resizable": true,

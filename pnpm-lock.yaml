@@ -35,10 +35,10 @@ importers:
         version: 0.40.0
       monaco-graphql:
         specifier: 1.3.0
-        version: 1.3.0(graphql@16.8.0)(monaco-editor@0.40.0)(prettier@3.0.3)
+        version: 1.3.0(graphql@16.8.1)(monaco-editor@0.40.0)(prettier@3.0.3)
       next:
-        specifier: 13.5.1
-        version: 13.5.1(react-dom@18.2.0)(react@18.2.0)
+        specifier: 13.5.2
+        version: 13.5.2(react-dom@18.2.0)(react@18.2.0)
       turbo:
         specifier: 1.10.14
         version: 1.10.14
@@ -193,7 +193,7 @@ importers:
         version: 7.1.0(monaco-editor@0.40.0)(webpack@5.88.2)
       monaco-graphql:
         specifier: 1.2.4
-        version: 1.2.4(graphql@16.8.0)(monaco-editor@0.40.0)(prettier@3.0.3)
+        version: 1.2.4(graphql@16.8.1)(monaco-editor@0.40.0)(prettier@3.0.3)
       next:
         specifier: 13.4.12
         version: 13.4.12(react-dom@18.2.0)(react@18.2.0)
@@ -231,8 +231,8 @@ importers:
         specifier: workspace:*
         version: link:../style
       graphql:
-        specifier: 16.8.0
-        version: 16.8.0
+        specifier: 16.8.1
+        version: 16.8.1
       idb-keyval:
         specifier: 6.2.1
         version: 6.2.1
@@ -241,7 +241,7 @@ importers:
         version: 0.40.0
       monaco-graphql:
         specifier: 1.3.0
-        version: 1.3.0(graphql@16.8.0)(monaco-editor@0.40.0)(prettier@3.0.3)
+        version: 1.3.0(graphql@16.8.1)(monaco-editor@0.40.0)(prettier@3.0.3)
       react:
         specifier: ^18.0.0
         version: 18.2.0
@@ -292,8 +292,8 @@ importers:
         specifier: 4.4.9
         version: 4.4.9(@types/node@20.6.3)
       vite-plugin-dts:
-        specifier: 3.5.3
-        version: 3.5.3(@types/node@20.6.3)(typescript@5.2.2)(vite@4.4.9)
+        specifier: 3.5.4
+        version: 3.5.4(@types/node@20.6.3)(typescript@5.2.2)(vite@4.4.9)
       vitest:
         specifier: 0.34.4
         version: 0.34.4(jsdom@22.1.0)
@@ -343,8 +343,8 @@ importers:
         specifier: workspace:*
         version: link:../tsconfig
       graphql:
-        specifier: 16.8.0
-        version: 16.8.0
+        specifier: 16.8.1
+        version: 16.8.1
       zustand:
         specifier: 4.4.1
         version: 4.4.1(@types/react@18.2.22)(react@18.2.0)
@@ -358,8 +358,8 @@ importers:
         specifier: workspace:*
         version: link:../style
       graphql:
-        specifier: 16.8.0
-        version: 16.8.0
+        specifier: 16.8.1
+        version: 16.8.1
       idb-keyval:
         specifier: 6.2.1
         version: 6.2.1
@@ -368,7 +368,7 @@ importers:
         version: 0.40.0
       monaco-graphql:
         specifier: 1.3.0
-        version: 1.3.0(graphql@16.8.0)(monaco-editor@0.40.0)(prettier@3.0.3)
+        version: 1.3.0(graphql@16.8.1)(monaco-editor@0.40.0)(prettier@3.0.3)
       zustand:
         specifier: 4.4.1
         version: 4.4.1(@types/react@18.2.22)(react@18.2.0)
@@ -2634,8 +2634,8 @@ packages:
     resolution: {integrity: sha512-RmHanbV21saP/6OEPBJ7yJMuys68cIf8OBBWd7+uj40LdpmswVAwe1uzeuFyUsd6SfeITWT3XnQfn6wULeKwDQ==}
     dev: false
 
-  /@next/env@13.5.1:
-    resolution: {integrity: sha512-CIMWiOTyflFn/GFx33iYXkgLSQsMQZV4jB91qaj/TfxGaGOXxn8C1j72TaUSPIyN7ziS/AYG46kGmnvuk1oOpg==}
+  /@next/env@13.5.2:
+    resolution: {integrity: sha512-dUseBIQVax+XtdJPzhwww4GetTjlkRSsXeQnisIJWBaHsnxYcN2RGzsPHi58D6qnkATjnhuAtQTJmR1hKYQQPg==}
     dev: true
 
   /@next/eslint-plugin-next@13.4.12:
@@ -2653,8 +2653,8 @@ packages:
     dev: false
     optional: true
 
-  /@next/swc-darwin-arm64@13.5.1:
-    resolution: {integrity: sha512-Bcd0VFrLHZnMmJy6LqV1CydZ7lYaBao8YBEdQUVzV8Ypn/l5s//j5ffjfvMzpEQ4mzlAj3fIY+Bmd9NxpWhACw==}
+  /@next/swc-darwin-arm64@13.5.2:
+    resolution: {integrity: sha512-7eAyunAWq6yFwdSQliWMmGhObPpHTesiKxMw4DWVxhm5yLotBj8FCR4PXGkpRP2tf8QhaWuVba+/fyAYggqfQg==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [darwin]
@@ -2671,8 +2671,8 @@ packages:
     dev: false
     optional: true
 
-  /@next/swc-darwin-x64@13.5.1:
-    resolution: {integrity: sha512-uvTZrZa4D0bdWa1jJ7X1tBGIxzpqSnw/ATxWvoRO9CVBvXSx87JyuISY+BWsfLFF59IRodESdeZwkWM2l6+Kjg==}
+  /@next/swc-darwin-x64@13.5.2:
+    resolution: {integrity: sha512-WxXYWE7zF1ch8rrNh5xbIWzhMVas6Vbw+9BCSyZvu7gZC5EEiyZNJsafsC89qlaSA7BnmsDXVWQmc+s1feSYbQ==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [darwin]
@@ -2689,8 +2689,8 @@ packages:
     dev: false
     optional: true
 
-  /@next/swc-linux-arm64-gnu@13.5.1:
-    resolution: {integrity: sha512-/52ThlqdORPQt3+AlMoO+omicdYyUEDeRDGPAj86ULpV4dg+/GCFCKAmFWT0Q4zChFwsAoZUECLcKbRdcc0SNg==}
+  /@next/swc-linux-arm64-gnu@13.5.2:
+    resolution: {integrity: sha512-URSwhRYrbj/4MSBjLlefPTK3/tvg95TTm6mRaiZWBB6Za3hpHKi8vSdnCMw5D2aP6k0sQQIEG6Pzcfwm+C5vrg==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
@@ -2707,8 +2707,8 @@ packages:
     dev: false
     optional: true
 
-  /@next/swc-linux-arm64-musl@13.5.1:
-    resolution: {integrity: sha512-L4qNXSOHeu1hEAeeNsBgIYVnvm0gg9fj2O2Yx/qawgQEGuFBfcKqlmIE/Vp8z6gwlppxz5d7v6pmHs1NB6R37w==}
+  /@next/swc-linux-arm64-musl@13.5.2:
+    resolution: {integrity: sha512-HefiwAdIygFyNmyVsQeiJp+j8vPKpIRYDlmTlF9/tLdcd3qEL/UEBswa1M7cvO8nHcr27ZTKXz5m7dkd56/Esg==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
@@ -2725,8 +2725,8 @@ packages:
     dev: false
     optional: true
 
-  /@next/swc-linux-x64-gnu@13.5.1:
-    resolution: {integrity: sha512-QVvMrlrFFYvLtABk092kcZ5Mzlmsk2+SV3xYuAu8sbTuIoh0U2+HGNhVklmuYCuM3DAAxdiMQTNlRQmNH11udw==}
+  /@next/swc-linux-x64-gnu@13.5.2:
+    resolution: {integrity: sha512-htGVVroW0tdHgMYwKWkxWvVoG2RlAdDXRO1RQxYDvOBQsaV0nZsgKkw0EJJJ3urTYnwKskn/MXm305cOgRxD2w==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
@@ -2743,8 +2743,8 @@ packages:
     dev: false
     optional: true
 
-  /@next/swc-linux-x64-musl@13.5.1:
-    resolution: {integrity: sha512-bBnr+XuWc28r9e8gQ35XBtyi5KLHLhTbEvrSgcWna8atI48sNggjIK8IyiEBO3KIrcUVXYkldAzGXPEYMnKt1g==}
+  /@next/swc-linux-x64-musl@13.5.2:
+    resolution: {integrity: sha512-UBD333GxbHVGi7VDJPPDD1bKnx30gn2clifNJbla7vo5nmBV+x5adyARg05RiT9amIpda6yzAEEUu+s774ldkw==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
@@ -2761,8 +2761,8 @@ packages:
     dev: false
     optional: true
 
-  /@next/swc-win32-arm64-msvc@13.5.1:
-    resolution: {integrity: sha512-EQGeE4S5c9v06jje9gr4UlxqUEA+zrsgPi6kg9VwR+dQHirzbnVJISF69UfKVkmLntknZJJI9XpWPB6q0Z7mTg==}
+  /@next/swc-win32-arm64-msvc@13.5.2:
+    resolution: {integrity: sha512-Em9ApaSFIQnWXRT3K6iFnr9uBXymixLc65Xw4eNt7glgH0eiXpg+QhjmgI2BFyc7k4ZIjglfukt9saNpEyolWA==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [win32]
@@ -2779,8 +2779,8 @@ packages:
     dev: false
     optional: true
 
-  /@next/swc-win32-ia32-msvc@13.5.1:
-    resolution: {integrity: sha512-1y31Q6awzofVjmbTLtRl92OX3s+W0ZfO8AP8fTnITcIo9a6ATDc/eqa08fd6tSpFu6IFpxOBbdevOjwYTGx/AQ==}
+  /@next/swc-win32-ia32-msvc@13.5.2:
+    resolution: {integrity: sha512-TBACBvvNYU+87X0yklSuAseqdpua8m/P79P0SG1fWUvWDDA14jASIg7kr86AuY5qix47nZLEJ5WWS0L20jAUNw==}
     engines: {node: '>= 10'}
     cpu: [ia32]
     os: [win32]
@@ -2797,8 +2797,8 @@ packages:
     dev: false
     optional: true
 
-  /@next/swc-win32-x64-msvc@13.5.1:
-    resolution: {integrity: sha512-+9XBQizy7X/GuwNegq+5QkkxAPV7SBsIwapVRQd9WSvvU20YO23B3bZUpevdabi4fsd25y9RJDDncljy/V54ww==}
+  /@next/swc-win32-x64-msvc@13.5.2:
+    resolution: {integrity: sha512-LfTHt+hTL8w7F9hnB3H4nRasCzLD/fP+h4/GUVBTxrkMJOnh/7OZ0XbYDKO/uuWwryJS9kZjhxcruBiYwc5UDw==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [win32]
@@ -6114,18 +6114,18 @@ packages:
   /graphemer@1.4.0:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
 
-  /graphql-language-service@5.1.7(graphql@16.8.0):
+  /graphql-language-service@5.1.7(graphql@16.8.1):
     resolution: {integrity: sha512-xkawYMJeoNYGhT+SpSH3c2qf6HpGHQ/duDmrseVHBpVCrXAiGnliXGSCC4jyMGgZQ05GytsZ12p0nUo7s6lSSw==}
     hasBin: true
     peerDependencies:
       graphql: ^15.5.0 || ^16.0.0
     dependencies:
-      graphql: 16.8.0
+      graphql: 16.8.1
       nullthrows: 1.1.1
       vscode-languageserver-types: 3.17.3
 
-  /graphql@16.8.0:
-    resolution: {integrity: sha512-0oKGaR+y3qcS5mCu1vb7KG+a89vjn06C7Ihq/dDl3jA+A8B3TKomvi3CiEcVLJQGalbu8F52LxkOym7U5sSfbg==}
+  /graphql@16.8.1:
+    resolution: {integrity: sha512-59LZHPdGZVh695Ud9lRzPBVTtlX9ZCV150Er2W43ro37wVof0ctenSaskPPjN7lVTIN8mSZt8PHUNKZuNQUuxw==}
     engines: {node: ^12.22.0 || ^14.16.0 || ^16.0.0 || >=17.0.0}
 
   /gray-matter@4.0.3:
@@ -7508,29 +7508,29 @@ packages:
   /monaco-editor@0.40.0:
     resolution: {integrity: sha512-1wymccLEuFSMBvCk/jT1YDW/GuxMLYwnFwF9CDyYCxoTw2Pt379J3FUhwy9c43j51JdcxVPjwk0jm0EVDsBS2g==}
 
-  /monaco-graphql@1.2.4(graphql@16.8.0)(monaco-editor@0.40.0)(prettier@3.0.3):
+  /monaco-graphql@1.2.4(graphql@16.8.1)(monaco-editor@0.40.0)(prettier@3.0.3):
     resolution: {integrity: sha512-TVM55ItTKbUXxXwHhbxuhwugL5BG2Fc54EM9m04K6Ig86PyFMax8zE64IkSFZLF4IpyM0L1Rz6yzE2GoCGOKrA==}
     peerDependencies:
       graphql: ^15.5.0 || ^16.0.0
       monaco-editor: '>= 0.20.0 < 1'
       prettier: ^2.8.0 || ^3.0.0
     dependencies:
-      graphql: 16.8.0
-      graphql-language-service: 5.1.7(graphql@16.8.0)
+      graphql: 16.8.1
+      graphql-language-service: 5.1.7(graphql@16.8.1)
       monaco-editor: 0.40.0
       picomatch-browser: 2.2.6
       prettier: 3.0.3
     dev: false
 
-  /monaco-graphql@1.3.0(graphql@16.8.0)(monaco-editor@0.40.0)(prettier@3.0.3):
+  /monaco-graphql@1.3.0(graphql@16.8.1)(monaco-editor@0.40.0)(prettier@3.0.3):
     resolution: {integrity: sha512-Ilz7kUKYfO5KGwandjR+eQbN+fj1fQY9OECIQlzgeWOkLXMZqXTsxf01iQfVw08mMsBz7qa6fZKsESouDcBN2g==}
     peerDependencies:
       graphql: ^15.5.0 || ^16.0.0
       monaco-editor: '>= 0.20.0 < 1'
       prettier: ^2.8.0 || ^3.0.0
     dependencies:
-      graphql: 16.8.0
-      graphql-language-service: 5.1.7(graphql@16.8.0)
+      graphql: 16.8.1
+      graphql-language-service: 5.1.7(graphql@16.8.1)
       monaco-editor: 0.40.0
       picomatch-browser: 2.2.6
       prettier: 3.0.3
@@ -7638,8 +7638,8 @@ packages:
       - babel-plugin-macros
     dev: false
 
-  /next@13.5.1(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-GIudNR7ggGUZoIL79mSZcxbXK9f5pwAIPZxEM8+j2yLqv5RODg4TkmUlaKSYVqE1bPQueamXSqdC3j7axiTSEg==}
+  /next@13.5.2(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-vog4UhUaMYAzeqfiAAmgB/QWLW7p01/sg+2vn6bqc/CxHFYizMzLv6gjxKzl31EVFkfl/F+GbxlKizlkTE9RdA==}
     engines: {node: '>=16.14.0'}
     hasBin: true
     peerDependencies:
@@ -7653,7 +7653,7 @@ packages:
       sass:
         optional: true
     dependencies:
-      '@next/env': 13.5.1
+      '@next/env': 13.5.2
       '@swc/helpers': 0.5.2
       busboy: 1.6.0
       caniuse-lite: 1.0.30001534
@@ -7664,15 +7664,15 @@ packages:
       watchpack: 2.4.0
       zod: 3.21.4
     optionalDependencies:
-      '@next/swc-darwin-arm64': 13.5.1
-      '@next/swc-darwin-x64': 13.5.1
-      '@next/swc-linux-arm64-gnu': 13.5.1
-      '@next/swc-linux-arm64-musl': 13.5.1
-      '@next/swc-linux-x64-gnu': 13.5.1
-      '@next/swc-linux-x64-musl': 13.5.1
-      '@next/swc-win32-arm64-msvc': 13.5.1
-      '@next/swc-win32-ia32-msvc': 13.5.1
-      '@next/swc-win32-x64-msvc': 13.5.1
+      '@next/swc-darwin-arm64': 13.5.2
+      '@next/swc-darwin-x64': 13.5.2
+      '@next/swc-linux-arm64-gnu': 13.5.2
+      '@next/swc-linux-arm64-musl': 13.5.2
+      '@next/swc-linux-x64-gnu': 13.5.2
+      '@next/swc-linux-x64-musl': 13.5.2
+      '@next/swc-win32-arm64-msvc': 13.5.2
+      '@next/swc-win32-ia32-msvc': 13.5.2
+      '@next/swc-win32-x64-msvc': 13.5.2
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
@@ -9907,8 +9907,8 @@ packages:
       - terser
     dev: true
 
-  /vite-plugin-dts@3.5.3(@types/node@20.6.3)(typescript@5.2.2)(vite@4.4.9):
-    resolution: {integrity: sha512-h94j/+SR1PhLR9jnEtcjZILagE2QZBAV8V1y3T2Ujcet1VI0Et4dZSU1W8fbnp6obB7B3/b8hArqdi2/9HuH+w==}
+  /vite-plugin-dts@3.5.4(@types/node@20.6.3)(typescript@5.2.2)(vite@4.4.9):
+    resolution: {integrity: sha512-BJLBj1Vg9kV7ZMXAULT9UGogrElwz5s+k8TzC7LsFkHv5Jy90OWnHKUp8qm7sypu2pkF5pTJ5McUuHudnT0Imw==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       typescript: '*'
