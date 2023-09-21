@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="1583"  alt="The Pathfinder logo" alt="Group 1890493-2" src="https://github.com/grafbase/pathfinder/assets/14347895/57a6c505-0624-475d-9f40-854ead751b6d">
+  <img width="1583" alt="Pathfinder" src="https://github.com/grafbase/pathfinder/assets/4585/8ab41ae3-81a9-4d0c-99ff-c46dd6adf422">
     <h3 align="center">Pathfinder</h3>
     <p align="center"><b>The missing GraphQL IDE</b></p>
     <p align="center"><sub><sup><b>Free, open-source and cross-platform</b></sup></sub></p>
