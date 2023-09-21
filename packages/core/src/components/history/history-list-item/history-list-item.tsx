@@ -95,7 +95,6 @@ export const HistoryListItem = ({
         )}
       </div>
       <div className={historyListItemSectionClass({ gap: 8 })}>
-        <Pill copy={"Cache--Make optional"} variant={{ color: "green" }} />
         {"errors" in item.response.data && (
           <Pill copy={"Graphql Error"} variant={{ color: "red" }} />
         )}
