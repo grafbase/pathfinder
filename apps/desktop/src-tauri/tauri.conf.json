@@ -44,10 +44,8 @@
     "security": {
       "csp": null
     },
-    "macOSPrivateApi": true,
     "windows": [
       {
-        "transparent": true,
         "titleBarStyle": "Overlay",
         "fullscreen": false,
         "resizable": true,
