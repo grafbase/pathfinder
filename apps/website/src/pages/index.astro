@@ -14,7 +14,7 @@ import DownloadButton from "../components/DownloadButton";
 	<section class="flex flex-col items-center justify-center mt-[80px]">
 		<iframe style="margin-left: 38px" class="scale-75" src="https://ghbtns.com/github-btn.html?user=grafbase&repo=pathfinder&type=star&count=true&size=large" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
 		<div class="relative flex justify-center items-center">
-			<div class="hidden md:block md:absolute -top-1/2 pointer-events-none">
+			<div class="absolute -top-1/2 pointer-events-none">
 				<svg width="1440" height="596" viewBox="0 0 1440 596" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path d="M-21.2272 -25L247.773 60.5L374.773 205L592.773 261.5L619.773 255" stroke="url(#paint0_linear_258_7281)"/>
 					<circle opacity="0.5" cx="247.773" cy="60.8467" r="3.5" fill="#B9DDFF" stroke="#388CD9"/>
@@ -105,14 +105,14 @@ import DownloadButton from "../components/DownloadButton";
 				</defs>
 			</svg>
 		</div>
-		<h1 class="text-6xl md:text-7xl px-2 font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 max-w-xl text-center mt-8">Pathfinder</h1>
+		<h1 class="text-6xl md:text-7xl px-2 font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 max-w-xl text-center mt-8" style="letter-spacing: -3.12px">Pathfinder</h1>
 		<DownloadButton client:load />
 	</section>
 	<section class="container mx-auto my-[220px]">
-		<h1 class="text-5xl font-bold text-white text-center">The missing GraphQL IDE</h1>
-		<p class="text-gray-400 mt-3 text-lg text-center">Free, open-source and cross-platform.</p>
-		<div class="my-12 relative container mx-auto">
-			<div class="hidden md:block md:absolute top-0 overflow-hidden opacity-50">
+		<h1 class="text-[28px] md:text-[32px] font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 text-center relative">The missing GraphQL IDE</h1>
+		<p class="text-gray-400 mt-1 text-lg text-center relative">Free, open-source and cross-platform.</p>
+		<div class="my-10 relative container mx-auto">
+			<div class="absolute top-0 overflow-hidden opacity-50 pointer-events-none">
 				<svg height="750" viewBox="0 0 1398 663" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<g opacity="0.4">
 						<line opacity="0.3" y1="-0.517969" x2="626.742" y2="-0.517969" transform="matrix(-4.37114e-08 -1 -1 4.37114e-08 900.25 662.742)" stroke="url(#paint0_linear_2_14)" stroke-width="1.03594"/>
@@ -291,14 +291,14 @@ import DownloadButton from "../components/DownloadButton";
 				<div class="h-[100px] rounded-md  bg-gradient-to-r from-purple-500 to-blue-500 blur-xl opacity-25 scale-[5]">
 				</div>
 			</div>
-			<div class="hidden md:block md:absolute items-center justify-center -top-52 ml-10 pointer-events-none">
+			<div class="absolute items-center justify-center -top-16 md:-top-52 md:ml-10 pointer-events-none">
 				<img src={Bg.src} alt="Pathfinder preview image" class="w-full"/>
 			</div>
-			<img src={previewImage.src} alt="Pathfinder preview image" class="mdw-10/12 mx-auto relative"/>
+			<img src={previewImage.src} alt="Pathfinder preview image" class="w-full md:w-10/12 mx-auto relative"/>
 		</div>
 	</section>
 	<section class="container mx-auto my-[120px] px-4">
-		<h1 class="text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 mt-12">Features</h1>
+		<h1 class="text-[28px] md:text-[32px] font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 text-center">Features</h1>
 		<div class="mt-12 grid sm:grid-cols-2 gap-8">
 			<Card image={Oss} title="Open Source" description="Built on top of React, zustand, monaco-editor, monaco-graphql, and vanilla-extract" />
 			<Card image={VisualOperation} title="Visual Operation Builder" description="Browse operations in a tree-like view and build them with the click of a button" />
