@@ -25,6 +25,7 @@ const DownloadButton = () => {
       className={
         "cursor-pointer bg-gradient-to-r from-purple-500 to-blue-500 px-6 py-4 rounded-md mt-8 flex items-center gap-2 justify-center transition duration-200" +
         (!platform ? " opacity-0" : " opacity-100")
+          +( platform !== "Mac" ? " pointer-events-none" : "")
       }
     >
       {!platform && <div style={{ height: 25, width: 25 }} />}
