@@ -13,7 +13,7 @@ const DownloadButton = () => {
       setPlatform("Windows");
     }
 
-    if (navigator.platform.indexOf("Linux") > -1){
+    if (navigator.platform.indexOf("Linux") > -1) {
       setPlatform("Linux");
     }
   }, []);
@@ -24,8 +24,8 @@ const DownloadButton = () => {
       href="https://github.com/grafbase/pathfinder/releases/download/0.1.1/Pathfinder-0.1.1-universal-apple-darwin.dmg"
       className={
         "cursor-pointer bg-gradient-to-r from-purple-500 to-blue-500 px-6 py-4 rounded-md mt-8 flex items-center gap-2 justify-center transition duration-200" +
-        (!platform ? " opacity-0" : " opacity-100")
-          +( platform !== "Mac" ? " pointer-events-none" : "")
+        (!platform ? " opacity-0" : " opacity-100") +
+        (platform !== "Mac" ? " pointer-events-none" : "")
       }
     >
       {!platform && <div style={{ height: 25, width: 25 }} />}
