@@ -9,35 +9,10 @@ const Trailblazer = dynamic(
   }
 )
 
-const Scout = dynamic(
-  () => import('@pathfinder/core').then(mod => mod.Scout),
-  {
-    ssr: false
-  }
-)
-
 import "@pathfinder/core/dist/style.css";
-
 
 export default function Home() {
   return (
-    <Trailblazer
-      schemaProps={{
-        fetcherOptions:{
-          endpoint: "https://.com",
-          headers: [
-            {
-              key: "x-api-key",
-              value: "",
-            },
-            {
-              key: "Content-Type",
-              value: "application/graphql-response+json",
-            },
-          ]
-        }
-      }}
-    />
-
+    <Trailblazer />
   )
 }
