@@ -26,9 +26,8 @@ export default defineConfig({
     },
     lib: {
       entry: "src/index.ts",
-      name: "Pathfinder",
+      name: "pathfinder",
       fileName: (format) => `pathfinder.${format}.js`,
-      formats: ["es"],
     },
     rollupOptions: {
       external: ["react", "react-dom"],
@@ -37,16 +36,6 @@ export default defineConfig({
           react: "React",
           "react-dom": "ReactDOM",
         },
-        // chunkFileNames: '[name]-[hash].js'
-        // manualChunks: {
-        //   ["json.worker"]: [
-        //     `/node_modules/monaco-editor/esm/vs/language/json/json.worker`,
-        //   ],
-        //   editorWorker: [
-        //     `/node_modules/monaco-editor/esm/vs/editor/editor.worker`,
-        //   ],
-        //   graphqlWorker: [`/node_modules/monaco-graphql/esm/graphql.worker`],
-        // },
       },
     },
   },
