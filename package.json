@@ -21,7 +21,7 @@
     "@vanilla-extract/css": "1.13.0",
     "@vanilla-extract/dynamic": "2.0.3",      
     "next": "13.5.2",
-    "@types/node": "20.6.3",
+    "@types/node": "20.6.5",
     "@types/react": "18.2.22",
     "@types/react-dom": "18.2.7",    
     "monaco-editor": "0.40.0",
