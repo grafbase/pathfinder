@@ -44,7 +44,7 @@
     "fake-indexeddb": "4.0.2",
     "jsdom": "22.1.0",
     "vite": "4.4.9",
-    "vite-plugin-dts": "3.5.4",
+    "vite-plugin-dts": "3.6.0",
     "vitest": "0.34.4",
     "vitest-canvas-mock": "0.3.3"
   }
