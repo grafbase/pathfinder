@@ -4,5 +4,13 @@ export const getEnabledTTPHeaderValues: HTTPHeadersActions["getEnabledTTPHeaderV
   ({ headers }) => {
     return headers
       .filter((header) => header.enabled)
-      .map((header) => [header.key, header.value]);
+      .map((header) => [header.key, header.value] as [string, string]);
+  };
+
+
+  export const getEnabledHTTPHeaderValueRecord: HTTPHeadersActions["getEnabledHTTPHeaderValueRecord"] =
+  ({ headers }) => {
+    return headers
+      .filter((header) => header.enabled)
+      .reduce((accumulator, currentValue) => ({...accumulator,  [currentValue.key]: currentValue.value}), {} as Record<string,string>);
   };

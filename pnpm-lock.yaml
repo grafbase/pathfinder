@@ -363,9 +363,18 @@ importers:
       graphql:
         specifier: 16.8.1
         version: 16.8.1
+      graphql-sse:
+        specifier: ^2.3.0
+        version: 2.3.0(graphql@16.8.1)
       idb-keyval:
         specifier: 6.2.1
         version: 6.2.1
+      lodash.merge:
+        specifier: ^4.6.2
+        version: 4.6.2
+      lodash.update:
+        specifier: ^4.10.2
+        version: 4.10.2
       monaco-editor:
         specifier: 0.40.0
         version: 0.40.0
@@ -382,6 +391,12 @@ importers:
       '@pathfinder/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
+      '@types/lodash.merge':
+        specifier: ^4.6.7
+        version: 4.6.7
+      '@types/lodash.update':
+        specifier: ^4.10.7
+        version: 4.10.7
 
   packages/style:
     dependencies:
@@ -3289,6 +3304,22 @@ packages:
   /@types/json5@0.0.30:
     resolution: {integrity: sha512-sqm9g7mHlPY/43fcSNrCYfOeX9zkTTK+euO5E6+CVijSMm5tTjkVdwdqRkY3ljjIAf8679vps5jKUoJBCLsMDA==}
     dev: false
+
+  /@types/lodash.merge@4.6.7:
+    resolution: {integrity: sha512-OwxUJ9E50gw3LnAefSHJPHaBLGEKmQBQ7CZe/xflHkyy/wH2zVyEIAKReHvVrrn7zKdF58p16We9kMfh7v0RRQ==}
+    dependencies:
+      '@types/lodash': 4.14.199
+    dev: true
+
+  /@types/lodash.update@4.10.7:
+    resolution: {integrity: sha512-S+s8ORbtkYZl+9EfhVyRZ7TAr7wEl/YRUzNdoTbjiiL2Ef8U/4mjiFo/J5bhWLJ8b8/GCnujXRCAv8EN9BI1VA==}
+    dependencies:
+      '@types/lodash': 4.14.199
+    dev: true
+
+  /@types/lodash@4.14.199:
+    resolution: {integrity: sha512-Vrjz5N5Ia4SEzWWgIVwnHNEnb1UE1XMkvY5DGXrAeOGE9imk0hgTHh5GyDjLDJi9OTCn9oo9dXH1uToK1VRfrg==}
+    dev: true
 
   /@types/mdast@3.0.12:
     resolution: {integrity: sha512-DT+iNIRNX884cx0/Q1ja7NyUPpZuv0KPyL5rGNxm1WC1OtHstl7n4Jb7nk+xacNShQMbczJjt8uFzznpp6kYBg==}
@@ -6207,6 +6238,15 @@ packages:
       nullthrows: 1.1.1
       vscode-languageserver-types: 3.17.3
 
+  /graphql-sse@2.3.0(graphql@16.8.1):
+    resolution: {integrity: sha512-D+NL4X3q4XCkp+QL3y+BGmQcFoq87ONhrAvADMoivt/Z5NpxH/8PUzE1+4pYMtJXPhPSQQTXxvIMcjWfqdatjA==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      graphql: '>=0.11 <=16'
+    dependencies:
+      graphql: 16.8.1
+    dev: false
+
   /graphql@16.8.1:
     resolution: {integrity: sha512-59LZHPdGZVh695Ud9lRzPBVTtlX9ZCV150Er2W43ro37wVof0ctenSaskPPjN7lVTIN8mSZt8PHUNKZuNQUuxw==}
     engines: {node: ^12.22.0 || ^14.16.0 || ^16.0.0 || >=17.0.0}
@@ -7028,6 +7068,10 @@ packages:
 
   /lodash.merge@4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
+
+  /lodash.update@4.10.2:
+    resolution: {integrity: sha512-0d/9zvc/+lN6QruE81yEuoslwtgKSDStWJY5rgTolfSKiRMonCD3OYAR1Ea2hewjY+KDYzRw73+10Jxs7HwZsQ==}
+    dev: false
 
   /lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
