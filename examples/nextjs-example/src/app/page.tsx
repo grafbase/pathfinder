@@ -13,6 +13,15 @@ import "@pathfinder/core/dist/style.css";
 
 export default function Home() {
   return (
-    <Trailblazer />
+    <main className="flex h-full flex-col items-center text-blue-700">
+      My cool Next.js app
+      <Trailblazer 
+        schemaProps={{
+          fetcherOptions: {
+            endpoint: "https://graphql.earthdata.nasa.gov/api",
+          },
+        }}
+      />
+    </main>        
   )
 }
