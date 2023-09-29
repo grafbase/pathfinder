@@ -1,7 +1,6 @@
 import type { AvailableEditors } from "@pathfinder/stores";
 
-// import type monaco from "monaco-graphql/esm/monaco-editor";
-import type monaco from "monaco-editor/esm/vs/editor/editor.api";
+import type monaco from "monaco-graphql/esm/monaco-editor";
 
 type MonacoEditorIActionDescriptor = monaco.editor.IActionDescriptor;
 type MonacoEditorIStandaloneEditorConstructionOptions =
