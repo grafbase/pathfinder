@@ -12,6 +12,7 @@ export { clearHistory, deleteFromHistory } from "./slices/history/actions";
 export {
   addEmptyHeader,
   getEnabledTTPHeaderValues,
+  getEnabledHTTPHeaderValueRecord,
   removeHeader,
   updateHeader,
 } from "./slices/http-headers/actions";

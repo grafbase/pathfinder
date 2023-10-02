@@ -21,6 +21,11 @@ export type HTTPHeadersActions = {
   }: {
     headers: HTTPHeaderValue[];
   }) => HeadersInit;
+  getEnabledHTTPHeaderValueRecord: ({
+    headers,
+  }: {
+    headers: HTTPHeaderValue[];
+  }) => Record<string, string>;
   removeHeader: ({ id }: { id: string }) => void;
   updateHeader: ({
     id,
