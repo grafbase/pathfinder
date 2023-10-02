@@ -4,6 +4,9 @@ export const headerControlWrapClass = style({
   display: "flex",
   flexDirection: "column",
   gap: contract.space[12],
+  paddingTop: 20,
+  paddingLeft: 16,
+  paddingRight: 16,
 });
 
 export const removeHeaderButtonWrapClass = recipe({
@@ -25,6 +28,7 @@ export const headerControlClass = style({
   alignItems: "center",
   justifyContent: "center",
   gap: contract.space[12],
+  gridTemplateColumns: `48px 0.4fr 0.6fr ${contract.space[24]}`,
 });
 
 export const headerControlsClass = style({
