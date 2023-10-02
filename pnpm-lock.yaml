@@ -395,8 +395,8 @@ importers:
         specifier: workspace:*
         version: link:../shared
       '@radix-ui/colors':
-        specifier: 2.1.0
-        version: 2.1.0
+        specifier: 3.0.0
+        version: 3.0.0
       '@vanilla-extract/css':
         specifier: 1.13.0
         version: 1.13.0
@@ -2933,8 +2933,8 @@ packages:
       tslib: 2.6.2
     dev: true
 
-  /@radix-ui/colors@2.1.0:
-    resolution: {integrity: sha512-gcBnxjS2u2c6thQz/9K1+Pt2ZYcm5WKU4SLi0emYkRmYbVUw+37rlc5wgLtYOsSsRP9nxVtbJJYj6WVO7UUmZg==}
+  /@radix-ui/colors@3.0.0:
+    resolution: {integrity: sha512-FUOsGBkHrYJwCSEtWRCIfQbZG7q1e6DgxCIOe1SUQzDe/7rXXeA47s8yCn6fuTNQAj1Zq4oTFi9Yjp3wzElcxg==}
     dev: false
 
   /@rollup/pluginutils@5.0.4:
