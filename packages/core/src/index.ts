@@ -1,9 +1,5 @@
-export { ThemeSwitcher } from "./components";
+// component
+export { Trailblazer } from "./trailblazer";
 
+// plugins
 export { PluginSchemaAwareSchemaView } from "./plugin-schema-aware-schema-view";
-
-export * from "./pathfinder";
-
-export * from "./scout";
-
-export * from "./trailblazer";

@@ -25,11 +25,7 @@ export const createMonacoEditor: MonacoEditorStoreActions["createMonacoEditor"] 
     monacoOptionOverrides,
     ref,
   }) => {
-    // async import for monaco-editor to avoid issues with navigator access in nextjs
-    const { editor, Uri } = await import(
-      "monaco-editor/esm/vs/editor/editor.api"
-    );
-    // const { editor, Uri } = await import("monaco-graphql/esm/monaco-editor");
+    const { editor, Uri } = await import("monaco-graphql/esm/monaco-editor");
 
     // initialize if necessary
     if (!monacoEditorStore.getState().isInitialized) {

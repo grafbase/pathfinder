@@ -3,9 +3,7 @@ import { MonacoEditorStoreActions } from "../monaco-editor-store.types";
 
 export const setMonacoEditorTheme: MonacoEditorStoreActions["setMonacoEditorTheme"] =
   async ({ theme }) => {
-    // async import for monaco-editor to avoid issues with navigator access in nextjs
-    // const { editor } = await import("monaco-graphql/esm/monaco-editor");
-    const { editor } = await import("monaco-editor/esm/vs/editor/editor.api");
+    const { editor } = await import("monaco-graphql/esm/monaco-editor");
     const isInitialized = monacoEditorStore.getState().isInitialized;
 
     if (!isInitialized) {

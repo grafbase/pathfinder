@@ -31,6 +31,16 @@ module.exports = {
     '@typescript-eslint/no-non-null-asserted-optional-chain': 'warn',
     '@typescript-eslint/no-non-null-assertion': 'warn',
     '@typescript-eslint/no-var-requires': 'warn',
-    '@typescript-eslint/no-unused-vars': 'warn'
+    '@typescript-eslint/no-unused-vars': 'warn',
+
+    // monaco-graphql/monaco-editor
+    // https://github.com/graphql/graphiql/tree/main/packages/monaco-graphql#avoid-bundle-all-monaco-editors-languages
+    '@typescript-eslint/no-restricted-imports': [
+      'error',
+      {
+        name: 'monaco-editor/esm/vs/editor/editor.api',
+        message: '`monaco-editor` imports all languages; use `monaco-graphql/esm/monaco-editor` instead to import only `json` and `graphql` languages',
+      },
+    ],
   }
 }
