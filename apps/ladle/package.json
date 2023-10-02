@@ -19,8 +19,8 @@
     "@pathfinder/eslint-config": "workspace:*",
     "@pathfinder/style": "workspace:*",
     "@pathfinder/tsconfig": "workspace:*",
-    "@types/react": "18.2.22",
-    "@types/react-dom": "18.2.7",
+    "@types/react": "18.2.24",
+    "@types/react-dom": "18.2.8",
     "@vanilla-extract/vite-plugin": "3.9.0",
     "@vitejs/plugin-react": "4.1.0",
     "vite": "4.4.9"
