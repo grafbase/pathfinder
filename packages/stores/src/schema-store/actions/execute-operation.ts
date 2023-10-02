@@ -32,7 +32,6 @@ import type {
   ExecutionResponse,
   SchemaStoreActions,
 } from "../schema-store.types";
-import { Fragment } from "react";
 
 enum Directive {
   Defer = "defer",
@@ -45,7 +44,7 @@ const usingDefer = (set: SelectionSetNode | undefined): boolean =>
     const usingDeferOnCurrentSelection =
       inlineFragment &&
       (selection.directives?.some(
-        (node) => node.name.value === Directive.Defer
+        (node) => node.name.value === Directive.Defer,
       ) ??
         false);
     const hasSelectionSet = "selectionSet" in selection;
@@ -57,7 +56,7 @@ const usingDefer = (set: SelectionSetNode | undefined): boolean =>
 
 const mergeResults = (
   result: ExecutionResult<Record<string, unknown>, unknown>,
-  lastResult?: ExecutionResult<Record<string, unknown>, unknown>
+  lastResult?: ExecutionResult<Record<string, unknown>, unknown>,
 ) => {
   // bit of weird typing here, result should probably be returned as ExecutionResult | ExecutionPatchResult from graphql-sse
   // but that isn't the case
@@ -68,7 +67,7 @@ const mergeResults = (
   const path = result.path as string[];
 
   const combined = update(lastResult, ["data", ...path], (value) =>
-    merge(value, result.data)
+    merge(value, result.data),
   );
 
   const errors = [...(lastResult?.errors ?? []), ...(result.errors ?? [])];
@@ -91,7 +90,7 @@ export const executeOperation: SchemaStoreActions["executeOperation"] =
 
     // pull out the activeOperation and operationName
     const activeOperation = print(
-      activeDocumentEntry?.node as OperationDefinitionNode
+      activeDocumentEntry?.node as OperationDefinitionNode,
     );
     const operationName = activeDocumentEntry?.node.name?.value as string;
 
@@ -120,7 +119,7 @@ export const executeOperation: SchemaStoreActions["executeOperation"] =
         const client = createClient({
           url: endpoint,
           headers: headers
-            ? getEnabledHTTPHeaderValueRecord({ headers: headers })
+            ? getEnabledHTTPHeaderValueRecord({ headers })
             : undefined,
           credentials: "same-origin",
         });
@@ -137,7 +136,7 @@ export const executeOperation: SchemaStoreActions["executeOperation"] =
           const t1 = performance.now();
           const combinedResult = mergeResults(
             result,
-            lastResponse?.response.data
+            lastResponse?.response.data,
           );
 
           lastResponse = {

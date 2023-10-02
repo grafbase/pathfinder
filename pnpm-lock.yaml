@@ -61,12 +61,9 @@ importers:
       '@pathfinder/core':
         specifier: workspace:*
         version: link:../../packages/core
-      '@pathfinder/shared':
+      '@pathfinder/eslint-config':
         specifier: workspace:*
-        version: link:../../packages/shared
-      '@pathfinder/stores':
-        specifier: workspace:*
-        version: link:../../packages/stores
+        version: link:../../packages/eslint-config
       '@pathfinder/style':
         specifier: workspace:*
         version: link:../../packages/style
@@ -91,9 +88,6 @@ importers:
       vite:
         specifier: 4.4.9
         version: 4.4.9(@types/node@20.8.0)
-      vite-plugin-monaco-editor:
-        specifier: 1.1.0
-        version: 1.1.0(monaco-editor@0.40.0)
 
   apps/ladle:
     dependencies:
@@ -10195,14 +10189,6 @@ packages:
       - '@types/node'
       - rollup
       - supports-color
-    dev: true
-
-  /vite-plugin-monaco-editor@1.1.0(monaco-editor@0.40.0):
-    resolution: {integrity: sha512-IvtUqZotrRoVqwT0PBBDIZPNraya3BxN/bfcNfnxZ5rkJiGcNtO5eAOWWSgT7zullIAEqQwxMU83yL9J5k7gww==}
-    peerDependencies:
-      monaco-editor: '>=0.33.0'
-    dependencies:
-      monaco-editor: 0.40.0
     dev: true
 
   /vite-tsconfig-paths@4.2.1(typescript@5.2.2)(vite@4.4.9):
