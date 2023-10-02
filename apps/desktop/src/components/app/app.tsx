@@ -4,10 +4,10 @@ import { appContainer } from "./app.css";
 export const App = () => {
   return (
     <div className={appContainer}>
-      <Trailblazer 
-            plugins={{
-              schemaAwarePlugins: [PluginSchemaAwareSchemaView],
-            }}
+      <Trailblazer
+        plugins={{
+          schemaAwarePlugins: [PluginSchemaAwareSchemaView],
+        }}
       />
     </div>
   );
