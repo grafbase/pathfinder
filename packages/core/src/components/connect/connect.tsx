@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 
 import { generateCuid } from "@pathfinder/shared";
 
 import {
+  HTTPHeaderValue,
   getSessions,
   initSession,
   useSchemaStore,
@@ -26,11 +27,51 @@ import {
   connectContentControlsClass,
   connectContentControlsDoIntrospectionButtonClass,
   connectContentHeadersClass,
+  connectContentHeaderRowClass,
+  connectContentAddHeaderButtonClass,
   introspectionStatusClass,
   loadStoredSessionCopyClass,
   loadingWrapClass,
   startNewSessionButtonWrapClass,
 } from "./connect.css";
+
+const headersReducer = (
+  headers: HTTPHeaderValue[],
+  action:
+    | { type: "add" }
+    | { type: "update"; payload: { name: string; value: string } },
+) => {
+  switch (action.type) {
+    case "add": {
+      return [
+        ...headers,
+        {
+          id: generateCuid({}),
+          enabled: true,
+          key: "",
+          value: "",
+        },
+      ];
+    }
+    case "update": {
+      const id = action.payload.name.split("--")[0];
+      const valueType = action.payload.name.split("--")[1];
+
+      const existingHeaderIndex = headers.findIndex(
+        (header) => header.id === id,
+      );
+
+      const update = { [valueType]: action.payload.value };
+
+      headers[existingHeaderIndex] = {
+        ...headers[existingHeaderIndex],
+        ...update,
+      };
+
+      return [...headers];
+    }
+  }
+};
 
 export const Connect = () => {
   const [loading, setLoading] = useState<boolean>(true);
@@ -46,8 +87,14 @@ export const Connect = () => {
   const introspectionErrors = useSchemaStore.use.introspectionErrors();
 
   const [endpointValue, setEndpointValue] = useState<string>("");
-  const [headerKeyValue, setHeaderKeyValue] = useState<string>("");
-  const [headerValueValue, setHeaderValueValue] = useState<string>("");
+  const [headers, headersDispatch] = useReducer(headersReducer, [
+    {
+      id: generateCuid({}),
+      enabled: true,
+      key: "content-type",
+      value: "application/json",
+    },
+  ]);
 
   const handleChange: ControlProps["control"]["handleChange"] = ({
     name,
@@ -55,12 +102,11 @@ export const Connect = () => {
   }) => {
     if (name === "endpointValue") {
       setEndpointValue(value as string);
-    }
-    if (name === "headerKeyValue") {
-      setHeaderKeyValue(value as string);
-    }
-    if (name === "headerValueValue") {
-      setHeaderValueValue(value as string);
+    } else {
+      headersDispatch({
+        type: "update",
+        payload: { name, value: value as string },
+      });
     }
   };
 
@@ -140,35 +186,45 @@ export const Connect = () => {
                 isVisible: showHeadersControl,
               })}
             >
-              <Control
-                control={{
-                  controlType: "INPUT",
-                  handleChange,
-                  name: "headerKeyValue",
-                  placeholder: "Authorization",
-                  value: headerKeyValue,
-                }}
-                displayLabel={true}
-                labelCopy={`Header key`}
-              />
-              <Control
-                control={{
-                  controlType: "INPUT",
-                  handleChange,
-                  name: "headerValueValue",
-                  placeholder: "Bearer ...",
-                  value: headerValueValue,
-                }}
-                displayLabel={true}
-                labelCopy={`Header value`}
-              />
+              {headers.map((h, index) => (
+                <div key={h.id} className={connectContentHeaderRowClass}>
+                  <Control
+                    control={{
+                      controlType: "INPUT",
+                      handleChange,
+                      name: `${h.id}--key`,
+                      placeholder: "Authorization",
+                      value: h.key,
+                    }}
+                    displayLabel={index === 0 ? true : false}
+                    labelCopy={`Header key`}
+                  />
+                  <Control
+                    control={{
+                      controlType: "INPUT",
+                      handleChange,
+                      name: `${h.id}--value`,
+                      placeholder: "Bearer ...",
+                      value: h.value,
+                    }}
+                    displayLabel={index === 0 ? true : false}
+                    labelCopy={`Header value`}
+                  />
+                </div>
+              ))}
+              <button
+                className={connectContentAddHeaderButtonClass}
+                onClick={() => headersDispatch({ type: "add" })}
+              >
+                Add another header
+              </button>
             </div>
             <div className={connectContentControlsClass}>
               <button
                 className={connectContentControlsAddHeadersButtonClass}
                 onClick={() => setShowHeadersControl(!showHeadersControl)}
               >
-                {showHeadersControl ? "Remove header" : "Add header"}
+                {showHeadersControl ? "Hide headers" : "Show headers"}
               </button>
 
               <button
@@ -177,17 +233,7 @@ export const Connect = () => {
                 onClick={async () => {
                   const fetchOptions = {
                     endpoint: endpointValue,
-                    headers:
-                      headerKeyValue.length > 0 || headerValueValue.length > 0
-                        ? [
-                            {
-                              id: generateCuid({}),
-                              enabled: true,
-                              key: headerKeyValue,
-                              value: headerValueValue,
-                            },
-                          ]
-                        : [],
+                    headers,
                   };
 
                   const schema = await doIntrospection({ fetchOptions });

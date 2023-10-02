@@ -69,7 +69,7 @@ export const connectContentHeadersClass = recipe({
   variants: {
     isVisible: {
       true: {
-        maxHeight: 300,
+        maxHeight: 1000,
       },
       false: {
         maxHeight: 0,
@@ -78,6 +78,33 @@ export const connectContentHeadersClass = recipe({
     },
   },
 });
+
+export const connectContentHeaderRowClass = style({
+  display: "grid",
+  gridTemplateColumns: `180px 1fr`,
+  gap: 12,
+
+  selectors: {
+    "&:nth-of-type(1)": {
+      marginTop: 8,
+    },
+  },
+});
+
+export const connectContentAddHeaderButtonClass = style([
+  shared.resets.buttonReset,
+  {
+    height: 32,
+    width: "fit-content",
+    color: contract.color.neutral[11],
+
+    selectors: {
+      "&:hover": {
+        color: contract.color.neutral[12],
+      },
+    },
+  },
+]);
 
 export const connectContentControlsClass = style({
   display: "flex",
@@ -109,6 +136,7 @@ export const backToPreviousSessionsButton = style([
 export const connectContentControlsAddHeadersButtonClass = style([
   shared.resets.buttonReset,
   {
+    color: contract.color.neutral[11],
     textDecoration: "underline",
   },
 ]);
