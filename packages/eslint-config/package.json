@@ -1,8 +1,8 @@
 {
   "name": "@pathfinder/eslint-config",
+  "private": true,  
   "main": "eslint-config.js",  
   "version": "0.0.1",
-  "private": true,  
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "6.7.3",
     "@typescript-eslint/parser": "6.7.3",

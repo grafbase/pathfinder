@@ -1,5 +1,4 @@
-import { KeyCode, KeyMod } from "monaco-editor/esm/vs/editor/editor.api";
-// import { KeyCode, KeyMod } from "monaco-graphql/esm/monaco-editor";
+import { KeyCode, KeyMod } from "monaco-graphql/esm/monaco-editor";
 
 import { executeOperation } from "../../schema-store";
 

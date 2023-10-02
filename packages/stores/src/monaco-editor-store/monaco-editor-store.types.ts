@@ -1,4 +1,4 @@
-import type monaco from "monaco-editor/esm/vs/editor/editor.api";
+import type monaco from "monaco-graphql/esm/monaco-editor";
 
 export type MonacoIPosition = monaco.IPosition;
 export type MonacoIRange = monaco.IRange;

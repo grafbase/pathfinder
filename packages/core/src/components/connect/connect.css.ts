@@ -148,7 +148,7 @@ export const connectContentControlsDoIntrospectionButtonClass = style([
 export const startNewSessionButtonWrapClass = style({
   display: "flex",
   width: "100%",
-  justifyContent: "end",
+  justifyContent: "flex-end",
   paddingTop: 12,
 });
 

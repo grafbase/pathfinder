@@ -6,9 +6,7 @@ import { setMonacoEditorTheme } from "./set-monaco-editor-theme";
 
 export const initializeMonacoEditor: MonacoEditorStoreActions["initializeMonacoEditor"] =
   async () => {
-    // async import for monaco-editor to avoid issues with navigator access in nextjs
-    const { editor } = await import("monaco-editor/esm/vs/editor/editor.api");
-    // const { editor } = await import("monaco-graphql/esm/monaco-editor");
+    const { editor } = await import("monaco-graphql/esm/monaco-editor");
 
     const activeTheme = themeStore.getState().activeTheme;
 

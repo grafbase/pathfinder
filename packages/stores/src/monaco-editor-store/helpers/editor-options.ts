@@ -1,7 +1,4 @@
-// import { editor as MONACO_EDITOR } from "monaco-editor";
-
-import type monaco from "monaco-editor/esm/vs/editor/editor.api";
-// import type monaco from "monaco-graphql/esm/monaco-editor";
+import type monaco from "monaco-graphql/esm/monaco-editor";
 
 type MonacoEditorStandaloneEditorConstructionOptions =
   monaco.editor.IStandaloneEditorConstructionOptions;

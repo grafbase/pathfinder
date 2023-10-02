@@ -9,6 +9,7 @@
     "test:once": "turbo run test:once",
     "test:watch": "turbo run test:watch",
     "types": "turbo run types",
+    "core:build:workers": "pnpm --filter core build:workers",
     "ladle:build": "pnpm --filter ladle build",
     "ladle:preview": "pnpm --filter ladle preview",
     "ladle:serve": "pnpm --filter ladle serve"

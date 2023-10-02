@@ -9,35 +9,19 @@ const Trailblazer = dynamic(
   }
 )
 
-const Scout = dynamic(
-  () => import('@pathfinder/core').then(mod => mod.Scout),
-  {
-    ssr: false
-  }
-)
-
 import "@pathfinder/core/dist/style.css";
-
 
 export default function Home() {
   return (
-    <Trailblazer
-      schemaProps={{
-        fetcherOptions:{
-          endpoint: "https://.com",
-          headers: [
-            {
-              key: "x-api-key",
-              value: "",
-            },
-            {
-              key: "Content-Type",
-              value: "application/graphql-response+json",
-            },
-          ]
-        }
-      }}
-    />
-
+    <main className="flex h-full flex-col items-center text-blue-700">
+      My cool Next.js app
+      <Trailblazer 
+        schemaProps={{
+          fetcherOptions: {
+            endpoint: "https://graphql.earthdata.nasa.gov/api",
+          },
+        }}
+      />
+    </main>        
   )
 }

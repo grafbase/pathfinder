@@ -30,6 +30,12 @@ cp .env.development.local.example .env.development.local
 
 Once copied, you can open `.env.development.local` and add an api key and an endpoint.
 
+## Build monaco workers
+
+```bash
+pnpm core:build:workers
+```
+
 ## Run ladle
 
 ```bash
