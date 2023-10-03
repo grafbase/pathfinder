@@ -58,18 +58,21 @@ export const connectContentClass = recipe({
 });
 
 export const connectContentHeadersClass = recipe({
-  base: {
-    display: "flex",
-    flexDirection: "column",
-    gap: 16,
-    transition: `all .15s ease-in-out`,
-    overflow: "hidden",
-  },
+  base: [
+    shared.scrollbars,
+    {
+      display: "flex",
+      flexDirection: "column",
+      gap: 16,
+      transition: "all .15s ease-in-out",
+      overflowY: "auto",
+    },
+  ],
 
   variants: {
     isVisible: {
       true: {
-        maxHeight: 1000,
+        maxHeight: 220,
       },
       false: {
         maxHeight: 0,
