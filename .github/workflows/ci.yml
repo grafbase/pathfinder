@@ -61,16 +61,16 @@ jobs:
         with:
           node-version: 20
       - run: |
-          pushd ./packages/core
-          npm run build
-          popd
-      - run: |
           PACKAGE_JSON_PATH="./apps/desktop"
           echo "PACKAGE_VERSION=$(cat ${PACKAGE_JSON_PATH}/package.json | jq ".version" | tr -d '""')" >> $GITHUB_ENV
         shell: bash
       - uses: pnpm/action-setup@v2
         with:
           version: 8
+      - run: |
+          pushd ./packages/core
+          npm run build
+          popd
       - name: Install Rust stable
         uses: dtolnay/rust-toolchain@stable
       - name: Install aarch64-apple-darwin toolchain (macos only)
