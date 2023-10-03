@@ -41,7 +41,7 @@ jobs:
             return data.id
 
   build-tauri:
-    if: ${{ (github.event.pull_request.merged == true) && (contains(github.event.pull_request.labels.*.name, 'release')) }}
+    # if: ${{ (github.event.pull_request.merged == true) && (contains(github.event.pull_request.labels.*.name, 'release')) }}
     needs: create-release
     permissions:
       contents: write
@@ -55,6 +55,11 @@ jobs:
           ]
     runs-on: ${{ matrix.platform }}
     steps:
+      - run: |
+          pushd ../../
+          cd packages/core
+          npm run build
+          popd
       - uses: actions/checkout@v3
       - name: Setup Node
         uses: actions/setup-node@v3
