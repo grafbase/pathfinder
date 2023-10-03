@@ -56,8 +56,7 @@ jobs:
     runs-on: ${{ matrix.platform }}
     steps:
       - run: |
-          pushd ../../
-          cd packages/core
+          pushd packages/core
           npm run build
           popd
       - uses: actions/checkout@v3
