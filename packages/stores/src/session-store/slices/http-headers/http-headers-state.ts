@@ -6,7 +6,7 @@ export const INITIAL_HTTP_HEADERS_STATE: HTTPHeadersState = {
     {
       id: generateCuid({}),
       enabled: true,
-      key: "content-type",
+      key: "Content-Type",
       value: "application/json",
     },
   ],

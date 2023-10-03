@@ -91,7 +91,7 @@ export const Connect = () => {
     {
       id: generateCuid({}),
       enabled: true,
-      key: "content-type",
+      key: "Content-Type",
       value: "application/json",
     },
   ]);
