@@ -2,12 +2,12 @@ name: "CI"
 
 on:
   pull_request:
-    # types:
-    #   - closed
+    types:
+      - closed
 
 jobs:
   create-release:
-    #  if: ${{ (github.event.pull_request.merged == true) && (contains(github.event.pull_request.labels.*.name, 'release')) }}
+    if: ${{ (github.event.pull_request.merged == true) && (contains(github.event.pull_request.labels.*.name, 'release')) }}
     permissions:
       contents: write
     runs-on: ubuntu-20.04
@@ -41,7 +41,7 @@ jobs:
             return data.id
 
   build-tauri:
-    # if: ${{ (github.event.pull_request.merged == true) && (contains(github.event.pull_request.labels.*.name, 'release')) }}
+    if: ${{ (github.event.pull_request.merged == true) && (contains(github.event.pull_request.labels.*.name, 'release')) }}
     needs: create-release
     permissions:
       contents: write
