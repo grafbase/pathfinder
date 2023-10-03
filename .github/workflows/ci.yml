@@ -2,8 +2,8 @@ name: "CI"
 
 on:
   pull_request:
-    types:
-      - closed
+    # types:
+    #   - closed
 
 jobs:
   create-release:
