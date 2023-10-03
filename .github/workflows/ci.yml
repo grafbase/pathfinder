@@ -15,7 +15,7 @@ jobs:
       release_id: ${{ steps.create-release.outputs.result }}
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - run: |
           PACKAGE_JSON_PATH="./apps/desktop"
           echo "PACKAGE_VERSION=$(cat ${PACKAGE_JSON_PATH}/package.json | jq ".version" | tr -d '""')" >> $GITHUB_ENV
@@ -55,7 +55,7 @@ jobs:
           ]
     runs-on: ${{ matrix.platform }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
