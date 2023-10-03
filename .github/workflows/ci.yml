@@ -55,15 +55,15 @@ jobs:
           ]
     runs-on: ${{ matrix.platform }}
     steps:
-      - run: |
-          pushd packages/core
-          npm run build
-          popd
       - uses: actions/checkout@v3
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: 20
+      - run: |
+          pushd ./packages/core
+          npm run build
+          popd
       - run: |
           PACKAGE_JSON_PATH="./apps/desktop"
           echo "PACKAGE_VERSION=$(cat ${PACKAGE_JSON_PATH}/package.json | jq ".version" | tr -d '""')" >> $GITHUB_ENV
