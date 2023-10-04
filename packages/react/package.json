@@ -1,0 +1,58 @@
+{
+  "name": "@pathfinder/react",
+  "version": "0.1.0",
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "module": "./dist/pathfinder.es.js",
+  "types": "./dist/pathfinder.es.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/pathfinder.es.js"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
+  "scripts": {
+    "build:workers": "ts-node ./workers/build-workers.mjs",
+    "build": "pnpm run build:workers && vite build",
+    "lint": "eslint .",
+    "test:once": "vitest run",
+    "test:watch": "vitest",
+    "types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@headlessui/react": "1.7.17",
+    "@pathfinder/shared": "workspace:*",
+    "@pathfinder/stores": "workspace:*",
+    "@pathfinder/style": "workspace:*",
+    "graphql": "16.8.1",
+    "idb-keyval": "6.2.1",
+    "monaco-editor": "0.40.0",
+    "monaco-graphql": "1.3.0",
+    "react-markdown": "9.0.0",
+    "zustand": "4.4.2"
+  },
+  "devDependencies": {
+    "@pathfinder/eslint-config": "workspace:*",
+    "@pathfinder/tsconfig": "workspace:*",
+    "@testing-library/jest-dom": "6.1.3",
+    "@testing-library/react": "14.0.0",
+    "@testing-library/user-event": "14.5.1",
+    "@types/testing-library__jest-dom": "5.14.9",
+    "@vanilla-extract/recipes": "0.5.0",
+    "@vanilla-extract/vite-plugin": "3.9.0",
+    "@vitejs/plugin-react": "4.1.0",
+    "esbuild": "0.19.4",
+    "fake-indexeddb": "4.0.2",
+    "jsdom": "22.1.0",
+    "ts-node": "^10.9.1",
+    "vite": "4.4.9",
+    "vite-plugin-dts": "3.6.0",
+    "vitest": "0.34.4",
+    "vitest-canvas-mock": "0.3.3"
+  }
+}

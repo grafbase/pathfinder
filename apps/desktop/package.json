@@ -15,7 +15,7 @@
     "@tauri-apps/api": "^1.4.0"
   },
   "devDependencies": {
-    "@pathfinder/core": "workspace:*",
+    "@pathfinder/react": "workspace:*",
     "@pathfinder/eslint-config": "workspace:*",
     "@pathfinder/style": "workspace:*",
     "@tauri-apps/cli": "^1.4.0",

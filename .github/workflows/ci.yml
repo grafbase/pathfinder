@@ -80,7 +80,7 @@ jobs:
       - name: Install frontend dependencies
         run: pnpm install
       - run: |
-          pushd ./packages/core
+          pushd ./packages/react
           pnpm run build
           popd
       - name: Build (ubuntu and windows)
