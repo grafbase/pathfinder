@@ -2,20 +2,20 @@
 
 import dynamic from 'next/dynamic'
 
-const Trailblazer = dynamic(
-  () => import('@pathfinder/core').then(mod => mod.Trailblazer),
+const Pathfinder = dynamic(
+  () => import('@pathfinder/react').then(mod => mod.Pathfinder),
   {
     ssr: false
   }
 )
 
-import "@pathfinder/core/dist/style.css";
+import "@pathfinder/react/dist/style.css";
 
 export default function Home() {
   return (
     <main className="flex h-full flex-col items-center text-blue-700">
       My cool Next.js app
-      <Trailblazer 
+      <Pathfinder 
         schemaProps={{
           fetcherOptions: {
             endpoint: "https://graphql.earthdata.nasa.gov/api",

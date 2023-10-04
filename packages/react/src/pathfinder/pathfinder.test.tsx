@@ -1,21 +1,21 @@
 import { act, render, screen } from "@testing-library/react";
-import { Trailblazer } from "./trailblazer";
+import { Pathfinder } from "./pathfinder";
 
 import { setTheme, themeStore } from "@pathfinder/stores";
 
 // TODO: reset store between tests
 
-describe("Trailblazer props", () => {
-  it("should correctly render Welcome when Trailblazer does not receive schemaProps", async () => {
-    render(<Trailblazer />);
+describe("Pathfinder props", () => {
+  it("should correctly render Welcome when Pathfinder does not receive schemaProps", async () => {
+    render(<Pathfinder />);
 
     const welcomeContainer = screen.getByTestId("welcome-container");
     expect(welcomeContainer).toBeInTheDocument();
   });
 
-  it("should correctly render Trailblazer without theme override props", async () => {
+  it("should correctly render Pathfinder without theme override props", async () => {
     render(
-      <Trailblazer
+      <Pathfinder
         schemaProps={{
           fetcherOptions: {
             endpoint: "ENDPOINT",
@@ -28,7 +28,7 @@ describe("Trailblazer props", () => {
     expect(themeOverrides).toBe(null);
   });
 
-  it("should correctly render Trailblazer with theme override props", async () => {
+  it("should correctly render Pathfinder with theme override props", async () => {
     const overrides = {
       dark: {
         color: {
@@ -47,7 +47,7 @@ describe("Trailblazer props", () => {
       },
     };
     render(
-      <Trailblazer
+      <Pathfinder
         schemaProps={{
           fetcherOptions: {
             endpoint: "ENDPOINT",

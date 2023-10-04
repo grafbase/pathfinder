@@ -6,7 +6,6 @@ import { STORAGE_NAME_SESSION, generateCuid } from "@pathfinder/shared";
 import {
   getNamespacedStorageName,
   initializeTheme,
-  usePluginsStore,
   resetSchemaPolling,
   useSchemaStore,
   initSession,
@@ -14,29 +13,23 @@ import {
 } from "@pathfinder/stores";
 
 import { Connect } from "../components/connect";
-import { Pathfinder } from "../pathfinder";
+import { IDE } from "../ide";
 import { Scout } from "../scout";
 
-import { connectWrapClass, trailblazerClass } from "./trailblazer.css";
+import { connectWrapClass, pathfinderClass } from "./pathfinder.css";
 
-import type { TrailblazerProps } from "./trailblazer.types";
+import type { PathfinderProps } from "./pathfinder.types";
 
-export const Trailblazer = ({
+export const Pathfinder = ({
   mode = "FULL",
-  plugins,
   schemaProps,
   themeProps,
-}: TrailblazerProps) => {
+}: PathfinderProps) => {
   const schema = useSchemaStore.use.schema();
 
   useEffect(() => {
     // set the theme and handle overrides if provided
     initializeTheme({ overrides: themeProps?.theme?.overrides });
-
-    // set our plugins into state
-    usePluginsStore.setState({
-      ...plugins,
-    });
 
     // if the implementer has provided an endpoint via props, we use the endpoint to namespace the local storage
     if (schemaProps && schemaProps.fetcherOptions.endpoint) {
@@ -75,9 +68,9 @@ export const Trailblazer = ({
 
   if (schema) {
     return (
-      <div className={trailblazerClass}>
+      <div className={pathfinderClass}>
         {mode === "FULL" && (
-          <Pathfinder withSchemaProps={schemaProps ? true : false} />
+          <IDE withSchemaProps={schemaProps ? true : false} />
         )}
         {mode === "MINI" && <Scout />}
       </div>

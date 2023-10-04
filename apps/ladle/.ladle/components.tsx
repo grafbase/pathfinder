@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { GlobalProvider } from "@ladle/react";
 
-import { ThemeSwitcher } from "../../../packages/core/src/components/theme-switcher";
+import { ThemeSwitcher } from "../../../packages/react/src/components/theme-switcher";
 
 // 👇 a simple override of ladle-main styles
 import "./styles.css";

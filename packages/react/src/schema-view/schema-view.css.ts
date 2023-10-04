@@ -1,13 +1,13 @@
 import { contract, style } from "@pathfinder/style";
 
-export const pluginSchemaAwareSchemaViewClass = style({
+export const schemaViewClass = style({
   boxSizing: "border-box",
   height: "100%",
   width: "100%",
   padding: 12,
 });
 
-export const pluginSchemaAwareSchemaViewInnerClass = style({
+export const schemaViewInnerClass = style({
   height: "100%",
   width: "100%",
   border: `1px solid ${contract.color.neutral[4]}`,

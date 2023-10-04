@@ -5,12 +5,9 @@ import { getMonacoEditor, useSchemaStore } from "@pathfinder/stores";
 
 import { Editor } from "../components";
 
-import {
-  pluginSchemaAwareSchemaViewInnerClass,
-  pluginSchemaAwareSchemaViewClass,
-} from "./plugin-schema-aware-schema-view.css";
+import { schemaViewInnerClass, schemaViewClass } from "./schema-view.css";
 
-export const PluginSchemaAwareSchemaView = () => {
+export const SchemaView = () => {
   const schema = useSchemaStore.use.schema();
 
   useEffect(() => {
@@ -27,8 +24,8 @@ export const PluginSchemaAwareSchemaView = () => {
   }
 
   return (
-    <div className={pluginSchemaAwareSchemaViewClass}>
-      <div className={pluginSchemaAwareSchemaViewInnerClass}>
+    <div className={schemaViewClass}>
+      <div className={schemaViewInnerClass}>
         <Editor
           editorId={"schema-view-editor"}
           defaultValue={printSchema(schema)}

@@ -1,21 +1,19 @@
-import { PluginSchemaAwareSchemaView } from "../plugin-schema-aware-schema-view";
-import { Trailblazer } from "./trailblazer";
+import { Pathfinder } from "./pathfinder";
 
 const overrides = {
   dark: {
     color: {
       neutral: {
-        5: "red",
+        1: "red",
       },
     },
   },
   light: {
     color: {
       neutral: {
-        5: "blue",
+        1: "blue",
       },
     },
-    font: { body: "Comic Sans" },
   },
 };
 
@@ -30,12 +28,9 @@ const headers = [
   },
 ];
 
-export const WithPathfinder = () => {
+export const Full = () => {
   return (
-    <Trailblazer
-      plugins={{
-        schemaAwarePlugins: [PluginSchemaAwareSchemaView],
-      }}
+    <Pathfinder
       schemaProps={{
         fetcherOptions: {
           endpoint: import.meta.env.VITE_GRAPHQL_ENDPOINT,
@@ -46,33 +41,13 @@ export const WithPathfinder = () => {
   );
 };
 
-export const WithPathfinderWithoutSchemaProps = () => {
-  return (
-    <Trailblazer
-      plugins={{
-        schemaAwarePlugins: [PluginSchemaAwareSchemaView],
-      }}
-    />
-  );
-};
-
-export const WithScoutPlugins = () => {
-  return (
-    <Trailblazer
-      mode="MINI"
-      schemaProps={{
-        fetcherOptions: {
-          endpoint: import.meta.env.VITE_GRAPHQL_ENDPOINT,
-          headers,
-        },
-      }}
-    />
-  );
+export const FullWithoutSchemaProps = () => {
+  return <Pathfinder />;
 };
 
 export const WithThemeOverrides = () => {
   return (
-    <Trailblazer
+    <Pathfinder
       schemaProps={{
         fetcherOptions: {
           endpoint: import.meta.env.VITE_GRAPHQL_ENDPOINT,
@@ -86,9 +61,9 @@ export const WithThemeOverrides = () => {
   );
 };
 
-export const WithScout = () => {
+export const Mini = () => {
   return (
-    <Trailblazer
+    <Pathfinder
       mode="MINI"
       schemaProps={{
         fetcherOptions: {
@@ -100,6 +75,6 @@ export const WithScout = () => {
   );
 };
 
-export const WithScoutWithoutSchemaProps = () => {
-  return <Trailblazer mode="MINI" />;
+export const MiniWithoutSchemaProps = () => {
+  return <Pathfinder mode="MINI" />;
 };
