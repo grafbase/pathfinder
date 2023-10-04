@@ -1,10 +1,12 @@
 {
   "name": "@pathfinder/react",
   "version": "0.1.0",
-  "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
+  "description": "The Grafbase GraphQL IDE",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/grafbase/pathfinder",
+    "directory": "packages/react"
+  },  
   "files": [
     "dist"
   ],
@@ -54,5 +56,9 @@
     "vite-plugin-dts": "3.6.0",
     "vitest": "0.34.4",
     "vitest-canvas-mock": "0.3.3"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

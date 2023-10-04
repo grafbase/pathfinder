@@ -6,13 +6,16 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
+    "types": "turbo run types",
     "test:once": "turbo run test:once",
     "test:watch": "turbo run test:watch",
-    "types": "turbo run types",
-    "core:build:workers": "pnpm --filter core build:workers",
+    "react:build": "pnpm --filter react build",
+    "react:build:workers": "pnpm --filter react build:workers",
     "ladle:build": "pnpm --filter ladle build",
     "ladle:preview": "pnpm --filter ladle preview",
-    "ladle:serve": "pnpm --filter ladle serve"
+    "ladle:serve": "pnpm --filter ladle serve",
+    "version-packages": "changeset version",
+    "release": "pnpm run react:build && changeset publish"
   },
   "dependencies": {
     "react": "18.2.0",
