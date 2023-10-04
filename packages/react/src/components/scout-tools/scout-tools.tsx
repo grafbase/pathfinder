@@ -1,7 +1,5 @@
 import { useState } from "react";
 
-import { usePluginsStore } from "@pathfinder/stores";
-
 import { History } from "../history";
 import { HTTPHeaderControl } from "../http-header-control";
 import { useResizer } from "../resizer";
@@ -14,14 +12,6 @@ export const ScoutTools = () => {
   const [selectedTabIndex, setSelectedTabIndex] = useState<number>(0);
 
   const { initialSize, pane1Size, resetPane } = useResizer();
-
-  const scoutToolsPlugins = usePluginsStore
-    .getState()
-    .scoutTools.map((tool) => ({
-      buttonCopy: tool.buttonCopy,
-      content: tool.content,
-      name: tool.name,
-    }));
 
   return (
     <div className={scoutToolsClass}>
@@ -49,7 +39,6 @@ export const ScoutTools = () => {
               name: "History",
             },
           ],
-          ...scoutToolsPlugins,
         ].map((tool) => ({
           action: initialSize === pane1Size ? resetPane : undefined,
           buttonContent: tool.buttonCopy,

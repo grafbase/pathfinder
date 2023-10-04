@@ -1,5 +1,5 @@
 export default {
-  stories: ["../../packages/core/src/**/*.stories.tsx"],
+  stories: ["../../packages/react/src/**/*.stories.tsx"],
   addons: {
     theme: {
       enabled: false,

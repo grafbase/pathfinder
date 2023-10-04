@@ -1,6 +1,6 @@
 import { contract, style } from "@pathfinder/style";
 
-export const trailblazerClass = style({
+export const pathfinderClass = style({
   height: "100%",
   width: "100%",
   backgroundColor: contract.color.neutral[1],

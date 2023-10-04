@@ -25,14 +25,6 @@ export type {
   MonacoEditorITextModel,
 } from "./monaco-editor-store";
 
-export { usePluginsStore } from "./plugins-store";
-
-export type {
-  PluginsStoreState,
-  ScoutToolPlugin,
-  SchemaAwarePlugin,
-} from "./plugins-store";
-
 export {
   executeOperation,
   loadSchema,

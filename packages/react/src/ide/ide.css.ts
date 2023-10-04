@@ -1,6 +1,6 @@
 import { contract, recipe, shared, style } from "@pathfinder/style";
 
-export const pathfinderWrapClass = recipe({
+export const ideWrapClass = recipe({
   base: {
     display: "grid",
     height: "100%",
@@ -17,14 +17,14 @@ export const pathfinderWrapClass = recipe({
   },
 });
 
-export const pathfinderClass = style({
+export const ideClass = style({
   display: "grid",
   gridTemplateColumns: "60px 1fr",
   height: "100%",
   overflow: "hidden",
 });
 
-export const pathfinderPluginNavigationWrapClass = style({
+export const navigationWrapClass = style({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
@@ -32,7 +32,7 @@ export const pathfinderPluginNavigationWrapClass = style({
   paddingBottom: 12,
 });
 
-export const pathfinderPluginNavigationClass = style({
+export const navigationClass = style({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
@@ -43,7 +43,7 @@ export const pathfinderPluginNavigationClass = style({
   paddingBottom: 12,
 });
 
-export const schemaAwarePluginButtonClass = recipe({
+export const navigationButtonClass = recipe({
   base: [
     shared.resets.buttonReset,
     {
@@ -76,13 +76,13 @@ export const schemaAwarePluginButtonClass = recipe({
   },
 });
 
-export const schemaAwarePluginsWrapClass = style({
+export const panesWrapClass = style({
   height: "100%",
   width: "100%",
   overflow: "hidden",
 });
 
-export const schemaAwarePluginClass = recipe({
+export const paneClass = recipe({
   base: {},
   variants: {
     isVisible: {

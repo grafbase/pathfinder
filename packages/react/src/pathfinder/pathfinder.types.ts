@@ -1,7 +1,6 @@
 import type { SchemaStoreState } from "@pathfinder/stores";
 import type { ThemeContractOverrides } from "@pathfinder/style";
 
-import { PluginsStoreState } from "@pathfinder/stores";
 import { HTTPHeaderValue } from "@pathfinder/stores/src/session-store/slices/http-headers/http-headers.types";
 
 type SchemaStoreProps = Pick<SchemaStoreState, "withPolling"> & {
@@ -11,14 +10,8 @@ type SchemaStoreProps = Pick<SchemaStoreState, "withPolling"> & {
   };
 };
 
-type PathfinderPlugins = {
-  schemaAwarePlugins?: PluginsStoreState["schemaAwarePlugins"];
-  scoutTools?: PluginsStoreState["scoutTools"];
-};
-
-export type TrailblazerProps = {
+export type PathfinderProps = {
   mode?: "FULL" | "MINI";
-  plugins?: PathfinderPlugins;
   schemaProps?: SchemaStoreProps;
   themeProps?: {
     theme?: {

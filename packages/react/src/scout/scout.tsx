@@ -17,7 +17,7 @@ export const Scout = () => {
   const endpoint = useSessionStore.use.endpoint();
 
   if (!activeTheme) {
-    return <p>you must wrap Scout with the Trailblazer component</p>;
+    return <p>Please wrap Scout with the Pathfinder component</p>;
   }
 
   return (
