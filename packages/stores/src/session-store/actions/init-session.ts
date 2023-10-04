@@ -10,6 +10,7 @@ import { useSessionStore } from "../use-session-store";
 
 import { INITIAL_EDITOR_TAB } from "../slices/editor-tabs/editor-tabs-state";
 import { setEditorValues } from "../slices/editor-tabs/actions/set-editor-values";
+import { INITIAL_HTTP_HEADERS_STATE } from "../slices/http-headers/http-headers-state";
 
 export const initSession = async ({
   fetchOptions,
@@ -27,7 +28,12 @@ export const initSession = async ({
 
   useSessionStore.setState({
     endpoint: fetchOptions.endpoint,
-    headers: fetchOptions.headers,
+    headers: [
+      // always include default headers
+      ...INITIAL_HTTP_HEADERS_STATE.headers,
+      // conditionally include prop headers
+      ...(fetchOptions.headers ? fetchOptions.headers : []),
+    ],
     executions: [],
     activeTab: INITIAL_EDITOR_TAB,
     tabs: [INITIAL_EDITOR_TAB],

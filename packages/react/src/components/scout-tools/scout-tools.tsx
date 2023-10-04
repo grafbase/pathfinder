@@ -30,7 +30,7 @@ export const ScoutTools = () => {
             },
             {
               buttonCopy: () => <span>Headers</span>,
-              content: () => <HTTPHeaderControl placement="IN_APP" />,
+              content: () => <HTTPHeaderControl />,
               name: "Headers",
             },
             {

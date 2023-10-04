@@ -22,10 +22,6 @@ const headers = [
     key: "x-api-key",
     value: import.meta.env.VITE_GRAPHQL_API_KEY,
   },
-  {
-    key: "Content-Type",
-    value: "application/graphql-response+json",
-  },
 ];
 
 export const Full = () => {
