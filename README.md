@@ -22,18 +22,20 @@ pnpm i
 ```
 
 ## Update .env
+The primary development environment for Pathfinder is [ladle](https://ladle.dev/) and the Pathfinder stories are set up to use environment variables. Make a copy of the example file:
 
 ```bash
 cd apps/ladle
 cp .env.development.local.example .env.development.local
 ```
 
-Once copied, you can open `.env.development.local` and add an api key and an endpoint.
+Once copied, you can open `.env.development.local` and add an endpoint, at a minimum, and auth header key/value if necessary.
 
 ## Build monaco workers
+Building the necessary workers ahead of time absolves consuming code from having to fuss with build tool plugins. This is good.
 
 ```bash
-pnpm core:build:workers
+pnpm react:build:workers
 ```
 
 ## Run ladle
