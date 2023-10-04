@@ -22,11 +22,7 @@ import {
 
 const SEPARATOR = `--`;
 
-export const HTTPHeaderControl = ({
-  placement,
-}: {
-  placement: "WELCOME_SCREEN" | "IN_APP";
-}) => {
+export const HTTPHeaderControl = () => {
   const headers = useSessionStore.use.headers();
 
   const handleChange: ControlProps["control"]["handleChange"] = ({
@@ -36,7 +32,7 @@ export const HTTPHeaderControl = ({
     const id = name.split(SEPARATOR)[0];
     const valueType = name.split(SEPARATOR)[1];
 
-    if (valueType === "kVSwitch") {
+    if (valueType === "switch") {
       updateHeader({ id, payload: { enabled: value as boolean } });
     } else {
       updateHeader({
@@ -50,34 +46,23 @@ export const HTTPHeaderControl = ({
   };
 
   return (
-    <div
-      className={headerControlWrapClass({
-        placement,
-      })}
-    >
+    <div className={headerControlWrapClass}>
       <div className={headerControlsClass}>
         {headers.map((header, i) => (
-          <div
-            className={headerControlClass({
-              placement,
-            })}
-            key={header.id}
-          >
-            {placement === "IN_APP" && (
-              <div
-                className={headerControlsSwitchWrapClass({
-                  hasLabel: i === 0,
-                })}
-              >
-                <Switch
-                  handleChange={handleChange}
-                  isChecked={header.enabled}
-                  isDisabled={!header.key || !header.value}
-                  name={`${header.id}${SEPARATOR}kVSwitch`}
-                  size="SMALL"
-                />
-              </div>
-            )}
+          <div className={headerControlClass} key={header.id}>
+            <div
+              className={headerControlsSwitchWrapClass({
+                hasLabel: i === 0,
+              })}
+            >
+              <Switch
+                handleChange={handleChange}
+                isChecked={header.enabled}
+                isDisabled={!header.key || !header.value}
+                name={`${header.id}${SEPARATOR}switch`}
+                size="SMALL"
+              />
+            </div>
             <Control
               control={{
                 controlType: "INPUT",
@@ -101,7 +86,7 @@ export const HTTPHeaderControl = ({
               labelCopy={`Header value`}
             />
 
-            {placement === "IN_APP" && !header.enabled && (
+            {!header.enabled && (
               <div
                 className={removeHeaderButtonWrapClass({
                   withLabel: i === 0,
@@ -120,15 +105,13 @@ export const HTTPHeaderControl = ({
         ))}
       </div>
 
-      {placement === "IN_APP" && (
-        <button
-          className={addHeaderButtonWrapClass}
-          onClick={() => addEmptyHeader({})}
-          title="Add header"
-        >
-          {`Add ${headers.length > 0 ? "another" : ""} header`}
-        </button>
-      )}
+      <button
+        className={addHeaderButtonWrapClass}
+        onClick={() => addEmptyHeader({})}
+        title="Add header"
+      >
+        {`Add ${headers.length > 0 ? "another" : ""} header`}
+      </button>
     </div>
   );
 };
