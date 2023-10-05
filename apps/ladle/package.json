@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "private": true,  
   "scripts": {
-    "build": "ladle build",
     "lint": "eslint .",
     "preview": "ladle preview",
     "serve": "NODE_ENV=development ladle serve",

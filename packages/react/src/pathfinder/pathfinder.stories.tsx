@@ -17,21 +17,21 @@ const overrides = {
   },
 };
 
-const headers = [
-  {
-    key: "x-api-key",
-    value: import.meta.env.VITE_GRAPHQL_API_KEY,
-  },
-];
+const fetcherOptions = {
+  endpoint: import.meta.env.VITE_GRAPHQL_ENDPOINT,
+  headers: [
+    {
+      key: import.meta.env.VITE_GRAPHQL_AUTHHEADER_KEY,
+      value: import.meta.env.VITE_GRAPHQL_AUTHHEADER_VALUE,
+    },
+  ],
+};
 
 export const Full = () => {
   return (
     <Pathfinder
       schemaProps={{
-        fetcherOptions: {
-          endpoint: import.meta.env.VITE_GRAPHQL_ENDPOINT,
-          headers,
-        },
+        fetcherOptions,
       }}
     />
   );
@@ -45,10 +45,7 @@ export const WithThemeOverrides = () => {
   return (
     <Pathfinder
       schemaProps={{
-        fetcherOptions: {
-          endpoint: import.meta.env.VITE_GRAPHQL_ENDPOINT,
-          headers,
-        },
+        fetcherOptions,
       }}
       themeProps={{
         theme: { overrides },
@@ -62,10 +59,7 @@ export const Mini = () => {
     <Pathfinder
       mode="MINI"
       schemaProps={{
-        fetcherOptions: {
-          endpoint: import.meta.env.VITE_GRAPHQL_ENDPOINT,
-          headers,
-        },
+        fetcherOptions,
       }}
     />
   );

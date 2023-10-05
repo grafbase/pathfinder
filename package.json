@@ -1,32 +1,34 @@
 {
   "name": "pathfinder",
   "version": "0.0.1",
-  "private": true,  
+  "private": true,
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
+    "types": "turbo run types",
     "test:once": "turbo run test:once",
     "test:watch": "turbo run test:watch",
-    "types": "turbo run types",
-    "core:build:workers": "pnpm --filter core build:workers",
+    "react:build": "pnpm --filter react build",
+    "react:build:workers": "pnpm --filter react build:workers",
     "ladle:build": "pnpm --filter ladle build",
     "ladle:preview": "pnpm --filter ladle preview",
-    "ladle:serve": "pnpm --filter ladle serve"
+    "ladle:serve": "pnpm --filter ladle serve",
+    "version-packages": "changeset version",
+    "release": "pnpm run react:build && changeset publish"
   },
   "dependencies": {
     "react": "18.2.0",
-    "react-dom": "18.2.0"    
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@vanilla-extract/css": "1.13.0",
-    "@vanilla-extract/dynamic": "2.0.3",      
-    "next": "13.5.4",
+    "@changesets/cli": "^2.26.2",
     "@types/node": "20.8.2",
     "@types/react": "18.2.25",
     "@types/react-dom": "18.2.10",    
     "monaco-editor": "0.40.0",
-    "monaco-graphql": "1.3.0",    
+    "monaco-graphql": "1.3.0",
+    "next": "13.5.3",
     "turbo": "1.10.14",
     "typescript": "5.2.2"
   },
