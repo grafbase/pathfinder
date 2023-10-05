@@ -1,6 +1,6 @@
 import { type Location, TokenKind } from "graphql";
 
-import type { MonacoIRange } from "@pathfinder/stores";
+import type { MonacoIRange } from "@pathfinder-ide/stores";
 
 import { findNextTokenKindInLocation } from "./find-next-token-kind-in-location";
 

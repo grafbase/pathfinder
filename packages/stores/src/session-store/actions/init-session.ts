@@ -1,7 +1,7 @@
 import {
   STORAGE_NAME_SESSION,
   VARIABLES_EDITOR_DEFAULT_VALUE,
-} from "@pathfinder/shared";
+} from "@pathfinder-ide/shared";
 
 import { getNamespacedStorageName } from "../../storage";
 

@@ -1,4 +1,4 @@
-import { contract, recipe, shared } from "@pathfinder/style";
+import { contract, recipe, shared } from "@pathfinder-ide/style";
 
 export const typeSystemNavButtonClass = recipe({
   base: [

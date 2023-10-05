@@ -1,4 +1,4 @@
-import { contract, globalStyle, shared, recipe } from "@pathfinder/style";
+import { contract, globalStyle, shared, recipe } from "@pathfinder-ide/style";
 
 export const iconClass = recipe({
   base: {

@@ -2,7 +2,7 @@ import {
   DOCUMENT_EDITOR_ID,
   RESPONSE_EDITOR_ID,
   VARIABLES_EDITOR_ID,
-} from "@pathfinder/shared";
+} from "@pathfinder-ide/shared";
 
 import { getMonacoEditor } from "./get-monaco-editor";
 

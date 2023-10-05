@@ -1,4 +1,4 @@
-import { useSchemaStore } from "@pathfinder/stores";
+import { useSchemaStore } from "@pathfinder-ide/stores";
 
 import {
   SchemaDocumentationStoreProvider,

@@ -11,7 +11,7 @@ import merge from "lodash.merge";
 
 import { createClient, ExecutionResult } from "graphql-sse";
 
-import { VARIABLES_EDITOR_ID } from "@pathfinder/shared";
+import { VARIABLES_EDITOR_ID } from "@pathfinder-ide/shared";
 
 import { getMonacoEditor } from "../../monaco-editor-store";
 

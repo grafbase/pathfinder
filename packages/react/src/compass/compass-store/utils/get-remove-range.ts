@@ -1,13 +1,13 @@
 import { Kind, Location, OperationDefinitionNode, TokenKind } from "graphql";
 
-import { DOCUMENT_EDITOR_ID } from "@pathfinder/shared";
+import { DOCUMENT_EDITOR_ID } from "@pathfinder-ide/shared";
 import {
   type MonacoEditorITextModel,
   type MonacoIPosition,
   type MonacoIRange,
   getMonacoEditor,
   graphQLDocumentStore,
-} from "@pathfinder/stores";
+} from "@pathfinder-ide/stores";
 
 import { getRangeFromStringInActiveDefinition } from "./get-range-from-string-in-active-definition";
 

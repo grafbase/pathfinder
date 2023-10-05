@@ -1,4 +1,4 @@
-import type { ExecutionResponse } from "@pathfinder/stores";
+import type { ExecutionResponse } from "@pathfinder-ide/stores";
 
 import { Pre } from "../../../components/pre";
 

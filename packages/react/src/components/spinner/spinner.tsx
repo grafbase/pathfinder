@@ -1,6 +1,6 @@
-import type { RecipeVariants } from "@pathfinder/style";
+import type { RecipeVariants } from "@pathfinder-ide/style";
 
-import { useThemeStore } from "@pathfinder/stores";
+import { useThemeStore } from "@pathfinder-ide/stores";
 
 import { spinnerInnerClass, spinnerOuterClass } from "./spinner.css";
 

@@ -1,4 +1,4 @@
-import type { RecipeVariants } from "@pathfinder/style";
+import type { RecipeVariants } from "@pathfinder-ide/style";
 
 import { Icon } from "../icon";
 import { IconProps } from "../icon/icon.types";

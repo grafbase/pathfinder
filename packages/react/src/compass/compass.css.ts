@@ -1,4 +1,4 @@
-import { style } from "@pathfinder/style";
+import { style } from "@pathfinder-ide/style";
 
 export const compassClass = style({
   position: "relative",

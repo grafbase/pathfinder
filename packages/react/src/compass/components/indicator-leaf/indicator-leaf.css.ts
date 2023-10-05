@@ -1,4 +1,4 @@
-import { contract, style } from "@pathfinder/style";
+import { contract, style } from "@pathfinder-ide/style";
 
 export const indicatorLeafClass = style({
   height: contract.space[20],

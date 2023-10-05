@@ -1,4 +1,4 @@
-import { contract } from "@pathfinder/style";
+import { contract } from "@pathfinder-ide/style";
 import { IconButton } from "./icon-button";
 
 const buttonClick = () => {

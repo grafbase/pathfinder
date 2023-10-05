@@ -1,5 +1,5 @@
 {
-  "extends": "@pathfinder/tsconfig/base.json",
+  "extends": "@pathfinder-ide/tsconfig/base.json",
   "compilerOptions": {
     "lib": ["DOM", "ESNext"],
     "module": "ESNext",

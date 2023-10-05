@@ -1,4 +1,4 @@
-import { contract, recipe } from "@pathfinder/style";
+import { contract, recipe } from "@pathfinder-ide/style";
 
 export const preClass = recipe({
   base: {

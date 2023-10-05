@@ -5,7 +5,7 @@ import {
   initNewEditorTab,
   switchEditorTab,
   useSessionStore,
-} from "@pathfinder/stores";
+} from "@pathfinder-ide/stores";
 
 import { IconButton } from "../icon-button";
 import { Pill } from "../pill";

@@ -1,4 +1,4 @@
-import type { AvailableEditors } from "@pathfinder/stores";
+import type { AvailableEditors } from "@pathfinder-ide/stores";
 
 import type monaco from "monaco-graphql/esm/monaco-editor";
 

@@ -1,5 +1,5 @@
 {
-  "name": "pathfinder",
+  "name": "pathfinde-ide",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -9,8 +9,8 @@
     "types": "turbo run types",
     "test:once": "turbo run test:once",
     "test:watch": "turbo run test:watch",
-    "react:build": "pnpm --filter react build",
-    "react:build:workers": "pnpm --filter react build:workers",
+    "react:build": "pnpm --filter @pathfinder-ide/react build",
+    "react:build:workers": "pnpm --filter @pathfinder-ide/react build:workers",
     "ladle:build": "pnpm --filter ladle build",
     "ladle:preview": "pnpm --filter ladle preview",
     "ladle:serve": "pnpm --filter ladle serve",

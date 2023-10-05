@@ -7,7 +7,7 @@ import { ThemeSwitcher } from "../../../packages/react/src/components/theme-swit
 // 👇 a simple override of ladle-main styles
 import "./styles.css";
 
-import { contract } from "@pathfinder/style";
+import { contract } from "@pathfinder-ide/style";
 
 export const Provider: GlobalProvider = ({ children, globalState }) => {
   return (

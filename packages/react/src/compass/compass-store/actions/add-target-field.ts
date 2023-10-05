@@ -1,13 +1,13 @@
 import { Location } from "graphql";
 
-import { DOCUMENT_EDITOR_ID } from "@pathfinder/shared";
+import { DOCUMENT_EDITOR_ID } from "@pathfinder-ide/shared";
 
 import {
   type MonacoIPosition,
   type MonacoIRange,
   pushMonacoEditorEdit,
   useGraphQLDocumentStore,
-} from "@pathfinder/stores";
+} from "@pathfinder-ide/stores";
 
 import { INDENT_SIZE } from "../constants";
 

@@ -5,8 +5,8 @@ import {
   getMonacoEditor,
   pushMonacoEditorEdit,
   useGraphQLDocumentStore,
-} from "@pathfinder/stores";
-import { DOCUMENT_EDITOR_ID } from "@pathfinder/shared";
+} from "@pathfinder-ide/stores";
+import { DOCUMENT_EDITOR_ID } from "@pathfinder-ide/shared";
 
 import type {
   AncestorField,

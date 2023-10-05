@@ -8,7 +8,7 @@ import {
   tabPanelsClass,
 } from "./tabs.css";
 
-import { shared } from "@pathfinder/style";
+import { shared } from "@pathfinder-ide/style";
 
 import { TabsProps } from "./tabs.types";
 

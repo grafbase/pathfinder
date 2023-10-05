@@ -1,4 +1,4 @@
-import { unwrapType } from "@pathfinder/shared";
+import { unwrapType } from "@pathfinder-ide/shared";
 import {
   GraphQLDirective,
   GraphQLEnumType,

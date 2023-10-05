@@ -1,4 +1,4 @@
-import type { DocumentNotificationType } from "@pathfinder/stores";
+import type { DocumentNotificationType } from "@pathfinder-ide/stores";
 
 import { documentNotificationClass } from "./document-notification.css";
 

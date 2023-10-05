@@ -1,4 +1,4 @@
-import { contract, globalStyle, style } from "@pathfinder/style";
+import { contract, globalStyle, style } from "@pathfinder-ide/style";
 
 export const markdownClass = style({
   display: "flex",

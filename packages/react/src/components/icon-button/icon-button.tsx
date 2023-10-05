@@ -1,7 +1,7 @@
 import { Icon } from "../icon";
 import type { IconNames } from "../icon";
 import { iconButtonClass } from "./icon-button.css";
-import { RecipeVariants } from "@pathfinder/style";
+import { RecipeVariants } from "@pathfinder-ide/style";
 
 type IconButtonVariants = RecipeVariants<typeof iconButtonClass>;
 

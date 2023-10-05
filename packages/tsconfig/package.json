@@ -1,5 +1,5 @@
 {
-  "name": "@pathfinder/tsconfig",
+  "name": "@pathfinder-ide/tsconfig",
   "version": "0.0.1",
   "private": true
 }

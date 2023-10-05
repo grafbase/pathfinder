@@ -2,9 +2,9 @@ import {
   VARIABLES_EDITOR_DEFAULT_VALUE,
   VARIABLES_EDITOR_ID,
   VARIABLES_MODEL_NAME,
-} from "@pathfinder/shared";
+} from "@pathfinder-ide/shared";
 
-import { runExecuteOperation, useSessionStore } from "@pathfinder/stores";
+import { runExecuteOperation, useSessionStore } from "@pathfinder-ide/stores";
 
 import { Editor } from "../editor";
 

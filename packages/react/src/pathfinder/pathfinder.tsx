@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { get as findSession } from "idb-keyval";
 
-import { STORAGE_NAME_SESSION, generateCuid } from "@pathfinder/shared";
+import { STORAGE_NAME_SESSION, generateCuid } from "@pathfinder-ide/shared";
 
 import {
   getNamespacedStorageName,
@@ -10,7 +10,7 @@ import {
   useSchemaStore,
   initSession,
   loadSession,
-} from "@pathfinder/stores";
+} from "@pathfinder-ide/stores";
 
 import { Connect } from "../components/connect";
 import { IDE } from "../ide";

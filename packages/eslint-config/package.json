@@ -1,5 +1,5 @@
 {
-  "name": "@pathfinder/eslint-config",
+  "name": "@pathfinder-ide/eslint-config",
   "version": "0.0.1",
   "private": true,  
   "main": "eslint-config.js",  

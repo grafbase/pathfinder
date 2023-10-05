@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import { useThemeStore } from "@pathfinder/stores";
-import { shared } from "@pathfinder/style";
+import { useThemeStore } from "@pathfinder-ide/stores";
+import { shared } from "@pathfinder-ide/style";
 
 import { Compass } from "../compass";
 import { Icon, Resizer } from "../components";

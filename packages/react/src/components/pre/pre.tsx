@@ -1,4 +1,4 @@
-import { RecipeVariants } from "@pathfinder/style";
+import { RecipeVariants } from "@pathfinder-ide/style";
 import { preClass } from "./pre.css";
 
 export const Pre = ({

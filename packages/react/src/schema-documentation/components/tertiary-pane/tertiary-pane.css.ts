@@ -1,4 +1,4 @@
-import { contract, shared, style } from "@pathfinder/style";
+import { contract, shared, style } from "@pathfinder-ide/style";
 import { sharedPaneClass } from "../../shared.styles.css";
 
 export const tertiaryPaneContentClass = style([

@@ -1,7 +1,7 @@
-import type { SchemaStoreState } from "@pathfinder/stores";
-import type { ThemeContractOverrides } from "@pathfinder/style";
+import type { SchemaStoreState } from "@pathfinder-ide/stores";
+import type { ThemeContractOverrides } from "@pathfinder-ide/style";
 
-import { HTTPHeaderValue } from "@pathfinder/stores/src/session-store/slices/http-headers/http-headers.types";
+import { HTTPHeaderValue } from "@pathfinder-ide/stores/src/session-store/slices/http-headers/http-headers.types";
 
 type SchemaStoreProps = Pick<SchemaStoreState, "withPolling"> & {
   fetcherOptions: {

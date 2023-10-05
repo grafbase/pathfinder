@@ -3,7 +3,7 @@ import {
   addEmptyHeader,
   removeHeader,
   updateHeader,
-} from "@pathfinder/stores";
+} from "@pathfinder-ide/stores";
 
 import { IconButton } from "../icon-button";
 

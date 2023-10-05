@@ -1,4 +1,10 @@
-import { contract, keyframes, recipe, shared, style } from "@pathfinder/style";
+import {
+  contract,
+  keyframes,
+  recipe,
+  shared,
+  style,
+} from "@pathfinder-ide/style";
 
 const spinner = keyframes({
   to: {
