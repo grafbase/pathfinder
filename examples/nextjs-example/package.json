@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "lint": "next lint",
-    "start": "next start",
-    "types": "tsc --noEmit"
+    "start": "next start"
   },
   "dependencies": {
     "@pathfinder/react": "workspace:*",
