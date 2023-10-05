@@ -27,7 +27,7 @@ const fetcherOptions = {
   ],
 };
 
-export const Full = () => {
+export const FullMode = () => {
   return (
     <Pathfinder
       schemaProps={{
@@ -37,11 +37,11 @@ export const Full = () => {
   );
 };
 
-export const FullWithoutSchemaProps = () => {
+export const FullModeWithoutSchemaProps = () => {
   return <Pathfinder />;
 };
 
-export const WithThemeOverrides = () => {
+export const FullModeWithThemeOverrides = () => {
   return (
     <Pathfinder
       schemaProps={{
@@ -54,7 +54,7 @@ export const WithThemeOverrides = () => {
   );
 };
 
-export const Mini = () => {
+export const MiniMode = () => {
   return (
     <Pathfinder
       mode="MINI"
@@ -65,6 +65,6 @@ export const Mini = () => {
   );
 };
 
-export const MiniWithoutSchemaProps = () => {
+export const MiniModeWithoutSchemaProps = () => {
   return <Pathfinder mode="MINI" />;
 };
