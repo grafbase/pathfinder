@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 
 import { Kind, OperationTypeNode } from "graphql";
 
-import { useGraphQLDocumentStore, useSchemaStore } from "@pathfinder/stores";
+import {
+  useGraphQLDocumentStore,
+  useSchemaStore,
+} from "@pathfinder-ide/stores";
 
 import { QuickDocs, RootOperation } from "./components";
 import { compassClass } from "./compass.css";

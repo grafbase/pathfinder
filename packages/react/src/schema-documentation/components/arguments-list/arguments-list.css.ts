@@ -1,4 +1,4 @@
-import { contract, recipe, style } from "@pathfinder/style";
+import { contract, recipe, style } from "@pathfinder-ide/style";
 
 export const argumentListClass = style({
   display: "flex",

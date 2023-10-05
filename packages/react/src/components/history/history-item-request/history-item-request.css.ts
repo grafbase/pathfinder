@@ -1,4 +1,4 @@
-import { contract, shared, style } from "@pathfinder/style";
+import { contract, shared, style } from "@pathfinder-ide/style";
 
 export const historyItemRequestClass = style({
   padding: contract.space[12],

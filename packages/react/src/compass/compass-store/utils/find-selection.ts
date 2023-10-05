@@ -6,7 +6,7 @@ import {
   type SelectionNode,
 } from "graphql";
 
-import { useGraphQLDocumentStore } from "@pathfinder/stores";
+import { useGraphQLDocumentStore } from "@pathfinder-ide/stores";
 
 export const findSelection = ({
   fieldName,

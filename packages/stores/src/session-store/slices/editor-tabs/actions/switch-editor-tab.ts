@@ -1,4 +1,4 @@
-import { RESPONSE_EDITOR_DEFAULT_VALUE } from "@pathfinder/shared";
+import { RESPONSE_EDITOR_DEFAULT_VALUE } from "@pathfinder-ide/shared";
 
 import { sessionStore } from "../../../session-store";
 

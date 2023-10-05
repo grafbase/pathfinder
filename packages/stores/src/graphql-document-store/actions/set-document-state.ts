@@ -4,7 +4,7 @@ import {
   isExecutableDefinitionNode,
 } from "graphql";
 
-import { DOCUMENT_EDITOR_ID } from "@pathfinder/shared";
+import { DOCUMENT_EDITOR_ID } from "@pathfinder-ide/shared";
 
 import { getLocationAndRangeForDefinition, parseDocument } from "../utils";
 

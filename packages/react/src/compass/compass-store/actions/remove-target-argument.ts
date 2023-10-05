@@ -1,13 +1,13 @@
 import { GraphQLSchema } from "graphql";
 
-import { DOCUMENT_EDITOR_ID } from "@pathfinder/shared";
+import { DOCUMENT_EDITOR_ID } from "@pathfinder-ide/shared";
 
 import {
   EditorEdit,
   getMonacoEditor,
   pushMonacoEditorEdit,
   useSchemaStore,
-} from "@pathfinder/stores";
+} from "@pathfinder-ide/stores";
 
 import type { AncestorArgument } from "../compass-store.types";
 

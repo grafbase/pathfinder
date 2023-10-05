@@ -1,4 +1,4 @@
-import { RecipeVariants } from "@pathfinder/style";
+import { RecipeVariants } from "@pathfinder-ide/style";
 
 import { Caret } from "./caret";
 import { Chevron } from "./chevron";

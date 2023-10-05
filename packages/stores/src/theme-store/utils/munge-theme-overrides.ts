@@ -1,5 +1,5 @@
-import type { ThemeContractOverrides } from "@pathfinder/style";
-import { toTitleCase } from "@pathfinder/style";
+import type { ThemeContractOverrides } from "@pathfinder-ide/style";
+import { toTitleCase } from "@pathfinder-ide/style";
 
 export const mungeThemeOverrides = ({
   overrides,

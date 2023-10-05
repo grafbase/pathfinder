@@ -1,4 +1,4 @@
-import { DOCUMENT_EDITOR_DEFAULT_VALUE } from "@pathfinder/shared";
+import { DOCUMENT_EDITOR_DEFAULT_VALUE } from "@pathfinder-ide/shared";
 import { loadSchema } from "../../schema-store";
 import { setEditorValues } from "../slices/editor-tabs/actions/set-editor-values";
 import { useSessionStore } from "../use-session-store";

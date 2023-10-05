@@ -5,7 +5,7 @@ import {
   disposeMonacoEditor,
   setDocumentState,
   useMonacoEditorStore,
-} from "@pathfinder/stores";
+} from "@pathfinder-ide/stores";
 
 import { editorClass } from "./editor.css";
 import type { EditorProps } from "./editor.types";

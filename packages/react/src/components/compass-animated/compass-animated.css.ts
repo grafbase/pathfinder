@@ -1,4 +1,10 @@
-import { contract, keyframes, recipe, shared, style } from "@pathfinder/style";
+import {
+  contract,
+  keyframes,
+  recipe,
+  shared,
+  style,
+} from "@pathfinder-ide/style";
 
 export const compassAnimatedWrapClass = style({
   width: "100%",

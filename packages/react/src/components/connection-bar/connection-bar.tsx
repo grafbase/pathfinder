@@ -1,4 +1,4 @@
-import { useSessionStore } from "@pathfinder/stores";
+import { useSessionStore } from "@pathfinder-ide/stores";
 
 import { Dialog } from "@headlessui/react";
 

@@ -16,13 +16,13 @@ export type MonacoEditorITextModel = monaco.editor.ITextModel;
 
 export type MonacoEditorIActionDescriptor = monaco.editor.IActionDescriptor;
 
-import type { AvailableThemes } from "@pathfinder/shared";
+import type { AvailableThemes } from "@pathfinder-ide/shared";
 
 import {
   DOCUMENT_EDITOR_ID,
   RESPONSE_EDITOR_ID,
   VARIABLES_EDITOR_ID,
-} from "@pathfinder/shared";
+} from "@pathfinder-ide/shared";
 
 export type AvailableEditors =
   | typeof DOCUMENT_EDITOR_ID

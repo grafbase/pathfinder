@@ -1,6 +1,6 @@
 import { useEffect, useReducer, useState } from "react";
 
-import { generateCuid } from "@pathfinder/shared";
+import { generateCuid } from "@pathfinder-ide/shared";
 
 import {
   HTTPHeaderValue,
@@ -8,9 +8,9 @@ import {
   initSession,
   useSchemaStore,
   useSessionStore,
-} from "@pathfinder/stores";
+} from "@pathfinder-ide/stores";
 
-import { doIntrospection } from "@pathfinder/stores/src/schema-store";
+import { doIntrospection } from "@pathfinder-ide/stores/src/schema-store";
 
 import { CompassAnimated } from "../compass-animated";
 import { Control, type ControlProps } from "../control";

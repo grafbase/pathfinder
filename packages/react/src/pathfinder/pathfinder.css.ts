@@ -1,4 +1,4 @@
-import { contract, style } from "@pathfinder/style";
+import { contract, style } from "@pathfinder-ide/style";
 
 export const pathfinderClass = style({
   height: "100%",

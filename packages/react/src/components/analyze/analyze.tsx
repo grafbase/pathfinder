@@ -1,12 +1,15 @@
 import { useEffect } from "react";
 
-import { RESPONSE_EDITOR_ID, RESPONSE_MODEL_NAME } from "@pathfinder/shared";
+import {
+  RESPONSE_EDITOR_ID,
+  RESPONSE_MODEL_NAME,
+} from "@pathfinder-ide/shared";
 import {
   getMonacoEditor,
   pushMonacoEditorEdit,
   useSchemaStore,
   useSessionStore,
-} from "@pathfinder/stores";
+} from "@pathfinder-ide/stores";
 
 import { Editor } from "../editor";
 

@@ -1,4 +1,4 @@
-import { ThemeContractOverrides } from "@pathfinder/style";
+import { ThemeContractOverrides } from "@pathfinder-ide/style";
 import { themeStore } from "../theme-store";
 
 export const setThemeOverrides = ({

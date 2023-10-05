@@ -3,13 +3,13 @@
 import dynamic from 'next/dynamic'
 
 const Pathfinder = dynamic(
-  () => import('@pathfinder/react').then(mod => mod.Pathfinder),
+  () => import('@pathfinder-ide/react').then(mod => mod.Pathfinder),
   {
     ssr: false
   }
 )
 
-import "@pathfinder/react/dist/style.css";
+import "@pathfinder-ide/react/dist/style.css";
 
 export default function Home() {
   return (

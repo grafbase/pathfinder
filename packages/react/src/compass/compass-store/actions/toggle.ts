@@ -1,6 +1,6 @@
 import { Kind } from "graphql";
 
-import { graphQLDocumentStore } from "@pathfinder/stores";
+import { graphQLDocumentStore } from "@pathfinder-ide/stores";
 
 import type {
   AncestorField,

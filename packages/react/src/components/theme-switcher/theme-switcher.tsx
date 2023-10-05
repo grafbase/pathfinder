@@ -1,4 +1,4 @@
-import { setTheme, useThemeStore } from "@pathfinder/stores";
+import { setTheme, useThemeStore } from "@pathfinder-ide/stores";
 
 export const ThemeSwitcher = () => {
   const activeTheme = useThemeStore.use.activeTheme();

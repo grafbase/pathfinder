@@ -1,6 +1,6 @@
 import { Disclosure as HeadlessDisclosure } from "@headlessui/react";
 
-import type { ExecutionResponse } from "@pathfinder/stores";
+import type { ExecutionResponse } from "@pathfinder-ide/stores";
 
 import { Icon } from "../../../components/icon";
 import { Pre } from "../../../components/pre";

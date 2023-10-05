@@ -1,6 +1,6 @@
-import { STORAGE_NAME_SESSION } from "@pathfinder/shared";
+import { STORAGE_NAME_SESSION } from "@pathfinder-ide/shared";
 
-import { loadSession, useSessionStore } from "@pathfinder/stores";
+import { loadSession, useSessionStore } from "@pathfinder-ide/stores";
 
 import { sessionsClass, sessionSelectButtonClass } from "./sessions.css";
 

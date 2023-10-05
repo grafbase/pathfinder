@@ -1,6 +1,6 @@
 import { GraphQLArgument, isInputObjectType } from "graphql";
 
-import { unwrapType } from "@pathfinder/shared";
+import { unwrapType } from "@pathfinder-ide/shared";
 
 import { useSchemaDocumentationStore } from "../../store";
 

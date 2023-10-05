@@ -1,7 +1,7 @@
 import { act, render, screen } from "@testing-library/react";
 import { Pathfinder } from "./pathfinder";
 
-import { setTheme, themeStore } from "@pathfinder/stores";
+import { setTheme, themeStore } from "@pathfinder-ide/stores";
 
 // TODO: reset store between tests
 
