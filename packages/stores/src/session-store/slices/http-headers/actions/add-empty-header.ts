@@ -1,4 +1,4 @@
-import { generateCuid } from "@pathfinder/shared";
+import { generateCuid } from "@pathfinder-ide/shared";
 
 import { sessionStore } from "../../../session-store";
 

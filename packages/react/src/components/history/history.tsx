@@ -5,8 +5,8 @@ import {
   type ExecutionResponse,
   useSessionStore,
   clearHistory,
-} from "@pathfinder/stores";
-import { shared } from "@pathfinder/style";
+} from "@pathfinder-ide/stores";
+import { shared } from "@pathfinder-ide/style";
 
 import { HistoryListItem } from "./history-list-item";
 import { HistoryItemRequest } from "./history-item-request";

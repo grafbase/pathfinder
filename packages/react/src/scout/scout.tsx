@@ -1,4 +1,4 @@
-import { useSessionStore, useThemeStore } from "@pathfinder/stores";
+import { useSessionStore, useThemeStore } from "@pathfinder-ide/stores";
 
 import {
   Analyze,

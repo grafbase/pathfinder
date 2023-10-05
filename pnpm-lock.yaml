@@ -55,13 +55,13 @@ importers:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
     devDependencies:
-      '@pathfinder/eslint-config':
+      '@pathfinder-ide/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@pathfinder/react':
+      '@pathfinder-ide/react':
         specifier: workspace:*
         version: link:../../packages/react
-      '@pathfinder/style':
+      '@pathfinder-ide/style':
         specifier: workspace:*
         version: link:../../packages/style
       '@tauri-apps/cli':
@@ -98,16 +98,16 @@ importers:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
     devDependencies:
-      '@pathfinder/eslint-config':
+      '@pathfinder-ide/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@pathfinder/react':
+      '@pathfinder-ide/react':
         specifier: workspace:*
         version: link:../../packages/react
-      '@pathfinder/style':
+      '@pathfinder-ide/style':
         specifier: workspace:*
         version: link:../../packages/style
-      '@pathfinder/tsconfig':
+      '@pathfinder-ide/tsconfig':
         specifier: workspace:*
         version: link:../../packages/tsconfig
       '@types/react':
@@ -158,7 +158,7 @@ importers:
 
   examples/nextjs-example:
     dependencies:
-      '@pathfinder/react':
+      '@pathfinder-ide/react':
         specifier: workspace:*
         version: link:../../packages/react
       '@types/node':
@@ -236,13 +236,13 @@ importers:
       '@headlessui/react':
         specifier: 1.7.17
         version: 1.7.17(react-dom@18.2.0)(react@18.2.0)
-      '@pathfinder/shared':
+      '@pathfinder-ide/shared':
         specifier: workspace:*
         version: link:../shared
-      '@pathfinder/stores':
+      '@pathfinder-ide/stores':
         specifier: workspace:*
         version: link:../stores
-      '@pathfinder/style':
+      '@pathfinder-ide/style':
         specifier: workspace:*
         version: link:../style
       graphql:
@@ -270,10 +270,10 @@ importers:
         specifier: 4.4.2
         version: 4.4.2(@types/react@18.2.25)(react@18.2.0)
     devDependencies:
-      '@pathfinder/eslint-config':
+      '@pathfinder-ide/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@pathfinder/tsconfig':
+      '@pathfinder-ide/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       '@testing-library/jest-dom':
@@ -330,10 +330,10 @@ importers:
       '@paralleldrive/cuid2':
         specifier: ^2.2.2
         version: 2.2.2
-      '@pathfinder/eslint-config':
+      '@pathfinder-ide/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@pathfinder/tsconfig':
+      '@pathfinder-ide/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       graphql:
@@ -345,10 +345,10 @@ importers:
 
   packages/stores:
     dependencies:
-      '@pathfinder/shared':
+      '@pathfinder-ide/shared':
         specifier: workspace:*
         version: link:../shared
-      '@pathfinder/style':
+      '@pathfinder-ide/style':
         specifier: workspace:*
         version: link:../style
       graphql:
@@ -376,10 +376,10 @@ importers:
         specifier: 4.4.2
         version: 4.4.2(@types/react@18.2.25)(react@18.2.0)
     devDependencies:
-      '@pathfinder/eslint-config':
+      '@pathfinder-ide/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@pathfinder/tsconfig':
+      '@pathfinder-ide/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       '@types/lodash.merge':
@@ -391,7 +391,7 @@ importers:
 
   packages/style:
     dependencies:
-      '@pathfinder/shared':
+      '@pathfinder-ide/shared':
         specifier: workspace:*
         version: link:../shared
       '@radix-ui/colors':
@@ -410,10 +410,10 @@ importers:
         specifier: 4.4.2
         version: 4.4.2(@types/react@18.2.25)(react@18.2.0)
     devDependencies:
-      '@pathfinder/eslint-config':
+      '@pathfinder-ide/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@pathfinder/tsconfig':
+      '@pathfinder-ide/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
 

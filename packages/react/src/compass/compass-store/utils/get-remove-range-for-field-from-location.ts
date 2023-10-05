@@ -1,6 +1,6 @@
 import { Location } from "graphql";
 
-import type { MonacoIRange } from "@pathfinder/stores";
+import type { MonacoIRange } from "@pathfinder-ide/stores";
 
 export const getRemoveRangeForFieldFromLocation = ({
   location,

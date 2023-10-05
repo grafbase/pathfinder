@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { printSchema } from "graphql";
 
-import { getMonacoEditor, useSchemaStore } from "@pathfinder/stores";
+import { getMonacoEditor, useSchemaStore } from "@pathfinder-ide/stores";
 
 import { Editor } from "../components";
 

@@ -1,4 +1,4 @@
-import { style, shared, contract } from "@pathfinder/style";
+import { style, shared, contract } from "@pathfinder-ide/style";
 
 export const schemaDocumentationClass = style([
   shared.scrollbars,

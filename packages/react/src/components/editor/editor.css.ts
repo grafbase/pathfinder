@@ -1,6 +1,6 @@
-import { INACTIVE_DEFINITION_CLASSNAME } from "@pathfinder/shared";
+import { INACTIVE_DEFINITION_CLASSNAME } from "@pathfinder-ide/shared";
 
-import { recipe, globalStyle } from "@pathfinder/style";
+import { recipe, globalStyle } from "@pathfinder-ide/style";
 
 export const editorClass = recipe({
   base: {

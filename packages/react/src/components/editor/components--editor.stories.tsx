@@ -3,7 +3,7 @@ import { Editor } from "./editor";
 import {
   VARIABLES_EDITOR_DEFAULT_VALUE,
   VARIABLES_EDITOR_ID,
-} from "@pathfinder/shared";
+} from "@pathfinder-ide/shared";
 
 export const JSONEditorWithDefaultValue = () => {
   return (

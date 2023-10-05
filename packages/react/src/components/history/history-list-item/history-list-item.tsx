@@ -1,4 +1,7 @@
-import { deleteFromHistory, type ExecutionResponse } from "@pathfinder/stores";
+import {
+  deleteFromHistory,
+  type ExecutionResponse,
+} from "@pathfinder-ide/stores";
 
 import { Dropdown, Pill } from "../../../components";
 import { PillProps } from "../../../components/pill";

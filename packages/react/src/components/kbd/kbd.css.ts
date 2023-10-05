@@ -1,4 +1,4 @@
-import { contract, style } from "@pathfinder/style";
+import { contract, style } from "@pathfinder-ide/style";
 
 export const kbdClass = style({
   boxSizing: "border-box",

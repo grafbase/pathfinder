@@ -9,10 +9,10 @@
 # Installation & Usage
 
 ```bash
-pnpm add @pathfinder/react # or yarn add @pathfinder/react or npm install @pathfinder/react
+pnpm add @pathfinder-ide/react # or yarn add @pathfinder-ide/react or npm install @pathfinder-ide/react
 ```
 
-The sole export from `@pathfinder/react` is a React component called Pathfinder. For our initial release, a limited set of props is allowed. You can see examples of props usage in the `pathfinder.stories.tsx` file.
+The sole export from `@pathfinder-ide/react` is a React component called Pathfinder. For our initial release, a limited set of props is allowed. You can see examples of props usage in the `pathfinder.stories.tsx` file.
 
 
 # Local development

@@ -1,4 +1,4 @@
-import { contract, recipe, shared, style } from "@pathfinder/style";
+import { contract, recipe, shared, style } from "@pathfinder-ide/style";
 
 export const analyzeClass = style({
   width: "100%",

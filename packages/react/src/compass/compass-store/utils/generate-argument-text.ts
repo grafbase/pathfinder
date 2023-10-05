@@ -10,7 +10,7 @@ import {
   print,
 } from "graphql";
 
-import { unwrapType } from "@pathfinder/shared";
+import { unwrapType } from "@pathfinder-ide/shared";
 
 import { DEFAULT_SCALAR_VALUES } from "../constants";
 

@@ -1,7 +1,10 @@
-import { DOCUMENT_EDITOR_ID } from "@pathfinder/shared";
+import { DOCUMENT_EDITOR_ID } from "@pathfinder-ide/shared";
 import { IconButton } from "../icon-button";
 
-import { getMonacoEditor, useGraphQLDocumentStore } from "@pathfinder/stores";
+import {
+  getMonacoEditor,
+  useGraphQLDocumentStore,
+} from "@pathfinder-ide/stores";
 
 export const ActionPrettier = () => {
   const isParseable = useGraphQLDocumentStore.use.isParseable();

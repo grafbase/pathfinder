@@ -1,7 +1,7 @@
 import {
   DOCUMENT_EDITOR_DEFAULT_VALUE,
   generateCuid,
-} from "@pathfinder/shared";
+} from "@pathfinder-ide/shared";
 
 import type { EditorTab, EditorTabsState } from "./editor-tabs.types";
 

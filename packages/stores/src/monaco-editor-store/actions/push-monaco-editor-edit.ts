@@ -1,4 +1,4 @@
-import { DOCUMENT_EDITOR_ID } from "@pathfinder/shared";
+import { DOCUMENT_EDITOR_ID } from "@pathfinder-ide/shared";
 
 import { setDocumentState } from "../../graphql-document-store";
 

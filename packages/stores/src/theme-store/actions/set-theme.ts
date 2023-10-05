@@ -1,7 +1,7 @@
-import type { AvailableThemes } from "@pathfinder/shared";
+import type { AvailableThemes } from "@pathfinder-ide/shared";
 
 import { themeStore } from "../theme-store";
-import { THEME_MODE_ATTRIBUTE } from "@pathfinder/style";
+import { THEME_MODE_ATTRIBUTE } from "@pathfinder-ide/style";
 
 import { mungeThemeOverrides } from "../utils";
 import { setMonacoEditorTheme } from "../../monaco-editor-store";

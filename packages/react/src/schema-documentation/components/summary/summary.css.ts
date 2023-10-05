@@ -1,4 +1,4 @@
-import { style, contract } from "@pathfinder/style";
+import { style, contract } from "@pathfinder-ide/style";
 
 export const summaryFieldClass = style({
   borderLeft: `1px solid ${contract.color.neutral[4]}`,

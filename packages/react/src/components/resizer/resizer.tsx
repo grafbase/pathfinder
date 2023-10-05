@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-import { shared } from "@pathfinder/style";
+import { shared } from "@pathfinder-ide/style";
 
 import { resizerClass, handleClass, paneClass } from "./resizer.css";
 import type { ResizerProps } from "./resizer.types";

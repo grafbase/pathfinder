@@ -1,4 +1,7 @@
-import { DOCUMENT_EDITOR_ID, DOCUMENT_MODEL_NAME } from "@pathfinder/shared";
+import {
+  DOCUMENT_EDITOR_ID,
+  DOCUMENT_MODEL_NAME,
+} from "@pathfinder-ide/shared";
 
 import {
   runExecuteOperation,
@@ -6,7 +9,7 @@ import {
   updateActiveEditorTab,
   useGraphQLDocumentStore,
   useSessionStore,
-} from "@pathfinder/stores";
+} from "@pathfinder-ide/stores";
 
 import { ActionExecute } from "../action-execute";
 import { ActionPrettier } from "../action-prettier";

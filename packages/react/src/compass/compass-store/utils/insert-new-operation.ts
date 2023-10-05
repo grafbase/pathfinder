@@ -7,13 +7,13 @@ import {
   print,
 } from "graphql";
 
-import { DOCUMENT_EDITOR_ID } from "@pathfinder/shared";
+import { DOCUMENT_EDITOR_ID } from "@pathfinder-ide/shared";
 
 import {
   type MonacoIRange,
   pushMonacoEditorEdit,
   useGraphQLDocumentStore,
-} from "@pathfinder/stores";
+} from "@pathfinder-ide/stores";
 
 import type {
   AncestorField,

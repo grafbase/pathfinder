@@ -1,4 +1,4 @@
-# @pathfinder/react
+# @pathfinder-ide/react
 
 ## 0.1.1
 

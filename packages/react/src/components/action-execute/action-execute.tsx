@@ -2,7 +2,7 @@ import {
   executeOperation,
   useGraphQLDocumentStore,
   useSchemaStore,
-} from "@pathfinder/stores";
+} from "@pathfinder-ide/stores";
 
 import { Button } from "../button";
 

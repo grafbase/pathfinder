@@ -1,4 +1,4 @@
-import { style, globalStyle } from "@pathfinder/style";
+import { style, globalStyle } from "@pathfinder-ide/style";
 
 export const appContainer = style({
   display: "block",

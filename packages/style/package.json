@@ -1,5 +1,5 @@
 {
-  "name": "@pathfinder/style",
+  "name": "@pathfinder-ide/style",
   "version": "0.0.1",
   "private": true,
   "main": "./src/index.ts",
@@ -8,7 +8,7 @@
     "types": "tsc --noEmit"
   },
   "dependencies": {
-    "@pathfinder/shared": "workspace:*",
+    "@pathfinder-ide/shared": "workspace:*",
     "@radix-ui/colors": "3.0.0",
     "@vanilla-extract/css": "1.13.0",
     "@vanilla-extract/dynamic": "2.0.3",
@@ -16,7 +16,7 @@
     "zustand": "4.4.2"
   },
   "devDependencies": {
-    "@pathfinder/eslint-config": "workspace:*",
-    "@pathfinder/tsconfig": "workspace:*"
+    "@pathfinder-ide/eslint-config": "workspace:*",
+    "@pathfinder-ide/tsconfig": "workspace:*"
   }
 }

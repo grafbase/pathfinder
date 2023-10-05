@@ -1,6 +1,6 @@
 import { type GraphQLSchema, Location } from "graphql";
 
-import { DOCUMENT_EDITOR_ID } from "@pathfinder/shared";
+import { DOCUMENT_EDITOR_ID } from "@pathfinder-ide/shared";
 
 import type {
   AncestorArgument,
@@ -19,7 +19,7 @@ import {
   getMonacoEditor,
   useSchemaStore,
   pushMonacoEditorEdit,
-} from "@pathfinder/stores";
+} from "@pathfinder-ide/stores";
 
 export const addTargetArgument = ({
   previousAncestor,
