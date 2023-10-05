@@ -7,5 +7,5 @@
   "access": "restricted",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": ["nextjs-example"]
+  "ignore": ["@pathfinder-ide/website","nextjs-example", "@pathfinder-ide/tsconfig", "@pathfinder-ide/shared", "@pathfinder-ide/stores", "@pathfinder-ide/style", "desktop", "ladle"]
 }
