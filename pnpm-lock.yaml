@@ -236,15 +236,6 @@ importers:
       '@headlessui/react':
         specifier: 1.7.17
         version: 1.7.17(react-dom@18.2.0)(react@18.2.0)
-      '@pathfinder-ide/shared':
-        specifier: workspace:*
-        version: link:../shared
-      '@pathfinder-ide/stores':
-        specifier: workspace:*
-        version: link:../stores
-      '@pathfinder-ide/style':
-        specifier: workspace:*
-        version: link:../style
       graphql:
         specifier: 16.8.1
         version: 16.8.1
@@ -273,6 +264,15 @@ importers:
       '@pathfinder-ide/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
+      '@pathfinder-ide/shared':
+        specifier: workspace:*
+        version: link:../shared
+      '@pathfinder-ide/stores':
+        specifier: workspace:*
+        version: link:../stores
+      '@pathfinder-ide/style':
+        specifier: workspace:*
+        version: link:../style
       '@pathfinder-ide/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
