@@ -6,8 +6,16 @@
     <img width="1000" src="https://github.com/grafbase/pathfinder/assets/4585/0eff5bcf-be3a-4028-beb2-6332c0ba19aa" alt="The Pathfinder desktop application" />
 </p>
 
+# Installation & Usage
+
+```bash
+pnpm add @pathfinder/react # or yarn add @pathfinder/react or npm install @pathfinder/react
+```
+
+The sole export from `@pathfinder/react` is a React component called Pathfinder. For our initial release, a limited set of props is allowed. You can see examples of props usage in the `pathfinder.stories.tsx` file.
 
 
+# Local development
 ## Clone the repository
 
 ```bash
