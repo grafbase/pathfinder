@@ -3,5 +3,5 @@
   "extends": [
     "config:base"
   ],
-  "ignoreDeps": ["@ladle/react", "monaco-editor", "monaco-graphql", "vitest"]
+  "ignoreDeps": ["@ladle/react", "monaco-editor", "monaco-graphql", "vitest", "next"]
 }
