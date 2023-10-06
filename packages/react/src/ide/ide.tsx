@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { useThemeStore } from "@pathfinder-ide/stores";
+import { useSchemaStore, useThemeStore } from "@pathfinder-ide/stores";
 import { shared } from "@pathfinder-ide/style";
 
 import { Compass } from "../compass";
@@ -26,6 +26,8 @@ export const IDE = ({
   withSchemaProps?: boolean;
 }) => {
   const activeTheme = useThemeStore.use.activeTheme();
+
+  const schema = useSchemaStore.use.schema();
 
   const [visiblePane, setVisiblePane] = useState<string | null>("pathfinder");
 
@@ -97,7 +99,7 @@ export const IDE = ({
               isVisible: visiblePane === "schema_documentation",
             })}
           >
-            <SchemaDocumentation />
+            {schema ? <SchemaDocumentation schema={schema} /> : <></>}
           </div>
 
           <div
@@ -105,7 +107,7 @@ export const IDE = ({
               isVisible: visiblePane === "schema_view",
             })}
           >
-            <SchemaView />
+            {schema ? <SchemaView schema={schema} /> : <></>}
           </div>
         </div>
       </div>

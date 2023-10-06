@@ -1,5 +1,3 @@
-import { useSchemaStore } from "@pathfinder-ide/stores";
-
 import {
   SchemaDocumentationStoreProvider,
   useSchemaDocumentationStore,
@@ -23,18 +21,21 @@ import {
 } from "./schema-documentation.css";
 
 import { sharedPaneClass } from "../../shared.styles.css";
+import { GraphQLSchema } from "graphql";
 
-export const SchemaDocumentation = () => {
+type SchemaDocumentationProps = {
+  schema: GraphQLSchema;
+};
+
+export const SchemaDocumentation = ({ schema }: SchemaDocumentationProps) => {
   return (
     <SchemaDocumentationStoreProvider>
-      <SchemaDocumentationComponent />
+      <SchemaDocumentationComponent schema={schema} />
     </SchemaDocumentationStoreProvider>
   );
 };
 
-const SchemaDocumentationComponent = () => {
-  const schema = useSchemaStore.use.schema();
-
+const SchemaDocumentationComponent = ({ schema }: SchemaDocumentationProps) => {
   const { activePrimaryPane, activeTertiaryPane, tertiaryPaneStack } =
     useSchemaDocumentationStore();
 

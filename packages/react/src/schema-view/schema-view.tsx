@@ -1,22 +1,22 @@
 import { useEffect } from "react";
-import { printSchema } from "graphql";
+import { GraphQLSchema, printSchema } from "graphql";
 
-import { getMonacoEditor, useSchemaStore } from "@pathfinder-ide/stores";
+import { getMonacoEditor } from "@pathfinder-ide/stores";
 
 import { Editor } from "../components";
 
 import { schemaViewInnerClass, schemaViewClass } from "./schema-view.css";
 
-export const SchemaView = () => {
-  const schema = useSchemaStore.use.schema();
+type SchemaViewProps = {
+  schema: GraphQLSchema;
+};
 
+export const SchemaView = ({ schema }: SchemaViewProps) => {
   useEffect(() => {
-    if (schema) {
-      const schemaViewEditor = getMonacoEditor({
-        editorId: "schema-view-editor",
-      });
-      schemaViewEditor?.setValue(printSchema(schema));
-    }
+    const schemaViewEditor = getMonacoEditor({
+      editorId: "schema-view-editor",
+    });
+    schemaViewEditor?.setValue(printSchema(schema));
   }, [schema]);
 
   if (!schema) {
