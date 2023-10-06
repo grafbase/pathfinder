@@ -48,11 +48,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        platform: [
-            macos-latest,
-            ubuntu-20.04,
-            # windows-latest
-          ]
+        platform: [macos-latest, ubuntu-20.04, windows-latest]
     runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v4
@@ -130,6 +126,7 @@ jobs:
               data: fs.readFileSync(path)
             });
       - name: Upload LICENSE
+        continue-on-error: true
         uses: actions/github-script@v6
         env:
           release_id: ${{ needs.create-release.outputs.release_id }}
