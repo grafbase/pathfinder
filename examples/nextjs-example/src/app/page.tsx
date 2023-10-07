@@ -20,6 +20,7 @@ export default function Home() {
           fetcherOptions: {
             endpoint: "https://graphql.earthdata.nasa.gov/api",
           },
+          withPolling: true
         }}
       />
     </main>        
