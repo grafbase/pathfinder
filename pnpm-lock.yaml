@@ -236,6 +236,9 @@ importers:
       '@headlessui/react':
         specifier: 1.7.17
         version: 1.7.17(react-dom@18.2.0)(react@18.2.0)
+      '@pathfinder-ide/stores':
+        specifier: workspace:*
+        version: link:../stores
       graphql:
         specifier: 16.8.1
         version: 16.8.1
@@ -267,9 +270,6 @@ importers:
       '@pathfinder-ide/shared':
         specifier: workspace:*
         version: link:../shared
-      '@pathfinder-ide/stores':
-        specifier: workspace:*
-        version: link:../stores
       '@pathfinder-ide/style':
         specifier: workspace:*
         version: link:../style
@@ -11324,6 +11324,7 @@ packages:
       react-dom: ^18.2.0
     dependencies:
       '@headlessui/react': 1.7.17(react-dom@18.2.0)(react@18.2.0)
+      '@pathfinder-ide/stores': link:packages/stores
       graphql: 16.8.1
       idb-keyval: 6.2.1
       monaco-editor: 0.40.0
