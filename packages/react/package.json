@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "@headlessui/react": "1.7.17",
+    "@pathfinder-ide/stores": "workspace:*",
     "graphql": "16.8.1",
     "idb-keyval": "6.2.1",
     "monaco-editor": "0.40.0",
@@ -41,7 +42,6 @@
   "devDependencies": {
     "@pathfinder-ide/eslint-config": "workspace:*",
     "@pathfinder-ide/shared": "workspace:*",
-    "@pathfinder-ide/stores": "workspace:*",
     "@pathfinder-ide/style": "workspace:*",
     "@pathfinder-ide/tsconfig": "workspace:*",
     "@testing-library/jest-dom": "6.1.3",
