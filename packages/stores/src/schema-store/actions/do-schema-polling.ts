@@ -11,13 +11,11 @@ import { getMonacoEditor } from "../../monaco-editor-store";
 
 import type { SchemaStoreActions } from "../schema-store.types";
 
-const TIMEOUT = 10000;
-
 export const doSchemaPolling: SchemaStoreActions["doSchemaPolling"] = ({
   fetchOptions,
 }) => {
   // if we have don't have a timer set, we can begin
-  if (!schemaStore.getState().pollingTimer) {
+  if (!schemaStore.getState().polling.timer) {
     // get a reference to our editor so we can calculate the cursor position down below
     const documentEditor = getMonacoEditor({ editorId: DOCUMENT_EDITOR_ID });
 
@@ -32,7 +30,10 @@ export const doSchemaPolling: SchemaStoreActions["doSchemaPolling"] = ({
       if (!introspectionResult) {
         // we won't reach our outer timeout (below, bottom) if we return here, so we set a fresh timer here before bailing
         setSchemaPollingTimer({
-          pollingTimer: setTimeout(fetchSchema, TIMEOUT),
+          timer: setTimeout(
+            fetchSchema,
+            schemaStore.getState().polling.interval,
+          ),
         });
         // bail
         return;
@@ -42,7 +43,7 @@ export const doSchemaPolling: SchemaStoreActions["doSchemaPolling"] = ({
 
       // create our inner timeout and set the timer id into state
       setSchemaPollingTimer({
-        pollingTimer: setTimeout(fetchSchema, TIMEOUT),
+        timer: setTimeout(fetchSchema, schemaStore.getState().polling.interval),
       });
 
       // if our previous schema and the new introspection result are the same, do nothing
@@ -77,7 +78,7 @@ export const doSchemaPolling: SchemaStoreActions["doSchemaPolling"] = ({
 
     // create our outer timeout and set the timer id into state
     setSchemaPollingTimer({
-      pollingTimer: setTimeout(fetchSchema, TIMEOUT),
+      timer: setTimeout(fetchSchema, schemaStore.getState().polling.interval),
     });
   }
 };

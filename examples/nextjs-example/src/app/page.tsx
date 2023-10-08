@@ -34,11 +34,11 @@ export default function Home() {
       </div>
     
       <Pathfinder 
-        schemaProps={{
-          fetcherOptions: {
-            endpoint: "https://graphql.earthdata.nasa.gov/api",
-          },
-          withPolling: true
+        fetcherOptions={{
+          endpoint: "https://graphql.earthdata.nasa.gov/api",
+        }}
+        schemaPollingOptions={{
+          enabled: true
         }}
       />
     </main>        

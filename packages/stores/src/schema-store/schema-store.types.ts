@@ -53,11 +53,7 @@ export type SchemaStoreActions = {
     fetchOptions: EndpointConnectionDetails;
   }) => Promise<GraphQLSchema | null>;
   resetSchemaPolling: () => void;
-  setSchemaPollingTimer: ({
-    pollingTimer,
-  }: {
-    pollingTimer: NodeJS.Timeout;
-  }) => void;
+  setSchemaPollingTimer: ({ timer }: { timer: NodeJS.Timeout | null }) => void;
 };
 
 export type SchemaStoreState = {
@@ -66,12 +62,21 @@ export type SchemaStoreState = {
   isIntrospecting: boolean;
   isLoadingSchema: boolean;
   latestResponse: ExecutionResponse | null;
-  pollingTimer: NodeJS.Timeout | null;
   schema: GraphQLSchema | null;
-  /**
-   * Optional: do schema polling at a default interval? Default is false.
-   */
-  withPolling?: boolean;
+  polling: {
+    /**
+     * Whether schema polling is enabled or not
+     */
+    enabled: boolean;
+    /**
+     * The current polling interval. Default is 10000 (10 seconds).
+     */
+    interval: number;
+    /**
+     * An in-memory timer for our schema polling
+     */
+    timer: NodeJS.Timeout | null;
+  };
 };
 
 export type SchemaStore = SchemaStoreState;

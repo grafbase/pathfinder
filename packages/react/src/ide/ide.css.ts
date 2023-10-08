@@ -8,7 +8,7 @@ export const ideWrapClass = recipe({
   },
 
   variants: {
-    withSchemaProps: {
+    withFetcherOptions: {
       true: {},
       false: {
         gridTemplateRows: "48px 1fr",

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { useSchemaStore, useThemeStore } from "@pathfinder-ide/stores";
-import { shared } from "@pathfinder-ide/style";
+import { RecipeVariants, shared } from "@pathfinder-ide/style";
 
 import { Compass } from "../compass";
 import { Icon, Resizer } from "../components";
@@ -21,9 +21,12 @@ import {
 } from "./ide.css";
 
 export const IDE = ({
-  withSchemaProps = true,
+  withFetcherOptions = true,
 }: {
-  withSchemaProps?: boolean;
+  withFetcherOptions?: Pick<
+    NonNullable<RecipeVariants<typeof ideWrapClass>>,
+    "withFetcherOptions"
+  >["withFetcherOptions"];
 }) => {
   const activeTheme = useThemeStore.use.activeTheme();
 
@@ -38,10 +41,10 @@ export const IDE = ({
   return (
     <div
       className={ideWrapClass({
-        withSchemaProps,
+        withFetcherOptions,
       })}
     >
-      {!withSchemaProps && <ConnectionBar />}
+      {!withFetcherOptions && <ConnectionBar />}
       <div className={ideClass}>
         <div
           className={`${navigationWrapClass} ${shared.hairlineBorder({

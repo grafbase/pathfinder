@@ -41,7 +41,7 @@ export const loadSchema: SchemaStoreActions["loadSchema"] = async ({
 
   setMonacoGraphQLSchema({ schema });
 
-  if (schemaStore.getState().withPolling) {
+  if (schemaStore.getState().polling.enabled) {
     doSchemaPolling({ fetchOptions });
   }
 
