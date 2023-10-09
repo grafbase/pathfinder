@@ -21,7 +21,7 @@
     "@pathfinder-ide/style": "workspace:*",
     "@tauri-apps/cli": "^1.4.0",
     "@types/react": "18.2.25",
-    "@types/react-dom": "18.2.10",
+    "@types/react-dom": "18.2.11",
     "@vanilla-extract/css": "1.13.0",
     "@vanilla-extract/vite-plugin": "3.9.0",
     "@vitejs/plugin-react": "4.1.0",
