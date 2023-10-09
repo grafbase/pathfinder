@@ -1,5 +1,11 @@
 # @pathfinder-ide/react
 
+## 0.2.1
+
+### Patch Changes
+
+- 86ef9b4: Test release: Moves `stores` back to devDependencies.
+
 ## 0.2.0
 
 ### Minor Changes
