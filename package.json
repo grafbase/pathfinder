@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.2",
-    "@types/node": "20.8.3",
+    "@types/node": "20.8.4",
     "@types/react": "18.2.27",
     "@types/react-dom": "18.2.12",    
     "monaco-editor": "0.40.0",
