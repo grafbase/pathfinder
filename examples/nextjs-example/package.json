@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "types": "tsc --noEmit"
   },
   "dependencies": {
     "@pathfinder-ide/react": "file:../../packages/react",    

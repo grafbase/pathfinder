@@ -73,6 +73,9 @@ importers:
       '@types/react-dom':
         specifier: 18.2.11
         version: 18.2.11
+      '@vanilla-extract/css':
+        specifier: 1.13.0
+        version: 1.13.0
       '@vanilla-extract/vite-plugin':
         specifier: 3.9.0
         version: 3.9.0(@types/node@20.8.3)(ts-node@10.9.1)(vite@4.4.11)

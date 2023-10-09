@@ -6,7 +6,7 @@ import { setTheme, themeStore } from "@pathfinder-ide/stores";
 // TODO: reset store between tests
 
 describe("Pathfinder props", () => {
-  it("should correctly render Welcome when Pathfinder does not receive schemaProps", async () => {
+  it("should correctly render Welcome when Pathfinder does not receive fetcherOptions", async () => {
     render(<Pathfinder />);
 
     const welcomeContainer = screen.getByTestId("welcome-container");
@@ -14,15 +14,7 @@ describe("Pathfinder props", () => {
   });
 
   it("should correctly render Pathfinder without theme override props", async () => {
-    render(
-      <Pathfinder
-        schemaProps={{
-          fetcherOptions: {
-            endpoint: "ENDPOINT",
-          },
-        }}
-      />,
-    );
+    render(<Pathfinder fetcherOptions={{ endpoint: "ENDPOINT" }} />);
 
     const themeOverrides = themeStore.getState().themeOverrides;
     expect(themeOverrides).toBe(null);
@@ -48,12 +40,8 @@ describe("Pathfinder props", () => {
     };
     render(
       <Pathfinder
-        schemaProps={{
-          fetcherOptions: {
-            endpoint: "ENDPOINT",
-          },
-        }}
-        themeProps={{
+        fetcherOptions={{ endpoint: "ENDPOINT" }}
+        themeOptions={{
           theme: { overrides },
         }}
       />,

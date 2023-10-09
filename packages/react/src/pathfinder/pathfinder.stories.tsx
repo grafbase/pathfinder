@@ -1,4 +1,5 @@
 import { Pathfinder } from "./pathfinder";
+import { PathfinderProps } from "./pathfinder.types";
 
 const overrides = {
   dark: {
@@ -17,7 +18,7 @@ const overrides = {
   },
 };
 
-const fetcherOptions = {
+const fetcherOptions: PathfinderProps["fetcherOptions"] = {
   endpoint: import.meta.env.VITE_GRAPHQL_ENDPOINT,
   headers: [
     {
@@ -30,8 +31,9 @@ const fetcherOptions = {
 export const FullMode = () => {
   return (
     <Pathfinder
-      schemaProps={{
-        fetcherOptions,
+      fetcherOptions={fetcherOptions}
+      schemaPollingOptions={{
+        enabled: true,
       }}
     />
   );
@@ -44,10 +46,11 @@ export const FullModeWithoutSchemaProps = () => {
 export const FullModeWithThemeOverrides = () => {
   return (
     <Pathfinder
-      schemaProps={{
-        fetcherOptions,
+      fetcherOptions={fetcherOptions}
+      schemaPollingOptions={{
+        enabled: true,
       }}
-      themeProps={{
+      themeOptions={{
         theme: { overrides },
       }}
     />
@@ -55,14 +58,7 @@ export const FullModeWithThemeOverrides = () => {
 };
 
 export const MiniMode = () => {
-  return (
-    <Pathfinder
-      mode="MINI"
-      schemaProps={{
-        fetcherOptions,
-      }}
-    />
-  );
+  return <Pathfinder mode="MINI" fetcherOptions={fetcherOptions} />;
 };
 
 export const MiniModeWithoutSchemaProps = () => {

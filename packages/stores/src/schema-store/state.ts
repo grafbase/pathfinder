@@ -6,9 +6,12 @@ export const INITIAL_SCHEMA_STORE_STATE: SchemaStoreState = {
   isIntrospecting: false,
   isLoadingSchema: false,
   latestResponse: null,
-  pollingTimer: null,
+  polling: {
+    enabled: false,
+    interval: 10000,
+    timer: null,
+  },
   schema: null,
-  withPolling: false,
 };
 
 export const schemaStoreState = {

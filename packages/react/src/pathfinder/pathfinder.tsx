@@ -10,6 +10,7 @@ import {
   useSchemaStore,
   initSession,
   loadSession,
+  schemaStore,
 } from "@pathfinder-ide/stores";
 
 import { Connect } from "../components/connect";
@@ -22,19 +23,36 @@ import type { PathfinderProps } from "./pathfinder.types";
 
 export const Pathfinder = ({
   mode = "FULL",
-  schemaProps,
-  themeProps,
+  fetcherOptions,
+  schemaPollingOptions,
+  themeOptions,
 }: PathfinderProps) => {
   const schema = useSchemaStore.use.schema();
 
   useEffect(() => {
     // set the theme and handle overrides if provided
-    initializeTheme({ overrides: themeProps?.theme?.overrides });
+    initializeTheme({ overrides: themeOptions?.theme?.overrides });
+
+    //set our schema polling options if provided
+    if (schemaPollingOptions) {
+      const currentVals = schemaStore.getState().polling;
+      schemaStore.setState({
+        polling: {
+          ...(schemaPollingOptions.enabled
+            ? { enabled: schemaPollingOptions.enabled }
+            : { enabled: currentVals.enabled }),
+          ...(schemaPollingOptions.interval
+            ? { interval: schemaPollingOptions.interval }
+            : { interval: currentVals.interval }),
+          timer: currentVals.timer,
+        },
+      });
+    }
 
     // if the implementer has provided an endpoint via props, we use the endpoint to namespace the local storage
-    if (schemaProps && schemaProps.fetcherOptions.endpoint) {
+    if (fetcherOptions) {
       const name = getNamespacedStorageName({
-        endpoint: schemaProps.fetcherOptions.endpoint as string,
+        endpoint: fetcherOptions.endpoint as string,
         storageName: STORAGE_NAME_SESSION,
       });
 
@@ -46,8 +64,8 @@ export const Pathfinder = ({
           // we don't have an existing session using this endpoint, so let's initialize a new session
           initSession({
             fetchOptions: {
-              endpoint: schemaProps.fetcherOptions.endpoint as string,
-              headers: schemaProps.fetcherOptions.headers?.map((header) => ({
+              endpoint: fetcherOptions.endpoint as string,
+              headers: fetcherOptions.headers?.map((header) => ({
                 id: generateCuid({}),
                 enabled: true,
                 key: header.key,
@@ -64,20 +82,20 @@ export const Pathfinder = ({
       resetSchemaPolling();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [schemaProps?.fetcherOptions.endpoint]);
+  }, [fetcherOptions?.endpoint]);
 
   if (schema) {
     return (
       <div className={pathfinderClass}>
         {mode === "FULL" && (
-          <IDE withSchemaProps={schemaProps ? true : false} />
+          <IDE withFetcherOptions={fetcherOptions ? true : false} />
         )}
         {mode === "MINI" && <Scout />}
       </div>
     );
   }
 
-  if (!schemaProps) {
+  if (!fetcherOptions) {
     return (
       <div className={connectWrapClass} data-tauri-drag-region="">
         <Connect />

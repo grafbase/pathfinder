@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "tauri": "tauri"
+    "tauri": "tauri",
+    "types": "tsc --noEmit"
   },
   "dependencies": {
     "react": "18.2.0",
@@ -21,6 +22,7 @@
     "@tauri-apps/cli": "^1.4.0",
     "@types/react": "18.2.25",
     "@types/react-dom": "18.2.11",
+    "@vanilla-extract/css": "1.13.0",
     "@vanilla-extract/vite-plugin": "3.9.0",
     "@vitejs/plugin-react": "4.1.0",
     "typescript": "5.2.2",
