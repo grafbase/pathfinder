@@ -15,7 +15,7 @@
     "ladle:preview": "pnpm --filter ladle preview",
     "ladle:serve": "pnpm --filter ladle serve",
     "version-packages": "changeset version",
-    "release": "pnpm run types && pnpm run react:build && changeset publish"
+    "release": "pnpm run react:build && pnpm run types && changeset publish"
   },
   "dependencies": {
     "react": "18.2.0",
