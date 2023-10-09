@@ -1,5 +1,17 @@
 # @pathfinder-ide/react
 
+## 0.2.0
+
+### Minor Changes
+
+- 421d00a: \* Updates Pathfinder props to be more user-friendly
+  - fixes a regression in schema polling
+
+### Patch Changes
+
+- 31a5661: SchemaDocumentation and SchemaView components are now exported and can be used independently.
+- b4d3360: Export theme store functions to allow external control of theme. You can now import `setPathfinderTheme` and `usePathfinderThemeStore` if you need to set the theme (light/dark) from outside the Pathfinder UI.
+
 ## 0.1.3
 
 ### Patch Changes
