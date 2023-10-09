@@ -239,9 +239,6 @@ importers:
       '@headlessui/react':
         specifier: 1.7.17
         version: 1.7.17(react-dom@18.2.0)(react@18.2.0)
-      '@pathfinder-ide/stores':
-        specifier: workspace:*
-        version: link:../stores
       graphql:
         specifier: 16.8.1
         version: 16.8.1
@@ -273,6 +270,9 @@ importers:
       '@pathfinder-ide/shared':
         specifier: workspace:*
         version: link:../shared
+      '@pathfinder-ide/stores':
+        specifier: workspace:*
+        version: link:../stores
       '@pathfinder-ide/style':
         specifier: workspace:*
         version: link:../style
@@ -11326,6 +11326,7 @@ packages:
     resolution: {directory: packages/react, type: directory}
     id: file:packages/react
     name: '@pathfinder-ide/react'
+    version: 0.2.0
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
