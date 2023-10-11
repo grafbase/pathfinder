@@ -9,6 +9,7 @@ export default defineConfig({
   // 👇 https://github.com/vitejs/vite/issues/11943#issuecomment-1419293906
   base: "./",
   build: {
+    target: "ESNext",
     lib: {
       entry: "src/index.ts",
       name: "pathfinder",
@@ -18,6 +19,7 @@ export default defineConfig({
     rollupOptions: {
       external: ["react", "react-dom"],
       output: {
+        format: "esm",
         globals: {
           react: "React",
           "react-dom": "ReactDOM",
@@ -27,7 +29,7 @@ export default defineConfig({
   },
   plugins: [
     dts({
-      insertTypesEntry: true,
+      rollupTypes: true,
       exclude: ["./test"],
     }),
     pluginReact(),
