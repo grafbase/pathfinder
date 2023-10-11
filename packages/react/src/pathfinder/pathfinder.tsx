@@ -20,6 +20,7 @@ import { Scout } from "../scout";
 import { connectWrapClass, pathfinderClass } from "./pathfinder.css";
 
 import type { PathfinderProps } from "./pathfinder.types";
+import { CompassAnimated } from "../components/compass-animated";
 
 export const Pathfinder = ({
   mode = "FULL",
@@ -84,22 +85,24 @@ export const Pathfinder = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetcherOptions?.endpoint]);
 
-  if (schema) {
-    return (
-      <div className={pathfinderClass}>
-        {mode === "FULL" && (
-          <IDE withFetcherOptions={fetcherOptions ? true : false} />
-        )}
-        {mode === "MINI" && <Scout />}
-      </div>
-    );
-  }
-
-  if (!fetcherOptions) {
+  if (!fetcherOptions && !schema) {
     return (
       <div className={connectWrapClass} data-tauri-drag-region="">
         <Connect />
       </div>
     );
   }
+
+  if (fetcherOptions && !schema) {
+    <CompassAnimated size="large" speed="standard" />;
+  }
+
+  return (
+    <div className={pathfinderClass}>
+      {mode === "FULL" && (
+        <IDE withFetcherOptions={fetcherOptions ? true : false} />
+      )}
+      {mode === "MINI" && <Scout />}
+    </div>
+  );
 };
