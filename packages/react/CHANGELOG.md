@@ -1,5 +1,11 @@
 # @pathfinder-ide/react
 
+## 0.2.3
+
+### Patch Changes
+
+- 0512c00: Fixes a bug introduced in #142
+
 ## 0.2.2
 
 ### Patch Changes
