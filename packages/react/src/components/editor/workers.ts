@@ -1,25 +1,20 @@
+import JsonWorker from "../../../workers/json.worker.bundle?worker";
+import EditorWorker from "../../../workers/editor.worker.bundle?worker";
+import GraphQLWorker from "../../../workers/graphql.worker.bundle?worker";
+
 self.MonacoEnvironment = {
   getWorker(_workerId: string, label: string): Worker {
     switch (label) {
       case "json": {
-        return new Worker(
-          new URL("../../../workers/json.worker.bundle.js", import.meta.url),
-          { type: "module" },
-        );
+        return new JsonWorker();
       }
 
       case "graphql": {
-        return new Worker(
-          new URL("../../../workers/graphql.worker.bundle.js", import.meta.url),
-          { type: "module" },
-        );
+        return new GraphQLWorker();
       }
 
       default: {
-        return new Worker(
-          new URL("../../../workers/editor.worker.bundle.js", import.meta.url),
-          { type: "module" },
-        );
+        return new EditorWorker();
       }
     }
   },

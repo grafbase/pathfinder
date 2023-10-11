@@ -8,6 +8,7 @@ esbuild.build({
     "json.worker": "monaco-editor/esm/vs/language/json/json.worker.js",
     "graphql.worker": "monaco-graphql/esm/graphql.worker.js",
   },
-  minify: true,
+  format: 'esm',
+  minify: false,
   outdir: "./workers"
 });

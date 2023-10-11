@@ -49,10 +49,5 @@ export const initSession = async ({
 
   setEditorValues({
     newDocumentEditorValue: INITIAL_EDITOR_TAB.documentString,
-    newResponseEditorValue: JSON.stringify(
-      INITIAL_EDITOR_TAB.latestResponse?.response.data,
-      null,
-      2,
-    ),
   });
 };
