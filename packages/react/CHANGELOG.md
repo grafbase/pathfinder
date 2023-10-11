@@ -1,5 +1,11 @@
 # @pathfinder-ide/react
 
+## 0.2.2
+
+### Patch Changes
+
+- d2e19df: Fixes a bug in initSession and update packaging.
+
 ## 0.2.1
 
 ### Patch Changes
