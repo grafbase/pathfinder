@@ -9,12 +9,12 @@ export const setEditorValues = ({
   newDocumentEditorValue?: string;
   newResponseEditorValue?: string;
 }): void => {
-  if (newDocumentEditorValue) {
+  if (newDocumentEditorValue !== undefined) {
     const documentEditor = getMonacoEditor({ editorId: DOCUMENT_EDITOR_ID });
     documentEditor?.setValue(newDocumentEditorValue);
   }
 
-  if (newResponseEditorValue) {
+  if (newResponseEditorValue !== undefined) {
     const responseEditor = getMonacoEditor({ editorId: RESPONSE_EDITOR_ID });
     responseEditor?.setValue(newResponseEditorValue);
   }

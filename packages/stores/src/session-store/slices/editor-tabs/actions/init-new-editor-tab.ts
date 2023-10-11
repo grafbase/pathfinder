@@ -28,6 +28,5 @@ export const initNewEditorTab: EditorTabsActions["initNewEditorTab"] = () => {
 
   return setEditorValues({
     newDocumentEditorValue: newTab.documentString,
-    newResponseEditorValue: RESPONSE_EDITOR_DEFAULT_VALUE,
   });
 };
