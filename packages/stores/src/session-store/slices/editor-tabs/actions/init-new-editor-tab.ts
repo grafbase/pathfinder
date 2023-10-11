@@ -1,6 +1,5 @@
 import {
   DOCUMENT_EDITOR_DEFAULT_VALUE,
-  RESPONSE_EDITOR_DEFAULT_VALUE,
   generateCuid,
 } from "@pathfinder-ide/shared";
 
