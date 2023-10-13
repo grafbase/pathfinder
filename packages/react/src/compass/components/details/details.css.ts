@@ -42,7 +42,7 @@ export const detailsTogglerClass = recipe({
     isSelected: {
       true: {
         fontWeight: 600,
-        color: contract.color.purple[11],
+        color: contract.color.neutral[12],
 
         selectors: {
           "&:hover": {

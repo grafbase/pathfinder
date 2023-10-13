@@ -118,15 +118,15 @@ export const editorTheme = ({
     // end values
     // begin graphql type system
     {
-      foreground: colorsForEditor[variant].ui_neutral05,
+      foreground: colorsForEditor[variant].blue,
       token: "keyword.gql",
     },
     {
-      foreground: colorsForEditor[variant].blue,
+      foreground: colorsForEditor[variant].green,
       token: "type.identifier.gql",
     },
     {
-      foreground: colorsForEditor[variant].violet,
+      foreground: colorsForEditor[variant].ui_neutral07,
       token: "key.identifier.gql",
     },
     {
