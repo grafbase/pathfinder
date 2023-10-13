@@ -53,7 +53,7 @@
     "@vanilla-extract/vite-plugin": "3.9.0",
     "@vitejs/plugin-react": "4.1.0",
     "esbuild": "0.19.4",
-    "fake-indexeddb": "4.0.2",
+    "fake-indexeddb": "5.0.0",
     "jsdom": "22.1.0",
     "ts-node": "^10.9.1",
     "vite": "4.4.11",
