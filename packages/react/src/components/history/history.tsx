@@ -138,7 +138,7 @@ export const History = () => {
                     ),
                 },
               ]}
-              tabListHeight={32}
+              tabListHeight={40}
             />
           ),
           initialSize: { type: "PERCENT", value: 40 },

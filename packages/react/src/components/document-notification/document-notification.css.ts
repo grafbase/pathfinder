@@ -9,7 +9,7 @@ export const documentNotificationClass = style({
   display: "flex",
   flexDirection: "column",
   gap: contract.space[8],
-  fontSize: contract.space[12],
+  fontSize: 12,
   marginTop: contract.space[12],
   borderRadius: contract.space[4],
 });

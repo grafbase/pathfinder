@@ -14,7 +14,7 @@ export const initNewEditorTab: EditorTabsActions["initNewEditorTab"] = () => {
 
   const newTab: EditorTab = {
     tabId: TAB_ID,
-    tabName: TAB_ID,
+    tabName: "Untitled",
     cursorPosition: null,
     documentString: DOCUMENT_EDITOR_DEFAULT_VALUE,
     latestResponse: null,

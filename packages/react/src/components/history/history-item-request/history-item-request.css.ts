@@ -14,7 +14,7 @@ export const disclosureButtonClass = style([
     width: "100%",
     fontFamily: contract.fonts.mono,
     fontWeight: 500,
-    fontSize: 9,
+    fontSize: 10,
     textTransform: "uppercase",
     color: contract.color.neutral[12],
   },

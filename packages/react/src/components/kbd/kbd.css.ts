@@ -12,5 +12,5 @@ export const kbdClass = style({
   color: contract.color.neutral[10],
   borderRadius: contract.space[4],
   border: `1px solid ${contract.color.neutral[6]}`,
-  fontSize: 11,
+  fontSize: 12,
 });

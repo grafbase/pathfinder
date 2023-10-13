@@ -5,8 +5,8 @@ export const detailsTogglerClass = recipe({
     shared.resets.buttonReset,
     {
       whiteSpace: "nowrap",
-      height: 20,
-      fontSize: 12,
+      height: 22,
+      fontSize: 14,
       display: "flex",
       alignItems: "center",
       transition: `all .1s ${shared.transitions.authenticMotion}`,
@@ -42,7 +42,7 @@ export const detailsTogglerClass = recipe({
     isSelected: {
       true: {
         fontWeight: 600,
-        color: contract.color.purple[11],
+        color: contract.color.neutral[12],
 
         selectors: {
           "&:hover": {
