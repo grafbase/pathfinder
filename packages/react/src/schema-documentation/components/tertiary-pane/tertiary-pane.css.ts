@@ -65,7 +65,7 @@ export const tertiaryPaneClass = style([
     height: "100%",
     overflow: "hidden",
     paddingTop: 24,
-    fontSize: 12,
+    fontSize: 14,
   },
 ]);
 

@@ -29,7 +29,7 @@ export const tabButtonClass = style([
     paddingLeft: contract.space[12],
     paddingRight: contract.space[12],
     textAlign: "center",
-    fontSize: 12,
+    fontSize: 14,
     color: contract.color.neutral[9],
 
     selectors: {

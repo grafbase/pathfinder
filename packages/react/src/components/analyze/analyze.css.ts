@@ -48,6 +48,6 @@ export const responseNullStateClass = style({
   justifyContent: "center",
   gap: contract.space[16],
   color: contract.color.neutral[6],
-  fontSize: contract.space[12],
+  fontSize: 14,
   cursor: "default",
 });

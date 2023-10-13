@@ -45,7 +45,7 @@ export const connectContentClass = recipe({
     display: "flex",
     flexDirection: "column",
     gap: 16,
-    fontSize: 12,
+    fontSize: 14,
     transition: `all 0.35s ${shared.transitions.authenticMotion}`,
   },
 

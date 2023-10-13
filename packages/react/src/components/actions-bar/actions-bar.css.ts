@@ -16,7 +16,7 @@ export const actionsBarClass = style([
 
 export const actionsBarLeadClass = style({
   display: "flex",
-  fontSize: contract.space[12],
+  fontSize: 14,
   color: contract.color.neutral[11],
 });
 

@@ -35,7 +35,7 @@ export const inputClass = style({
   paddingLeft: 8,
   borderRadius: 2,
   fontFamily: contract.fonts.mono,
-  fontSize: 11,
+  fontSize: 12,
   lineHeight: 1,
   color: contract.color.neutral[11],
   backgroundColor: contract.color.neutral[3],
@@ -106,10 +106,6 @@ export const info = style({
   flexDirection: `column`,
   alignItems: `center`,
   color: contract.color.neutral[8],
-
-  // span: {
-  //   fontSize: 10,
-  // },
 });
 
 export const dataClass = style({

@@ -27,8 +27,7 @@ export const argumentsCollapseTriggerClass = style([
     display: "flex",
     alignItems: "center",
     gap: contract.space[4],
-    fontSize: 9,
-    // fontWeight: 600,
+    fontSize: 11,
     color: contract.color.neutral[10],
 
     selectors: {
@@ -41,8 +40,6 @@ export const argumentsCollapseTriggerClass = style([
 
 export const argumentsContentClass = style({
   width: "100%",
-  // paddingLeft: contract.space[20],
-  // marginTop: contract.space[4],
   marginLeft: contract.space[4],
   position: "relative",
 

@@ -36,7 +36,7 @@ export const historyListHeaderClass = style({
   justifyContent: "space-between",
   height: 32,
   padding: `0 ${contract.space[16]}`,
-  fontSize: 11,
+  fontSize: 12,
   color: contract.color.neutral[12],
 });
 

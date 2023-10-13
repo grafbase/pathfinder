@@ -33,7 +33,7 @@ export const historyListItemClass = recipe({
     justifyContent: "space-between",
     width: "100%",
     paddingLeft: contract.space[16],
-    fontSize: 11,
+    fontSize: 12,
     fontWeight: 400,
     color: contract.color.neutral[10],
     cursor: "pointer",

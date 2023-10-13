@@ -10,7 +10,7 @@ export const schemaDocumentationClass = style([
     display: "flex",
     flexDirection: "column",
     overflow: "hidden",
-    fontSize: 12,
+    fontSize: 14,
   },
 ]);
 

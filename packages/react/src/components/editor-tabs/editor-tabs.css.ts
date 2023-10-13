@@ -52,7 +52,7 @@ export const tabWrapClass = recipe({
       minWidth: 0,
       paddingLeft: 8,
       paddingRight: 8,
-      fontSize: 12,
+      fontSize: 14,
       transition: `opacity .15s ${shared.transitions.authenticMotion}`,
 
       selectors: {
