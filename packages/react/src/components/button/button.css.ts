@@ -9,7 +9,7 @@ export const buttonClass = recipe({
       alignItems: "center",
       gap: contract.space[2],
       borderRadius: contract.space[2],
-      fontSize: 12,
+      fontSize: 13,
       fontWeight: 400,
       transition: `all .075s ${shared.transitions.authenticMotion}`,
       color: contract.color.neutral[11],

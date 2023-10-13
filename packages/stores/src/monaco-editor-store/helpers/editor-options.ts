@@ -8,7 +8,7 @@ export const editorOptions: MonacoEditorStandaloneEditorConstructionOptions = {
   fixedOverflowWidgets: true,
   fontFamily:
     "'Hack', 'Fira Code', Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace",
-  fontSize: 12, // default is 12
+  fontSize: 14, // default is 12
   lineNumbersMinChars: 2,
   minimap: {
     enabled: false, // disable the minimap
