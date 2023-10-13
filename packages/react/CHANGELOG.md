@@ -1,5 +1,11 @@
 # @pathfinder-ide/react
 
+## 0.2.5
+
+### Patch Changes
+
+- ebe7828: Increases default font size for monaco editors
+
 ## 0.2.4
 
 ### Patch Changes
