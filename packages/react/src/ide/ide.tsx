@@ -10,6 +10,8 @@ import { SchemaDocumentation } from "../schema-documentation";
 import { SchemaView } from "../schema-view";
 import { Scout } from "../scout";
 
+import { IconProps } from "../components/icon/icon.types";
+
 import {
   navigationButtonClass,
   navigationClass,
@@ -19,6 +21,40 @@ import {
   ideClass,
   ideWrapClass,
 } from "./ide.css";
+
+type AvailablePanes = "pathfinder" | "schema_documentation" | "schema_view";
+
+const panesMap: Record<AvailablePanes, string> = {
+  pathfinder: "Pathfinder",
+  schema_documentation: "Schema Documentation",
+  schema_view: "SDL",
+};
+
+const NavButton = ({
+  iconName,
+  paneName,
+  setVisiblePane,
+  visiblePane,
+}: {
+  iconName: IconProps["name"];
+  paneName: AvailablePanes;
+  setVisiblePane: React.Dispatch<React.SetStateAction<AvailablePanes>>;
+  visiblePane: AvailablePanes;
+}) => {
+  const title = `View ${panesMap[paneName]}`;
+  return (
+    <button
+      aria-label={title}
+      title={title}
+      className={navigationButtonClass({
+        isActive: visiblePane === paneName,
+      })}
+      onClick={() => setVisiblePane(paneName)}
+    >
+      <Icon name={iconName} size={"large"} />
+    </button>
+  );
+};
 
 export const IDE = ({
   withFetcherOptions = true,
@@ -32,7 +68,7 @@ export const IDE = ({
 
   const schema = useSchemaStore.use.schema();
 
-  const [visiblePane, setVisiblePane] = useState<string | null>("pathfinder");
+  const [visiblePane, setVisiblePane] = useState<AvailablePanes>("pathfinder");
 
   if (!activeTheme) {
     return <p>Please wrap IDE with the Pathfinder component.</p>;
@@ -53,30 +89,24 @@ export const IDE = ({
           })}`}
         >
           <div className={navigationClass}>
-            <button
-              className={navigationButtonClass({
-                isActive: visiblePane === "pathfinder",
-              })}
-              onClick={() => setVisiblePane("pathfinder")}
-            >
-              <Icon name={"Compass"} size={"large"} />
-            </button>
-            <button
-              className={navigationButtonClass({
-                isActive: visiblePane === "schema_documentation",
-              })}
-              onClick={() => setVisiblePane("schema_documentation")}
-            >
-              <Icon name={"Docs"} size={"large"} />
-            </button>
-            <button
-              className={navigationButtonClass({
-                isActive: visiblePane === "schema_view",
-              })}
-              onClick={() => setVisiblePane("schema_view")}
-            >
-              <Icon name={"GraphQL"} size={"large"} />
-            </button>
+            <NavButton
+              iconName="Compass"
+              paneName="pathfinder"
+              setVisiblePane={setVisiblePane}
+              visiblePane={visiblePane}
+            />
+            <NavButton
+              iconName="Docs"
+              paneName="schema_documentation"
+              setVisiblePane={setVisiblePane}
+              visiblePane={visiblePane}
+            />
+            <NavButton
+              iconName="GraphQL"
+              paneName="schema_view"
+              setVisiblePane={setVisiblePane}
+              visiblePane={visiblePane}
+            />
           </div>
         </div>
         <div className={panesWrapClass}>
