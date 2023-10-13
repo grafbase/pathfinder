@@ -31,14 +31,13 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-      <Pathfinder
-        fetcherOptions={{
-          endpoint: 'https://graphql.earthdata.nasa.gov/api'
-        }}
-        schemaPollingOptions={{
-          enabled: true
-        }}
-      />      
+      <div className="pathfinder-wrap">
+        <Pathfinder
+          fetcherOptions={{
+            endpoint: 'https://graphql.earthdata.nasa.gov/api'
+          }}
+        />      
+      </div>
     </>
   )
 }
