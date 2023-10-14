@@ -45,12 +45,6 @@ export const Resizer = ({
     1 - resizer.pane1Size
   }fr)`;
 
-  console.log("rendering ResizerComponent", {
-    pane1Size: resizer.pane1Size,
-    gridTemplate,
-    resizerName,
-  });
-
   const onMouseDown = (e: React.MouseEvent) => {
     e.preventDefault();
 
