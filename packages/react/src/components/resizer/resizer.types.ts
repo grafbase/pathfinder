@@ -1,3 +1,5 @@
+import { AvailableResizers } from "./resizer-store/resizer-store.types";
+
 export type ResizerOrientation = "HORIZONTAL" | "VERTICAL";
 
 export type ResizerInitialSize =
@@ -5,6 +7,7 @@ export type ResizerInitialSize =
   | { type: "PERCENT"; value: number };
 
 export type ResizerProps = {
+  resizerName: AvailableResizers;
   onSurface: 1 | 2 | 3;
   orientation: ResizerOrientation;
   pane1: {

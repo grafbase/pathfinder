@@ -1,69 +1,48 @@
 import { useEffect, useRef } from "react";
-
+import throttle from "lodash/throttle";
 import { shared } from "@pathfinder-ide/style";
+
+import { determineInitialSize } from "./resizer-store/actions/determine-initial-size";
+import { setInitialSize } from "./resizer-store/actions/set-initial-size";
+import { setPane1Size } from "./resizer-store/actions/set-pane1-size";
+import { useResizerStore } from "./resizer-store/use-resizer-store";
+import { resetPane } from "./resizer-store/actions/reset-pane";
 
 import { resizerClass, handleClass, paneClass } from "./resizer.css";
 import type { ResizerProps } from "./resizer.types";
-
-import { ResizerProvider, useResizer } from "./use-resizer";
 
 export const Resizer = ({
   onSurface,
   orientation = "HORIZONTAL",
   pane1,
   pane2,
-}: ResizerProps) => {
-  return (
-    <ResizerProvider>
-      <ResizerComponent
-        onSurface={onSurface}
-        orientation={orientation}
-        pane1={pane1}
-        pane2={pane2}
-      />
-    </ResizerProvider>
-  );
-};
-
-const ResizerComponent = ({
-  onSurface,
-  orientation = "HORIZONTAL",
-  pane1,
-  pane2,
+  resizerName,
 }: ResizerProps) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const pane1Ref = useRef<HTMLDivElement | null>(null);
   const handleRef = useRef<HTMLDivElement | null>(null);
   const pane2Ref = useRef<HTMLDivElement | null>(null);
 
-  const {
-    pane1Size,
-    determineInitialSize,
-    resetPane,
-    setInitialSize,
-    setPane1Size,
-  } = useResizer();
+  const resizer = useResizerStore.use[resizerName]();
 
-  useEffect(() => {
-    if (containerRef.current) {
-      const initialSize = determineInitialSize({
-        containerRef,
-        orientation,
-        initialSize: pane2.initialSize,
-      });
-      setInitialSize(initialSize as number);
-      setPane1Size(initialSize as number);
-    }
-  }, [
-    determineInitialSize,
-    orientation,
-    pane2.initialSize,
-    setInitialSize,
-    setPane1Size,
-  ]);
+  useEffect(
+    () => {
+      if (containerRef.current) {
+        const initialSize = determineInitialSize({
+          containerRef,
+          orientation,
+          initialSize: pane2.initialSize,
+        });
+        setInitialSize({ resizerName, value: initialSize as number });
+        setPane1Size({ resizerName, value: initialSize as number });
+      }
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [],
+  );
 
-  const gridTemplate = `minmax(0, ${pane1Size}fr) 0px minmax(0, ${
-    1 - pane1Size
+  const gridTemplate = `minmax(0, ${resizer.pane1Size}fr) 0px minmax(0, ${
+    1 - resizer.pane1Size
   }fr)`;
 
   const onMouseDown = (e: React.MouseEvent) => {
@@ -124,23 +103,25 @@ const ResizerComponent = ({
           pane1Max,
         );
 
-        setPane1Size(newPane1Size);
+        setPane1Size({ resizerName, value: newPane1Size });
       }
     };
 
+    const debouncedOnMouseMove = throttle(onMouseMove, 16);
+
     const onMouseUp = () => {
-      document.removeEventListener("mousemove", onMouseMove);
+      document.removeEventListener("mousemove", debouncedOnMouseMove);
       document.removeEventListener("mouseup", onMouseUp);
     };
 
-    document.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mousemove", debouncedOnMouseMove);
     document.addEventListener("mouseup", onMouseUp);
   };
 
   return (
     <div
       className={resizerClass({
-        isInitialized: pane1Size !== 0,
+        isInitialized: resizer.pane1Size !== 0,
       })}
       ref={containerRef}
       style={
@@ -164,7 +145,7 @@ const ResizerComponent = ({
         })}
         ref={handleRef}
         onMouseDown={onMouseDown}
-        onDoubleClick={() => resetPane()}
+        onDoubleClick={() => resetPane({ resizerName })}
       ></div>
       <div className={paneClass} ref={pane2Ref}>
         {pane2.component}

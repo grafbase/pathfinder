@@ -23,6 +23,7 @@ export const Scout = () => {
   return (
     <div className={scoutClass}>
       <Resizer
+        resizerName={"scout_resizer"}
         onSurface={2}
         orientation="VERTICAL"
         pane1={{
@@ -30,6 +31,7 @@ export const Scout = () => {
             <div className={scoutEditorWrapClass}>
               <EditorTabs />
               <Resizer
+                resizerName={"editors_resizer"}
                 onSurface={2}
                 orientation="HORIZONTAL"
                 pane1={{

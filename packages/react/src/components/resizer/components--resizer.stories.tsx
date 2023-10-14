@@ -39,6 +39,7 @@ export const HorizontalWithMinimums = () => {
     <Container
       toRender={
         <Resizer
+          resizerName="editors_resizer"
           onSurface={1}
           orientation="HORIZONTAL"
           pane1={{ component: <Pane1 />, minimumSize: 40 }}
@@ -58,6 +59,7 @@ export const HorizontalWithoutMinimums = () => {
     <Container
       toRender={
         <Resizer
+          resizerName="editors_resizer"
           onSurface={1}
           orientation="HORIZONTAL"
           pane1={{ component: <Pane1 /> }}
@@ -76,6 +78,7 @@ export const VerticalWithMinimums = () => {
     <Container
       toRender={
         <Resizer
+          resizerName="editors_resizer"
           onSurface={1}
           orientation="VERTICAL"
           pane1={{ component: <Pane1 />, minimumSize: 40 }}
@@ -95,6 +98,7 @@ export const VerticalWithPane2Minimum = () => {
     <Container
       toRender={
         <Resizer
+          resizerName="editors_resizer"
           onSurface={1}
           orientation="VERTICAL"
           pane1={{ component: <Pane1 /> }}
@@ -114,6 +118,7 @@ export const VerticalWithoutMinimums = () => {
     <Container
       toRender={
         <Resizer
+          resizerName="editors_resizer"
           onSurface={1}
           orientation="VERTICAL"
           pane1={{ component: <Pane1 /> }}
