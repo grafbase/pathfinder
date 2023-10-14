@@ -9,7 +9,7 @@ const INITIAL_EDITOR_TAB_ID = generateCuid({});
 
 export const INITIAL_EDITOR_TAB: EditorTab = {
   tabId: INITIAL_EDITOR_TAB_ID,
-  tabName: INITIAL_EDITOR_TAB_ID,
+  tabName: "Untitled",
   cursorPosition: null,
   documentString: DOCUMENT_EDITOR_DEFAULT_VALUE,
   latestResponse: null,

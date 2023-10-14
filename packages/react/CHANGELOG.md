@@ -1,5 +1,20 @@
 # @pathfinder-ide/react
 
+## 0.2.5
+
+### Patch Changes
+
+- ebe7828: Increases default font size for monaco editors
+
+## 0.2.4
+
+### Patch Changes
+
+- 3bb7dce: - Increases the font size app-wide
+  - Reverts the monaco editor theme and compass styles for fields/arguments to white
+  - Updates nav buttons with aria-label and button title
+  - Sets default editor tab name to "Untitled"
+
 ## 0.2.3
 
 ### Patch Changes
