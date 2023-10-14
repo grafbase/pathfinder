@@ -66,6 +66,7 @@ const SchemaDocumentationComponent = ({ schema }: SchemaDocumentationProps) => {
       </div>
       <div className={panesClass}>
         <Resizer
+          resizerName="schema_docs_1"
           onSurface={1}
           orientation="HORIZONTAL"
           pane1={{
@@ -130,6 +131,7 @@ const SchemaDocumentationComponent = ({ schema }: SchemaDocumentationProps) => {
           pane2={{
             component: (
               <Resizer
+                resizerName="schema_docs_2"
                 onSurface={1}
                 orientation="HORIZONTAL"
                 pane1={{

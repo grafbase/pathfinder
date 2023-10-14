@@ -60,6 +60,7 @@ export const History = () => {
   return (
     <div className={historyClass}>
       <Resizer
+        resizerName={"history_resizer"}
         onSurface={1}
         orientation="HORIZONTAL"
         pane1={{

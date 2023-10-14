@@ -116,6 +116,7 @@ export const IDE = ({
             })}
           >
             <Resizer
+              resizerName={"ide_resizer"}
               onSurface={1}
               orientation="HORIZONTAL"
               pane1={{
