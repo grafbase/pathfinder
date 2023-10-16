@@ -1,12 +1,13 @@
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import throttle from "lodash/throttle";
 import { shared } from "@pathfinder-ide/style";
 
-import { determineInitialSize } from "./resizer-store/actions/determine-initial-size";
-import { setInitialSize } from "./resizer-store/actions/set-initial-size";
-import { setPane1Size } from "./resizer-store/actions/set-pane1-size";
-import { useResizerStore } from "./resizer-store/use-resizer-store";
-import { resetPane } from "./resizer-store/actions/reset-pane";
+import {
+  getInitialGridTemplate,
+  resetPane,
+  setResizerState,
+  useResizerStore,
+} from "./resizer-store";
 
 import { resizerClass, handleClass, paneClass } from "./resizer.css";
 import type { ResizerProps } from "./resizer.types";
@@ -25,38 +26,66 @@ export const Resizer = ({
 
   const resizer = useResizerStore.use[resizerName]();
 
+  const throttledOnWindowResize = throttle(() => {
+    if (pane2.minimumSize) {
+      const containerWidthOrHeight =
+        orientation === "HORIZONTAL"
+          ? (containerRef.current?.clientWidth as number)
+          : (containerRef.current?.clientHeight as number);
+
+      const pane1Height = pane1Ref.current?.clientHeight as number;
+
+      if (containerWidthOrHeight - pane1Height < pane2.minimumSize + 1) {
+        const gridTemplate = `minmax(0, 1fr) 0px ${pane2.minimumSize}px`;
+
+        setResizerState({
+          name: resizerName,
+          updates: {
+            gridTemplate,
+            startingGridTemplate: gridTemplate,
+          },
+        });
+      }
+    }
+  }, 16);
+
   useEffect(
     () => {
-      if (containerRef.current) {
-        const initialSize = determineInitialSize({
-          containerRef,
-          orientation,
-          initialSize: pane2.initialSize,
+      if (containerRef && containerRef.current) {
+        const initialGridTemplate = getInitialGridTemplate({
+          pane2InitialSize: pane2.initialSize,
         });
-        setInitialSize({ resizerName, value: initialSize as number });
-        setPane1Size({ resizerName, value: initialSize as number });
+
+        setResizerState({
+          name: resizerName,
+          updates: {
+            pane2InitialSize: pane2.initialSize,
+            gridTemplate: initialGridTemplate,
+            startingGridTemplate: initialGridTemplate,
+          },
+        });
       }
+
+      if (pane2.minimumSize) {
+        window.addEventListener("resize", throttledOnWindowResize);
+      } else {
+        window.removeEventListener("resize", throttledOnWindowResize);
+      }
+
+      return () =>
+        window.removeEventListener("resize", throttledOnWindowResize);
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [],
   );
 
-  const gridTemplate = `minmax(0, ${resizer.pane1Size}fr) 0px minmax(0, ${
-    1 - resizer.pane1Size
-  }fr)`;
-
-  const onMouseDown = (e: React.MouseEvent) => {
-    e.preventDefault();
-
-    const onMouseMove = (e: MouseEvent) => {
+  const handleMouseMove = useCallback(
+    ({ mouseEvent }: { mouseEvent: MouseEvent }) => {
       const containerEl = containerRef.current;
       const pane1El = pane1Ref.current;
       const pane2El = pane2Ref.current;
 
       if (containerEl && pane1El && pane2El) {
-        const eventProperty =
-          orientation === "HORIZONTAL" ? "clientX" : "clientY";
-
         // the distance from the parent container to view left (HORIZONTAL) or view top (VERTICAL)
         const containerOffset =
           orientation === "HORIZONTAL"
@@ -68,9 +97,6 @@ export const Resizer = ({
           orientation === "HORIZONTAL"
             ? containerEl.clientWidth
             : containerEl.clientHeight;
-
-        // the distance from the in-motion handle to our parent container left (HORIZONTAL) or parent container top (VERTICAL)
-        const handleOffset = e[eventProperty] - containerOffset;
 
         // the width or height of pane1, depending on orientation
         const pane1WidthOrHeight =
@@ -94,6 +120,11 @@ export const Resizer = ({
           ? 1 - pane2.minimumSize / containerWidthOrHeight / 1
           : 0.99;
 
+        // the distance from the in-motion handle to our parent container left (HORIZONTAL) or parent container top (VERTICAL)
+        const handleOffset =
+          mouseEvent[orientation === "HORIZONTAL" ? "clientX" : "clientY"] -
+          containerOffset;
+
         // our new size for pane1
         const newPane1Size = Math.min(
           Math.max(
@@ -103,31 +134,50 @@ export const Resizer = ({
           pane1Max,
         );
 
-        setPane1Size({ resizerName, value: newPane1Size });
+        setResizerState({
+          name: resizerName,
+          updates: {
+            gridTemplate: `minmax(0, ${Number(
+              newPane1Size.toFixed(5),
+            )}fr) 0px minmax(0, ${Number(
+              (1 - Number(newPane1Size.toFixed(5))).toFixed(5),
+            )}fr)`,
+          },
+        });
       }
-    };
+    },
+    [orientation, pane1.minimumSize, pane2.minimumSize, resizerName],
+  );
 
-    const debouncedOnMouseMove = throttle(onMouseMove, 16);
+  const throttledOnMouseMove = throttle((e: MouseEvent) => {
+    handleMouseMove({ mouseEvent: e });
+  }, 16);
 
-    const onMouseUp = () => {
-      document.removeEventListener("mousemove", debouncedOnMouseMove);
-      document.removeEventListener("mouseup", onMouseUp);
-    };
+  const handleMouseDown = useCallback(
+    (e: React.MouseEvent) => {
+      e.preventDefault();
 
-    document.addEventListener("mousemove", debouncedOnMouseMove);
-    document.addEventListener("mouseup", onMouseUp);
-  };
+      const onMouseUp = () => {
+        document.removeEventListener("mousemove", throttledOnMouseMove);
+        document.removeEventListener("mouseup", onMouseUp);
+      };
+
+      document.addEventListener("mousemove", throttledOnMouseMove);
+      document.addEventListener("mouseup", onMouseUp);
+    },
+    [throttledOnMouseMove],
+  );
 
   return (
     <div
       className={resizerClass({
-        isInitialized: resizer.pane1Size !== 0,
+        isInitialized: resizer.startingGridTemplate ? true : false,
       })}
       ref={containerRef}
       style={
         orientation === "HORIZONTAL"
-          ? { gridTemplateColumns: gridTemplate }
-          : { gridTemplateRows: gridTemplate }
+          ? { gridTemplateColumns: resizer.gridTemplate }
+          : { gridTemplateRows: resizer.gridTemplate }
       }
     >
       <div
@@ -144,8 +194,12 @@ export const Resizer = ({
           orientation,
         })}
         ref={handleRef}
-        onMouseDown={onMouseDown}
-        onDoubleClick={() => resetPane({ resizerName })}
+        onMouseDown={handleMouseDown}
+        onDoubleClick={() =>
+          resetPane({
+            resizerName,
+          })
+        }
       ></div>
       <div className={paneClass} ref={pane2Ref}>
         {pane2.component}

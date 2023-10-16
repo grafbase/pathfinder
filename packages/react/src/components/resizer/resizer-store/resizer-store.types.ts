@@ -1,4 +1,4 @@
-import { ResizerOrientation, ResizerInitialSize } from "../resizer.types";
+import { ResizerProps } from "../resizer.types";
 
 export type AvailableResizers =
   | "ide_resizer"
@@ -8,35 +8,22 @@ export type AvailableResizers =
   | "schema_docs_1"
   | "schema_docs_2";
 
-type Resizer = {
+export type Resizer = {
   name: AvailableResizers;
-  initialSize: number;
-  pane1Size: number;
-  previousSize: number;
+  pane2InitialSize: ResizerProps["pane2"]["initialSize"];
+  gridTemplate: string;
+  startingGridTemplate: string | null;
 };
 
-type ResizerActionCommonSignature = ({
-  resizerName,
-  value,
-}: {
-  value: number;
-  resizerName: AvailableResizers;
-}) => void;
-
 export type ResizerStoreActions = {
-  determineInitialSize: ({
-    containerRef,
-    initialSize,
-    orientation,
-  }: {
-    containerRef: React.MutableRefObject<HTMLDivElement | null>;
-    initialSize: ResizerInitialSize;
-    orientation: ResizerOrientation;
-  }) => number | null;
   resetPane: ({ resizerName }: { resizerName: AvailableResizers }) => void;
-  setInitialSize: ResizerActionCommonSignature;
-  setPane1Size: ResizerActionCommonSignature;
-  setPreviousSize: ResizerActionCommonSignature;
+  setResizerState: ({
+    name,
+    updates,
+  }: {
+    name: AvailableResizers;
+    updates: Partial<Omit<Resizer, "name">>;
+  }) => void;
 };
 
 type ResizerStoreState = {

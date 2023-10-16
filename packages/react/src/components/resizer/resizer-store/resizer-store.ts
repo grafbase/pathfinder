@@ -1,42 +1,39 @@
 import { createStore } from "zustand/vanilla";
 
-import type { ResizerStore } from "./resizer-store.types";
+import type { Resizer, ResizerStore } from "./resizer-store.types";
+
+const commonResizerDefaults: Omit<Resizer, "name"> = {
+  pane2InitialSize: {
+    type: "PIXELS",
+    value: 0,
+  },
+  gridTemplate: "minmax(0, 0.5fr) 0px minmax(0, 0.5fr)",
+  startingGridTemplate: null,
+};
 
 export const resizerStore = createStore<ResizerStore>()(() => ({
   ide_resizer: {
     name: "ide_resizer",
-    initialSize: 0,
-    pane1Size: 0,
-    previousSize: 0.5,
+    ...commonResizerDefaults,
   },
   editors_resizer: {
     name: "editors_resizer",
-    initialSize: 0,
-    pane1Size: 0,
-    previousSize: 0.5,
+    ...commonResizerDefaults,
   },
   scout_resizer: {
     name: "scout_resizer",
-    initialSize: 0,
-    pane1Size: 0,
-    previousSize: 0.5,
+    ...commonResizerDefaults,
   },
   history_resizer: {
     name: "history_resizer",
-    initialSize: 0,
-    pane1Size: 0,
-    previousSize: 0.5,
+    ...commonResizerDefaults,
   },
   schema_docs_1: {
     name: "schema_docs_1",
-    initialSize: 0,
-    pane1Size: 0,
-    previousSize: 0.5,
+    ...commonResizerDefaults,
   },
   schema_docs_2: {
     name: "schema_docs_2",
-    initialSize: 0,
-    pane1Size: 0,
-    previousSize: 0.5,
+    ...commonResizerDefaults,
   },
 }));

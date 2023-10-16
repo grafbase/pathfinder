@@ -2,11 +2,15 @@ import { useState } from "react";
 
 import { History } from "../history";
 import { HTTPHeaderControl } from "../http-header-control";
-import { resetPane, useResizerStore } from "../resizer";
+import { useResizerStore } from "../resizer";
 import { Tabs } from "../tabs";
 import { Variables } from "../variables";
 
 import { scoutToolsClass } from "./scout-tools.css";
+import { setResizerState } from "../resizer/resizer-store";
+
+const targetGridTemplate = `minmax(0, 0.5fr) 0px minmax(0, 0.5fr)`;
+const scoutResizer = "scout_resizer";
 
 export const ScoutTools = () => {
   const [selectedTabIndex, setSelectedTabIndex] = useState<number>(0);
@@ -39,10 +43,18 @@ export const ScoutTools = () => {
           ],
         ].map((tool) => ({
           action: () => {
-            const { initialSize, pane1Size } =
-              useResizerStore.getState()["scout_resizer"];
-            if (initialSize === pane1Size) {
-              return resetPane({ resizerName: "scout_resizer" });
+            const { gridTemplate, startingGridTemplate } =
+              useResizerStore.getState()[scoutResizer];
+
+            // if these are equal it means we're in our default state
+            if (startingGridTemplate === gridTemplate) {
+              // so we expand our grid to a sensible default
+              setResizerState({
+                name: scoutResizer,
+                updates: {
+                  gridTemplate: targetGridTemplate,
+                },
+              });
             }
           },
           buttonContent: tool.buttonCopy,
