@@ -1,18 +1,22 @@
 import { resizerStore } from "../resizer-store";
 import { ResizerStoreActions } from "../resizer-store.types";
-
-import { setPane1Size } from "./set-pane1-size";
-import { setPreviousSize } from "./set-previous-size";
+import { getInitialGridTemplate } from "./get-initial-grid-template";
+import { setResizerState } from "./set-resizer-state";
 
 export const resetPane: ResizerStoreActions["resetPane"] = ({
   resizerName,
 }) => {
-  const { initialSize, pane1Size, previousSize } =
-    resizerStore.getState()[resizerName];
-  if (initialSize === pane1Size) {
-    setPane1Size({ resizerName, value: previousSize });
-  } else {
-    setPreviousSize({ resizerName, value: pane1Size });
-    setPane1Size({ resizerName, value: initialSize });
-  }
+  const { pane2InitialSize } = resizerStore.getState()[resizerName];
+
+  const initialGridTemplate = getInitialGridTemplate({
+    pane2InitialSize,
+  });
+
+  setResizerState({
+    name: resizerName,
+    updates: {
+      gridTemplate: initialGridTemplate,
+      startingGridTemplate: initialGridTemplate,
+    },
+  });
 };

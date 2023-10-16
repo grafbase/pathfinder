@@ -125,8 +125,6 @@ const SchemaDocumentationComponent = ({ schema }: SchemaDocumentationProps) => {
                 </Section>
               </div>
             ),
-
-            minimumSize: 40,
           }}
           pane2={{
             component: (
@@ -144,7 +142,6 @@ const SchemaDocumentationComponent = ({ schema }: SchemaDocumentationProps) => {
                       sortedTypes={sortedTypes}
                     />
                   ),
-                  minimumSize: 40,
                 }}
                 pane2={{
                   component: (
@@ -155,7 +152,6 @@ const SchemaDocumentationComponent = ({ schema }: SchemaDocumentationProps) => {
                     </>
                   ),
                   initialSize: { type: "PERCENT", value: 50 },
-                  minimumSize: 40,
                 }}
               />
             ),
