@@ -15,7 +15,7 @@ export const editorClass = recipe({
   },
 
   variants: {
-    isInitialized: {
+    isReady: {
       true: {
         opacity: 1,
         visibility: "visible",

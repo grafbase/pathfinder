@@ -14,6 +14,7 @@ const INITIAL_MONACO_EDITOR_STORE_STATE: MonacoEditorStoreState = {
   },
   unmanagedEditors: {},
   isInitialized: false,
+  isReady: false,
 };
 
 export const monacoEditorStoreState = {
