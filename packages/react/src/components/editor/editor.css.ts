@@ -9,7 +9,6 @@ export const editorClass = recipe({
     display: "flex",
     flex: 1,
     minWidth: 0,
-    minHeight: 64,
 
     // a little hack to prevent the potential flash of alternate editor theme colors on initialization
     transition: "opacity .15s ease",
