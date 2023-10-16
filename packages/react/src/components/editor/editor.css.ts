@@ -9,14 +9,13 @@ export const editorClass = recipe({
     display: "flex",
     flex: 1,
     minWidth: 0,
-    minHeight: 64,
 
     // a little hack to prevent the potential flash of alternate editor theme colors on initialization
     transition: "opacity .15s ease",
   },
 
   variants: {
-    isInitialized: {
+    isReady: {
       true: {
         opacity: 1,
         visibility: "visible",

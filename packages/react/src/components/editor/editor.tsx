@@ -23,7 +23,7 @@ export const Editor = ({
 }: EditorProps) => {
   const editorRef = useRef<HTMLDivElement>(null);
 
-  const isInitialized = useMonacoEditorStore.use.isInitialized();
+  const isReady = useMonacoEditorStore.use.isReady();
 
   const modelName = `${modelDetails.fileName}.${modelDetails.language}`;
 
@@ -75,7 +75,7 @@ export const Editor = ({
       ref={editorRef}
       data-testid={modelName}
       className={editorClass({
-        isInitialized,
+        isReady,
       })}
     />
   );

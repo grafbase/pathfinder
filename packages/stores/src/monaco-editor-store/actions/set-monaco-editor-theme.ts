@@ -13,4 +13,6 @@ export const setMonacoEditorTheme: MonacoEditorStoreActions["setMonacoEditorThem
     }
 
     editor.setTheme(`pathfinder-editor-${theme}`);
+
+    return monacoEditorStore.setState({ isReady: true });
   };

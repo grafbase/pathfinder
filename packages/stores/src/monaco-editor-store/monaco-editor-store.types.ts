@@ -42,11 +42,14 @@ export type MonacoEditorStoreState = {
     [RESPONSE_EDITOR_ID]: MonacoEditorIStandaloneCodeEditor | null;
     [VARIABLES_EDITOR_ID]: MonacoEditorIStandaloneCodeEditor | null;
   };
-
   /**
-   * A boolean indicating whether or not we have initialized monaco editor features
+   * A boolean indicating whether or not we have initialized monaco editor
    */
   isInitialized: boolean;
+  /**
+   * A boolean indicating whether or not we have initialized monaco editor _and_ set the editor theme
+   */
+  isReady: boolean;
 };
 
 export type CreateEditorParams = {
