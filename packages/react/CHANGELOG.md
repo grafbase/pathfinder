@@ -1,5 +1,14 @@
 # @pathfinder-ide/react
 
+## 0.2.6
+
+### Patch Changes
+
+- e093430: Configures the Resizer component to respect passed-in pane2 minimum size on `window.resize`.
+- 01dbed7: Visual improvements to the Editor component.
+- 988b1c1: Refactors the Resizer component for performance reasons.
+- ef67fe2: Improves readability in the schema documentation by adjusting color and spacing.
+
 ## 0.2.5
 
 ### Patch Changes
