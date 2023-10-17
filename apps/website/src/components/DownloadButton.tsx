@@ -2,7 +2,7 @@ import * as React from "react";
 import { useEffect, useState } from "react";
 
 const DownloadButton = () => {
-  const [platform, setPlatform] = useState();
+  const [platform, setPlatform] = useState<"Mac" | "Windows" | "Linux">("Mac");
 
   useEffect(() => {
     if (navigator.platform.indexOf("Mac") > -1) {
@@ -21,7 +21,7 @@ const DownloadButton = () => {
   return (
     <a
       download
-      href="https://github.com/grafbase/pathfinder/releases/download/pathfinder-0.1.4/pathfinder-0.1.4-universal-apple-darwin.dmg"      
+      href="https://github.com/grafbase/pathfinder/releases/download/pathfinder-0.1.5/pathfinder-0.1.5-universal-apple-darwin.dmg"
       className={
         "cursor-pointer bg-gradient-to-r from-purple-500 to-blue-500 px-6 py-4 rounded-md mt-8 flex items-center gap-2 justify-center transition duration-200" +
         (!platform ? " opacity-0" : " opacity-100") +
