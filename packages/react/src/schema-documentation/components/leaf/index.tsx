@@ -26,7 +26,10 @@ import {
 
 import { directiveLocationClass } from "./leaf.css";
 
-import { returnTypeButtonClass } from "../../shared.styles.css";
+import {
+  notificationClass,
+  returnTypeButtonClass,
+} from "../../shared.styles.css";
 
 export const LeafDirective = ({
   directive,
@@ -132,7 +135,7 @@ export const LeafScalar = ({ type }: { type: GraphQLScalarType }) => {
     <>
       {["String", "ID", "Int", "Float", "Boolean"].includes(type.name) && (
         <Section>
-          <p>This is a built-in scalar type</p>
+          <p className={notificationClass}>This is a built-in scalar type</p>
         </Section>
       )}
       <SectionDescription description={type.description} />

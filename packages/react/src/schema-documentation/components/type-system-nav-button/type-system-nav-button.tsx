@@ -29,7 +29,7 @@ export const TypeSystemNavButton = ({
       }}
     >
       {copy}
-      <Pill copy={count} variant={{ color: "blue" }} />
+      <Pill copy={count} variant={{ color: "yellow" }} />
     </button>
   );
 };

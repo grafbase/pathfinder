@@ -22,7 +22,15 @@ export const returnTypeButtonClass = style([
 ]);
 
 export const scalarArgumentNameClass = style({
-  color: contract.color.purple[11],
+  color: contract.color.red[11],
+});
+
+export const notificationClass = style({
+  padding: 12,
+  color: contract.color.orange[12],
+  borderRadius: 2,
+  border: `1px solid ${contract.color.orange[5]}`,
+  backgroundColor: contract.color.orange[1],
 });
 
 export const tertiaryTriggerButtonClass = recipe({

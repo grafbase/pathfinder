@@ -3,10 +3,10 @@ import { contract, recipe, style } from "@pathfinder-ide/style";
 export const argumentListClass = style({
   display: "flex",
   flexDirection: "column",
-  gap: 8,
-  paddingTop: 6,
+  gap: 10,
+  paddingTop: 8,
   paddingRight: 0,
-  paddingBottom: 6,
+  paddingBottom: 8,
   paddingLeft: 12,
 });
 

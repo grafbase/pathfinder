@@ -5,7 +5,7 @@ import { unwrapType } from "@pathfinder-ide/shared";
 import { useSchemaDocumentationStore } from "../../store";
 
 import { DefaultValue } from "../default-value";
-
+import { Delimiter } from "../delimiter";
 import { Markdown } from "../markdown";
 
 import {
@@ -52,7 +52,7 @@ export const ArgumentsList = ({
               ) : (
                 <span className={scalarArgumentNameClass}>{a.name}</span>
               )}
-              <span>:</span>
+              <Delimiter value=":" spacing="LEFT_AND_RIGHT" />
               <button
                 className={returnTypeButtonClass}
                 onClick={() =>
