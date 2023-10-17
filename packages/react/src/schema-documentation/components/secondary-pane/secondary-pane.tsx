@@ -14,6 +14,7 @@ import { SummaryType } from "../summary";
 import { Markdown } from "../markdown";
 
 import { secondaryPaneClass } from "./secondary-pane.css";
+import { notificationClass } from "../../shared.styles.css";
 
 const List = ({
   list,
@@ -36,7 +37,9 @@ const List = ({
           />
         ))
       ) : (
-        <p>{`This schema does not contain ${name}`}</p>
+        <p
+          className={notificationClass}
+        >{`This schema does not contain ${name}`}</p>
       )}
     </Section>
   );

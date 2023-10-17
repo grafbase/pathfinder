@@ -14,7 +14,7 @@ export const sectionLeadClass = style({
   fontSize: 10,
   letterSpacing: 0.5,
   marginBottom: 12,
-  color: contract.color.neutral[9],
+  color: contract.color.neutral[11],
 });
 
 export const enumValueClass = style({
