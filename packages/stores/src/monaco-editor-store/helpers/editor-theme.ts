@@ -5,41 +5,35 @@ import type monaco from "monaco-graphql/esm/monaco-editor";
 type MonacoEditorStandaloneThemeData = monaco.editor.IStandaloneThemeData;
 
 const lightColors = {
-  ui_neutral01: "#FCFCFC",
   ui_neutral02: "#E6E6E6",
   ui_neutral03: "#CACACA",
   ui_neutral04: "#707070",
-  ui_neutral05: "#5F5F5F",
   ui_neutral06: "#4A4A4A",
   ui_neutral07: "#1B1B1B",
   blue: "#1672C3",
   green: "#32AF72",
   red: "#D32121",
-  violet: "#8041D0",
   yellow: "#B99D06",
 
   // 👇 shared with dark
   orange: "#EE8E57",
-  pink: "#FC618D",
+  pink: "#F98286",
 };
 
 const darkColors = {
-  ui_neutral01: "#131316",
   ui_neutral02: "#222226",
   ui_neutral03: "#363739",
   ui_neutral04: "#55565C",
-  ui_neutral05: "#A4A4A4",
   ui_neutral06: "#BFBFBF",
   ui_neutral07: "#FFFFFF",
   blue: "#5AD4E6",
   green: "#7BD88F",
   red: "#FC4747",
-  violet: "#948AE3",
   yellow: "#FCE566",
 
   // 👇 shared with light
   orange: "#EE8E57",
-  pink: "#FC618D",
+  pink: "#F98286",
 };
 
 export const colorsForEditor = {
@@ -96,23 +90,23 @@ export const editorTheme = ({
     // operations editor (graphql)
     // begin values
     {
-      foreground: colorsForEditor[variant].yellow,
+      foreground: colorsForEditor[variant].green,
       token: "string.quote.gql",
     },
     {
-      foreground: colorsForEditor[variant].yellow,
+      foreground: colorsForEditor[variant].green,
       token: "string.invalid.gql",
     },
     {
-      foreground: colorsForEditor[variant].yellow,
+      foreground: colorsForEditor[variant].green,
       token: "string.gql",
     },
     {
-      foreground: colorsForEditor[variant].yellow,
+      foreground: colorsForEditor[variant].green,
       token: "number.gql",
     },
     {
-      foreground: colorsForEditor[variant].yellow,
+      foreground: colorsForEditor[variant].green,
       token: "number.float.gql",
     },
     // end values
@@ -134,7 +128,7 @@ export const editorTheme = ({
       token: "argument.identifier.gql",
     },
     {
-      foreground: colorsForEditor[variant].green,
+      foreground: colorsForEditor[variant].pink,
       token: "annotation.gql",
     },
     // end graphql type system
@@ -184,19 +178,19 @@ export const editorTheme = ({
       token: "delimiter.colon.json",
     },
     {
-      foreground: colorsForEditor[variant].ui_neutral05,
+      foreground: colorsForEditor[variant].ui_neutral07,
       token: "string.key.json",
     },
     {
-      foreground: colorsForEditor[variant].yellow,
+      foreground: colorsForEditor[variant].green,
       token: "string.value.json",
     },
     {
-      foreground: colorsForEditor[variant].yellow,
+      foreground: colorsForEditor[variant].green,
       token: "number.json",
     },
     {
-      foreground: colorsForEditor[variant].yellow,
+      foreground: colorsForEditor[variant].green,
       token: "keyword.json",
     },
   ],
