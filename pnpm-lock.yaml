@@ -22,8 +22,8 @@ importers:
         specifier: 20.8.7
         version: 20.8.7
       '@types/react':
-        specifier: 18.2.29
-        version: 18.2.29
+        specifier: 18.2.30
+        version: 18.2.30
       '@types/react-dom':
         specifier: 18.2.14
         version: 18.2.14
@@ -68,8 +68,8 @@ importers:
         specifier: ^1.4.0
         version: 1.4.0
       '@types/react':
-        specifier: 18.2.29
-        version: 18.2.29
+        specifier: 18.2.30
+        version: 18.2.30
       '@types/react-dom':
         specifier: 18.2.14
         version: 18.2.14
@@ -114,8 +114,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/tsconfig
       '@types/react':
-        specifier: 18.2.29
-        version: 18.2.29
+        specifier: 18.2.30
+        version: 18.2.30
       '@types/react-dom':
         specifier: 18.2.14
         version: 18.2.14
@@ -133,7 +133,7 @@ importers:
     dependencies:
       '@astrojs/react':
         specifier: 3.0.3
-        version: 3.0.3(@types/react-dom@18.2.14)(@types/react@18.2.29)(react-dom@18.2.0)(react@18.2.0)(vite@4.5.0)
+        version: 3.0.3(@types/react-dom@18.2.14)(@types/react@18.2.30)(react-dom@18.2.0)(react@18.2.0)(vite@4.5.0)
       '@astrojs/tailwind':
         specifier: 5.0.2
         version: 5.0.2(astro@3.3.2)(tailwindcss@3.3.3)
@@ -305,10 +305,10 @@ importers:
         version: 18.2.0(react@18.2.0)
       react-markdown:
         specifier: 9.0.0
-        version: 9.0.0(@types/react@18.2.29)(react@18.2.0)
+        version: 9.0.0(@types/react@18.2.30)(react@18.2.0)
       zustand:
         specifier: 4.4.3
-        version: 4.4.3(@types/react@18.2.29)(react@18.2.0)
+        version: 4.4.3(@types/react@18.2.30)(react@18.2.0)
     devDependencies:
       '@pathfinder-ide/eslint-config':
         specifier: workspace:*
@@ -393,7 +393,7 @@ importers:
         version: 16.8.1
       zustand:
         specifier: 4.4.3
-        version: 4.4.3(@types/react@18.2.29)(react@18.2.0)
+        version: 4.4.3(@types/react@18.2.30)(react@18.2.0)
 
   packages/stores:
     dependencies:
@@ -426,7 +426,7 @@ importers:
         version: 1.3.0(graphql@16.8.1)(monaco-editor@0.40.0)(prettier@3.0.3)
       zustand:
         specifier: 4.4.3
-        version: 4.4.3(@types/react@18.2.29)(react@18.2.0)
+        version: 4.4.3(@types/react@18.2.30)(react@18.2.0)
     devDependencies:
       '@pathfinder-ide/eslint-config':
         specifier: workspace:*
@@ -460,7 +460,7 @@ importers:
         version: 0.5.0(@vanilla-extract/css@1.13.0)
       zustand:
         specifier: 4.4.3
-        version: 4.4.3(@types/react@18.2.29)(react@18.2.0)
+        version: 4.4.3(@types/react@18.2.30)(react@18.2.0)
     devDependencies:
       '@pathfinder-ide/eslint-config':
         specifier: workspace:*
@@ -532,7 +532,7 @@ packages:
       prismjs: 1.29.0
     dev: false
 
-  /@astrojs/react@3.0.3(@types/react-dom@18.2.14)(@types/react@18.2.29)(react-dom@18.2.0)(react@18.2.0)(vite@4.5.0):
+  /@astrojs/react@3.0.3(@types/react-dom@18.2.14)(@types/react@18.2.30)(react-dom@18.2.0)(react@18.2.0)(vite@4.5.0):
     resolution: {integrity: sha512-foliIy1whJobo+ZpsvOMS4WCiR0z4/2Seyxth5xMlweVVM+gA1Lqk0GdzE6F0ISUW9CuXrCRS7ZyTNW8SM6vog==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
@@ -541,7 +541,7 @@ packages:
       react: ^17.0.2 || ^18.0.0
       react-dom: ^17.0.2 || ^18.0.0
     dependencies:
-      '@types/react': 18.2.29
+      '@types/react': 18.2.30
       '@types/react-dom': 18.2.14
       '@vitejs/plugin-react': 4.1.0(vite@4.5.0)
       react: 18.2.0
@@ -3585,12 +3585,12 @@ packages:
   /@types/react-dom@18.2.14:
     resolution: {integrity: sha512-V835xgdSVmyQmI1KLV2BEIUgqEuinxp9O4G6g3FqO/SqLac049E53aysv0oEFD2kHfejeKU+ZqL2bcFWj9gLAQ==}
     dependencies:
-      '@types/react': 18.2.29
+      '@types/react': 18.2.30
 
   /@types/react-dom@18.2.7:
     resolution: {integrity: sha512-GRaAEriuT4zp9N4p1i8BDBYmEyfo+xQ3yHjJU4eiK5NDa1RmUZG+unZABUTK4/Ox/M+GaHwb6Ow8rUITrtjszA==}
     dependencies:
-      '@types/react': 18.2.29
+      '@types/react': 18.2.30
 
   /@types/react@18.2.18:
     resolution: {integrity: sha512-da4NTSeBv/P34xoZPhtcLkmZuJ+oYaCxHmyHzwaDQo9RQPBeXV+06gEk2FpqEcsX9XrnNLvRpVh6bdavDSjtiQ==}
@@ -3599,8 +3599,8 @@ packages:
       '@types/scheduler': 0.16.3
       csstype: 3.1.2
 
-  /@types/react@18.2.29:
-    resolution: {integrity: sha512-Z+ZrIRocWtdD70j45izShRwDuiB4JZqDegqMFW/I8aG5DxxLKOzVNoq62UIO82v9bdgi+DO1jvsb9sTEZUSm+Q==}
+  /@types/react@18.2.30:
+    resolution: {integrity: sha512-OfqdJnDsSo4UNw0bqAjFCuBpLYQM7wvZidz0hVxHRjrEkzRlvZL1pJVyOSY55HMiKvRNEo9DUBRuEl7FNlJ/Vg==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.3
@@ -9356,14 +9356,14 @@ packages:
       - supports-color
     dev: false
 
-  /react-markdown@9.0.0(@types/react@18.2.29)(react@18.2.0):
+  /react-markdown@9.0.0(@types/react@18.2.30)(react@18.2.0):
     resolution: {integrity: sha512-v6yNf3AB8GfJ8lCpUvzxAXKxgsHpdmWPlcVRQ6Nocsezp255E/IDrF31kLQsPJeB/cKto/geUwjU36wH784FCA==}
     peerDependencies:
       '@types/react': '>=18'
       react: '>=18'
     dependencies:
       '@types/hast': 3.0.1
-      '@types/react': 18.2.29
+      '@types/react': 18.2.30
       devlop: 1.1.0
       hast-util-to-jsx-runtime: 2.2.0
       html-url-attributes: 3.0.0
@@ -11662,7 +11662,7 @@ packages:
       use-sync-external-store: 1.2.0(react@18.2.0)
     dev: false
 
-  /zustand@4.4.3(@types/react@18.2.29)(react@18.2.0):
+  /zustand@4.4.3(@types/react@18.2.30)(react@18.2.0):
     resolution: {integrity: sha512-oRy+X3ZazZvLfmv6viIaQmtLOMeij1noakIsK/Y47PWYhT8glfXzQ4j0YcP5i0P0qI1A4rIB//SGROGyZhx91A==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
@@ -11677,7 +11677,7 @@ packages:
       react:
         optional: true
     dependencies:
-      '@types/react': 18.2.29
+      '@types/react': 18.2.30
       react: 18.2.0
       use-sync-external-store: 1.2.0(react@18.2.0)
 
