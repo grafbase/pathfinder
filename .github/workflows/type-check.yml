@@ -1,4 +1,4 @@
-name: Types Check
+name: lint/types
 
 on:
   pull_request:
@@ -6,6 +6,7 @@ on:
 
 jobs:
   types_check:
+    name: check types
     runs-on: ubuntu-latest
 
     steps:
