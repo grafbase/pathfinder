@@ -6,7 +6,6 @@ on:
 
 jobs:
   types_check:
-    name: Types Check
     runs-on: ubuntu-latest
 
     steps:
