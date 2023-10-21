@@ -22,7 +22,7 @@
     "./dist/style.css": "./dist/style.css"
   },
   "scripts": {
-    "build:workers": "ts-node ./workers/build-workers.mjs",
+    "build:workers": "ts-node ./workers/build-workers.js",
     "build": "pnpm run build:workers && vite build",
     "lint": "eslint .",
     "test:once": "vitest run",
