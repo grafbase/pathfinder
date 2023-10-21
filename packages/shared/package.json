@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint .",
     "types": "tsc --noEmit"
-  },  
+  },
   "devDependencies": {
     "@paralleldrive/cuid2": "^2.2.2",
     "@pathfinder-ide/eslint-config": "workspace:*",

@@ -1,5 +1,5 @@
-export * from "./constants";
+export * from './constants';
 
-export * from "./utils";
+export * from './utils';
 
-export type { AvailableThemes } from "./types";
+export type { AvailableThemes } from './types';
