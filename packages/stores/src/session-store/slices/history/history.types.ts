@@ -1,4 +1,4 @@
-import { ExecutionResponse } from "../../../schema-store";
+import { ExecutionResponse } from '../../../schema-store';
 
 export type HistoryActions = {
   clearHistory: () => void;

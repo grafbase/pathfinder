@@ -1,10 +1,10 @@
-import type { AvailableThemes } from "@pathfinder-ide/shared";
+import type { AvailableThemes } from '@pathfinder-ide/shared';
 
-import { themeStore } from "../theme-store";
-import { THEME_MODE_ATTRIBUTE } from "@pathfinder-ide/style";
+import { themeStore } from '../theme-store';
+import { THEME_MODE_ATTRIBUTE } from '@pathfinder-ide/style';
 
-import { mungeThemeOverrides } from "../utils";
-import { setMonacoEditorTheme } from "../../monaco-editor-store";
+import { mungeThemeOverrides } from '../utils';
+import { setMonacoEditorTheme } from '../../monaco-editor-store';
 
 export const setTheme = ({ theme }: { theme: AvailableThemes }) => {
   const rootEl = document.documentElement;
@@ -28,7 +28,7 @@ export const setTheme = ({ theme }: { theme: AvailableThemes }) => {
     const toSet: Array<{ property: string; value: string }> = [];
 
     Object.entries(mungedOverrides).forEach((entry) => {
-      const split = entry[0].split("__");
+      const split = entry[0].split('__');
 
       if (split[0] !== theme) {
         // immediately remove overrides for previous theme

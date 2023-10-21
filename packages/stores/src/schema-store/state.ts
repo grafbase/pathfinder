@@ -1,4 +1,4 @@
-import type { SchemaStoreState } from "./schema-store.types";
+import type { SchemaStoreState } from './schema-store.types';
 
 export const INITIAL_SCHEMA_STORE_STATE: SchemaStoreState = {
   introspectionErrors: [],

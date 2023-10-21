@@ -1,14 +1,14 @@
-import { buildClientSchema, getIntrospectionQuery } from "graphql";
+import { buildClientSchema, getIntrospectionQuery } from 'graphql';
 
-import type { GraphQLError, IntrospectionQuery } from "graphql";
+import type { GraphQLError, IntrospectionQuery } from 'graphql';
 
-import { schemaStore } from "../schema-store";
+import { schemaStore } from '../schema-store';
 
-import { httpFetcher } from "./http-fetcher";
+import { httpFetcher } from './http-fetcher';
 
-import type { SchemaStoreActions } from "../schema-store.types";
+import type { SchemaStoreActions } from '../schema-store.types';
 
-export const doIntrospection: SchemaStoreActions["doIntrospection"] = async ({
+export const doIntrospection: SchemaStoreActions['doIntrospection'] = async ({
   fetchOptions,
 }) => {
   schemaStore.setState({
@@ -19,7 +19,7 @@ export const doIntrospection: SchemaStoreActions["doIntrospection"] = async ({
     fetchOptions,
     graphQLParams: {
       query: getIntrospectionQuery(),
-      operationName: "IntrospectionQuery",
+      operationName: 'IntrospectionQuery',
     },
   });
 
@@ -53,7 +53,7 @@ export const doIntrospection: SchemaStoreActions["doIntrospection"] = async ({
 
     return schema;
   } catch (error) {
-    console.error("Error when attempting to buildClientSchema", { error });
+    console.error('Error when attempting to buildClientSchema', { error });
 
     schemaStore.setState({
       introspectionErrors: [error as string],

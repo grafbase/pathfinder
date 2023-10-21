@@ -1,5 +1,5 @@
-import { GraphQLSchema } from "graphql";
-import { HTTPHeaderValue } from "../session-store";
+import { GraphQLSchema } from 'graphql';
+import { HTTPHeaderValue } from '../session-store';
 
 export type GraphQLOperationParams = {
   query: string;
@@ -18,7 +18,7 @@ export type ExecutionResponse = {
   response: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     data: any;
-    status: Response["status"];
+    status: Response['status'];
   };
   timestamp: Date;
 };

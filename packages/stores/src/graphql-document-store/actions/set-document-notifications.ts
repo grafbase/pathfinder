@@ -1,28 +1,25 @@
-import { ExecutableDefinitionNode } from "graphql";
+import { ExecutableDefinitionNode } from 'graphql';
 
-import { graphQLDocumentStore } from "../graphql-document-store";
+import { graphQLDocumentStore } from '../graphql-document-store';
 
 import type {
   DocumentNotificationType,
   GraphQLDocumentStoreActions,
-} from "../graphql-document-store.types";
+} from '../graphql-document-store.types';
 
-export const setDocumentNotifications: GraphQLDocumentStoreActions["setDocumentNotifications"] =
+export const setDocumentNotifications: GraphQLDocumentStoreActions['setDocumentNotifications'] =
   ({ definitions }) => {
     const operationNames = definitions.map(
       (d) => (d as ExecutableDefinitionNode).name?.value,
     );
 
     // this check is for ANY anonymous operations
-    if (
-      definitions.length > 1 &&
-      operationNames.some((dW) => dW === undefined)
-    ) {
+    if (definitions.length > 1 && operationNames.some((dW) => dW === undefined)) {
       graphQLDocumentStore.setState({
         documentNotifications: [
           ...new Set([
             ...graphQLDocumentStore.getState().documentNotifications,
-            "ANONYMOUS_MUST_BE_ONLY_DEFINED",
+            'ANONYMOUS_MUST_BE_ONLY_DEFINED',
           ]),
         ] as DocumentNotificationType[],
       });
@@ -30,9 +27,7 @@ export const setDocumentNotifications: GraphQLDocumentStoreActions["setDocumentN
       graphQLDocumentStore.setState({
         documentNotifications: graphQLDocumentStore
           .getState()
-          .documentNotifications.filter(
-            (dW) => dW !== "ANONYMOUS_MUST_BE_ONLY_DEFINED",
-          ),
+          .documentNotifications.filter((dW) => dW !== 'ANONYMOUS_MUST_BE_ONLY_DEFINED'),
       });
     }
 
@@ -42,7 +37,7 @@ export const setDocumentNotifications: GraphQLDocumentStoreActions["setDocumentN
         documentNotifications: [
           ...new Set([
             ...graphQLDocumentStore.getState().documentNotifications,
-            "DUPLICATE_OPERATION_NAME",
+            'DUPLICATE_OPERATION_NAME',
           ]),
         ] as DocumentNotificationType[],
       });
@@ -50,9 +45,7 @@ export const setDocumentNotifications: GraphQLDocumentStoreActions["setDocumentN
       graphQLDocumentStore.setState({
         documentNotifications: graphQLDocumentStore
           .getState()
-          .documentNotifications.filter(
-            (dW) => dW !== "DUPLICATE_OPERATION_NAME",
-          ),
+          .documentNotifications.filter((dW) => dW !== 'DUPLICATE_OPERATION_NAME'),
       });
     }
   };

@@ -1,3 +1,3 @@
-export { monacoGraphQLStore } from "./monaco-graphql-store";
+export { monacoGraphQLStore } from './monaco-graphql-store';
 
-export { setMonacoGraphQLSchema } from "./actions";
+export { setMonacoGraphQLSchema } from './actions';

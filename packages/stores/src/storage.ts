@@ -1,5 +1,5 @@
-import { del, get, set } from "idb-keyval";
-import { PersistStorage } from "zustand/middleware";
+import { del, get, set } from 'idb-keyval';
+import { PersistStorage } from 'zustand/middleware';
 
 export const storage = <StateToPersist>(): PersistStorage<StateToPersist> => ({
   getItem: async (name) => {

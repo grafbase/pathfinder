@@ -5,11 +5,11 @@ export {
   pushMonacoEditorEdit,
   runExecuteOperation,
   setMonacoEditorTheme,
-} from "./actions";
+} from './actions';
 
-export { monacoEditorStore } from "./monaco-editor-store";
+export { monacoEditorStore } from './monaco-editor-store';
 
-export { useMonacoEditorStore } from "./use-monaco-editor-store";
+export { useMonacoEditorStore } from './use-monaco-editor-store';
 
 export type {
   AvailableEditors,
@@ -18,4 +18,4 @@ export type {
   MonacoIRange,
   MonacoEditorITextModel,
   MonacoEditorIActionDescriptor,
-} from "./monaco-editor-store.types";
+} from './monaco-editor-store.types';

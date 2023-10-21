@@ -1,5 +1,5 @@
-import type { ThemeContractOverrides } from "@pathfinder-ide/style";
-import { toTitleCase } from "@pathfinder-ide/style";
+import type { ThemeContractOverrides } from '@pathfinder-ide/style';
+import { toTitleCase } from '@pathfinder-ide/style';
 
 export const mungeThemeOverrides = ({
   overrides,
@@ -16,7 +16,7 @@ export const mungeThemeOverrides = ({
     // we'll split on the "__" and have our target theme in split[0] and our css variable name in split[1]
     const _key = parentKey ? parentKey + toTitleCase(key) : `${key}__--`;
 
-    if (typeof value === "object") {
+    if (typeof value === 'object') {
       result = {
         ...result,
         ...mungeThemeOverrides({ overrides: value, parentKey: _key }),

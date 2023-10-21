@@ -1,13 +1,13 @@
-import { OperationDefinitionNode } from "graphql";
+import { OperationDefinitionNode } from 'graphql';
 
-import { graphQLDocumentStore } from "../graphql-document-store";
+import { graphQLDocumentStore } from '../graphql-document-store';
 
 import type {
   GraphQLDocumentStoreActions,
   OperationEntry,
-} from "../graphql-document-store.types";
+} from '../graphql-document-store.types';
 
-export const updateDocumentEntryOperationName: GraphQLDocumentStoreActions["updateDocumentEntryOperationName"] =
+export const updateDocumentEntryOperationName: GraphQLDocumentStoreActions['updateDocumentEntryOperationName'] =
   ({ definition }) => {
     const documentEntries = graphQLDocumentStore.getState().documentEntries;
     const targetEntry = documentEntries.find(

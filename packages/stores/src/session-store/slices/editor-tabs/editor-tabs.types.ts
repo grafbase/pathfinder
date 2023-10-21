@@ -1,6 +1,6 @@
-import type { MonacoIPosition } from "../../../monaco-editor-store";
+import type { MonacoIPosition } from '../../../monaco-editor-store';
 
-import type { ExecutionResponse } from "../../../schema-store";
+import type { ExecutionResponse } from '../../../schema-store';
 
 export type EditorTab = {
   tabId: string;
@@ -28,9 +28,5 @@ export type EditorTabsActions = {
   closeEditorTab: ({ tabId }: { tabId: string }) => void;
   initNewEditorTab: () => void;
   switchEditorTab: ({ destinationTabId }: { destinationTabId: string }) => void;
-  updateActiveEditorTab: ({
-    partialTab,
-  }: {
-    partialTab: Partial<EditorTab>;
-  }) => void;
+  updateActiveEditorTab: ({ partialTab }: { partialTab: Partial<EditorTab> }) => void;
 };

@@ -1,28 +1,26 @@
-import type monaco from "monaco-graphql/esm/monaco-editor";
+import type monaco from 'monaco-graphql/esm/monaco-editor';
 
 export type MonacoIPosition = monaco.IPosition;
 export type MonacoIRange = monaco.IRange;
 
-export type MonacoEditorIStandaloneCodeEditor =
-  monaco.editor.IStandaloneCodeEditor;
+export type MonacoEditorIStandaloneCodeEditor = monaco.editor.IStandaloneCodeEditor;
 
 type MonacoEditorIStandaloneEditorConstructionOptions =
   monaco.editor.IStandaloneEditorConstructionOptions;
 
-export type MonacoEditorISingleEditOperation =
-  monaco.editor.ISingleEditOperation;
+export type MonacoEditorISingleEditOperation = monaco.editor.ISingleEditOperation;
 
 export type MonacoEditorITextModel = monaco.editor.ITextModel;
 
 export type MonacoEditorIActionDescriptor = monaco.editor.IActionDescriptor;
 
-import type { AvailableThemes } from "@pathfinder-ide/shared";
+import type { AvailableThemes } from '@pathfinder-ide/shared';
 
 import {
   DOCUMENT_EDITOR_ID,
   RESPONSE_EDITOR_ID,
   VARIABLES_EDITOR_ID,
-} from "@pathfinder-ide/shared";
+} from '@pathfinder-ide/shared';
 
 export type AvailableEditors =
   | typeof DOCUMENT_EDITOR_ID
@@ -78,7 +76,7 @@ export type EditorEdit = {
    * Source docs indicate that this can be "empty", but the source _type_ doesn't allow it.
    * @see {@link https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.ISingleEditOperation.html#range}
    */
-  range: MonacoIRange | "END" | "REPLACE";
+  range: MonacoIRange | 'END' | 'REPLACE';
   text: string | null;
 };
 
@@ -94,11 +92,7 @@ export type MonacoEditorStoreActions = {
   /**
    * Dispose of the editor via monaco's built-in method and filter from our editors array
    */
-  disposeMonacoEditor: ({
-    editorId,
-  }: {
-    editorId: AvailableEditors | string;
-  }) => void;
+  disposeMonacoEditor: ({ editorId }: { editorId: AvailableEditors | string }) => void;
   /**
    * Returns an active editor instance
    */

@@ -1,23 +1,20 @@
-import { createStore } from "zustand/vanilla";
-import { persist } from "zustand/middleware";
+import { createStore } from 'zustand/vanilla';
+import { persist } from 'zustand/middleware';
 
-import { STORAGE_NAME_SESSION } from "@pathfinder-ide/shared";
+import { STORAGE_NAME_SESSION } from '@pathfinder-ide/shared';
 
-import { storage } from "../storage";
+import { storage } from '../storage';
 
-import { editorTabsState } from "./slices/editor-tabs";
-import { historyState } from "./slices/history";
-import { httpHeadersState } from "./slices/http-headers";
-import { variablesState } from "./slices/variables";
+import { editorTabsState } from './slices/editor-tabs';
+import { historyState } from './slices/history';
+import { httpHeadersState } from './slices/http-headers';
+import { variablesState } from './slices/variables';
 
-import { sessionStoreState } from "./session-store-state";
+import { sessionStoreState } from './session-store-state';
 
-import { SessionStoreState } from "./session-store.types";
+import { SessionStoreState } from './session-store.types';
 
-type StateToPersist = Omit<
-  SessionStoreState,
-  "_hasHydrated" | "connectionDialogOpen"
->;
+type StateToPersist = Omit<SessionStoreState, '_hasHydrated' | 'connectionDialogOpen'>;
 
 export const sessionStore = createStore<SessionStoreState>()(
   persist(
@@ -36,10 +33,7 @@ export const sessionStore = createStore<SessionStoreState>()(
       onRehydrateStorage: () => {
         return (_state, error) => {
           if (error) {
-            console.warn(
-              "an error occurred during sessionStore hydration",
-              error,
-            );
+            console.warn('an error occurred during sessionStore hydration', error);
           }
         };
       },

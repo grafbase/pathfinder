@@ -1,4 +1,4 @@
-import { HistoryState } from "./history.types";
+import { HistoryState } from './history.types';
 
 const INITIAL_HISTORY_STORE_STATE: HistoryState = {
   executions: [],

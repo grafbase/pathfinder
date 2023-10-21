@@ -1,22 +1,20 @@
-import { testSchema } from "../test-schema";
+import { testSchema } from '../test-schema';
 
-import { setMonacoGraphQLSchema } from "../../monaco-graphql-store";
-import { schemaStore } from "../schema-store";
+import { setMonacoGraphQLSchema } from '../../monaco-graphql-store';
+import { schemaStore } from '../schema-store';
 
-import { doSchemaPolling } from "./do-schema-polling";
-import { doIntrospection } from "./do-introspection";
+import { doSchemaPolling } from './do-schema-polling';
+import { doIntrospection } from './do-introspection';
 
-import type { SchemaStoreActions } from "../schema-store.types";
+import type { SchemaStoreActions } from '../schema-store.types';
 
-export const loadSchema: SchemaStoreActions["loadSchema"] = async ({
-  fetchOptions,
-}) => {
+export const loadSchema: SchemaStoreActions['loadSchema'] = async ({ fetchOptions }) => {
   schemaStore.setState({
     introspectionErrors: [],
     isLoadingSchema: true,
   });
 
-  if (process.env.NODE_ENV === "test") {
+  if (process.env.NODE_ENV === 'test') {
     // we're in test, so we set our testSchema and return null below
     setMonacoGraphQLSchema({ schema: testSchema });
 

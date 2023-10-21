@@ -1,16 +1,16 @@
 import {
   STORAGE_NAME_SESSION,
   VARIABLES_EDITOR_DEFAULT_VALUE,
-} from "@pathfinder-ide/shared";
+} from '@pathfinder-ide/shared';
 
-import { getNamespacedStorageName } from "../../storage";
+import { getNamespacedStorageName } from '../../storage';
 
-import { loadSchema, type EndpointConnectionDetails } from "../../schema-store";
-import { useSessionStore } from "../use-session-store";
+import { loadSchema, type EndpointConnectionDetails } from '../../schema-store';
+import { useSessionStore } from '../use-session-store';
 
-import { INITIAL_EDITOR_TAB } from "../slices/editor-tabs/editor-tabs-state";
-import { setEditorValues } from "../slices/editor-tabs/actions/set-editor-values";
-import { INITIAL_HTTP_HEADERS_STATE } from "../slices/http-headers/http-headers-state";
+import { INITIAL_EDITOR_TAB } from '../slices/editor-tabs/editor-tabs-state';
+import { setEditorValues } from '../slices/editor-tabs/actions/set-editor-values';
+import { INITIAL_HTTP_HEADERS_STATE } from '../slices/http-headers/http-headers-state';
 
 export const initSession = async ({
   fetchOptions,

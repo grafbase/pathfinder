@@ -1,11 +1,8 @@
-import { generateCuid } from "@pathfinder-ide/shared";
+import { generateCuid } from '@pathfinder-ide/shared';
 
-import { sessionStore } from "../../../session-store";
+import { sessionStore } from '../../../session-store';
 
-import type {
-  HTTPHeaderValue,
-  HTTPHeadersActions,
-} from "../http-headers.types";
+import type { HTTPHeaderValue, HTTPHeadersActions } from '../http-headers.types';
 
 const baseHeader = ({
   enabled,
@@ -16,11 +13,11 @@ const baseHeader = ({
 }): HTTPHeaderValue => ({
   id,
   enabled,
-  key: "",
-  value: "",
+  key: '',
+  value: '',
 });
 
-export const addEmptyHeader: HTTPHeadersActions["addEmptyHeader"] = ({
+export const addEmptyHeader: HTTPHeadersActions['addEmptyHeader'] = ({
   enabled = false,
 }) => {
   sessionStore.setState({
