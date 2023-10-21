@@ -1,3 +1,3 @@
-export { getPrefersColorScheme } from "./get-prefers-color-scheme";
+export { getPrefersColorScheme } from './get-prefers-color-scheme';
 
-export { toTitleCase } from "./to-title-case";
+export { toTitleCase } from './to-title-case';

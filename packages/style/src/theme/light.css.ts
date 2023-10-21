@@ -1,22 +1,13 @@
-import { createGlobalTheme } from "@vanilla-extract/css";
+import { createGlobalTheme } from '@vanilla-extract/css';
 
-import { contract } from "./contract.css";
+import { contract } from './contract.css';
 
-import { fonts } from "./fonts";
+import { fonts } from './fonts';
 
-import { space } from "./space";
+import { space } from './space';
 
-import { ROOT_SELECTOR, THEME_MODE_ATTRIBUTE } from "../constants";
-import {
-  gray,
-  grayA,
-  yellow,
-  red,
-  orange,
-  blue,
-  green,
-  purple,
-} from "@radix-ui/colors";
+import { ROOT_SELECTOR, THEME_MODE_ATTRIBUTE } from '../constants';
+import { gray, grayA, yellow, red, orange, blue, green, purple } from '@radix-ui/colors';
 
 export const light = {
   color: {
