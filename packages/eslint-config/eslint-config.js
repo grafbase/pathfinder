@@ -1,9 +1,9 @@
 module.exports = {
   extends: [
     'eslint:recommended',
-    "plugin:react-hooks/recommended",
+    'plugin:react-hooks/recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended'
+    'plugin:prettier/recommended',
   ],
   ignorePatterns: [
     'node_modules/',
@@ -12,10 +12,10 @@ module.exports = {
     'out/',
     'dist/',
     'build/',
-  ],  
+  ],
   rules: {
     // prettier
-    "prettier/prettier": "error",
+    'prettier/prettier': 'error',
 
     // eslint
     'no-empty': 'warn',
@@ -42,8 +42,9 @@ module.exports = {
       'error',
       {
         name: 'monaco-editor/esm/vs/editor/editor.api',
-        message: '`monaco-editor` imports all languages; use `monaco-graphql/esm/monaco-editor` instead to import only `json` and `graphql` languages',
+        message:
+          '`monaco-editor` imports all languages; use `monaco-graphql/esm/monaco-editor` instead to import only `json` and `graphql` languages',
       },
     ],
-  }
-}
+  },
+};
