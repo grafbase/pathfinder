@@ -1,4 +1,4 @@
-name: "CI"
+name: 'CI'
 
 on:
   pull_request:
@@ -67,7 +67,7 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
       - name: Install aarch64-apple-darwin toolchain (macos only)
         if: matrix.platform == 'macos-latest'
-        run: "rustup target add aarch64-apple-darwin"
+        run: 'rustup target add aarch64-apple-darwin'
       - name: Install dependencies (ubuntu only)
         if: matrix.platform == 'ubuntu-20.04'
         run: |
@@ -85,7 +85,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          projectPath: "apps/desktop"
+          projectPath: 'apps/desktop'
           releaseId: ${{ needs.create-release.outputs.release_id }}
       - name: Build (macos)
         uses: tauri-apps/tauri-action@v0
@@ -99,7 +99,7 @@ jobs:
           APPLE_ID: ${{ secrets.APPLE_ID }}
           APPLE_PASSWORD: ${{ secrets.APPLE_PASSWORD }}
         with:
-          projectPath: "apps/desktop"
+          projectPath: 'apps/desktop'
           releaseId: ${{ needs.crate-release.outputs.release_id}}
           args: --target universal-apple-darwin
       - name: Upload universal .dmg (macos only)

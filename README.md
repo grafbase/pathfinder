@@ -14,8 +14,8 @@ pnpm add @pathfinder-ide/react # or yarn add @pathfinder-ide/react or npm instal
 
 The sole export from `@pathfinder-ide/react` is a React component called Pathfinder. For our initial release, a limited set of props is allowed. You can see examples of props usage in the `pathfinder.stories.tsx` file.
 
-
 # Local development
+
 ## Clone the repository
 
 ```bash
@@ -30,6 +30,7 @@ pnpm i
 ```
 
 ## Update .env
+
 The primary development environment for Pathfinder is [ladle](https://ladle.dev/) and the Pathfinder stories are set up to use environment variables. Make a copy of the example file:
 
 ```bash
@@ -40,6 +41,7 @@ cp .env.development.local.example .env.development.local
 Once copied, you can open `.env.development.local` and add an endpoint, at a minimum, and auth header key/value if necessary.
 
 ## Build monaco workers
+
 Building the necessary workers ahead of time absolves consuming code from having to fuss with build tool plugins. This is good.
 
 ```bash
