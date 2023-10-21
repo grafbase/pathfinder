@@ -23,7 +23,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
       - name: Create release
         id: create-release
         uses: actions/github-script@v6
@@ -55,7 +55,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: 18
       - run: |
           PACKAGE_JSON_PATH="./apps/desktop"
           echo "PACKAGE_VERSION=$(cat ${PACKAGE_JSON_PATH}/package.json | jq ".version" | tr -d '""')" >> $GITHUB_ENV
