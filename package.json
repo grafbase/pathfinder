@@ -14,6 +14,8 @@
     "ladle:build": "pnpm --filter ladle build",
     "ladle:preview": "pnpm --filter ladle preview",
     "ladle:serve": "pnpm --filter ladle serve",
+    "prettier:check": "pnpm prettier --check ./",
+    "prettier:write": "pnpm prettier --write ./",
     "version-packages": "changeset version",
     "release": "pnpm run react:build && pnpm run types && changeset publish"
   },
