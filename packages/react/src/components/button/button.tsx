@@ -1,17 +1,17 @@
-import type { RecipeVariants } from "@pathfinder-ide/style";
+import type { RecipeVariants } from '@pathfinder-ide/style';
 
-import { Icon } from "../icon";
-import { IconProps } from "../icon/icon.types";
+import { Icon } from '../icon';
+import { IconProps } from '../icon/icon.types';
 
-import { buttonClass } from "./button.css";
-import { forwardRef } from "react";
+import { buttonClass } from './button.css';
+import { forwardRef } from 'react';
 
 type ButtonVariants = RecipeVariants<typeof buttonClass>;
 
 export type ButtonProps = ButtonVariants & {
   action?: () => void;
   copy: string;
-  iconName?: IconProps["name"];
+  iconName?: IconProps['name'];
   title: string;
 };
 
@@ -25,7 +25,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       onSurface,
       size,
       title,
-      width = "fit-content",
+      width = 'fit-content',
       withBorder,
     }: ButtonProps,
     ref,

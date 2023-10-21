@@ -1,8 +1,8 @@
-import { contract, recipe, style } from "@pathfinder-ide/style";
+import { contract, recipe, style } from '@pathfinder-ide/style';
 
 export const argumentListClass = style({
-  display: "flex",
-  flexDirection: "column",
+  display: 'flex',
+  flexDirection: 'column',
   gap: 10,
   paddingTop: 8,
   paddingRight: 0,
@@ -23,8 +23,8 @@ export const argumentClass = recipe({
     },
     showDescription: {
       true: {
-        display: "flex",
-        flexDirection: "column",
+        display: 'flex',
+        flexDirection: 'column',
       },
     },
   },

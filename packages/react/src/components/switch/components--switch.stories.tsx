@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import { Switch } from "./switch";
+import { Switch } from './switch';
 
 export const Switches = () => {
   const [value, setValue] = useState<boolean>(false);
@@ -10,8 +10,8 @@ export const Switches = () => {
   };
 
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
-      <div style={{ display: "flex" }}>
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div style={{ display: 'flex' }}>
         <span>small</span>
         <Switch
           handleChange={handleChange}
@@ -20,7 +20,7 @@ export const Switches = () => {
           size="SMALL"
         />
       </div>
-      <div style={{ display: "flex" }}>
+      <div style={{ display: 'flex' }}>
         <span>medium</span>
         <Switch
           handleChange={handleChange}
@@ -29,7 +29,7 @@ export const Switches = () => {
           size="MEDIUM"
         />
       </div>
-      <div style={{ display: "flex" }}>
+      <div style={{ display: 'flex' }}>
         <span>large</span>
         <Switch
           handleChange={handleChange}

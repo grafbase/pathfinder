@@ -1,1 +1,1 @@
-export { sortTypes } from "./sort-types";
+export { sortTypes } from './sort-types';

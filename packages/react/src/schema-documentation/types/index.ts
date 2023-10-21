@@ -9,13 +9,13 @@ import {
   GraphQLObjectType,
   GraphQLScalarType,
   GraphQLUnionType,
-} from "graphql";
+} from 'graphql';
 
 export type SortedTypeMap = {
   Scalars: GraphQLScalarType[];
   Enums: GraphQLEnumType[];
   Objects: GraphQLObjectType[];
-  "Input Objects": GraphQLInputObjectType[];
+  'Input Objects': GraphQLInputObjectType[];
   Unions: GraphQLUnionType[];
   Interfaces: GraphQLInterfaceType[];
 };
@@ -29,13 +29,13 @@ export type TertiaryPaneType =
   | GraphQLInputField;
 
 export type TopLevelPane =
-  | "Query"
-  | "Mutation"
-  | "Subscription"
-  | "Directives"
-  | "Scalars"
-  | "Enums"
-  | "Objects"
-  | "Input Objects"
-  | "Unions"
-  | "Interfaces";
+  | 'Query'
+  | 'Mutation'
+  | 'Subscription'
+  | 'Directives'
+  | 'Scalars'
+  | 'Enums'
+  | 'Objects'
+  | 'Input Objects'
+  | 'Unions'
+  | 'Interfaces';

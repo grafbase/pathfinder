@@ -1,33 +1,27 @@
-import { Disclosure as HeadlessDisclosure } from "@headlessui/react";
+import { Disclosure as HeadlessDisclosure } from '@headlessui/react';
 
-import type { ExecutionResponse } from "@pathfinder-ide/stores";
+import type { ExecutionResponse } from '@pathfinder-ide/stores';
 
-import { Icon } from "../../../components/icon";
-import { Pre } from "../../../components/pre";
+import { Icon } from '../../../components/icon';
+import { Pre } from '../../../components/pre';
 
 import {
   disclosureButtonClass,
   disclosurePanelClass,
   historyItemRequestClass,
-} from "./history-item-request.css";
+} from './history-item-request.css';
 
-const Disclosure = ({
-  buttonCopy,
-  code,
-}: {
-  buttonCopy: string;
-  code: string;
-}) => {
+const Disclosure = ({ buttonCopy, code }: { buttonCopy: string; code: string }) => {
   return (
     <HeadlessDisclosure defaultOpen={true}>
       {({ open }) => (
         <>
           <HeadlessDisclosure.Button className={disclosureButtonClass}>
-            <Icon name="Caret" rotate={open ? "90" : undefined} size="small" />
+            <Icon name="Caret" rotate={open ? '90' : undefined} size="small" />
             {buttonCopy}
           </HeadlessDisclosure.Button>
           <HeadlessDisclosure.Panel className={disclosurePanelClass}>
-            <Pre code={code} status={"info"} />
+            <Pre code={code} status={'info'} />
           </HeadlessDisclosure.Panel>
         </>
       )}
@@ -47,7 +41,7 @@ export const HistoryItemRequest = ({
         buttonCopy="Operation Name"
         code={
           historyItem.request.graphQLOperationParams.operationName ||
-          "Anonymous operation"
+          'Anonymous operation'
         }
       />
       <Disclosure

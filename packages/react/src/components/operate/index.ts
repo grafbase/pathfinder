@@ -1,1 +1,1 @@
-export { Operate } from "./operate";
+export { Operate } from './operate';

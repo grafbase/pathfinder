@@ -1,16 +1,16 @@
 import {
   SchemaDocumentationStoreProvider,
   useSchemaDocumentationStore,
-} from "../../store";
+} from '../../store';
 
-import { sortTypes } from "../../utils";
+import { sortTypes } from '../../utils';
 
-import { Resizer } from "../../../components";
-import { SecondaryPane } from "../secondary-pane/secondary-pane";
-import { Section, SectionDescription } from "../section";
-import { TertiaryPane } from "../tertiary-pane";
-import { TypeSystemNavButton } from "../type-system-nav-button";
-import { TypesNav } from "../types-nav";
+import { Resizer } from '../../../components';
+import { SecondaryPane } from '../secondary-pane/secondary-pane';
+import { Section, SectionDescription } from '../section';
+import { TertiaryPane } from '../tertiary-pane';
+import { TypeSystemNavButton } from '../type-system-nav-button';
+import { TypesNav } from '../types-nav';
 
 import {
   breadcrumbClass,
@@ -18,10 +18,10 @@ import {
   breadcrumbItemClass,
   panesClass,
   schemaDocumentationClass,
-} from "./schema-documentation.css";
+} from './schema-documentation.css';
 
-import { sharedPaneClass } from "../../shared.styles.css";
-import { GraphQLSchema } from "graphql";
+import { sharedPaneClass } from '../../shared.styles.css';
+import { GraphQLSchema } from 'graphql';
 
 type SchemaDocumentationProps = {
   schema: GraphQLSchema;
@@ -81,18 +81,16 @@ const SchemaDocumentationComponent = ({ schema }: SchemaDocumentationProps) => {
                   {queryRootType && (
                     <TypeSystemNavButton
                       destinationPane="Query"
-                      copy={"Query"}
+                      copy={'Query'}
                       count={
-                        Object.keys(
-                          queryRootType.getFields(),
-                        ).length.toString() as string
+                        Object.keys(queryRootType.getFields()).length.toString() as string
                       }
                     />
                   )}
                   {mutationRootType && (
                     <TypeSystemNavButton
                       destinationPane="Mutation"
-                      copy={"Mutation"}
+                      copy={'Mutation'}
                       count={
                         Object.keys(
                           mutationRootType.getFields(),
@@ -104,7 +102,7 @@ const SchemaDocumentationComponent = ({ schema }: SchemaDocumentationProps) => {
                   {subscriptionRootType && (
                     <TypeSystemNavButton
                       destinationPane="Subscription"
-                      copy={"Subscription"}
+                      copy={'Subscription'}
                       count={
                         Object.keys(
                           subscriptionRootType.getFields(),
@@ -119,7 +117,7 @@ const SchemaDocumentationComponent = ({ schema }: SchemaDocumentationProps) => {
                 <Section lead={`Other`}>
                   <TypeSystemNavButton
                     destinationPane="Directives"
-                    copy={"Directives"}
+                    copy={'Directives'}
                     count={directives.length.toString() as string}
                   />
                 </Section>
@@ -147,15 +145,15 @@ const SchemaDocumentationComponent = ({ schema }: SchemaDocumentationProps) => {
                   component: (
                     <>
                       {activeTertiaryPane && (
-                        <TertiaryPane pane={activeTertiaryPane["pane"]} />
+                        <TertiaryPane pane={activeTertiaryPane['pane']} />
                       )}
                     </>
                   ),
-                  initialSize: { type: "PERCENT", value: 50 },
+                  initialSize: { type: 'PERCENT', value: 50 },
                 }}
               />
             ),
-            initialSize: { type: "PERCENT", value: 80 },
+            initialSize: { type: 'PERCENT', value: 80 },
           }}
         />
       </div>

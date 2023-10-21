@@ -1,27 +1,27 @@
-import { contract, recipe, shared, style } from "@pathfinder-ide/style";
+import { contract, recipe, shared, style } from '@pathfinder-ide/style';
 
 export const detailsTogglerClass = recipe({
   base: [
     shared.resets.buttonReset,
     {
-      whiteSpace: "nowrap",
+      whiteSpace: 'nowrap',
       height: 22,
       fontSize: 14,
-      display: "flex",
-      alignItems: "center",
+      display: 'flex',
+      alignItems: 'center',
       transition: `all .1s ${shared.transitions.authenticMotion}`,
 
       selectors: {
-        "&:hover": {
+        '&:hover': {
           color: contract.color.neutral[12],
         },
 
-        "&:disabled": {
-          cursor: "not-allowed",
+        '&:disabled': {
+          cursor: 'not-allowed',
           color: contract.color.neutral[6],
         },
 
-        "&:disabled&:hover": {
+        '&:disabled&:hover': {
           color: contract.color.neutral[6],
         },
       },
@@ -45,7 +45,7 @@ export const detailsTogglerClass = recipe({
         color: contract.color.neutral[12],
 
         selectors: {
-          "&:hover": {
+          '&:hover': {
             color: contract.color.neutral[12],
           },
         },
@@ -58,8 +58,8 @@ export const detailsTogglerClass = recipe({
 });
 
 export const detailsClass = style({
-  display: "flex",
-  alignItems: "center",
+  display: 'flex',
+  alignItems: 'center',
   gap: contract.space[4],
   width: `100%`,
 });

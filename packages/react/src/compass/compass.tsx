@@ -1,21 +1,18 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-import { Kind, OperationTypeNode } from "graphql";
+import { Kind, OperationTypeNode } from 'graphql';
 
-import {
-  useGraphQLDocumentStore,
-  useSchemaStore,
-} from "@pathfinder-ide/stores";
+import { useGraphQLDocumentStore, useSchemaStore } from '@pathfinder-ide/stores';
 
-import { QuickDocs, RootOperation } from "./components";
-import { compassClass } from "./compass.css";
-import { Tabs } from "../components";
-import { TabsProps } from "../components/tabs/tabs.types";
+import { QuickDocs, RootOperation } from './components';
+import { compassClass } from './compass.css';
+import { Tabs } from '../components';
+import { TabsProps } from '../components/tabs/tabs.types';
 
 import {
   SchemaDocumentationStoreProvider,
   useSchemaDocumentationStore,
-} from "../schema-documentation";
+} from '../schema-documentation';
 
 export const Compass = () => {
   return (
@@ -45,10 +42,10 @@ const CompassComponent = () => {
     if (!operationDefinition) {
       return setSelectedTabIndex(0);
     }
-    if (operationDefinition?.operation === "query") {
+    if (operationDefinition?.operation === 'query') {
       return setSelectedTabIndex(0);
     }
-    if (operationDefinition?.operation === "mutation") {
+    if (operationDefinition?.operation === 'mutation') {
       return setSelectedTabIndex(1);
     }
 
@@ -65,12 +62,12 @@ const CompassComponent = () => {
     if (schema.getQueryType()?.getFields()) {
       tabs.push({
         buttonContent: () => schema.getQueryType()?.name,
-        name: "queries",
+        name: 'queries',
         panelContent: () => (
           <RootOperation
             ancestors={[
               {
-                type: "ROOT",
+                type: 'ROOT',
                 operationType: OperationTypeNode.QUERY,
                 operationDefinition,
               },
@@ -83,12 +80,12 @@ const CompassComponent = () => {
     if (schema.getMutationType()?.getFields()) {
       tabs.push({
         buttonContent: () => schema.getMutationType()?.name,
-        name: "mutations",
+        name: 'mutations',
         panelContent: () => (
           <RootOperation
             ancestors={[
               {
-                type: "ROOT",
+                type: 'ROOT',
                 operationType: OperationTypeNode.MUTATION,
                 operationDefinition,
               },
@@ -101,12 +98,12 @@ const CompassComponent = () => {
     if (schema.getSubscriptionType()?.getFields()) {
       tabs.push({
         buttonContent: () => schema.getSubscriptionType()?.name,
-        name: "subscriptions",
+        name: 'subscriptions',
         panelContent: () => (
           <RootOperation
             ancestors={[
               {
-                type: "ROOT",
+                type: 'ROOT',
                 operationType: OperationTypeNode.SUBSCRIPTION,
                 operationDefinition,
               },

@@ -1,5 +1,5 @@
-import { inputClass } from "./control.css";
-import type { InputProps } from "./control.types";
+import { inputClass } from './control.css';
+import type { InputProps } from './control.types';
 
 export const Input = ({
   handleChange,

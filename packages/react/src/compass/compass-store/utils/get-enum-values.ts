@@ -1,4 +1,4 @@
-import { type GraphQLSchema, isEnumType } from "graphql";
+import { type GraphQLSchema, isEnumType } from 'graphql';
 
 export const getEnumValues = ({
   enumTypeName,

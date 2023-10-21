@@ -1,8 +1,8 @@
-import { contract } from "@pathfinder-ide/style";
-import { IconButton } from "./icon-button";
+import { contract } from '@pathfinder-ide/style';
+import { IconButton } from './icon-button';
 
 const buttonClick = () => {
-  alert("buttonClick!");
+  alert('buttonClick!');
 };
 
 export const Sizes = () => {
@@ -10,9 +10,9 @@ export const Sizes = () => {
     <>
       <div
         style={{
-          display: "flex",
-          gap: "24px",
-          padding: "24px",
+          display: 'flex',
+          gap: '24px',
+          padding: '24px',
           backgroundColor: contract.color.neutral[1],
           color: contract.color.neutral[10],
         }}
@@ -58,9 +58,9 @@ export const Sizes = () => {
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "24px",
-          padding: "24px",
+          display: 'flex',
+          gap: '24px',
+          padding: '24px',
           backgroundColor: contract.color.neutral[2],
           color: contract.color.neutral[10],
         }}
@@ -106,9 +106,9 @@ export const Sizes = () => {
       </div>
       <div
         style={{
-          display: "flex",
-          gap: "24px",
-          padding: "24px",
+          display: 'flex',
+          gap: '24px',
+          padding: '24px',
           backgroundColor: contract.color.neutral[3],
           color: contract.color.neutral[10],
         }}

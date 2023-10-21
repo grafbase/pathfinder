@@ -1,1 +1,1 @@
-export { GraphQL } from "./graphql";
+export { GraphQL } from './graphql';

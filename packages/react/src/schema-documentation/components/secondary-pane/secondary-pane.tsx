@@ -1,20 +1,16 @@
-import type { ReactElement } from "react";
-import type {
-  GraphQLDirective,
-  GraphQLNamedType,
-  GraphQLObjectType,
-} from "graphql";
+import type { ReactElement } from 'react';
+import type { GraphQLDirective, GraphQLNamedType, GraphQLObjectType } from 'graphql';
 
-import { useSchemaDocumentationStore } from "../../store";
+import { useSchemaDocumentationStore } from '../../store';
 
-import { SortedTypeMap } from "../../types";
+import { SortedTypeMap } from '../../types';
 
-import { Section, SectionDescription, SectionFields } from "../section";
-import { SummaryType } from "../summary";
-import { Markdown } from "../markdown";
+import { Section, SectionDescription, SectionFields } from '../section';
+import { SummaryType } from '../summary';
+import { Markdown } from '../markdown';
 
-import { secondaryPaneClass } from "./secondary-pane.css";
-import { notificationClass } from "../../shared.styles.css";
+import { secondaryPaneClass } from './secondary-pane.css';
+import { notificationClass } from '../../shared.styles.css';
 
 const List = ({
   list,
@@ -37,9 +33,7 @@ const List = ({
           />
         ))
       ) : (
-        <p
-          className={notificationClass}
-        >{`This schema does not contain ${name}`}</p>
+        <p className={notificationClass}>{`This schema does not contain ${name}`}</p>
       )}
     </Section>
   );
@@ -76,59 +70,50 @@ export const SecondaryPane = ({
   subscriptionRootType: GraphQLObjectType | null;
   sortedTypes: SortedTypeMap;
 }) => {
-  const { activePrimaryPane, activeTertiaryPane } =
-    useSchemaDocumentationStore();
+  const { activePrimaryPane, activeTertiaryPane } = useSchemaDocumentationStore();
 
   let toRender: ReactElement = <></>;
 
-  if (activePrimaryPane === "Query" && queryRootType) {
+  if (activePrimaryPane === 'Query' && queryRootType) {
     toRender = <RootOperationDetails rootOperationType={queryRootType} />;
   }
 
-  if (activePrimaryPane === "Mutation" && mutationRootType) {
+  if (activePrimaryPane === 'Mutation' && mutationRootType) {
     toRender = <RootOperationDetails rootOperationType={mutationRootType} />;
   }
 
-  if (activePrimaryPane === "Subscription" && subscriptionRootType) {
+  if (activePrimaryPane === 'Subscription' && subscriptionRootType) {
+    toRender = <RootOperationDetails rootOperationType={subscriptionRootType} />;
+  }
+
+  if (activePrimaryPane === 'Directives') {
+    toRender = <List list={directives} name={'Directives'} />;
+  }
+
+  if (activePrimaryPane === 'Enums') {
+    toRender = <List list={sortedTypes['Enums']} name={'Enums'} />;
+  }
+
+  if (activePrimaryPane === 'Input Objects') {
+    toRender = <List list={sortedTypes['Input Objects']} name={'Input Objects'} />;
+  }
+
+  if (activePrimaryPane === 'Objects') {
+    toRender = <List list={sortedTypes['Objects']} name={'Objects'} />;
+  }
+
+  if (activePrimaryPane === 'Scalars') {
     toRender = (
-      <RootOperationDetails rootOperationType={subscriptionRootType} />
+      <List list={sortedTypes['Scalars']} name={'Scalars'} showDescription={false} />
     );
   }
 
-  if (activePrimaryPane === "Directives") {
-    toRender = <List list={directives} name={"Directives"} />;
+  if (activePrimaryPane === 'Unions') {
+    toRender = <List list={sortedTypes['Unions']} name={'Unions'} />;
   }
 
-  if (activePrimaryPane === "Enums") {
-    toRender = <List list={sortedTypes["Enums"]} name={"Enums"} />;
-  }
-
-  if (activePrimaryPane === "Input Objects") {
-    toRender = (
-      <List list={sortedTypes["Input Objects"]} name={"Input Objects"} />
-    );
-  }
-
-  if (activePrimaryPane === "Objects") {
-    toRender = <List list={sortedTypes["Objects"]} name={"Objects"} />;
-  }
-
-  if (activePrimaryPane === "Scalars") {
-    toRender = (
-      <List
-        list={sortedTypes["Scalars"]}
-        name={"Scalars"}
-        showDescription={false}
-      />
-    );
-  }
-
-  if (activePrimaryPane === "Unions") {
-    toRender = <List list={sortedTypes["Unions"]} name={"Unions"} />;
-  }
-
-  if (activePrimaryPane === "Interfaces") {
-    toRender = <List list={sortedTypes["Interfaces"]} name={"Interfaces"} />;
+  if (activePrimaryPane === 'Interfaces') {
+    toRender = <List list={sortedTypes['Interfaces']} name={'Interfaces'} />;
   }
 
   return (

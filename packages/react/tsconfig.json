@@ -1,10 +1,6 @@
 {
   "extends": "@pathfinder-ide/tsconfig/react.json",
   "compilerOptions": {
-    "types": [
-      "@testing-library/jest-dom",
-      "vite/client", 
-      "vitest/globals"
-    ]
-  }  
+    "types": ["@testing-library/jest-dom", "vite/client", "vitest/globals"]
+  }
 }

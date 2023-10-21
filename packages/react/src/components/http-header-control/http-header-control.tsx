@@ -3,13 +3,13 @@ import {
   addEmptyHeader,
   removeHeader,
   updateHeader,
-} from "@pathfinder-ide/stores";
+} from '@pathfinder-ide/stores';
 
-import { IconButton } from "../icon-button";
+import { IconButton } from '../icon-button';
 
-import { Control, ControlProps } from "../control";
+import { Control, ControlProps } from '../control';
 
-import { Switch } from "../switch";
+import { Switch } from '../switch';
 
 import {
   addHeaderButtonWrapClass,
@@ -18,27 +18,24 @@ import {
   headerControlsSwitchWrapClass,
   headerControlWrapClass,
   removeHeaderButtonWrapClass,
-} from "./http-header-control.css";
+} from './http-header-control.css';
 
 const SEPARATOR = `--`;
 
 export const HTTPHeaderControl = () => {
   const headers = useSessionStore.use.headers();
 
-  const handleChange: ControlProps["control"]["handleChange"] = ({
-    name,
-    value,
-  }) => {
+  const handleChange: ControlProps['control']['handleChange'] = ({ name, value }) => {
     const id = name.split(SEPARATOR)[0];
     const valueType = name.split(SEPARATOR)[1];
 
-    if (valueType === "switch") {
+    if (valueType === 'switch') {
       updateHeader({ id, payload: { enabled: value as boolean } });
     } else {
       updateHeader({
         id,
         payload: {
-          keyOrValue: valueType as "key" | "value",
+          keyOrValue: valueType as 'key' | 'value',
           value: value as string,
         },
       });
@@ -65,10 +62,10 @@ export const HTTPHeaderControl = () => {
             </div>
             <Control
               control={{
-                controlType: "INPUT",
+                controlType: 'INPUT',
                 handleChange,
                 name: `${header.id}${SEPARATOR}key`,
-                placeholder: "Authorization",
+                placeholder: 'Authorization',
                 value: header.key,
               }}
               displayLabel={i === 0}
@@ -76,10 +73,10 @@ export const HTTPHeaderControl = () => {
             />
             <Control
               control={{
-                controlType: "INPUT",
+                controlType: 'INPUT',
                 handleChange,
                 name: `${header.id}${SEPARATOR}value`,
-                placeholder: "Bearer ...",
+                placeholder: 'Bearer ...',
                 value: header.value,
               }}
               displayLabel={i === 0}
@@ -110,7 +107,7 @@ export const HTTPHeaderControl = () => {
         onClick={() => addEmptyHeader({})}
         title="Add header"
       >
-        {`Add ${headers.length > 0 ? "another" : ""} header`}
+        {`Add ${headers.length > 0 ? 'another' : ''} header`}
       </button>
     </div>
   );

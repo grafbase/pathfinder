@@ -1,24 +1,24 @@
-import { Pathfinder } from "./pathfinder";
-import { PathfinderProps } from "./pathfinder.types";
+import { Pathfinder } from './pathfinder';
+import { PathfinderProps } from './pathfinder.types';
 
 const overrides = {
   dark: {
     color: {
       neutral: {
-        1: "red",
+        1: 'red',
       },
     },
   },
   light: {
     color: {
       neutral: {
-        1: "blue",
+        1: 'blue',
       },
     },
   },
 };
 
-const fetcherOptions: PathfinderProps["fetcherOptions"] = {
+const fetcherOptions: PathfinderProps['fetcherOptions'] = {
   endpoint: import.meta.env.VITE_GRAPHQL_ENDPOINT,
   headers: [
     {

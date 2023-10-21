@@ -1,24 +1,21 @@
-import { RecipeVariants } from "@pathfinder-ide/style";
+import { RecipeVariants } from '@pathfinder-ide/style';
 
 import {
   compassAnimatedClass,
   compassAnimatedWrapClass,
   compassAnimatedOuterClass,
   compassAnimatedSpinClass,
-} from "./compass-animated.css";
+} from './compass-animated.css';
 
 export const CompassAnimated = ({
   size,
   speed,
 }: {
-  size: Pick<
-    NonNullable<RecipeVariants<typeof compassAnimatedClass>>,
-    "size"
-  >["size"];
+  size: Pick<NonNullable<RecipeVariants<typeof compassAnimatedClass>>, 'size'>['size'];
   speed: Pick<
     NonNullable<RecipeVariants<typeof compassAnimatedSpinClass>>,
-    "speed"
-  >["speed"];
+    'speed'
+  >['speed'];
 }) => {
   return (
     <div className={compassAnimatedWrapClass}>

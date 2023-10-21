@@ -1,4 +1,4 @@
-import { setTheme, useThemeStore } from "@pathfinder-ide/stores";
+import { setTheme, useThemeStore } from '@pathfinder-ide/stores';
 
 export const ThemeSwitcher = () => {
   const activeTheme = useThemeStore.use.activeTheme();
@@ -7,10 +7,10 @@ export const ThemeSwitcher = () => {
     <div>
       <button
         onClick={() => {
-          if (activeTheme === "dark") {
-            return setTheme({ theme: "light" });
+          if (activeTheme === 'dark') {
+            return setTheme({ theme: 'light' });
           }
-          return setTheme({ theme: "dark" });
+          return setTheme({ theme: 'dark' });
         }}
       >
         switch themes

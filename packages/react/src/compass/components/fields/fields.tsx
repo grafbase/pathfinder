@@ -1,8 +1,8 @@
-import { GraphQLFieldMap, SelectionNode } from "graphql";
+import { GraphQLFieldMap, SelectionNode } from 'graphql';
 
-import { type AncestorsArray, findSelection } from "../../compass-store";
+import { type AncestorsArray, findSelection } from '../../compass-store';
 
-import { Field } from "../field";
+import { Field } from '../field';
 
 export const Fields = ({
   ancestors,
@@ -22,7 +22,7 @@ export const Fields = ({
           ancestors={[
             ...ancestors,
             {
-              type: "FIELD",
+              type: 'FIELD',
               field: fields[f],
               selection:
                 findSelection({

@@ -1,1 +1,1 @@
-export { Caret } from "./caret";
+export { Caret } from './caret';

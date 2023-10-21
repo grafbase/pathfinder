@@ -1,9 +1,6 @@
-import type {
-  MonacoEditorITextModel,
-  MonacoIRange,
-} from "@pathfinder-ide/stores";
+import type { MonacoEditorITextModel, MonacoIRange } from '@pathfinder-ide/stores';
 
-import { getActiveDefinitionRange } from "./get-active-definition-range";
+import { getActiveDefinitionRange } from './get-active-definition-range';
 
 export const getRangeFromStringInActiveDefinition = ({
   model,

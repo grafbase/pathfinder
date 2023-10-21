@@ -1,4 +1,4 @@
-import { Token, TokenKind } from "graphql";
+import { Token, TokenKind } from 'graphql';
 
 export const findNextTokenKindInLocation = ({
   startToken,

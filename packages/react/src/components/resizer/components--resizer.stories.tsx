@@ -1,12 +1,12 @@
-import { Resizer } from "./resizer";
+import { Resizer } from './resizer';
 
 const Container = ({ toRender }: { toRender: React.ReactNode }) => {
   return (
     <div
       style={{
-        backgroundColor: "red",
-        height: "100vh",
-        boxSizing: "border-box",
+        backgroundColor: 'red',
+        height: '100vh',
+        boxSizing: 'border-box',
       }}
     >
       {toRender}
@@ -16,7 +16,7 @@ const Container = ({ toRender }: { toRender: React.ReactNode }) => {
 
 const Pane1 = () => {
   return (
-    <div style={{ backgroundColor: "khaki", paddingLeft: 12 }}>
+    <div style={{ backgroundColor: 'khaki', paddingLeft: 12 }}>
       {Array.from({ length: 100 }).map((_a, i) => (
         <div key={i}>Pane1</div>
       ))}
@@ -26,7 +26,7 @@ const Pane1 = () => {
 
 const Pane2 = () => {
   return (
-    <div style={{ backgroundColor: "aquamarine", paddingLeft: 12 }}>
+    <div style={{ backgroundColor: 'aquamarine', paddingLeft: 12 }}>
       {Array.from({ length: 100 }).map((_a, i) => (
         <div key={i}>Pane2</div>
       ))}
@@ -45,7 +45,7 @@ export const HorizontalWithMinimums = () => {
           pane1={{ component: <Pane1 />, minimumSize: 40 }}
           pane2={{
             component: <Pane2 />,
-            initialSize: { type: "PERCENT", value: 50 },
+            initialSize: { type: 'PERCENT', value: 50 },
             minimumSize: 40,
           }}
         />
@@ -65,7 +65,7 @@ export const HorizontalWithoutMinimums = () => {
           pane1={{ component: <Pane1 /> }}
           pane2={{
             component: <Pane2 />,
-            initialSize: { type: "PIXELS", value: 50 },
+            initialSize: { type: 'PIXELS', value: 50 },
           }}
         />
       }
@@ -84,7 +84,7 @@ export const VerticalWithMinimums = () => {
           pane1={{ component: <Pane1 />, minimumSize: 40 }}
           pane2={{
             component: <Pane2 />,
-            initialSize: { type: "PERCENT", value: 50 },
+            initialSize: { type: 'PERCENT', value: 50 },
             minimumSize: 40,
           }}
         />
@@ -104,7 +104,7 @@ export const VerticalWithPane2Minimum = () => {
           pane1={{ component: <Pane1 /> }}
           pane2={{
             component: <Pane2 />,
-            initialSize: { type: "PERCENT", value: 50 },
+            initialSize: { type: 'PERCENT', value: 50 },
             minimumSize: 40,
           }}
         />
@@ -124,7 +124,7 @@ export const VerticalWithoutMinimums = () => {
           pane1={{ component: <Pane1 /> }}
           pane2={{
             component: <Pane2 />,
-            initialSize: { type: "PERCENT", value: 50 },
+            initialSize: { type: 'PERCENT', value: 50 },
           }}
         />
       }

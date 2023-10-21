@@ -1,1 +1,1 @@
-export { Interpunct } from "./interpunct";
+export { Interpunct } from './interpunct';

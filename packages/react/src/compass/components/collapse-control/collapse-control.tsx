@@ -1,5 +1,5 @@
-import { IconButton } from "../../../components/icon-button";
-import { collapseControlClass } from "./collapse-control.css";
+import { IconButton } from '../../../components/icon-button';
+import { collapseControlClass } from './collapse-control.css';
 
 export const CollapseControl = ({
   isExpanded,

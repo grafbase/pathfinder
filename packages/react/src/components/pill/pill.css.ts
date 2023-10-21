@@ -1,19 +1,19 @@
-import { contract, recipe } from "@pathfinder-ide/style";
+import { contract, recipe } from '@pathfinder-ide/style';
 
 export const pillClass = recipe({
   base: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     height: contract.space[16],
     paddingRight: 4,
     paddingLeft: 4,
-    width: "fit-content",
+    width: 'fit-content',
     borderRadius: 2,
     fontFamily: contract.fonts.mono,
     fontSize: 9,
-    textTransform: "uppercase",
-    whiteSpace: "nowrap",
+    textTransform: 'uppercase',
+    whiteSpace: 'nowrap',
   },
 
   variants: {

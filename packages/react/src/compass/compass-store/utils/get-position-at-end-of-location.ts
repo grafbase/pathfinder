@@ -1,8 +1,8 @@
-import { type Location } from "graphql";
+import { type Location } from 'graphql';
 
-import { DOCUMENT_EDITOR_ID } from "@pathfinder-ide/shared";
+import { DOCUMENT_EDITOR_ID } from '@pathfinder-ide/shared';
 
-import { type MonacoIPosition, getMonacoEditor } from "@pathfinder-ide/stores";
+import { type MonacoIPosition, getMonacoEditor } from '@pathfinder-ide/stores';
 
 export const getPositionAtEndOfLocation = ({
   location,

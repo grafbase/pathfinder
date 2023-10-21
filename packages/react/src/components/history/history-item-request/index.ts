@@ -1,1 +1,1 @@
-export { HistoryItemRequest } from "./history-item-request";
+export { HistoryItemRequest } from './history-item-request';

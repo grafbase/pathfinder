@@ -2,13 +2,13 @@ import {
   VARIABLES_EDITOR_DEFAULT_VALUE,
   VARIABLES_EDITOR_ID,
   VARIABLES_MODEL_NAME,
-} from "@pathfinder-ide/shared";
+} from '@pathfinder-ide/shared';
 
-import { runExecuteOperation, useSessionStore } from "@pathfinder-ide/stores";
+import { runExecuteOperation, useSessionStore } from '@pathfinder-ide/stores';
 
-import { Editor } from "../editor";
+import { Editor } from '../editor';
 
-import { variablesWrapClass, variablesEditorWrapClass } from "./variables.css";
+import { variablesWrapClass, variablesEditorWrapClass } from './variables.css';
 
 export const Variables = () => {
   const variablesString = useSessionStore.getState().variablesString;
@@ -19,14 +19,12 @@ export const Variables = () => {
         <Editor
           actions={[runExecuteOperation]}
           defaultValue={
-            variablesString.length > 0
-              ? variablesString
-              : VARIABLES_EDITOR_DEFAULT_VALUE
+            variablesString.length > 0 ? variablesString : VARIABLES_EDITOR_DEFAULT_VALUE
           }
           editorId={VARIABLES_EDITOR_ID}
           modelDetails={{
             fileName: VARIABLES_MODEL_NAME,
-            language: "json",
+            language: 'json',
           }}
           onDidChangeCursorPositionCallback={({ editorValue }) => {
             useSessionStore.setState({

@@ -1,14 +1,8 @@
-import { useSessionStore, useThemeStore } from "@pathfinder-ide/stores";
+import { useSessionStore, useThemeStore } from '@pathfinder-ide/stores';
 
-import {
-  Analyze,
-  EditorTabs,
-  Operate,
-  Resizer,
-  ScoutTools,
-} from "../components";
+import { Analyze, EditorTabs, Operate, Resizer, ScoutTools } from '../components';
 
-import { scoutClass, scoutEditorWrapClass } from "./scout.css";
+import { scoutClass, scoutEditorWrapClass } from './scout.css';
 
 export const Scout = () => {
   const activeTheme = useThemeStore.use.activeTheme();
@@ -23,7 +17,7 @@ export const Scout = () => {
   return (
     <div className={scoutClass}>
       <Resizer
-        resizerName={"scout_resizer"}
+        resizerName={'scout_resizer'}
         onSurface={2}
         orientation="VERTICAL"
         pane1={{
@@ -31,7 +25,7 @@ export const Scout = () => {
             <div className={scoutEditorWrapClass}>
               <EditorTabs />
               <Resizer
-                resizerName={"editors_resizer"}
+                resizerName={'editors_resizer'}
                 onSurface={2}
                 orientation="HORIZONTAL"
                 pane1={{
@@ -39,7 +33,7 @@ export const Scout = () => {
                 }}
                 pane2={{
                   component: <Analyze />,
-                  initialSize: { type: "PERCENT", value: 50 },
+                  initialSize: { type: 'PERCENT', value: 50 },
                 }}
               />
             </div>
@@ -47,7 +41,7 @@ export const Scout = () => {
         }}
         pane2={{
           component: endpoint ? <ScoutTools /> : <></>,
-          initialSize: { type: "PIXELS", value: 40 },
+          initialSize: { type: 'PIXELS', value: 40 },
           minimumSize: 40,
         }}
       />

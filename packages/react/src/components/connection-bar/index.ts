@@ -1,1 +1,1 @@
-export { ConnectionBar } from "./connection-bar";
+export { ConnectionBar } from './connection-bar';

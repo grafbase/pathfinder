@@ -1,18 +1,18 @@
-import { contract, recipe } from "@pathfinder-ide/style";
+import { contract, recipe } from '@pathfinder-ide/style';
 
 export const collapseControlClass = recipe({
   base: {
     height: contract.space[20],
     width: contract.space[20],
-    transformOrigin: "center",
+    transformOrigin: 'center',
   },
   variants: {
     isExpanded: {
       true: {
-        transform: "rotate(0deg)",
+        transform: 'rotate(0deg)',
       },
       false: {
-        transform: "rotate(-90deg)",
+        transform: 'rotate(-90deg)',
       },
     },
   },

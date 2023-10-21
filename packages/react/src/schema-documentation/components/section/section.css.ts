@@ -1,15 +1,15 @@
-import { contract, style } from "@pathfinder-ide/style";
+import { contract, style } from '@pathfinder-ide/style';
 
 export const sectionClass = style({
-  display: "flex",
-  flexDirection: "column",
+  display: 'flex',
+  flexDirection: 'column',
   marginBottom: 24,
   color: contract.color.neutral[12],
 });
 
 export const sectionLeadClass = style({
-  display: "flex",
-  textTransform: "uppercase",
+  display: 'flex',
+  textTransform: 'uppercase',
   lineHeight: 1,
   fontSize: 10,
   letterSpacing: 0.5,

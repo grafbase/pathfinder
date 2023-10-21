@@ -1,6 +1,6 @@
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useReducer, useState } from 'react';
 
-import { generateCuid } from "@pathfinder-ide/shared";
+import { generateCuid } from '@pathfinder-ide/shared';
 
 import {
   HTTPHeaderValue,
@@ -8,16 +8,16 @@ import {
   initSession,
   useSchemaStore,
   useSessionStore,
-} from "@pathfinder-ide/stores";
+} from '@pathfinder-ide/stores';
 
-import { doIntrospection } from "@pathfinder-ide/stores/src/schema-store";
+import { doIntrospection } from '@pathfinder-ide/stores/src/schema-store';
 
-import { CompassAnimated } from "../compass-animated";
-import { Control, type ControlProps } from "../control";
-import { Icon } from "../icon";
-import { Pre } from "../pre";
-import { Sessions } from "../sessions";
-import { Button } from "../button";
+import { CompassAnimated } from '../compass-animated';
+import { Control, type ControlProps } from '../control';
+import { Icon } from '../icon';
+import { Pre } from '../pre';
+import { Sessions } from '../sessions';
+import { Button } from '../button';
 
 import {
   backToPreviousSessionsButton,
@@ -33,33 +33,29 @@ import {
   loadStoredSessionCopyClass,
   loadingWrapClass,
   startNewSessionButtonWrapClass,
-} from "./connect.css";
+} from './connect.css';
 
 const headersReducer = (
   headers: HTTPHeaderValue[],
-  action:
-    | { type: "add" }
-    | { type: "update"; payload: { name: string; value: string } },
+  action: { type: 'add' } | { type: 'update'; payload: { name: string; value: string } },
 ) => {
   switch (action.type) {
-    case "add": {
+    case 'add': {
       return [
         ...headers,
         {
           id: generateCuid({}),
           enabled: true,
-          key: "",
-          value: "",
+          key: '',
+          value: '',
         },
       ];
     }
-    case "update": {
-      const id = action.payload.name.split("--")[0];
-      const valueType = action.payload.name.split("--")[1];
+    case 'update': {
+      const id = action.payload.name.split('--')[0];
+      const valueType = action.payload.name.split('--')[1];
 
-      const existingHeaderIndex = headers.findIndex(
-        (header) => header.id === id,
-      );
+      const existingHeaderIndex = headers.findIndex((header) => header.id === id);
 
       const update = { [valueType]: action.payload.value };
 
@@ -86,25 +82,22 @@ export const Connect = () => {
 
   const introspectionErrors = useSchemaStore.use.introspectionErrors();
 
-  const [endpointValue, setEndpointValue] = useState<string>("");
+  const [endpointValue, setEndpointValue] = useState<string>('');
   const [headers, headersDispatch] = useReducer(headersReducer, [
     {
       id: generateCuid({}),
       enabled: true,
-      key: "Content-Type",
-      value: "application/json",
+      key: 'Content-Type',
+      value: 'application/json',
     },
   ]);
 
-  const handleChange: ControlProps["control"]["handleChange"] = ({
-    name,
-    value,
-  }) => {
-    if (name === "endpointValue") {
+  const handleChange: ControlProps['control']['handleChange'] = ({ name, value }) => {
+    if (name === 'endpointValue') {
       setEndpointValue(value as string);
     } else {
       headersDispatch({
-        type: "update",
+        type: 'update',
         payload: { name, value: value as string },
       });
     }
@@ -131,7 +124,7 @@ export const Connect = () => {
           isVisible: loading,
         })}
       >
-        <CompassAnimated size={"medium"} speed={"standard"} />
+        <CompassAnimated size={'medium'} speed={'standard'} />
       </div>
       <div
         className={connectContentClass({
@@ -150,15 +143,13 @@ export const Connect = () => {
 
         {!showNewSession && storedSessions && storedSessions.length > 0 && (
           <div>
-            <p className={loadStoredSessionCopyClass}>
-              Load a stored session:{" "}
-            </p>
+            <p className={loadStoredSessionCopyClass}>Load a stored session: </p>
             <Sessions sessionNames={storedSessions} />
 
             <div className={startNewSessionButtonWrapClass}>
               <Button
                 action={() => setShowNewSession(true)}
-                copy={"Or click here to begin a new session"}
+                copy={'Or click here to begin a new session'}
                 onSurface={1}
                 size="large"
                 title="Begin a new session"
@@ -172,10 +163,10 @@ export const Connect = () => {
           <>
             <Control
               control={{
-                controlType: "INPUT",
+                controlType: 'INPUT',
                 handleChange,
-                name: "endpointValue",
-                placeholder: "Enter your GraphQL endpoint URL to get started",
+                name: 'endpointValue',
+                placeholder: 'Enter your GraphQL endpoint URL to get started',
                 value: endpointValue,
               }}
               displayLabel={true}
@@ -190,10 +181,10 @@ export const Connect = () => {
                 <div key={h.id} className={connectContentHeaderRowClass}>
                   <Control
                     control={{
-                      controlType: "INPUT",
+                      controlType: 'INPUT',
                       handleChange,
                       name: `${h.id}--key`,
-                      placeholder: "Authorization",
+                      placeholder: 'Authorization',
                       value: h.key,
                     }}
                     displayLabel={index === 0 ? true : false}
@@ -201,10 +192,10 @@ export const Connect = () => {
                   />
                   <Control
                     control={{
-                      controlType: "INPUT",
+                      controlType: 'INPUT',
                       handleChange,
                       name: `${h.id}--value`,
-                      placeholder: "Bearer ...",
+                      placeholder: 'Bearer ...',
                       value: h.value,
                     }}
                     displayLabel={index === 0 ? true : false}
@@ -214,7 +205,7 @@ export const Connect = () => {
               ))}
               <button
                 className={connectContentAddHeaderButtonClass}
-                onClick={() => headersDispatch({ type: "add" })}
+                onClick={() => headersDispatch({ type: 'add' })}
               >
                 Add another header
               </button>
@@ -224,7 +215,7 @@ export const Connect = () => {
                 className={connectContentControlsAddHeadersButtonClass}
                 onClick={() => setShowHeadersControl(!showHeadersControl)}
               >
-                {showHeadersControl ? "Hide headers" : "Show headers"}
+                {showHeadersControl ? 'Hide headers' : 'Show headers'}
               </button>
 
               <button
@@ -248,7 +239,7 @@ export const Connect = () => {
                 {isIntrospecting ? (
                   <CompassAnimated size="small" speed="standard" />
                 ) : (
-                  "Connect"
+                  'Connect'
                 )}
               </button>
             </div>
@@ -258,11 +249,11 @@ export const Connect = () => {
         {showNewSession && introspectionErrors.length > 0 && (
           <div
             className={introspectionStatusClass({
-              status: introspectionErrors.length > 0 ? "error" : "info",
+              status: introspectionErrors.length > 0 ? 'error' : 'info',
             })}
           >
             {introspectionErrors.map((error, i) => (
-              <Pre key={i} code={error} status={"error"} />
+              <Pre key={i} code={error} status={'error'} />
             ))}
           </div>
         )}

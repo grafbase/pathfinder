@@ -1,1 +1,1 @@
-export { DetailsActions } from "./details-actions";
+export { DetailsActions } from './details-actions';

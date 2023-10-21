@@ -1,16 +1,13 @@
-import { Location } from "graphql";
+import { Location } from 'graphql';
 
-import type { MonacoIRange } from "@pathfinder-ide/stores";
+import type { MonacoIRange } from '@pathfinder-ide/stores';
 
 export const getRemoveRangeForFieldFromLocation = ({
   location,
   mode,
 }: {
   location: Location;
-  mode:
-    | "ALL_SELECTIONS_ON_FIELD"
-    | "SINGLE_CHILD_FIELD"
-    | "FIELD_WITH_SELECTIONS";
+  mode: 'ALL_SELECTIONS_ON_FIELD' | 'SINGLE_CHILD_FIELD' | 'FIELD_WITH_SELECTIONS';
 }): MonacoIRange => {
   let range: MonacoIRange = {
     startLineNumber: 0,
@@ -19,7 +16,7 @@ export const getRemoveRangeForFieldFromLocation = ({
     endColumn: 0,
   };
 
-  if (mode === "ALL_SELECTIONS_ON_FIELD") {
+  if (mode === 'ALL_SELECTIONS_ON_FIELD') {
     range = {
       startLineNumber: location.startToken.prev?.line as number,
       startColumn: (location.startToken.prev?.column as number) - 1,
@@ -28,7 +25,7 @@ export const getRemoveRangeForFieldFromLocation = ({
     };
   }
 
-  if (mode === "SINGLE_CHILD_FIELD") {
+  if (mode === 'SINGLE_CHILD_FIELD') {
     range = {
       startLineNumber: location.endToken.line,
       startColumn: 0,
@@ -37,7 +34,7 @@ export const getRemoveRangeForFieldFromLocation = ({
     };
   }
 
-  if (mode === "FIELD_WITH_SELECTIONS") {
+  if (mode === 'FIELD_WITH_SELECTIONS') {
     range = {
       startLineNumber: location.startToken.line,
       startColumn: 0,

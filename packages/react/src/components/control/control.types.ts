@@ -1,4 +1,4 @@
-type ControlTypes = "INPUT" | "SELECT";
+type ControlTypes = 'INPUT' | 'SELECT';
 
 export type ControlData = {
   name: string;
@@ -17,7 +17,7 @@ export type BaseControlProps = {
 };
 
 export type InputProps = BaseControlProps & {
-  controlType: "INPUT";
+  controlType: 'INPUT';
   displayLabel?: boolean;
   options?: never;
 };
@@ -25,7 +25,7 @@ export type InputProps = BaseControlProps & {
 type SelectOptions = { name: string; value: string };
 
 export type SelectProps = BaseControlProps & {
-  controlType: "SELECT";
+  controlType: 'SELECT';
   options: Array<SelectOptions>;
 };
 

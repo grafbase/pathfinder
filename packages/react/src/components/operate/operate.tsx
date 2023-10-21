@@ -1,7 +1,4 @@
-import {
-  DOCUMENT_EDITOR_ID,
-  DOCUMENT_MODEL_NAME,
-} from "@pathfinder-ide/shared";
+import { DOCUMENT_EDITOR_ID, DOCUMENT_MODEL_NAME } from '@pathfinder-ide/shared';
 
 import {
   runExecuteOperation,
@@ -9,23 +6,18 @@ import {
   updateActiveEditorTab,
   useGraphQLDocumentStore,
   useSessionStore,
-} from "@pathfinder-ide/stores";
+} from '@pathfinder-ide/stores';
 
-import { ActionExecute } from "../action-execute";
-import { ActionPrettier } from "../action-prettier";
-import { ActionsBar } from "../actions-bar";
-import { DocumentNotification } from "../document-notification";
-import { Editor } from "../editor";
+import { ActionExecute } from '../action-execute';
+import { ActionPrettier } from '../action-prettier';
+import { ActionsBar } from '../actions-bar';
+import { DocumentNotification } from '../document-notification';
+import { Editor } from '../editor';
 
-import {
-  documentEditorWrapClass,
-  operateClass,
-  separatorClass,
-} from "./operate.css";
+import { documentEditorWrapClass, operateClass, separatorClass } from './operate.css';
 
 export const Operate = () => {
-  const documentNotifications =
-    useGraphQLDocumentStore.use.documentNotifications();
+  const documentNotifications = useGraphQLDocumentStore.use.documentNotifications();
 
   const activeTab = useSessionStore.use.activeTab();
 
@@ -55,7 +47,7 @@ export const Operate = () => {
           initialCursorPosition={activeTab.cursorPosition || undefined}
           modelDetails={{
             fileName: DOCUMENT_MODEL_NAME,
-            language: "graphql",
+            language: 'graphql',
           }}
           onDidChangeCursorPositionCallback={({ position }) => {
             setDocumentState();

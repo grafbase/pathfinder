@@ -1,23 +1,23 @@
-import { HandleChangeSignature } from "../control";
+import { HandleChangeSignature } from '../control';
 import {
   switchClass,
   switchInputClass,
   switchLabelClass,
   switchLabelSpanClass,
-} from "./switch.css";
+} from './switch.css';
 
 export const Switch = ({
   handleChange,
   isChecked,
   isDisabled = false,
   name,
-  size = "SMALL",
+  size = 'SMALL',
 }: {
   handleChange: HandleChangeSignature;
   isChecked: boolean;
   isDisabled?: boolean;
   name: string;
-  size: "SMALL" | "MEDIUM" | "LARGE";
+  size: 'SMALL' | 'MEDIUM' | 'LARGE';
 }) => {
   return (
     <div
@@ -34,10 +34,7 @@ export const Switch = ({
         onChange={() => handleChange({ name, value: !isChecked })}
         type="checkbox"
       />
-      <label
-        className={switchLabelClass({ isChecked, isDisabled, size })}
-        htmlFor={name}
-      >
+      <label className={switchLabelClass({ isChecked, isDisabled, size })} htmlFor={name}>
         <span
           className={switchLabelSpanClass({
             isChecked,

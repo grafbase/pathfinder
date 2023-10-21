@@ -1,1 +1,1 @@
-export { DefaultValue } from "./default-value";
+export { DefaultValue } from './default-value';

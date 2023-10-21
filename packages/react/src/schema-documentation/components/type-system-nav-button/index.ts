@@ -1,1 +1,1 @@
-export { TypeSystemNavButton } from "./type-system-nav-button";
+export { TypeSystemNavButton } from './type-system-nav-button';

@@ -1,1 +1,1 @@
-export { ScoutTools } from "./scout-tools";
+export { ScoutTools } from './scout-tools';

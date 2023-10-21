@@ -1,8 +1,8 @@
-import { KBD } from "./kbd";
+import { KBD } from './kbd';
 
 export const Options = () => {
   return (
-    <div style={{ display: "flex", gap: "24px" }}>
+    <div style={{ display: 'flex', gap: '24px' }}>
       <div>
         <span>COMMAND_CONTROL</span>
         <KBD shortcut="COMMAND_CONTROL" />

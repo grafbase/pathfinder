@@ -2,7 +2,7 @@ import type {
   AncestorArgument,
   AncestorTypes,
   AncestorsArray,
-} from "../compass-store.types";
+} from '../compass-store.types';
 
 export const getPreviousAncestor = ({
   ancestors,

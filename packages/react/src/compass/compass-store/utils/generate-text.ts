@@ -1,12 +1,12 @@
-import { INDENT_SIZE } from "../constants";
+import { INDENT_SIZE } from '../constants';
 
-import { getAncestorText } from "./get-ancestor-text";
+import { getAncestorText } from './get-ancestor-text';
 
 import type {
   AncestorField,
   AncestorInlineFragment,
   AncestorsArray,
-} from "../compass-store.types";
+} from '../compass-store.types';
 
 export const generateText = ({
   allUnselectedAncestors,
@@ -26,8 +26,8 @@ export const generateText = ({
   const shouldAddWrappingBrackets =
     !!nearestSelectedAncestor && !nearestSelectedAncestorHasSelections;
 
-  let fieldText = "";
-  let bracketText = "";
+  let fieldText = '';
+  let bracketText = '';
 
   if (shouldAddWrappingBrackets) {
     fieldText += ` {\n`;
@@ -35,34 +35,31 @@ export const generateText = ({
 
   // a variable to hold the count of the number of spaces to indent each of our fields
   // we increment this for every field
-  let fieldIndentCount =
-    (ancestors.length - allUnselectedAncestorsLength) * INDENT_SIZE;
+  let fieldIndentCount = (ancestors.length - allUnselectedAncestorsLength) * INDENT_SIZE;
 
   // a variable to hold the count of the number of spaces to indent the closing brackets on each of our fields (where necessary)
   // we decrement this for every field/bracket
   let bracketIndentCount = (ancestors.length - 2) * INDENT_SIZE;
 
   allUnselectedAncestors.forEach((a, index) => {
-    const fieldIndent = " ".repeat(fieldIndentCount);
+    const fieldIndent = ' '.repeat(fieldIndentCount);
     fieldText += fieldIndent;
     fieldText += getAncestorText({ ancestor: a });
     // if this is our target selection, don't include an extra space
     if (allUnselectedAncestorsLength - index !== 1) {
       // otherwise, this space is critical
-      fieldText += " ";
+      fieldText += ' ';
     }
-    fieldText += `${index < allUnselectedAncestorsLength - 1 ? "{\n" : "\n"}`;
+    fieldText += `${index < allUnselectedAncestorsLength - 1 ? '{\n' : '\n'}`;
     fieldIndentCount += 2;
 
-    const bracketIndent = `${" ".repeat(bracketIndentCount)}}\n`;
-    bracketText += `${
-      index < allUnselectedAncestorsLength - 1 ? bracketIndent : ""
-    }`;
+    const bracketIndent = `${' '.repeat(bracketIndentCount)}}\n`;
+    bracketText += `${index < allUnselectedAncestorsLength - 1 ? bracketIndent : ''}`;
     bracketIndentCount -= 2;
   });
 
   if (shouldAddWrappingBrackets) {
-    bracketText += `${" ".repeat(bracketIndentCount + 2)}}`;
+    bracketText += `${' '.repeat(bracketIndentCount + 2)}}`;
   }
   const text = fieldText + bracketText;
 

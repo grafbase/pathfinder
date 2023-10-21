@@ -1,4 +1,4 @@
-import { contract, shared, style } from "@pathfinder-ide/style";
+import { contract, shared, style } from '@pathfinder-ide/style';
 
 export const sessionsClass = style({});
 
@@ -7,7 +7,7 @@ export const sessionSelectButtonClass = style([
   {
     padding: 12,
     marginBottom: 12,
-    width: "100%",
+    width: '100%',
     fontFamily: contract.fonts.mono,
     fontSize: 11,
     backgroundColor: contract.color.neutral[11],
@@ -17,7 +17,7 @@ export const sessionSelectButtonClass = style([
     transition: `all .1s ${shared.transitions.authenticMotion}`,
 
     selectors: {
-      "&:hover": {
+      '&:hover': {
         backgroundColor: contract.color.neutral[12],
         color: contract.color.neutral[1],
       },

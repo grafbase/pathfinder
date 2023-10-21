@@ -1,14 +1,14 @@
-import { contract, style } from "@pathfinder-ide/style";
+import { contract, style } from '@pathfinder-ide/style';
 
 export const argumentClass = style({
-  display: "flex",
-  position: "relative",
+  display: 'flex',
+  position: 'relative',
   paddingLeft: 16,
 
   selectors: {
-    "&::before": {
-      content: "",
-      position: "absolute",
+    '&::before': {
+      content: '',
+      position: 'absolute',
       top: 10,
       left: 2,
       height: 1,

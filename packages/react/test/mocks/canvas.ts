@@ -1,1 +1,1 @@
-import "vitest-canvas-mock";
+import 'vitest-canvas-mock';

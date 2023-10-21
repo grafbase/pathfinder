@@ -1,5 +1,5 @@
-import { CompassState } from "./compass-store.types";
+import { CompassState } from './compass-store.types';
 
 export const compassState: CompassState = {
-  argumentHandlingMode: "INLINE",
+  argumentHandlingMode: 'INLINE',
 };

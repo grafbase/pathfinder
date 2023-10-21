@@ -1,16 +1,16 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import { History } from "../history";
-import { HTTPHeaderControl } from "../http-header-control";
-import { useResizerStore } from "../resizer";
-import { Tabs } from "../tabs";
-import { Variables } from "../variables";
+import { History } from '../history';
+import { HTTPHeaderControl } from '../http-header-control';
+import { useResizerStore } from '../resizer';
+import { Tabs } from '../tabs';
+import { Variables } from '../variables';
 
-import { scoutToolsClass } from "./scout-tools.css";
-import { setResizerState } from "../resizer/resizer-store";
+import { scoutToolsClass } from './scout-tools.css';
+import { setResizerState } from '../resizer/resizer-store';
 
 const targetGridTemplate = `minmax(0, 0.5fr) 0px minmax(0, 0.5fr)`;
-const scoutResizer = "scout_resizer";
+const scoutResizer = 'scout_resizer';
 
 export const ScoutTools = () => {
   const [selectedTabIndex, setSelectedTabIndex] = useState<number>(0);
@@ -28,17 +28,17 @@ export const ScoutTools = () => {
             {
               buttonCopy: () => <span>Variables</span>,
               content: () => <Variables />,
-              name: "Variables",
+              name: 'Variables',
             },
             {
               buttonCopy: () => <span>Headers</span>,
               content: () => <HTTPHeaderControl />,
-              name: "Headers",
+              name: 'Headers',
             },
             {
               buttonCopy: () => <span>History</span>,
               content: () => <History />,
-              name: "History",
+              name: 'History',
             },
           ],
         ].map((tool) => ({

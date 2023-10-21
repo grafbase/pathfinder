@@ -1,4 +1,4 @@
-import { recipe, shared, style } from "@pathfinder-ide/style";
+import { recipe, shared, style } from '@pathfinder-ide/style';
 
 export const detailsActionsClass = recipe({
   base: {

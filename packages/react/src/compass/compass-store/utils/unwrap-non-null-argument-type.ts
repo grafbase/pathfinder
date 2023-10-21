@@ -1,9 +1,9 @@
-import { GraphQLArgument, GraphQLInputType, isNonNullType } from "graphql";
+import { GraphQLArgument, GraphQLInputType, isNonNullType } from 'graphql';
 
 export const unwrapNonNullArgumentType = ({
   argumentType,
 }: {
-  argumentType: GraphQLArgument["type"];
+  argumentType: GraphQLArgument['type'];
 }): GraphQLInputType => {
   if (isNonNullType(argumentType)) {
     return argumentType.ofType;

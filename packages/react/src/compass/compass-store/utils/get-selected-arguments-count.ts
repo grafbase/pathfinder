@@ -1,4 +1,4 @@
-import type { AncestorField } from "../compass-store.types";
+import type { AncestorField } from '../compass-store.types';
 
 export const getSelectedArgumentsCount = ({
   previousAncestor,
@@ -7,7 +7,7 @@ export const getSelectedArgumentsCount = ({
 }): number => {
   if (
     previousAncestor.selection &&
-    "arguments" in previousAncestor.selection &&
+    'arguments' in previousAncestor.selection &&
     previousAncestor.selection.arguments
   ) {
     return previousAncestor.selection.arguments.length;

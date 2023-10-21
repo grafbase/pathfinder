@@ -1,10 +1,4 @@
-import {
-  contract,
-  keyframes,
-  recipe,
-  shared,
-  style,
-} from "@pathfinder-ide/style";
+import { contract, keyframes, recipe, shared, style } from '@pathfinder-ide/style';
 
 const spinner = keyframes({
   to: {
@@ -14,8 +8,8 @@ const spinner = keyframes({
 
 export const spinnerInnerClass = recipe({
   base: {
-    display: "block",
-    borderRadius: "50%",
+    display: 'block',
+    borderRadius: '50%',
     animation: `${spinner} 0.75s ${shared.transitions.authenticMotion} infinite`,
   },
   variants: {
@@ -43,10 +37,10 @@ export const spinnerInnerClass = recipe({
 });
 
 export const spinnerOuterClass = style({
-  width: "100%",
-  height: "100%",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
+  width: '100%',
+  height: '100%',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
   padding: 0,
 });

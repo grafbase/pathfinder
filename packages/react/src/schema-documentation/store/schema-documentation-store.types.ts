@@ -1,15 +1,11 @@
-import { StoreApi } from "zustand";
+import { StoreApi } from 'zustand';
 
-import { TertiaryPaneType, TopLevelPane } from "../types";
+import { TertiaryPaneType, TopLevelPane } from '../types';
 
 type TertiaryPaneStackItem = { hash: string; pane: TertiaryPaneType };
 
 export type SchemaDocumentationStoreActions = {
-  setActivePrimaryPane: ({
-    destinationPane,
-  }: {
-    destinationPane: TopLevelPane;
-  }) => void;
+  setActivePrimaryPane: ({ destinationPane }: { destinationPane: TopLevelPane }) => void;
   clearTertiaryPaneStack: () => void;
   navigateTertiaryPaneStack: ({
     destinationPaneIndex,
@@ -33,7 +29,7 @@ export type SchemaDocumentationStoreState = {
 
 export type GetSchemaDocumentationStore = StoreApi<
   SchemaDocumentationStoreState & SchemaDocumentationStoreActions
->["getState"];
+>['getState'];
 export type SetSchemaDocumentationStore = StoreApi<
   SchemaDocumentationStoreState & SchemaDocumentationStoreActions
->["setState"];
+>['setState'];

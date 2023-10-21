@@ -1,9 +1,5 @@
-import {
-  selectClass,
-  selectDecorationClass,
-  selectWrapClass,
-} from "./control.css";
-import { SelectProps } from "./control.types";
+import { selectClass, selectDecorationClass, selectWrapClass } from './control.css';
+import { SelectProps } from './control.types';
 
 export const Select = ({
   handleChange,

@@ -1,4 +1,4 @@
-import { contract, recipe, style } from "@pathfinder-ide/style";
+import { contract, recipe, style } from '@pathfinder-ide/style';
 
 export const STATUS_VARIANTS = {
   INFO: {
@@ -23,29 +23,29 @@ export const STATUS_VARIANTS = {
 
 export const historyListItemClass = recipe({
   base: {
-    all: "unset",
-    boxSizing: "border-box",
-    display: "grid",
-    gridTemplateColumns: "12px max(120px) 1fr 1fr 32px",
+    all: 'unset',
+    boxSizing: 'border-box',
+    display: 'grid',
+    gridTemplateColumns: '12px max(120px) 1fr 1fr 32px',
     gridTemplateRows: 36,
     gap: 8,
-    alignItems: "center",
-    justifyContent: "space-between",
-    width: "100%",
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: '100%',
     paddingLeft: contract.space[16],
     fontSize: 12,
     fontWeight: 400,
     color: contract.color.neutral[10],
-    cursor: "pointer",
+    cursor: 'pointer',
 
     selectors: {
-      "&:last-of-type": {
-        borderBottom: "none",
+      '&:last-of-type': {
+        borderBottom: 'none',
       },
-      "&:nth-of-type(odd)": {
+      '&:nth-of-type(odd)': {
         backgroundColor: contract.color.neutralAlpha[2],
       },
-      "&:hover": {
+      '&:hover': {
         color: contract.color.neutral[12],
       },
     },
@@ -57,15 +57,15 @@ export const historyListItemClass = recipe({
         backgroundColor: contract.color.neutral[3],
         color: contract.color.neutral[12],
         fontWeight: 500,
-        position: "relative",
+        position: 'relative',
 
         selectors: {
-          "&:after": {
-            content: "",
-            position: "absolute",
+          '&:after': {
+            content: '',
+            position: 'absolute',
             right: 1,
             top: 0,
-            height: "100%",
+            height: '100%',
             width: 2,
             backgroundColor: contract.color.green[10],
           },
@@ -84,9 +84,9 @@ export const historyListItemClass = recipe({
 
 export const historyListItemSectionClass = recipe({
   base: {
-    display: "flex",
-    alignItems: "center",
-    justifyItems: "center",
+    display: 'flex',
+    alignItems: 'center',
+    justifyItems: 'center',
   },
 
   variants: {
@@ -105,26 +105,26 @@ export const historyListItemSectionClass = recipe({
 });
 
 export const historyListItemSectionSpanClass = style({
-  display: "block",
-  whiteSpace: "nowrap",
+  display: 'block',
+  whiteSpace: 'nowrap',
   fontFamily: contract.fonts.mono,
   fontSize: 10,
 });
 
 export const historyListItemStatusIndicatorClass = style({
-  height: "100%",
+  height: '100%',
   width: 6,
-  display: "flex",
-  alignItems: "center",
-  justifyItems: "center",
+  display: 'flex',
+  alignItems: 'center',
+  justifyItems: 'center',
 });
 
 export const historyListItemStatusIndicatorSpanClass = recipe({
   base: {
-    display: "block",
+    display: 'block',
     height: 6,
     width: 6,
-    borderRadius: "50%",
+    borderRadius: '50%',
   },
 
   variants: {

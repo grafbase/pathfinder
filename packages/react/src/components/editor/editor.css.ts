@@ -1,28 +1,28 @@
-import { INACTIVE_DEFINITION_CLASSNAME } from "@pathfinder-ide/shared";
+import { INACTIVE_DEFINITION_CLASSNAME } from '@pathfinder-ide/shared';
 
-import { recipe, globalStyle } from "@pathfinder-ide/style";
+import { recipe, globalStyle } from '@pathfinder-ide/style';
 
 export const editorClass = recipe({
   base: {
-    height: "100%",
-    width: "100%",
-    display: "flex",
+    height: '100%',
+    width: '100%',
+    display: 'flex',
     flex: 1,
     minWidth: 0,
 
     // a little hack to prevent the potential flash of alternate editor theme colors on initialization
-    transition: "opacity .15s ease",
+    transition: 'opacity .15s ease',
   },
 
   variants: {
     isReady: {
       true: {
         opacity: 1,
-        visibility: "visible",
+        visibility: 'visible',
       },
       false: {
         opacity: 0,
-        visibility: "hidden",
+        visibility: 'hidden',
       },
     },
   },

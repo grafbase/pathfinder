@@ -1,8 +1,8 @@
-import type { ExecutionResponse } from "@pathfinder-ide/stores";
+import type { ExecutionResponse } from '@pathfinder-ide/stores';
 
-import { Pre } from "../../../components/pre";
+import { Pre } from '../../../components/pre';
 
-import { historyItemResponseClass } from "./history-item-response.css";
+import { historyItemResponseClass } from './history-item-response.css';
 
 export const HistoryItemResponse = ({
   historyItem,
@@ -11,10 +11,7 @@ export const HistoryItemResponse = ({
 }) => {
   return (
     <div className={historyItemResponseClass}>
-      <Pre
-        code={JSON.stringify(historyItem?.response.data, null, 2)}
-        status={"info"}
-      />
+      <Pre code={JSON.stringify(historyItem?.response.data, null, 2)} status={'info'} />
     </div>
   );
 };

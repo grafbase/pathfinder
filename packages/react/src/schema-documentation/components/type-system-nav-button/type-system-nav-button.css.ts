@@ -1,14 +1,14 @@
-import { contract, recipe, shared } from "@pathfinder-ide/style";
+import { contract, recipe, shared } from '@pathfinder-ide/style';
 
 export const typeSystemNavButtonClass = recipe({
   base: [
     shared.resets.buttonReset,
     {
-      position: "relative",
-      display: "flex",
-      alignItems: "center",
+      position: 'relative',
+      display: 'flex',
+      alignItems: 'center',
       gap: 12,
-      width: "calc(100% + 48px)",
+      width: 'calc(100% + 48px)',
       marginLeft: -24,
       height: 40,
       paddingLeft: 24,
@@ -16,19 +16,19 @@ export const typeSystemNavButtonClass = recipe({
       color: contract.color.neutral[11],
 
       selectors: {
-        "&:hover": {
+        '&:hover': {
           color: contract.color.neutral[12],
           backgroundColor: contract.color.neutralAlpha[2],
         },
 
-        "&:after": {
-          content: "",
-          position: "absolute",
+        '&:after': {
+          content: '',
+          position: 'absolute',
           width: 2,
-          height: "100%",
+          height: '100%',
           top: 0,
           right: 0,
-          backgroundColor: "transparent",
+          backgroundColor: 'transparent',
         },
       },
     },
@@ -41,11 +41,11 @@ export const typeSystemNavButtonClass = recipe({
         color: contract.color.neutral[12],
 
         selectors: {
-          "&:hover": {
+          '&:hover': {
             backgroundColor: contract.color.neutralAlpha[3],
             color: contract.color.neutral[12],
           },
-          "&:after": {
+          '&:after': {
             backgroundColor: contract.color.green[10],
           },
         },

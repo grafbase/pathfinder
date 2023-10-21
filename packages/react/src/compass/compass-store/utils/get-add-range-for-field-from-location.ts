@@ -1,8 +1,8 @@
-import { type Location, TokenKind } from "graphql";
+import { type Location, TokenKind } from 'graphql';
 
-import type { MonacoIRange } from "@pathfinder-ide/stores";
+import type { MonacoIRange } from '@pathfinder-ide/stores';
 
-import { findNextTokenKindInLocation } from "./find-next-token-kind-in-location";
+import { findNextTokenKindInLocation } from './find-next-token-kind-in-location';
 
 export const getAddRangeForFieldFromLocation = ({
   hasSelections,
@@ -45,11 +45,9 @@ export const getAddRangeForFieldFromLocation = ({
 
       range = {
         startLineNumber: location.startToken.line,
-        startColumn:
-          location.startToken.column + location.startToken.value.length + 1,
+        startColumn: location.startToken.column + location.startToken.value.length + 1,
         endLineNumber: location.startToken.line,
-        endColumn:
-          location.startToken.column + location.startToken.value.length + 1,
+        endColumn: location.startToken.column + location.startToken.value.length + 1,
       };
     }
   }

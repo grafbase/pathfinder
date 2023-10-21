@@ -1,7 +1,7 @@
-import { controlClass, labelClass } from "./control.css";
-import { ControlProps } from "./control.types";
-import { Input } from "./input";
-import { Select } from "./select";
+import { controlClass, labelClass } from './control.css';
+import { ControlProps } from './control.types';
+import { Input } from './input';
+import { Select } from './select';
 
 export const Control = ({
   control,
@@ -20,7 +20,7 @@ export const Control = ({
         {labelCopy}
       </label>
 
-      {control.controlType === "SELECT" && (
+      {control.controlType === 'SELECT' && (
         <Select
           controlType={control.controlType}
           handleChange={control.handleChange}
@@ -31,7 +31,7 @@ export const Control = ({
           value={control.value}
         />
       )}
-      {control.controlType === "INPUT" && (
+      {control.controlType === 'INPUT' && (
         <Input
           controlType={control.controlType}
           handleChange={control.handleChange}

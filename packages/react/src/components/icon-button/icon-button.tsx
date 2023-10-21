@@ -1,7 +1,7 @@
-import { Icon } from "../icon";
-import type { IconNames } from "../icon";
-import { iconButtonClass } from "./icon-button.css";
-import { RecipeVariants } from "@pathfinder-ide/style";
+import { Icon } from '../icon';
+import type { IconNames } from '../icon';
+import { iconButtonClass } from './icon-button.css';
+import { RecipeVariants } from '@pathfinder-ide/style';
 
 type IconButtonVariants = RecipeVariants<typeof iconButtonClass>;
 
@@ -17,7 +17,7 @@ export const IconButton = ({
   isActive = false,
   isDisabled = false,
   onSurface = 1,
-  size = "small",
+  size = 'small',
   title,
 }: IconButtonProps) => {
   return (

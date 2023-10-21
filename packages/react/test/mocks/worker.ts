@@ -1,7 +1,7 @@
 window.URL.createObjectURL = function () {
-  return "";
+  return '';
 };
-if (typeof Worker === "undefined") {
+if (typeof Worker === 'undefined') {
   global.Worker = class {
     addEventListener() {}
 

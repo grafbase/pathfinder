@@ -1,1 +1,1 @@
-export { Gear } from "./gear";
+export { Gear } from './gear';

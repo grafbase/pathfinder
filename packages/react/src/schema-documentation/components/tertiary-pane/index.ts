@@ -1,1 +1,1 @@
-export { TertiaryPane } from "./tertiary-pane";
+export { TertiaryPane } from './tertiary-pane';

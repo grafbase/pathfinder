@@ -1,1 +1,1 @@
-export { Arguments } from "./arguments";
+export { Arguments } from './arguments';

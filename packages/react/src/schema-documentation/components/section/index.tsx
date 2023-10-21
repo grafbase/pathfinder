@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react';
 import type {
   GraphQLArgument,
   GraphQLEnumValue,
@@ -6,21 +6,15 @@ import type {
   GraphQLInputFieldMap,
   GraphQLInterfaceType,
   GraphQLObjectType,
-} from "graphql";
+} from 'graphql';
 
-import { ArgumentsList } from "../arguments-list";
-import { Markdown } from "../markdown";
-import { SummaryField, SummaryInputField, SummaryType } from "../summary";
+import { ArgumentsList } from '../arguments-list';
+import { Markdown } from '../markdown';
+import { SummaryField, SummaryInputField, SummaryType } from '../summary';
 
-import { enumValueClass, sectionClass, sectionLeadClass } from "./section.css";
+import { enumValueClass, sectionClass, sectionLeadClass } from './section.css';
 
-export const Section = ({
-  children,
-  lead,
-}: {
-  children: ReactNode;
-  lead?: string;
-}) => {
+export const Section = ({ children, lead }: { children: ReactNode; lead?: string }) => {
   return (
     <section className={sectionClass}>
       {lead && <span className={sectionLeadClass}>{lead}</span>}
@@ -29,11 +23,7 @@ export const Section = ({
   );
 };
 
-export const SectionArguments = ({
-  args,
-}: {
-  args: readonly GraphQLArgument[];
-}) => {
+export const SectionArguments = ({ args }: { args: readonly GraphQLArgument[] }) => {
   return (
     <Section lead="Arguments">
       {args.length > 0 ? (
@@ -44,7 +34,7 @@ export const SectionArguments = ({
           showDescription={true}
         />
       ) : (
-        <Markdown content={"This field has no arguments"} />
+        <Markdown content={'This field has no arguments'} />
       )}
     </Section>
   );
@@ -52,14 +42,14 @@ export const SectionArguments = ({
 
 export const SectionDescription = ({
   description,
-  lead = "Description",
+  lead = 'Description',
 }: {
   description: string | null | undefined;
   lead?: string;
 }) => {
   return (
     <Section lead={lead}>
-      <Markdown content={description || "No description provided"} />
+      <Markdown content={description || 'No description provided'} />
     </Section>
   );
 };
@@ -108,11 +98,7 @@ export const SectionFields = ({
   );
 };
 
-export const SectionInputFields = ({
-  fields,
-}: {
-  fields: GraphQLInputFieldMap;
-}) => {
+export const SectionInputFields = ({ fields }: { fields: GraphQLInputFieldMap }) => {
   return (
     <>
       {Object.keys(fields).length > 0 ? (

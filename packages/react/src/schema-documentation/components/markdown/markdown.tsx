@@ -1,6 +1,6 @@
-import ReactMarkdown from "react-markdown";
+import ReactMarkdown from 'react-markdown';
 
-import { markdownClass } from "./markdown.css";
+import { markdownClass } from './markdown.css';
 
 export const Markdown = ({ content }: { content: string }) => {
   return (

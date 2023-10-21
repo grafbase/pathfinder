@@ -1,10 +1,10 @@
-import { contract, style } from "@pathfinder-ide/style";
+import { contract, style } from '@pathfinder-ide/style';
 
 export const kbdClass = style({
-  boxSizing: "border-box",
-  display: "inline-flex",
-  alignItems: "center",
-  justifyContent: "center",
+  boxSizing: 'border-box',
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
   height: contract.space[20],
   minWidth: contract.space[20],
   padding: `0 ${contract.space[4]}`,

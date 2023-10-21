@@ -1,10 +1,7 @@
-import {
-  deleteFromHistory,
-  type ExecutionResponse,
-} from "@pathfinder-ide/stores";
+import { deleteFromHistory, type ExecutionResponse } from '@pathfinder-ide/stores';
 
-import { Dropdown, Pill } from "../../../components";
-import { PillProps } from "../../../components/pill";
+import { Dropdown, Pill } from '../../../components';
+import { PillProps } from '../../../components/pill';
 
 import {
   historyListItemClass,
@@ -13,27 +10,27 @@ import {
   historyListItemStatusIndicatorClass,
   historyListItemStatusIndicatorSpanClass,
   STATUS_VARIANTS,
-} from "./history-list-item.css";
+} from './history-list-item.css';
 
 const determineStatusClassName = ({
   status,
 }: {
-  status: Response["status"];
+  status: Response['status'];
 }): keyof typeof STATUS_VARIANTS => {
   const str = status.toString();
-  if (str.startsWith("1")) {
-    return "INFO";
+  if (str.startsWith('1')) {
+    return 'INFO';
   }
-  if (str.startsWith("2")) {
-    return "SUCCESS";
+  if (str.startsWith('2')) {
+    return 'SUCCESS';
   }
-  if (str.startsWith("3")) {
-    return "REDIRECT";
+  if (str.startsWith('3')) {
+    return 'REDIRECT';
   }
-  if (str.startsWith("4")) {
-    return "CLIENT_ERROR";
+  if (str.startsWith('4')) {
+    return 'CLIENT_ERROR';
   }
-  return "SERVER_ERROR";
+  return 'SERVER_ERROR';
 };
 
 const operationTypePill = ({
@@ -41,21 +38,21 @@ const operationTypePill = ({
 }: {
   operationString: string;
 }): PillProps => {
-  if (operationString.startsWith("m")) {
+  if (operationString.startsWith('m')) {
     return {
-      copy: "M",
-      variant: { color: "purple" },
+      copy: 'M',
+      variant: { color: 'purple' },
     };
   }
-  if (operationString.startsWith("s")) {
+  if (operationString.startsWith('s')) {
     return {
-      copy: "S",
-      variant: { color: "orange" },
+      copy: 'S',
+      variant: { color: 'orange' },
     };
   }
   return {
-    copy: "Q",
-    variant: { color: "blue" },
+    copy: 'Q',
+    variant: { color: 'blue' },
   };
 };
 
@@ -79,8 +76,8 @@ export const HistoryListItem = ({
         <span
           className={historyListItemStatusIndicatorSpanClass({
             status:
-              "errors" in item.response.data
-                ? "GRAPHQL_ERROR"
+              'errors' in item.response.data
+                ? 'GRAPHQL_ERROR'
                 : determineStatusClassName({
                     status: item.response.status,
                   }),
@@ -94,12 +91,12 @@ export const HistoryListItem = ({
           })}
         />
         {item.request.graphQLOperationParams.operationName || (
-          <Pill copy={"Anonymous operation"} variant={{ color: "neutral" }} />
+          <Pill copy={'Anonymous operation'} variant={{ color: 'neutral' }} />
         )}
       </div>
       <div className={historyListItemSectionClass({ gap: 8 })}>
-        {"errors" in item.response.data && (
-          <Pill copy={"Graphql Error"} variant={{ color: "red" }} />
+        {'errors' in item.response.data && (
+          <Pill copy={'Graphql Error'} variant={{ color: 'red' }} />
         )}
       </div>
       <div className={historyListItemSectionClass({ gap: 24 })}>
@@ -111,9 +108,7 @@ export const HistoryListItem = ({
         </span>
 
         <span className={historyListItemSectionSpanClass}>
-          {`${
-            new TextEncoder().encode(JSON.stringify(item.response.data)).length
-          }B`}
+          {`${new TextEncoder().encode(JSON.stringify(item.response.data)).length}B`}
         </span>
       </div>
       <div className={historyListItemSectionClass({ gap: 12 })}>
@@ -123,20 +118,20 @@ export const HistoryListItem = ({
               action: () => {
                 deleteFromHistory({ timestamp: item.timestamp });
               },
-              copy: "Delete item from history",
-              iconName: "Delete",
+              copy: 'Delete item from history',
+              iconName: 'Delete',
               onSurface: 3,
-              size: "small",
-              title: "Delete item from history",
-              width: "100%",
+              size: 'small',
+              title: 'Delete item from history',
+              width: '100%',
               withBorder: false,
             },
           ]}
           iconButtonProps={{
-            iconName: "Ellipsis",
+            iconName: 'Ellipsis',
             onSurface: 2,
-            size: "small",
-            title: "Execution item options",
+            size: 'small',
+            title: 'Execution item options',
           }}
         />
       </div>

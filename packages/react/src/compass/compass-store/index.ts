@@ -1,6 +1,6 @@
-export { toggle } from "./actions";
+export { toggle } from './actions';
 
-export { compassStore } from "./compass-store";
+export { compassStore } from './compass-store';
 
 export type {
   AncestorArgument,
@@ -9,10 +9,10 @@ export type {
   AncestorRoot,
   AncestorTypes,
   AncestorsArray,
-} from "./compass-store.types";
+} from './compass-store.types';
 
 export {
   findSelection,
   generateSelectionBreadcrumbsFromAncestors,
   insertNewOperation,
-} from "./utils";
+} from './utils';

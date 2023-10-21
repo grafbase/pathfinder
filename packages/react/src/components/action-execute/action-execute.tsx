@@ -2,14 +2,13 @@ import {
   executeOperation,
   useGraphQLDocumentStore,
   useSchemaStore,
-} from "@pathfinder-ide/stores";
+} from '@pathfinder-ide/stores';
 
-import { Button } from "../button";
+import { Button } from '../button';
 
 export const ActionExecute = () => {
   const activeDocumentEntry = useGraphQLDocumentStore.use.activeDocumentEntry();
-  const documentNotifications =
-    useGraphQLDocumentStore.use.documentNotifications();
+  const documentNotifications = useGraphQLDocumentStore.use.documentNotifications();
 
   const isExecuting = useSchemaStore.use.isExecuting();
 
@@ -21,9 +20,7 @@ export const ActionExecute = () => {
       action={() => {
         executeOperation();
       }}
-      copy={
-        (activeDocumentEntry && activeDocumentEntry.node.name?.value) || "Run"
-      }
+      copy={(activeDocumentEntry && activeDocumentEntry.node.name?.value) || 'Run'}
       iconName="Caret"
       isDisabled={shouldBeDisabled}
       onSurface={1}

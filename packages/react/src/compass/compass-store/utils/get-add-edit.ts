@@ -1,8 +1,8 @@
-import { type Location, TokenKind } from "graphql";
+import { type Location, TokenKind } from 'graphql';
 
-import type { MonacoIRange } from "@pathfinder-ide/stores";
+import type { MonacoIRange } from '@pathfinder-ide/stores';
 
-import { findNextTokenKindInLocation } from "./find-next-token-kind-in-location";
+import { findNextTokenKindInLocation } from './find-next-token-kind-in-location';
 
 export const getAddEdit = ({
   incomingText,
@@ -11,7 +11,7 @@ export const getAddEdit = ({
   targetLocation,
 }: {
   incomingText: string;
-  mode: "ARGUMENT" | "VARIABLE_DEFINITION";
+  mode: 'ARGUMENT' | 'VARIABLE_DEFINITION';
   siblingCount: number;
   targetLocation: Location;
 }): { range: MonacoIRange; text: string } => {
@@ -30,9 +30,7 @@ export const getAddEdit = ({
       tokenKind: TokenKind.PAREN_R,
     });
 
-    if (
-      closeVariableParenthesis?.line !== closeVariableParenthesis?.prev?.line
-    ) {
+    if (closeVariableParenthesis?.line !== closeVariableParenthesis?.prev?.line) {
       text = `  ${text}\n`;
     } else {
       text = `, ${text}`;
@@ -52,12 +50,12 @@ export const getAddEdit = ({
     let column = 0;
     let value = 0;
 
-    if (mode === "ARGUMENT") {
+    if (mode === 'ARGUMENT') {
       column = targetLocation.startToken.column;
       value = targetLocation.startToken.value.length;
     }
 
-    if (mode === "VARIABLE_DEFINITION") {
+    if (mode === 'VARIABLE_DEFINITION') {
       column = targetLocation.startToken.next?.column as number;
       value = targetLocation.startToken.next?.value.length as number;
     }

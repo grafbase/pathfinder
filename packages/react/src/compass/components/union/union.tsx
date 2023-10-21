@@ -4,14 +4,11 @@ import {
   InlineFragmentNode,
   Kind,
   SelectionNode,
-} from "graphql";
+} from 'graphql';
 
-import type {
-  AncestorInlineFragment,
-  AncestorsArray,
-} from "../../compass-store";
-import { Fields } from "../fields";
-import { ListItem } from "../list-item";
+import type { AncestorInlineFragment, AncestorsArray } from '../../compass-store';
+import { Fields } from '../fields';
+import { ListItem } from '../list-item';
 
 type UnionProps = {
   ancestors: AncestorsArray;
@@ -19,11 +16,7 @@ type UnionProps = {
   unionType: GraphQLUnionType;
 };
 
-export const Union = ({
-  ancestors,
-  parentSelections,
-  unionType,
-}: UnionProps) => {
+export const Union = ({ ancestors, parentSelections, unionType }: UnionProps) => {
   const unionMembers = unionType.getTypes();
 
   return (
@@ -59,7 +52,7 @@ const UnionMember = ({
   const newAncestors = [
     ...ancestors,
     {
-      type: "INLINE_FRAGMENT",
+      type: 'INLINE_FRAGMENT',
       onType: objectMember.name,
       selection: inlineFragmentNode || null,
     } as AncestorInlineFragment,
@@ -74,9 +67,7 @@ const UnionMember = ({
             ancestors={newAncestors}
             fields={objectMember.getFields()}
             parentSelections={
-              inlineFragmentNode
-                ? inlineFragmentNode.selectionSet.selections
-                : []
+              inlineFragmentNode ? inlineFragmentNode.selectionSet.selections : []
             }
           />
         ),

@@ -1,19 +1,19 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import { generateSelectionBreadcrumbsFromAncestors } from "../../compass-store";
+import { generateSelectionBreadcrumbsFromAncestors } from '../../compass-store';
 
-import { CollapseControl } from "../collapse-control";
-import { Details } from "../details";
-import { IndicatorLeaf } from "../indicator-leaf";
+import { CollapseControl } from '../collapse-control';
+import { Details } from '../details';
+import { IndicatorLeaf } from '../indicator-leaf';
 
 import {
   listItemChildFieldsClass,
   listItemClass,
   listItemContentClass,
   listItemLeadClass,
-} from "./list-item.css";
+} from './list-item.css';
 
-import type { ListItemProps } from "./list-item.types";
+import type { ListItemProps } from './list-item.types';
 
 export const ListItem = ({
   ancestors,
@@ -65,7 +65,7 @@ export const ListItem = ({
         >
           {isExpanded && (
             <>
-              {"deprecationReason" in type && type.deprecationReason && (
+              {'deprecationReason' in type && type.deprecationReason && (
                 <p>{type.deprecationReason}</p>
               )}
 

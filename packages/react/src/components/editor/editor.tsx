@@ -1,16 +1,16 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef } from 'react';
 
 import {
   createMonacoEditor,
   disposeMonacoEditor,
   setDocumentState,
   useMonacoEditorStore,
-} from "@pathfinder-ide/stores";
+} from '@pathfinder-ide/stores';
 
-import { editorClass } from "./editor.css";
-import type { EditorProps } from "./editor.types";
+import { editorClass } from './editor.css';
+import type { EditorProps } from './editor.types';
 
-import "./workers";
+import './workers';
 
 export const Editor = ({
   actions,

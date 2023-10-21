@@ -1,16 +1,13 @@
-import { Menu } from "@headlessui/react";
+import { Menu } from '@headlessui/react';
 
-import { Button, ButtonProps } from "../button";
-import { IconButton, IconButtonProps } from "../icon-button";
+import { Button, ButtonProps } from '../button';
+import { IconButton, IconButtonProps } from '../icon-button';
 
-import { menuClass, menuItemsClass, menuButtonWrapClass } from "./dropdown.css";
+import { menuClass, menuItemsClass, menuButtonWrapClass } from './dropdown.css';
 
 type DropdownProps = {
   buttons: Array<ButtonProps>;
-  iconButtonProps: Pick<
-    IconButtonProps,
-    "iconName" | "size" | "onSurface" | "title"
-  >;
+  iconButtonProps: Pick<IconButtonProps, 'iconName' | 'size' | 'onSurface' | 'title'>;
 };
 
 export const Dropdown = ({ buttons, iconButtonProps }: DropdownProps) => {
@@ -18,7 +15,7 @@ export const Dropdown = ({ buttons, iconButtonProps }: DropdownProps) => {
     <Menu>
       {({ open }) => (
         <div className={menuClass}>
-          <Menu.Button as={"div"} className={menuButtonWrapClass}>
+          <Menu.Button as={'div'} className={menuButtonWrapClass}>
             <IconButton
               iconName={iconButtonProps.iconName}
               isActive={open === true}
@@ -28,9 +25,7 @@ export const Dropdown = ({ buttons, iconButtonProps }: DropdownProps) => {
             />
           </Menu.Button>
 
-          <Menu.Items
-            className={menuItemsClass({ size: iconButtonProps.size })}
-          >
+          <Menu.Items className={menuItemsClass({ size: iconButtonProps.size })}>
             {buttons.map((button, index) => {
               return (
                 <Menu.Item key={index}>

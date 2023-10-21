@@ -1,24 +1,24 @@
-import { type FieldNode, type InlineFragmentNode, Location } from "graphql";
+import { type FieldNode, type InlineFragmentNode, Location } from 'graphql';
 
 import {
   MonacoIRange,
   getMonacoEditor,
   pushMonacoEditorEdit,
   useGraphQLDocumentStore,
-} from "@pathfinder-ide/stores";
-import { DOCUMENT_EDITOR_ID } from "@pathfinder-ide/shared";
+} from '@pathfinder-ide/stores';
+import { DOCUMENT_EDITOR_ID } from '@pathfinder-ide/shared';
 
 import type {
   AncestorField,
   AncestorTypes,
   AncestorsArray,
-} from "../compass-store.types";
+} from '../compass-store.types';
 
 import {
   getLocationFromAncestor,
   getRemoveRangeForFieldFromLocation,
   hasSiblingSelections as hasSiblingSelectionsFunc,
-} from "../utils";
+} from '../utils';
 
 export const removeTargetField = ({
   ancestors,
@@ -29,8 +29,7 @@ export const removeTargetField = ({
   previousAncestor: AncestorTypes;
   target: AncestorField;
 }) => {
-  const documentEntries =
-    useGraphQLDocumentStore.getState().documentEntries.length;
+  const documentEntries = useGraphQLDocumentStore.getState().documentEntries.length;
 
   const documentEditor = getMonacoEditor({ editorId: DOCUMENT_EDITOR_ID });
 
@@ -42,7 +41,7 @@ export const removeTargetField = ({
   const location = target.selection?.loc as Location;
 
   const hasSiblingSelections = hasSiblingSelectionsFunc({
-    mode: "REMOVE",
+    mode: 'REMOVE',
     previousAncestor,
   });
 
@@ -50,11 +49,10 @@ export const removeTargetField = ({
     ancestor: previousAncestor,
   });
 
-  const isTopLevelField = previousAncestor.type === "ROOT";
+  const isTopLevelField = previousAncestor.type === 'ROOT';
 
   const isNestedField =
-    previousAncestor.type === "FIELD" ||
-    previousAncestor.type === "INLINE_FRAGMENT";
+    previousAncestor.type === 'FIELD' || previousAncestor.type === 'INLINE_FRAGMENT';
 
   // begin isTopLevelField
   if (isTopLevelField) {
@@ -71,9 +69,7 @@ export const removeTargetField = ({
         // end
         // empty!
 
-        const range = documentEditor
-          ?.getModel()
-          ?.getFullModelRange() as MonacoIRange;
+        const range = documentEditor?.getModel()?.getFullModelRange() as MonacoIRange;
 
         return pushMonacoEditorEdit({
           edits: [
@@ -93,7 +89,7 @@ export const removeTargetField = ({
         // )
         const range = getRemoveRangeForFieldFromLocation({
           location: locationFromPreviousAncestor as Location,
-          mode: "FIELD_WITH_SELECTIONS",
+          mode: 'FIELD_WITH_SELECTIONS',
         });
 
         // start
@@ -126,7 +122,7 @@ export const removeTargetField = ({
     if (hasSiblingSelections) {
       const targetHasSelections =
         target.selection &&
-        "selectionSet" in target.selection &&
+        'selectionSet' in target.selection &&
         target.selection.selectionSet;
 
       if (targetHasSelections) {
@@ -149,7 +145,7 @@ export const removeTargetField = ({
         // if this field has existing selections, we use an expanded range
         const range = getRemoveRangeForFieldFromLocation({
           location,
-          mode: "FIELD_WITH_SELECTIONS",
+          mode: 'FIELD_WITH_SELECTIONS',
         });
 
         return pushMonacoEditorEdit({
@@ -181,7 +177,7 @@ export const removeTargetField = ({
         // if this field does not have selections, we just remove the field
         const range = getRemoveRangeForFieldFromLocation({
           location,
-          mode: "SINGLE_CHILD_FIELD",
+          mode: 'SINGLE_CHILD_FIELD',
         });
 
         return pushMonacoEditorEdit({
@@ -200,11 +196,11 @@ export const removeTargetField = ({
 
   if (isNestedField) {
     if (!hasSiblingSelections) {
-      if (previousAncestor.type === "INLINE_FRAGMENT") {
+      if (previousAncestor.type === 'INLINE_FRAGMENT') {
         const isSoleSelectionOnParentInlineFragment =
           previousAncestor.selection &&
-          (previousAncestor.selection as InlineFragmentNode).selectionSet
-            .selections.length === 1;
+          (previousAncestor.selection as InlineFragmentNode).selectionSet.selections
+            .length === 1;
 
         if (isSoleSelectionOnParentInlineFragment) {
           // the previous ancestor is an inline fragment and this field is the only selection
@@ -213,7 +209,7 @@ export const removeTargetField = ({
           // find the index of the parent inline fragment
           const nearestSelectedInlineFragmentIndex = [...ancestors]
             // .reverse()
-            .findIndex((a) => a.type === "INLINE_FRAGMENT");
+            .findIndex((a) => a.type === 'INLINE_FRAGMENT');
 
           // the parent (a field) of this field's parent (an inline fragment)
           const inlineFragmentParentField = ancestors[
@@ -222,10 +218,9 @@ export const removeTargetField = ({
 
           const parentInlineFragmentIsSoleSelectionOnParent =
             inlineFragmentParentField.selection &&
-            "selectionSet" in inlineFragmentParentField.selection &&
+            'selectionSet' in inlineFragmentParentField.selection &&
             inlineFragmentParentField.selection.selectionSet &&
-            inlineFragmentParentField.selection.selectionSet.selections
-              .length === 1;
+            inlineFragmentParentField.selection.selectionSet.selections.length === 1;
 
           if (parentInlineFragmentIsSoleSelectionOnParent) {
             // console.log(
@@ -250,7 +245,7 @@ export const removeTargetField = ({
             // this field's parent (an inline fragment) is the only selection
             const range = getRemoveRangeForFieldFromLocation({
               location: locationFromPreviousAncestor as Location,
-              mode: "ALL_SELECTIONS_ON_FIELD",
+              mode: 'ALL_SELECTIONS_ON_FIELD',
             });
 
             return pushMonacoEditorEdit({
@@ -294,7 +289,7 @@ export const removeTargetField = ({
             // this field's parent (an inline fragment) is not the only selection remaining on the inlineFragmentParentField
             const range = getRemoveRangeForFieldFromLocation({
               location: locationFromPreviousAncestor as Location,
-              mode: "FIELD_WITH_SELECTIONS",
+              mode: 'FIELD_WITH_SELECTIONS',
             });
 
             return pushMonacoEditorEdit({
@@ -325,7 +320,7 @@ export const removeTargetField = ({
         // this field is the only selection of it's parent and there are no inline fragments in it's ancestry
         const range = getRemoveRangeForFieldFromLocation({
           location,
-          mode: "ALL_SELECTIONS_ON_FIELD",
+          mode: 'ALL_SELECTIONS_ON_FIELD',
         });
 
         return pushMonacoEditorEdit({
@@ -337,9 +332,8 @@ export const removeTargetField = ({
     }
 
     if (hasSiblingSelections) {
-      const targetHasSelections = (
-        target.selection as FieldNode | InlineFragmentNode
-      ).selectionSet;
+      const targetHasSelections = (target.selection as FieldNode | InlineFragmentNode)
+        .selectionSet;
 
       if (targetHasSelections) {
         // console.log(
@@ -367,7 +361,7 @@ export const removeTargetField = ({
         // if this field has existing selections, we use an expanded range
         const range = getRemoveRangeForFieldFromLocation({
           location,
-          mode: "FIELD_WITH_SELECTIONS",
+          mode: 'FIELD_WITH_SELECTIONS',
         });
 
         return pushMonacoEditorEdit({
@@ -400,7 +394,7 @@ export const removeTargetField = ({
         // if this field does not have selections, we just remove the field
         const range = getRemoveRangeForFieldFromLocation({
           location,
-          mode: "SINGLE_CHILD_FIELD",
+          mode: 'SINGLE_CHILD_FIELD',
         });
 
         return pushMonacoEditorEdit({

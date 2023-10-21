@@ -1,4 +1,4 @@
-import { vi } from "vitest";
+import { vi } from 'vitest';
 
 global.ResizeObserver = vi.fn().mockImplementation(() => ({
   observe: vi.fn(),

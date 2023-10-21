@@ -1,5 +1,5 @@
-export { Argument } from "./argument";
+export { Argument } from './argument';
 
-export { QuickDocs } from "./quick-docs";
+export { QuickDocs } from './quick-docs';
 
-export { RootOperation } from "./root-operation";
+export { RootOperation } from './root-operation';

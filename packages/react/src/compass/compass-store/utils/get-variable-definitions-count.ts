@@ -1,10 +1,9 @@
-import { Kind } from "graphql";
+import { Kind } from 'graphql';
 
-import { graphQLDocumentStore } from "@pathfinder-ide/stores";
+import { graphQLDocumentStore } from '@pathfinder-ide/stores';
 
 export const getVariableDefinitionsCount = (): number => {
-  const activeDocumentEntry =
-    graphQLDocumentStore.getState().activeDocumentEntry;
+  const activeDocumentEntry = graphQLDocumentStore.getState().activeDocumentEntry;
 
   if (
     activeDocumentEntry?.node.kind === Kind.OPERATION_DEFINITION &&

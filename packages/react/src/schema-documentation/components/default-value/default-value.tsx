@@ -1,11 +1,6 @@
-import {
-  GraphQLArgument,
-  GraphQLInputField,
-  astFromValue,
-  print,
-} from "graphql";
+import { GraphQLArgument, GraphQLInputField, astFromValue, print } from 'graphql';
 
-import { defaultValueClass } from "./default-value.css";
+import { defaultValueClass } from './default-value.css';
 
 export const DefaultValue = ({
   inputFieldOrArgument,

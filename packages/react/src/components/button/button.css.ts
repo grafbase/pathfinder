@@ -1,12 +1,12 @@
-import { contract, recipe, shared } from "@pathfinder-ide/style";
+import { contract, recipe, shared } from '@pathfinder-ide/style';
 
 export const buttonClass = recipe({
   base: [
     shared.resets.buttonReset,
     {
-      userSelect: "none",
-      display: "flex",
-      alignItems: "center",
+      userSelect: 'none',
+      display: 'flex',
+      alignItems: 'center',
       gap: contract.space[2],
       borderRadius: contract.space[2],
       fontSize: 13,
@@ -15,7 +15,7 @@ export const buttonClass = recipe({
       color: contract.color.neutral[11],
 
       selectors: {
-        "&:hover": {
+        '&:hover': {
           color: contract.color.neutral[12],
         },
       },
@@ -25,7 +25,7 @@ export const buttonClass = recipe({
   variants: {
     isDisabled: {
       true: {
-        cursor: "not-allowed",
+        cursor: 'not-allowed',
         opacity: 0.35,
         backgroundColor: contract.color.neutral[3],
         border: `1px solid ${contract.color.neutral[3]}`,
@@ -35,7 +35,7 @@ export const buttonClass = recipe({
       1: {
         backgroundColor: contract.color.neutral[1],
         selectors: {
-          "&:hover": {
+          '&:hover': {
             backgroundColor: contract.color.neutral[4],
           },
         },
@@ -43,7 +43,7 @@ export const buttonClass = recipe({
       2: {
         backgroundColor: contract.color.neutral[2],
         selectors: {
-          "&:hover": {
+          '&:hover': {
             backgroundColor: contract.color.neutral[5],
           },
         },
@@ -51,7 +51,7 @@ export const buttonClass = recipe({
       3: {
         backgroundColor: contract.color.neutral[3],
         selectors: {
-          "&:hover": {
+          '&:hover': {
             backgroundColor: contract.color.neutral[6],
           },
         },
@@ -69,11 +69,11 @@ export const buttonClass = recipe({
       },
     },
     width: {
-      "100%": {
-        width: "100%",
+      '100%': {
+        width: '100%',
       },
-      "fit-content": {
-        width: "fit-content",
+      'fit-content': {
+        width: 'fit-content',
       },
     },
     withBorder: {
@@ -116,7 +116,7 @@ export const buttonClass = recipe({
     },
     {
       variants: {
-        size: "small",
+        size: 'small',
         withIcon: true,
       },
       style: {
@@ -126,7 +126,7 @@ export const buttonClass = recipe({
     },
     {
       variants: {
-        size: "small",
+        size: 'small',
         withIcon: false,
       },
       style: {
@@ -137,7 +137,7 @@ export const buttonClass = recipe({
 
     {
       variants: {
-        size: "medium",
+        size: 'medium',
         withIcon: true,
       },
       style: {
@@ -147,7 +147,7 @@ export const buttonClass = recipe({
     },
     {
       variants: {
-        size: "medium",
+        size: 'medium',
         withIcon: false,
       },
       style: {
@@ -158,7 +158,7 @@ export const buttonClass = recipe({
 
     {
       variants: {
-        size: "large",
+        size: 'large',
         withIcon: true,
       },
       style: {
@@ -168,7 +168,7 @@ export const buttonClass = recipe({
     },
     {
       variants: {
-        size: "large",
+        size: 'large',
         withIcon: false,
       },
       style: {

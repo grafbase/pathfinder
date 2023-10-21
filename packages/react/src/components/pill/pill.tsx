@@ -1,6 +1,6 @@
-import { pillClass } from "./pill.css";
+import { pillClass } from './pill.css';
 
-import type { RecipeVariants } from "@pathfinder-ide/style";
+import type { RecipeVariants } from '@pathfinder-ide/style';
 
 export type PillProps = {
   copy: string;

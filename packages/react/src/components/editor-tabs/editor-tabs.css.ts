@@ -1,19 +1,19 @@
-import { contract, recipe, shared, style } from "@pathfinder-ide/style";
+import { contract, recipe, shared, style } from '@pathfinder-ide/style';
 
 export const editorTabsClass = style([
   shared.scrollbars,
   shared.hairlineBorder({
-    border: "bottom",
+    border: 'bottom',
     onSurface: 1,
   }),
   {
-    width: "100%",
+    width: '100%',
     height: 40,
-    display: "flex",
-    alignItems: "center",
+    display: 'flex',
+    alignItems: 'center',
     flexShrink: 0,
     backgroundColor: contract.color.neutral[2],
-    overflowX: "auto",
+    overflowX: 'auto',
   },
 ]);
 
@@ -21,9 +21,9 @@ export const tabButtonClass = recipe({
   base: [
     shared.resets.buttonReset,
     {
-      height: "inherit",
-      display: "flex",
-      alignItems: "center",
+      height: 'inherit',
+      display: 'flex',
+      alignItems: 'center',
       gap: 8,
       paddingLeft: 3,
       paddingRight: 3,
@@ -41,14 +41,14 @@ export const tabButtonClass = recipe({
 
 export const tabWrapClass = recipe({
   base: [
-    shared.hairlineBorder({ border: "bottom", onSurface: 1 }),
+    shared.hairlineBorder({ border: 'bottom', onSurface: 1 }),
     {
       flexShrink: 0,
-      height: "100%",
-      position: "relative",
-      display: "flex",
-      alignItems: "center",
-      flexWrap: "nowrap",
+      height: '100%',
+      position: 'relative',
+      display: 'flex',
+      alignItems: 'center',
+      flexWrap: 'nowrap',
       minWidth: 0,
       paddingLeft: 8,
       paddingRight: 8,
@@ -56,7 +56,7 @@ export const tabWrapClass = recipe({
       transition: `opacity .15s ${shared.transitions.authenticMotion}`,
 
       selectors: {
-        "&:hover": {
+        '&:hover': {
           color: contract.color.neutral[12],
           opacity: 1,
         },
@@ -76,13 +76,13 @@ export const tabWrapClass = recipe({
         backgroundColor: contract.color.neutral[1],
 
         selectors: {
-          "&:after": {
-            content: "",
-            position: "absolute",
+          '&:after': {
+            content: '',
+            position: 'absolute',
             bottom: 0,
             left: 0,
             height: 2,
-            width: "100%",
+            width: '100%',
             backgroundColor: contract.color.green[10],
           },
         },
