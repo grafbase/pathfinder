@@ -17,7 +17,7 @@
     "lodash.update": "^4.10.2",
     "monaco-editor": "0.40.0",
     "monaco-graphql": "1.3.0",
-    "zustand": "4.4.3"
+    "zustand": "4.4.4"
   },
   "devDependencies": {
     "@pathfinder-ide/eslint-config": "workspace:*",
