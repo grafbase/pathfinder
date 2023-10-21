@@ -1,4 +1,4 @@
-import { vi } from "vitest";
+import { vi } from 'vitest';
 
 Range.prototype.getBoundingClientRect = () => ({
   bottom: 0,

@@ -1,6 +1,6 @@
-import type { AvailableEditors } from "@pathfinder-ide/stores";
+import type { AvailableEditors } from '@pathfinder-ide/stores';
 
-import type monaco from "monaco-graphql/esm/monaco-editor";
+import type monaco from 'monaco-graphql/esm/monaco-editor';
 
 type MonacoEditorIActionDescriptor = monaco.editor.IActionDescriptor;
 type MonacoEditorIStandaloneEditorConstructionOptions =
@@ -26,7 +26,7 @@ export type EditorProps = {
   initialCursorPosition?: MonacoEditorIPosition;
   modelDetails: {
     fileName: string;
-    language: "json" | "graphql";
+    language: 'json' | 'graphql';
   };
   /**
    * Pass-through for all possible Monaco Editor options

@@ -1,4 +1,4 @@
-import { contract, shared, style } from "@pathfinder-ide/style";
+import { contract, shared, style } from '@pathfinder-ide/style';
 
 export const historyItemRequestClass = style({
   padding: contract.space[12],
@@ -7,15 +7,15 @@ export const historyItemRequestClass = style({
 export const disclosureButtonClass = style([
   shared.resets.buttonReset,
   {
-    display: "flex",
+    display: 'flex',
     gap: 2,
-    alignItems: "center",
+    alignItems: 'center',
     height: 24,
-    width: "100%",
+    width: '100%',
     fontFamily: contract.fonts.mono,
     fontWeight: 500,
     fontSize: 10,
-    textTransform: "uppercase",
+    textTransform: 'uppercase',
     color: contract.color.neutral[12],
   },
 ]);

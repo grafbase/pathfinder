@@ -1,4 +1,4 @@
-import { Operate } from "./operate";
+import { Operate } from './operate';
 
 export const Story = () => {
   return <Operate />;

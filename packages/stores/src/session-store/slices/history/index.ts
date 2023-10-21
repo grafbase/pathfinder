@@ -1,3 +1,3 @@
-export { historyState } from "./history-state";
+export { historyState } from './history-state';
 
-export type { HistoryState } from "./history.types";
+export type { HistoryState } from './history.types';

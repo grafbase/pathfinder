@@ -1,1 +1,1 @@
-export { SchemaDocumentation } from "./schema-documentation";
+export { SchemaDocumentation } from './schema-documentation';

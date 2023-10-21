@@ -2,11 +2,11 @@
 export {
   setTheme as setPathfinderTheme,
   useThemeStore as usePathfinderThemeStore,
-} from "@pathfinder-ide/stores";
+} from '@pathfinder-ide/stores';
 
 // components
-export { Pathfinder } from "./pathfinder";
+export { Pathfinder } from './pathfinder';
 
-export { SchemaDocumentation } from "./schema-documentation";
+export { SchemaDocumentation } from './schema-documentation';
 
-export { SchemaView } from "./schema-view";
+export { SchemaView } from './schema-view';

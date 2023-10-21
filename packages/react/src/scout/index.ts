@@ -1,1 +1,1 @@
-export { Scout } from "./scout";
+export { Scout } from './scout';

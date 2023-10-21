@@ -1,6 +1,6 @@
-import { DOCUMENT_EDITOR_ID, RESPONSE_EDITOR_ID } from "@pathfinder-ide/shared";
+import { DOCUMENT_EDITOR_ID, RESPONSE_EDITOR_ID } from '@pathfinder-ide/shared';
 
-import { getMonacoEditor } from "../../../../monaco-editor-store";
+import { getMonacoEditor } from '../../../../monaco-editor-store';
 
 export const setEditorValues = ({
   newDocumentEditorValue,

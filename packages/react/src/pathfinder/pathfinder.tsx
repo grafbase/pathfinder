@@ -1,7 +1,7 @@
-import { useEffect } from "react";
-import { get as findSession } from "idb-keyval";
+import { useEffect } from 'react';
+import { get as findSession } from 'idb-keyval';
 
-import { STORAGE_NAME_SESSION, generateCuid } from "@pathfinder-ide/shared";
+import { STORAGE_NAME_SESSION, generateCuid } from '@pathfinder-ide/shared';
 
 import {
   getNamespacedStorageName,
@@ -11,19 +11,19 @@ import {
   initSession,
   loadSession,
   schemaStore,
-} from "@pathfinder-ide/stores";
+} from '@pathfinder-ide/stores';
 
-import { Connect } from "../components/connect";
-import { IDE } from "../ide";
-import { Scout } from "../scout";
+import { Connect } from '../components/connect';
+import { IDE } from '../ide';
+import { Scout } from '../scout';
 
-import { connectWrapClass, pathfinderClass } from "./pathfinder.css";
+import { connectWrapClass, pathfinderClass } from './pathfinder.css';
 
-import type { PathfinderProps } from "./pathfinder.types";
-import { CompassAnimated } from "../components/compass-animated";
+import type { PathfinderProps } from './pathfinder.types';
+import { CompassAnimated } from '../components/compass-animated';
 
 export const Pathfinder = ({
-  mode = "FULL",
+  mode = 'FULL',
   fetcherOptions,
   schemaPollingOptions,
   themeOptions,
@@ -99,10 +99,8 @@ export const Pathfinder = ({
 
   return (
     <div className={pathfinderClass}>
-      {mode === "FULL" && (
-        <IDE withFetcherOptions={fetcherOptions ? true : false} />
-      )}
-      {mode === "MINI" && <Scout />}
+      {mode === 'FULL' && <IDE withFetcherOptions={fetcherOptions ? true : false} />}
+      {mode === 'MINI' && <Scout />}
     </div>
   );
 };

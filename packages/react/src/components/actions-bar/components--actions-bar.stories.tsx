@@ -1,13 +1,10 @@
-import { ActionExecute } from "../action-execute/action-execute";
-import { ActionPrettier } from "../action-prettier";
-import { ActionsBar } from "./actions-bar";
+import { ActionExecute } from '../action-execute/action-execute';
+import { ActionPrettier } from '../action-prettier';
+import { ActionsBar } from './actions-bar';
 
 export const OperationActions = () => {
   return (
-    <ActionsBar
-      actions={[<ActionPrettier />, <ActionExecute />]}
-      title="Document"
-    />
+    <ActionsBar actions={[<ActionPrettier />, <ActionExecute />]} title="Document" />
   );
 };
 

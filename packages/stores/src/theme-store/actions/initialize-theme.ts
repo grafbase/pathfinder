@@ -1,10 +1,7 @@
-import {
-  ThemeContractOverrides,
-  getPrefersColorScheme,
-} from "@pathfinder-ide/style";
-import { setTheme } from "./set-theme";
-import { setThemeOverrides } from "./set-theme-overrides";
-import { AvailableThemes } from "@pathfinder-ide/shared";
+import { ThemeContractOverrides, getPrefersColorScheme } from '@pathfinder-ide/style';
+import { setTheme } from './set-theme';
+import { setThemeOverrides } from './set-theme-overrides';
+import { AvailableThemes } from '@pathfinder-ide/shared';
 
 export const initializeTheme = ({
   overrides,
@@ -16,7 +13,7 @@ export const initializeTheme = ({
     setThemeOverrides({ overrides });
   }
 
-  let preference: AvailableThemes = "light";
+  let preference: AvailableThemes = 'light';
 
   preference = getPrefersColorScheme();
 

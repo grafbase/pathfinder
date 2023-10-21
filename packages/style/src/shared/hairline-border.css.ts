@@ -1,8 +1,8 @@
-import { recipe } from "@vanilla-extract/recipes";
+import { recipe } from '@vanilla-extract/recipes';
 
-import { contract } from "../theme";
+import { contract } from '../theme';
 
-import { HAIRLINE_BORDER_VAR } from "../constants";
+import { HAIRLINE_BORDER_VAR } from '../constants';
 
 type CSSVarFunction = `var(--${string})`;
 
@@ -34,7 +34,7 @@ export const hairlineBorder = recipe({
   compoundVariants: [
     {
       variants: {
-        border: "all",
+        border: 'all',
         onSurface: 1,
       },
       style: {
@@ -47,7 +47,7 @@ export const hairlineBorder = recipe({
     },
     {
       variants: {
-        border: "left",
+        border: 'left',
         onSurface: 1,
       },
       style: {
@@ -56,7 +56,7 @@ export const hairlineBorder = recipe({
     },
     {
       variants: {
-        border: "top",
+        border: 'top',
         onSurface: 1,
       },
       style: {
@@ -65,7 +65,7 @@ export const hairlineBorder = recipe({
     },
     {
       variants: {
-        border: "right",
+        border: 'right',
         onSurface: 1,
       },
       style: {
@@ -74,7 +74,7 @@ export const hairlineBorder = recipe({
     },
     {
       variants: {
-        border: "bottom",
+        border: 'bottom',
         onSurface: 1,
       },
       style: {
@@ -84,7 +84,7 @@ export const hairlineBorder = recipe({
 
     {
       variants: {
-        border: "all",
+        border: 'all',
         onSurface: 2,
       },
       style: {
@@ -97,7 +97,7 @@ export const hairlineBorder = recipe({
     },
     {
       variants: {
-        border: "left",
+        border: 'left',
         onSurface: 2,
       },
       style: {
@@ -106,7 +106,7 @@ export const hairlineBorder = recipe({
     },
     {
       variants: {
-        border: "top",
+        border: 'top',
         onSurface: 2,
       },
       style: {
@@ -115,7 +115,7 @@ export const hairlineBorder = recipe({
     },
     {
       variants: {
-        border: "right",
+        border: 'right',
         onSurface: 2,
       },
       style: {
@@ -124,7 +124,7 @@ export const hairlineBorder = recipe({
     },
     {
       variants: {
-        border: "bottom",
+        border: 'bottom',
         onSurface: 2,
       },
       style: {
@@ -134,7 +134,7 @@ export const hairlineBorder = recipe({
 
     {
       variants: {
-        border: "all",
+        border: 'all',
         onSurface: 3,
       },
       style: {
@@ -147,7 +147,7 @@ export const hairlineBorder = recipe({
     },
     {
       variants: {
-        border: "left",
+        border: 'left',
         onSurface: 3,
       },
       style: {
@@ -156,7 +156,7 @@ export const hairlineBorder = recipe({
     },
     {
       variants: {
-        border: "top",
+        border: 'top',
         onSurface: 3,
       },
       style: {
@@ -165,7 +165,7 @@ export const hairlineBorder = recipe({
     },
     {
       variants: {
-        border: "right",
+        border: 'right',
         onSurface: 3,
       },
       style: {
@@ -174,7 +174,7 @@ export const hairlineBorder = recipe({
     },
     {
       variants: {
-        border: "bottom",
+        border: 'bottom',
         onSurface: 3,
       },
       style: {

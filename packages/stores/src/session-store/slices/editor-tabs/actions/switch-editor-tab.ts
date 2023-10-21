@@ -1,12 +1,12 @@
-import { RESPONSE_EDITOR_DEFAULT_VALUE } from "@pathfinder-ide/shared";
+import { RESPONSE_EDITOR_DEFAULT_VALUE } from '@pathfinder-ide/shared';
 
-import { sessionStore } from "../../../session-store";
+import { sessionStore } from '../../../session-store';
 
-import { setEditorValues } from "./set-editor-values";
+import { setEditorValues } from './set-editor-values';
 
-import type { EditorTabsActions } from "../editor-tabs.types";
+import type { EditorTabsActions } from '../editor-tabs.types';
 
-export const switchEditorTab: EditorTabsActions["switchEditorTab"] = ({
+export const switchEditorTab: EditorTabsActions['switchEditorTab'] = ({
   destinationTabId,
 }) => {
   const tabs = sessionStore.getState().tabs;

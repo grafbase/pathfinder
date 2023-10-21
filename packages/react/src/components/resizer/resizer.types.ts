@@ -1,10 +1,10 @@
-import { AvailableResizers } from "./resizer-store/resizer-store.types";
+import { AvailableResizers } from './resizer-store/resizer-store.types';
 
-export type ResizerOrientation = "HORIZONTAL" | "VERTICAL";
+export type ResizerOrientation = 'HORIZONTAL' | 'VERTICAL';
 
 export type ResizerInitialSize =
-  | { type: "PIXELS"; value: number }
-  | { type: "PERCENT"; value: number };
+  | { type: 'PIXELS'; value: number }
+  | { type: 'PERCENT'; value: number };
 
 export type ResizerProps = {
   resizerName: AvailableResizers;

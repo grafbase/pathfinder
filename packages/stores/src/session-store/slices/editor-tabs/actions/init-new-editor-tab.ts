@@ -1,20 +1,17 @@
-import {
-  DOCUMENT_EDITOR_DEFAULT_VALUE,
-  generateCuid,
-} from "@pathfinder-ide/shared";
+import { DOCUMENT_EDITOR_DEFAULT_VALUE, generateCuid } from '@pathfinder-ide/shared';
 
-import { sessionStore } from "../../../session-store";
+import { sessionStore } from '../../../session-store';
 
-import { setEditorValues } from "./set-editor-values";
+import { setEditorValues } from './set-editor-values';
 
-import type { EditorTab, EditorTabsActions } from "../editor-tabs.types";
+import type { EditorTab, EditorTabsActions } from '../editor-tabs.types';
 
-export const initNewEditorTab: EditorTabsActions["initNewEditorTab"] = () => {
+export const initNewEditorTab: EditorTabsActions['initNewEditorTab'] = () => {
   const TAB_ID = generateCuid({});
 
   const newTab: EditorTab = {
     tabId: TAB_ID,
-    tabName: "Untitled",
+    tabName: 'Untitled',
     cursorPosition: null,
     documentString: DOCUMENT_EDITOR_DEFAULT_VALUE,
     latestResponse: null,

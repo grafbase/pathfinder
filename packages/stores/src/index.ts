@@ -2,9 +2,9 @@ export {
   graphQLDocumentStore,
   setDocumentState,
   useGraphQLDocumentStore,
-} from "./graphql-document-store";
+} from './graphql-document-store';
 
-export type { DocumentNotificationType } from "./graphql-document-store";
+export type { DocumentNotificationType } from './graphql-document-store';
 
 export {
   createMonacoEditor,
@@ -15,7 +15,7 @@ export {
   runExecuteOperation,
   setMonacoEditorTheme,
   useMonacoEditorStore,
-} from "./monaco-editor-store";
+} from './monaco-editor-store';
 
 export type {
   AvailableEditors,
@@ -23,7 +23,7 @@ export type {
   MonacoIPosition,
   MonacoIRange,
   MonacoEditorITextModel,
-} from "./monaco-editor-store";
+} from './monaco-editor-store';
 
 export {
   executeOperation,
@@ -31,12 +31,12 @@ export {
   resetSchemaPolling,
   schemaStore,
   useSchemaStore,
-} from "./schema-store";
+} from './schema-store';
 
-export type { ExecutionResponse, SchemaStoreState } from "./schema-store";
+export type { ExecutionResponse, SchemaStoreState } from './schema-store';
 
-export { getNamespacedStorageName } from "./storage";
+export { getNamespacedStorageName } from './storage';
 
-export * from "./theme-store";
+export * from './theme-store';
 
-export * from "./session-store";
+export * from './session-store';

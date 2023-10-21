@@ -1,8 +1,8 @@
 {
   "name": "@pathfinder-ide/eslint-config",
   "version": "0.0.1",
-  "private": true,  
-  "main": "eslint-config.js",  
+  "private": true,
+  "main": "eslint-config.js",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "6.8.0",
     "@typescript-eslint/parser": "6.8.0",

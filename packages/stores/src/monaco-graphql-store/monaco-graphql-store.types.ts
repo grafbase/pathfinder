@@ -1,5 +1,5 @@
-import type { GraphQLSchema } from "graphql";
-import type { MonacoGraphQLAPI } from "monaco-graphql";
+import type { GraphQLSchema } from 'graphql';
+import type { MonacoGraphQLAPI } from 'monaco-graphql';
 
 export type MonacoGraphQLStoreState = {
   monacoGraphQLAPI: MonacoGraphQLAPI | null;
@@ -7,9 +7,5 @@ export type MonacoGraphQLStoreState = {
 
 export type MonacoGraphQLStoreActions = {
   initMonacoGraphQLAPI: () => Promise<void>;
-  setMonacoGraphQLSchema: ({
-    schema,
-  }: {
-    schema: GraphQLSchema;
-  }) => Promise<void>;
+  setMonacoGraphQLSchema: ({ schema }: { schema: GraphQLSchema }) => Promise<void>;
 };

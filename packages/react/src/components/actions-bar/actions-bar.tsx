@@ -1,11 +1,11 @@
-import { Fragment } from "react";
+import { Fragment } from 'react';
 
 import {
   actionsBarClass,
   actionsBarLeadClass,
   actionsBarLeftClass,
   actionsBarRightClass,
-} from "./actions-bar.css";
+} from './actions-bar.css';
 
 export const ActionsBar = ({
   actions,

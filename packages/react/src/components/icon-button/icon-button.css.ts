@@ -1,12 +1,12 @@
-import { contract, recipe, shared } from "@pathfinder-ide/style";
+import { contract, recipe, shared } from '@pathfinder-ide/style';
 
 export const iconButtonClass = recipe({
   base: [
     shared.resets.buttonReset,
     {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
       flexShrink: 0,
       borderRadius: contract.space[4],
       transition: `all .05s ${shared.transitions.authenticMotion}`,
@@ -22,28 +22,28 @@ export const iconButtonClass = recipe({
     },
     isDisabled: {
       true: {
-        cursor: "not-allowed",
+        cursor: 'not-allowed',
         opacity: 0.65,
       },
     },
     onSurface: {
       1: {
         selectors: {
-          "&:hover": {
+          '&:hover': {
             backgroundColor: contract.color.neutral[3],
           },
         },
       },
       2: {
         selectors: {
-          "&:hover": {
+          '&:hover': {
             backgroundColor: contract.color.neutral[5],
           },
         },
       },
       3: {
         selectors: {
-          "&:hover": {
+          '&:hover': {
             backgroundColor: contract.color.neutral[6],
           },
         },

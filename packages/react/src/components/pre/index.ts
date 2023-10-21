@@ -1,1 +1,1 @@
-export { Pre } from "./pre";
+export { Pre } from './pre';

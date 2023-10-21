@@ -1,4 +1,4 @@
 {
   "extends": ["@pathfinder-ide/eslint-config"],
-  "ignorePatterns": ["workers/*"]
+  "ignorePatterns": ["workers/*.bundle.js"]
 }

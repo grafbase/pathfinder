@@ -8,15 +8,15 @@ import {
   isListType,
   isScalarType,
   print,
-} from "graphql";
+} from 'graphql';
 
-import { unwrapType } from "@pathfinder-ide/shared";
+import { unwrapType } from '@pathfinder-ide/shared';
 
-import { DEFAULT_SCALAR_VALUES } from "../constants";
+import { DEFAULT_SCALAR_VALUES } from '../constants';
 
-import { compassStore } from "../compass-store";
+import { compassStore } from '../compass-store';
 
-import { getEnumValues } from "../utils";
+import { getEnumValues } from '../utils';
 
 export const generateArgumentText = ({
   argument,
@@ -46,71 +46,71 @@ export const generateArgumentText = ({
     },
   };
 
-  if (argumentHandlingMode === "INLINE") {
+  if (argumentHandlingMode === 'INLINE') {
     const { name } = unwrapType(argument.type);
 
     if (isScalarType(argument.type)) {
-      if (name === "String") {
+      if (name === 'String') {
         valueNode = {
           kind: Kind.STRING,
           value: DEFAULT_SCALAR_VALUES.STRING,
         };
-      } else if (name === "ID") {
+      } else if (name === 'ID') {
         valueNode = {
           kind: Kind.STRING,
           value: DEFAULT_SCALAR_VALUES.ID,
         };
-      } else if (name === "Int") {
+      } else if (name === 'Int') {
         valueNode = {
           kind: Kind.INT,
           value: DEFAULT_SCALAR_VALUES.INT,
         };
-      } else if (name === "Float") {
+      } else if (name === 'Float') {
         valueNode = {
           kind: Kind.FLOAT,
           value: DEFAULT_SCALAR_VALUES.FLOAT,
         };
-      } else if (name === "Boolean") {
+      } else if (name === 'Boolean') {
         valueNode = {
           kind: Kind.BOOLEAN,
           value: DEFAULT_SCALAR_VALUES.BOOLEAN,
         };
-      } else if (name === "Date") {
+      } else if (name === 'Date') {
         valueNode = {
           kind: Kind.STRING,
           value: DEFAULT_SCALAR_VALUES.DATE,
         };
-      } else if (name === "DateTime") {
+      } else if (name === 'DateTime') {
         valueNode = {
           kind: Kind.STRING,
           value: DEFAULT_SCALAR_VALUES.DATE_TIME,
         };
-      } else if (name === "Email") {
+      } else if (name === 'Email') {
         valueNode = {
           kind: Kind.STRING,
           value: DEFAULT_SCALAR_VALUES.EMAIL,
         };
-      } else if (name === "IPAddress") {
+      } else if (name === 'IPAddress') {
         valueNode = {
           kind: Kind.STRING,
           value: DEFAULT_SCALAR_VALUES.IP_ADDRESS,
         };
-      } else if (name === "Timestamp") {
+      } else if (name === 'Timestamp') {
         valueNode = {
           kind: Kind.STRING,
           value: DEFAULT_SCALAR_VALUES.TIMESTAMP,
         };
-      } else if (name === "URL") {
+      } else if (name === 'URL') {
         valueNode = {
           kind: Kind.STRING,
           value: DEFAULT_SCALAR_VALUES.URL,
         };
-      } else if (name === "JSON") {
+      } else if (name === 'JSON') {
         valueNode = {
           kind: Kind.OBJECT,
           fields: DEFAULT_SCALAR_VALUES.JSON,
         };
-      } else if (name === "PhoneNumber") {
+      } else if (name === 'PhoneNumber') {
         valueNode = {
           kind: Kind.STRING,
           value: DEFAULT_SCALAR_VALUES.PHONE_NUMBER,
@@ -123,7 +123,7 @@ export const generateArgumentText = ({
       });
       valueNode = {
         kind: Kind.ENUM,
-        value: enumValues ? enumValues[0].value : "NO_ENUM_VALUE",
+        value: enumValues ? enumValues[0].value : 'NO_ENUM_VALUE',
       };
     } else if (isListType(argument.type)) {
       valueNode = {

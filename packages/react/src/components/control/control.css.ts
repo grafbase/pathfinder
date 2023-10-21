@@ -1,16 +1,16 @@
-import { contract, recipe, style } from "@pathfinder-ide/style";
+import { contract, recipe, style } from '@pathfinder-ide/style';
 
 export const controlClass = style({
-  display: "flex",
-  flexDirection: "column",
+  display: 'flex',
+  flexDirection: 'column',
   gap: 6,
-  width: "100%",
+  width: '100%',
 });
 
 export const labelClass = recipe({
   base: {
-    width: "auto",
-    whiteSpace: "nowrap",
+    width: 'auto',
+    whiteSpace: 'nowrap',
     color: contract.color.neutral[12],
     fontSize: 12,
     lineHeight: 1,
@@ -19,18 +19,18 @@ export const labelClass = recipe({
   variants: {
     displayLabel: {
       false: {
-        position: "absolute",
-        top: "-9999px !important",
-        left: "-9999px !important",
+        position: 'absolute',
+        top: '-9999px !important',
+        left: '-9999px !important',
       },
     },
   },
 });
 
 export const inputClass = style({
-  all: "unset",
-  boxSizing: "border-box",
-  width: "100%",
+  all: 'unset',
+  boxSizing: 'border-box',
+  width: '100%',
   height: 32,
   paddingLeft: 8,
   borderRadius: 2,
@@ -42,40 +42,40 @@ export const inputClass = style({
   border: `1px solid ${contract.color.neutral[4]}`,
 
   selectors: {
-    "&:focus": {
+    '&:focus': {
       color: contract.color.neutral[12],
       backgroundColor: contract.color.neutral[5],
       border: `1px solid ${contract.color.neutral[6]}`,
     },
 
-    "&::placeholder": {
+    '&::placeholder': {
       color: contract.color.neutral[8],
     },
   },
 });
 
 export const selectWrapClass = style({
-  width: "100%",
-  position: "relative",
-  cursor: "pointer",
+  width: '100%',
+  position: 'relative',
+  cursor: 'pointer',
   color: contract.color.yellow[10],
   borderTop: `1px solid ${contract.color.neutral[4]}`,
   borderRight: `1px solid ${contract.color.neutral[4]}`,
   borderBottom: `1px solid ${contract.color.neutral[4]}`,
 
   selectors: {
-    "&:focus": {
+    '&:focus': {
       backgroundColor: contract.color.neutral[2],
     },
   },
 });
 
 export const selectClass = style({
-  all: "unset",
-  boxSizing: "border-box",
-  display: "flex",
-  alignItems: "center",
-  width: "100%",
+  all: 'unset',
+  boxSizing: 'border-box',
+  display: 'flex',
+  alignItems: 'center',
+  width: '100%',
   height: 28,
   color: contract.color.yellow[10],
 });

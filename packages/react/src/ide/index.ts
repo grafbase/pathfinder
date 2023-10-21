@@ -1,1 +1,1 @@
-export { IDE } from "./ide";
+export { IDE } from './ide';

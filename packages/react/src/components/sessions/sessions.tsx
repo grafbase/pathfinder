@@ -1,8 +1,8 @@
-import { STORAGE_NAME_SESSION } from "@pathfinder-ide/shared";
+import { STORAGE_NAME_SESSION } from '@pathfinder-ide/shared';
 
-import { loadSession, useSessionStore } from "@pathfinder-ide/stores";
+import { loadSession, useSessionStore } from '@pathfinder-ide/stores';
 
-import { sessionsClass, sessionSelectButtonClass } from "./sessions.css";
+import { sessionsClass, sessionSelectButtonClass } from './sessions.css';
 
 export const Sessions = ({ sessionNames }: { sessionNames: string[] }) => {
   return (

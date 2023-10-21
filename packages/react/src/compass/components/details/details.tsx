@@ -1,16 +1,12 @@
-import { useState } from "react";
-import { isRequiredArgument, isRequiredInputField } from "graphql";
+import { useState } from 'react';
+import { isRequiredArgument, isRequiredInputField } from 'graphql';
 
-import { toggle, type AncestorsArray } from "../../compass-store";
+import { toggle, type AncestorsArray } from '../../compass-store';
 
-import { DetailsActions } from "../details-actions";
-import type { ListItemTypeTypes, ListItemVariants } from "../list-item";
+import { DetailsActions } from '../details-actions';
+import type { ListItemTypeTypes, ListItemVariants } from '../list-item';
 
-import {
-  detailsClass,
-  detailsTogglerClass,
-  inlineFragmentClass,
-} from "./details.css";
+import { detailsClass, detailsTogglerClass, inlineFragmentClass } from './details.css';
 
 type DetailsProps = {
   ancestors: AncestorsArray;
@@ -37,16 +33,16 @@ export const Details = ({
   // we disable the toggle button for arguments when the parent field is not selected
   // ...the logic to perform this toggle update is complicated
   const isDisabled =
-    self.type === "ARGUMENT" &&
-    previousAncestor.type === "FIELD" &&
+    self.type === 'ARGUMENT' &&
+    previousAncestor.type === 'FIELD' &&
     !previousAncestor.selection;
 
   const ifRequiredShowAsterisk =
-    "defaultValue" in type &&
+    'defaultValue' in type &&
     (isRequiredArgument(type) || isRequiredInputField(type)) &&
     `*`;
-  const title = `${isSelected ? "Remove" : "Add"} ${breadcrumbs} ${self.type} ${
-    isSelected ? "from" : "to"
+  const title = `${isSelected ? 'Remove' : 'Add'} ${breadcrumbs} ${self.type} ${
+    isSelected ? 'from' : 'to'
   } operation`;
 
   return (
@@ -55,10 +51,8 @@ export const Details = ({
       onMouseEnter={() => setShowActions(true)}
       onMouseLeave={() => setShowActions(false)}
     >
-      {variant === "INLINE_FRAGMENT" ? (
-        <div
-          className={inlineFragmentClass({ isSelected })}
-        >{`... on ${type.name}`}</div>
+      {variant === 'INLINE_FRAGMENT' ? (
+        <div className={inlineFragmentClass({ isSelected })}>{`... on ${type.name}`}</div>
       ) : (
         <button
           className={detailsTogglerClass({
@@ -77,10 +71,10 @@ export const Details = ({
           title={title}
           type="button"
         >
-          {`${type.name}${ifRequiredShowAsterisk || ""}`}
+          {`${type.name}${ifRequiredShowAsterisk || ''}`}
         </button>
       )}
-      {self.type === "FIELD" && (
+      {self.type === 'FIELD' && (
         <DetailsActions
           ancestors={ancestors}
           previousAncestor={previousAncestor}

@@ -1,13 +1,13 @@
-import { createContext, useContext, useMemo } from "react";
+import { createContext, useContext, useMemo } from 'react';
 
-import { createStore, useStore } from "zustand";
+import { createStore, useStore } from 'zustand';
 
-import { schemaDocumentationStoreActions } from "./actions";
-import { schemaDocumentationState } from "./state";
+import { schemaDocumentationStoreActions } from './actions';
+import { schemaDocumentationState } from './state';
 import {
   SchemaDocumentationStoreState,
   SchemaDocumentationStoreActions,
-} from "./schema-documentation-store.types";
+} from './schema-documentation-store.types';
 
 const schemaDocumentationStore = () =>
   createStore<SchemaDocumentationStoreState & SchemaDocumentationStoreActions>(
@@ -40,9 +40,7 @@ export const SchemaDocumentationStoreProvider = ({
 export const useSchemaDocumentationStore = () => {
   const store = useContext(SchemaDocumentationStoreContext);
   if (store === null) {
-    throw new Error(
-      "Component must be wrapped in a SchemaDocumentationProvider",
-    );
+    throw new Error('Component must be wrapped in a SchemaDocumentationProvider');
   }
   return useStore(store);
 };

@@ -1,10 +1,10 @@
-import { useSchemaDocumentationStore } from "../../store";
+import { useSchemaDocumentationStore } from '../../store';
 
-import { Pill } from "../../../components";
+import { Pill } from '../../../components';
 
-import type { TopLevelPane } from "../../types";
+import type { TopLevelPane } from '../../types';
 
-import { typeSystemNavButtonClass } from "./type-system-nav-button.css";
+import { typeSystemNavButtonClass } from './type-system-nav-button.css';
 
 export const TypeSystemNavButton = ({
   destinationPane,
@@ -29,7 +29,7 @@ export const TypeSystemNavButton = ({
       }}
     >
       {copy}
-      <Pill copy={count} variant={{ color: "yellow" }} />
+      <Pill copy={count} variant={{ color: 'yellow' }} />
     </button>
   );
 };

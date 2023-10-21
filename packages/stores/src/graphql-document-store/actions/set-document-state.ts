@@ -1,28 +1,24 @@
-import {
-  Kind,
-  OperationDefinitionNode,
-  isExecutableDefinitionNode,
-} from "graphql";
+import { Kind, OperationDefinitionNode, isExecutableDefinitionNode } from 'graphql';
 
-import { DOCUMENT_EDITOR_ID } from "@pathfinder-ide/shared";
+import { DOCUMENT_EDITOR_ID } from '@pathfinder-ide/shared';
 
-import { getLocationAndRangeForDefinition, parseDocument } from "../utils";
+import { getLocationAndRangeForDefinition, parseDocument } from '../utils';
 
-import { graphQLDocumentStore } from "../graphql-document-store";
+import { graphQLDocumentStore } from '../graphql-document-store';
 
-import type { DocumentEntry } from "../graphql-document-store.types";
+import type { DocumentEntry } from '../graphql-document-store.types';
 
-import { getMonacoEditor } from "../../monaco-editor-store";
-import { updateActiveEditorTab } from "../../session-store";
+import { getMonacoEditor } from '../../monaco-editor-store';
+import { updateActiveEditorTab } from '../../session-store';
 
-import { handleActiveDefinition } from "./handle-active-definition";
-import { handleInactiveDefinition } from "./handle-inactive-definition";
-import { handleNewDefinition } from "./handle-new-definition";
-import { isOperationNameChanging } from "./is-operation-name-changing";
-import { resetDocumentState } from "./reset-document-state";
-import { setDocumentNotifications } from "./set-document-notifications";
-import { updateDocumentEntryDefinition } from "./update-document-entry-definition";
-import { updateDocumentEntryOperationName } from "./update-document-entry-operation-name";
+import { handleActiveDefinition } from './handle-active-definition';
+import { handleInactiveDefinition } from './handle-inactive-definition';
+import { handleNewDefinition } from './handle-new-definition';
+import { isOperationNameChanging } from './is-operation-name-changing';
+import { resetDocumentState } from './reset-document-state';
+import { setDocumentNotifications } from './set-document-notifications';
+import { updateDocumentEntryDefinition } from './update-document-entry-definition';
+import { updateDocumentEntryOperationName } from './update-document-entry-operation-name';
 
 type SetDocumentStateSignature = () => void;
 
@@ -69,7 +65,7 @@ export const setDocumentState: SetDocumentStateSignature = () => {
 
         if (!isExecutableDefinitionNode(definition)) {
           // TODO: do we display a documentNotification here to direct users to a (currently non-existent) docs section?
-          return console.warn("Not an ExecutableDefinitionNode");
+          return console.warn('Not an ExecutableDefinitionNode');
         }
 
         if (definition.kind === Kind.FRAGMENT_DEFINITION) {
@@ -105,10 +101,9 @@ export const setDocumentState: SetDocumentStateSignature = () => {
           const currentCursorPosition = documentEditor.getPosition();
 
           // ...and the location and range data for the definition so we can determine if our cursor is within our definition
-          const { range, startLine, endLine } =
-            getLocationAndRangeForDefinition({
-              definition,
-            });
+          const { range, startLine, endLine } = getLocationAndRangeForDefinition({
+            definition,
+          });
 
           if (
             currentCursorPosition &&
@@ -139,8 +134,7 @@ export const setDocumentState: SetDocumentStateSignature = () => {
       return updateActiveEditorTab({
         partialTab: {
           documentString: modelValue,
-          tabName: (parsedDocument.definitions[0] as OperationDefinitionNode)
-            .name?.value,
+          tabName: (parsedDocument.definitions[0] as OperationDefinitionNode).name?.value,
         },
       });
     }

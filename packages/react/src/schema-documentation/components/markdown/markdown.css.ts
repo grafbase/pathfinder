@@ -1,8 +1,8 @@
-import { contract, globalStyle, style } from "@pathfinder-ide/style";
+import { contract, globalStyle, style } from '@pathfinder-ide/style';
 
 export const markdownClass = style({
-  display: "flex",
-  flexDirection: "column",
+  display: 'flex',
+  flexDirection: 'column',
   paddingTop: 4,
   paddingBottom: 4,
   color: contract.color.neutral[12],
@@ -38,7 +38,7 @@ globalStyle(`${markdownClass} code`, {
 });
 
 globalStyle(`${markdownClass} pre`, {
-  overflow: "auto",
+  overflow: 'auto',
   padding: 8,
   borderRadius: 4,
   backgroundColor: contract.color.neutral[4],
@@ -46,7 +46,7 @@ globalStyle(`${markdownClass} pre`, {
 });
 
 globalStyle(`${markdownClass} ol`, {
-  listStyleType: "decimal",
+  listStyleType: 'decimal',
   paddingLeft: 16,
   ...sharedMarkdownStyles,
 });
@@ -72,7 +72,7 @@ globalStyle(`${markdownClass} details`, {
 });
 
 globalStyle(`${markdownClass} ul`, {
-  listStyleType: "disc",
+  listStyleType: 'disc',
   paddingLeft: 16,
   ...sharedMarkdownStyles,
 });
@@ -82,7 +82,7 @@ globalStyle(`${markdownClass} a`, {
 });
 
 globalStyle(`${markdownClass} hr`, {
-  all: "unset",
+  all: 'unset',
   borderTop: `1px solid ${contract.color.neutral[8]}`,
 });
 

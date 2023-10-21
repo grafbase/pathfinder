@@ -1,16 +1,16 @@
-import { useSessionStore } from "@pathfinder-ide/stores";
+import { useSessionStore } from '@pathfinder-ide/stores';
 
-import { Dialog } from "@headlessui/react";
+import { Dialog } from '@headlessui/react';
 
-import { Connect } from "../connect/connect";
-import { CompassAnimated } from "../compass-animated";
+import { Connect } from '../connect/connect';
+import { CompassAnimated } from '../compass-animated';
 
 import {
   connectionBarClass,
   connectionBarContentClass,
   connectionBarDialogBackdropClass,
   connectionBarDialogClass,
-} from "./connection-bar.css";
+} from './connection-bar.css';
 
 export const ConnectionBar = () => {
   const connectionDialogOpen = useSessionStore.use.connectionDialogOpen();
@@ -24,20 +24,14 @@ export const ConnectionBar = () => {
         role="button"
         className={connectionBarContentClass}
         onClick={() => useSessionStore.setState({ connectionDialogOpen: true })}
-        style={{ cursor: "pointer" }}
+        style={{ cursor: 'pointer' }}
       >
-        {endpoint ? (
-          endpoint
-        ) : (
-          <CompassAnimated size="small" speed="standard" />
-        )}
+        {endpoint ? endpoint : <CompassAnimated size="small" speed="standard" />}
       </div>
 
       <Dialog
         open={connectionDialogOpen}
-        onClose={() =>
-          useSessionStore.setState({ connectionDialogOpen: false })
-        }
+        onClose={() => useSessionStore.setState({ connectionDialogOpen: false })}
       >
         <div className={connectionBarDialogBackdropClass} aria-hidden="true" />
 

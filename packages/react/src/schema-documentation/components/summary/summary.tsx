@@ -3,24 +3,24 @@ import type {
   GraphQLField,
   GraphQLInputField,
   GraphQLNamedType,
-} from "graphql";
+} from 'graphql';
 
-import { unwrapType } from "@pathfinder-ide/shared";
+import { unwrapType } from '@pathfinder-ide/shared';
 
-import { useSchemaDocumentationStore } from "../../store";
+import { useSchemaDocumentationStore } from '../../store';
 
-import { ArgumentsList } from "../arguments-list";
-import { DefaultValue } from "../default-value";
-import { Markdown } from "../markdown";
+import { ArgumentsList } from '../arguments-list';
+import { DefaultValue } from '../default-value';
+import { Markdown } from '../markdown';
 
-import { summaryFieldClass, summaryTypeClass } from "./summary.css";
+import { summaryFieldClass, summaryTypeClass } from './summary.css';
 
 import {
   returnTypeButtonClass,
   scalarArgumentNameClass,
   tertiaryTriggerButtonClass,
-} from "../../shared.styles.css";
-import { Delimiter } from "../delimiter";
+} from '../../shared.styles.css';
+import { Delimiter } from '../delimiter';
 
 export const SummaryField = ({
   field,
@@ -36,7 +36,7 @@ export const SummaryField = ({
     <div className={summaryFieldClass}>
       <button
         className={tertiaryTriggerButtonClass({
-          color: "VIOLET",
+          color: 'VIOLET',
         })}
         onClick={() =>
           setActiveTertiaryPane({
@@ -47,7 +47,7 @@ export const SummaryField = ({
       >
         {field.name}
       </button>
-      {"args" in field && field.args.length > 0 && (
+      {'args' in field && field.args.length > 0 && (
         <>
           <Delimiter value="(" spacing="LEFT_AND_RIGHT" />
           <ArgumentsList
@@ -73,11 +73,7 @@ export const SummaryField = ({
   );
 };
 
-export const SummaryInputField = ({
-  inputField,
-}: {
-  inputField: GraphQLInputField;
-}) => {
+export const SummaryInputField = ({ inputField }: { inputField: GraphQLInputField }) => {
   const { setActiveTertiaryPane } = useSchemaDocumentationStore();
 
   return (
@@ -116,7 +112,7 @@ export const SummaryType = ({
     <div className={summaryTypeClass}>
       <button
         className={tertiaryTriggerButtonClass({
-          color: "BLUE",
+          color: 'BLUE',
         })}
         onClick={() =>
           setActiveTertiaryPane({
@@ -127,9 +123,7 @@ export const SummaryType = ({
       >
         {type.name}
       </button>
-      {showDescription && type.description && (
-        <Markdown content={type.description} />
-      )}
+      {showDescription && type.description && <Markdown content={type.description} />}
     </div>
   );
 };

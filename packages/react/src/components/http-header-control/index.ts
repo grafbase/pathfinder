@@ -1,1 +1,1 @@
-export { HTTPHeaderControl } from "./http-header-control";
+export { HTTPHeaderControl } from './http-header-control';

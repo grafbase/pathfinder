@@ -3,22 +3,15 @@ import type {
   GraphQLField,
   GraphQLInputObjectType,
   GraphQLObjectType,
-} from "graphql";
+} from 'graphql';
 
-import type { AncestorsArray } from "../../compass-store";
+import type { AncestorsArray } from '../../compass-store';
 
-export type ListItemVariants =
-  | "FIELD"
-  | "INLINE_FRAGMENT"
-  | "INPUT_OBJECT"
-  | "ARGUMENT";
+export type ListItemVariants = 'FIELD' | 'INLINE_FRAGMENT' | 'INPUT_OBJECT' | 'ARGUMENT';
 
 export type ListItemTypeTypes =
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  | GraphQLField<any, any>
-  | GraphQLArgument
-  | GraphQLInputObjectType
-  | GraphQLObjectType;
+  GraphQLField<any, any> | GraphQLArgument | GraphQLInputObjectType | GraphQLObjectType;
 
 type ListItemBaseProps = {
   ancestors: AncestorsArray;

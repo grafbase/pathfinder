@@ -1,17 +1,17 @@
-import { schemaStore } from "../schema-store";
-import { pushMonacoEditorEdit } from "../../monaco-editor-store";
-import { setMonacoGraphQLSchema } from "../../monaco-graphql-store";
+import { schemaStore } from '../schema-store';
+import { pushMonacoEditorEdit } from '../../monaco-editor-store';
+import { setMonacoGraphQLSchema } from '../../monaco-graphql-store';
 
-import { DOCUMENT_EDITOR_ID } from "@pathfinder-ide/shared";
+import { DOCUMENT_EDITOR_ID } from '@pathfinder-ide/shared';
 
-import { doIntrospection } from "./do-introspection";
-import { setSchemaPollingTimer } from "./set-schema-polling-timer";
+import { doIntrospection } from './do-introspection';
+import { setSchemaPollingTimer } from './set-schema-polling-timer';
 
-import { getMonacoEditor } from "../../monaco-editor-store";
+import { getMonacoEditor } from '../../monaco-editor-store';
 
-import type { SchemaStoreActions } from "../schema-store.types";
+import type { SchemaStoreActions } from '../schema-store.types';
 
-export const doSchemaPolling: SchemaStoreActions["doSchemaPolling"] = ({
+export const doSchemaPolling: SchemaStoreActions['doSchemaPolling'] = ({
   fetchOptions,
 }) => {
   // if we have don't have a timer set, we can begin
@@ -30,10 +30,7 @@ export const doSchemaPolling: SchemaStoreActions["doSchemaPolling"] = ({
       if (!introspectionResult) {
         // we won't reach our outer timeout (below, bottom) if we return here, so we set a fresh timer here before bailing
         setSchemaPollingTimer({
-          timer: setTimeout(
-            fetchSchema,
-            schemaStore.getState().polling.interval,
-          ),
+          timer: setTimeout(fetchSchema, schemaStore.getState().polling.interval),
         });
         // bail
         return;
@@ -64,7 +61,7 @@ export const doSchemaPolling: SchemaStoreActions["doSchemaPolling"] = ({
       pushMonacoEditorEdit({
         edits: [
           {
-            range: "REPLACE",
+            range: 'REPLACE',
             text: documentEditor?.getValue() || null,
           },
         ],

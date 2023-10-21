@@ -1,22 +1,22 @@
-import { getEnabledTTPHeaderValues } from "../../session-store";
-import type { SchemaStoreActions } from "../schema-store.types";
-import { useSchemaStore } from "../use-schema-store";
+import { getEnabledTTPHeaderValues } from '../../session-store';
+import type { SchemaStoreActions } from '../schema-store.types';
+import { useSchemaStore } from '../use-schema-store';
 
-export const httpFetcher: SchemaStoreActions["httpFetcher"] = async ({
+export const httpFetcher: SchemaStoreActions['httpFetcher'] = async ({
   graphQLParams,
   fetchOptions,
 }) => {
   const body = JSON.stringify(graphQLParams);
 
   const fetchResponse = await fetch(fetchOptions.endpoint, {
-    method: "POST",
+    method: 'POST',
     headers: fetchOptions.headers
       ? getEnabledTTPHeaderValues({ headers: fetchOptions.headers })
       : undefined,
-    credentials: "same-origin",
+    credentials: 'same-origin',
     body,
   }).catch((error) => {
-    console.warn("Error during fetch attempt:", {
+    console.warn('Error during fetch attempt:', {
       error,
     });
   });
@@ -24,7 +24,7 @@ export const httpFetcher: SchemaStoreActions["httpFetcher"] = async ({
   if (fetchResponse && !fetchResponse.ok) {
     useSchemaStore.setState({
       isIntrospecting: false,
-      introspectionErrors: ["Response not OK. Do you need to add headers?"],
+      introspectionErrors: ['Response not OK. Do you need to add headers?'],
     });
   } else {
     return fetchResponse;

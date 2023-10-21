@@ -1,1 +1,1 @@
-export { createZustandSelectors } from "./create-zustand-selectors";
+export { createZustandSelectors } from './create-zustand-selectors';

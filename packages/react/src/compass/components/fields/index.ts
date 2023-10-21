@@ -1,1 +1,1 @@
-export { Fields } from "./fields";
+export { Fields } from './fields';

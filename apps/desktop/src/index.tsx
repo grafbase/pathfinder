@@ -1,10 +1,10 @@
-import { StrictMode } from "react";
+import { StrictMode } from 'react';
 
-import { createRoot } from "react-dom/client";
+import { createRoot } from 'react-dom/client';
 
-import { App } from "./components/app/app";
+import { App } from './components/app/app';
 
-const container = document.getElementById("root") as HTMLElement;
+const container = document.getElementById('root') as HTMLElement;
 
 const root = createRoot(container);
 

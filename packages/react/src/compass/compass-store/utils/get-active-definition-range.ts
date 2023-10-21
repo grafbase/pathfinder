@@ -1,11 +1,7 @@
-import {
-  type MonacoIRange,
-  graphQLDocumentStore,
-} from "@pathfinder-ide/stores";
+import { type MonacoIRange, graphQLDocumentStore } from '@pathfinder-ide/stores';
 
 export const getActiveDefinitionRange = (): MonacoIRange | null => {
-  const activeDocumentEntry =
-    graphQLDocumentStore.getState().activeDocumentEntry;
+  const activeDocumentEntry = graphQLDocumentStore.getState().activeDocumentEntry;
 
   if (activeDocumentEntry?.node.loc) {
     return {

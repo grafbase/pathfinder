@@ -3,18 +3,15 @@ import {
   type AncestorsArray,
   generateSelectionBreadcrumbsFromAncestors,
   insertNewOperation,
-} from "../../compass-store";
+} from '../../compass-store';
 
-import { IconButton } from "../../../components/icon-button";
+import { IconButton } from '../../../components/icon-button';
 
-import { type ListItemTypeTypes } from "../list-item";
+import { type ListItemTypeTypes } from '../list-item';
 
-import { useSchemaDocumentationStore } from "../../../schema-documentation";
+import { useSchemaDocumentationStore } from '../../../schema-documentation';
 
-import {
-  detailsActionsClass,
-  detailsActionsControlsClass,
-} from "./details-actions.css";
+import { detailsActionsClass, detailsActionsControlsClass } from './details-actions.css';
 
 export type DetailsActionsProps = {
   ancestors: AncestorsArray;
@@ -29,8 +26,7 @@ export const DetailsActions = ({
   showActions = false,
   type,
 }: DetailsActionsProps) => {
-  const setActiveTertiaryPane =
-    useSchemaDocumentationStore().setActiveTertiaryPane;
+  const setActiveTertiaryPane = useSchemaDocumentationStore().setActiveTertiaryPane;
 
   return (
     <div
@@ -50,12 +46,12 @@ export const DetailsActions = ({
         {
           // if the previousAncestor is "ROOT", we're on a top-level operation and we want to show the insertNewOperation action
         }
-        {previousAncestor.type === "ROOT" && (
+        {previousAncestor.type === 'ROOT' && (
           <IconButton
             action={() =>
               insertNewOperation({
                 ancestors,
-                range: "END",
+                range: 'END',
               })
             }
             iconName="InsertNewOperation"

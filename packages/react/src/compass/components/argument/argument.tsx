@@ -2,16 +2,14 @@ import {
   type AncestorArgument,
   type AncestorsArray,
   generateSelectionBreadcrumbsFromAncestors,
-} from "../../compass-store";
+} from '../../compass-store';
 
-import { Details } from "../details";
+import { Details } from '../details';
 
-import { argumentClass } from "./argument.css";
+import { argumentClass } from './argument.css';
 
 export const Argument = ({ ancestors }: { ancestors: AncestorsArray }) => {
-  const { argument, selection } = ancestors[
-    ancestors.length - 1
-  ] as AncestorArgument;
+  const { argument, selection } = ancestors[ancestors.length - 1] as AncestorArgument;
 
   return (
     <div className={argumentClass}>
@@ -21,7 +19,7 @@ export const Argument = ({ ancestors }: { ancestors: AncestorsArray }) => {
         isSelected={!!selection}
         onClick={() => undefined}
         type={argument}
-        variant={"ARGUMENT"}
+        variant={'ARGUMENT'}
       />
     </div>
   );

@@ -4,5 +4,5 @@
     "lib": ["DOM", "ESNext"],
     "module": "ESNext",
     "types": ["node"]
-  },
+  }
 }

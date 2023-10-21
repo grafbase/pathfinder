@@ -1,16 +1,16 @@
-import { ResizerProps } from "../resizer.types";
+import { ResizerProps } from '../resizer.types';
 
 export type AvailableResizers =
-  | "ide_resizer"
-  | "editors_resizer"
-  | "scout_resizer"
-  | "history_resizer"
-  | "schema_docs_1"
-  | "schema_docs_2";
+  | 'ide_resizer'
+  | 'editors_resizer'
+  | 'scout_resizer'
+  | 'history_resizer'
+  | 'schema_docs_1'
+  | 'schema_docs_2';
 
 export type Resizer = {
   name: AvailableResizers;
-  pane2InitialSize: ResizerProps["pane2"]["initialSize"];
+  pane2InitialSize: ResizerProps['pane2']['initialSize'];
   gridTemplate: string;
   startingGridTemplate: string | null;
 };
@@ -22,7 +22,7 @@ export type ResizerStoreActions = {
     updates,
   }: {
     name: AvailableResizers;
-    updates: Partial<Omit<Resizer, "name">>;
+    updates: Partial<Omit<Resizer, 'name'>>;
   }) => void;
 };
 

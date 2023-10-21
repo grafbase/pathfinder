@@ -1,4 +1,4 @@
-import { unwrapType } from "@pathfinder-ide/shared";
+import { unwrapType } from '@pathfinder-ide/shared';
 import {
   GraphQLDirective,
   GraphQLEnumType,
@@ -8,11 +8,11 @@ import {
   GraphQLObjectType,
   GraphQLScalarType,
   GraphQLUnionType,
-} from "graphql";
+} from 'graphql';
 
-import { useSchemaDocumentationStore } from "../../store";
+import { useSchemaDocumentationStore } from '../../store';
 
-import { ArgumentsList } from "../arguments-list";
+import { ArgumentsList } from '../arguments-list';
 import {
   SectionDescription,
   Section,
@@ -22,20 +22,13 @@ import {
   SectionInterface,
   SectionPossibleTypes,
   SectionArguments,
-} from "../section";
+} from '../section';
 
-import { directiveLocationClass } from "./leaf.css";
+import { directiveLocationClass } from './leaf.css';
 
-import {
-  notificationClass,
-  returnTypeButtonClass,
-} from "../../shared.styles.css";
+import { notificationClass, returnTypeButtonClass } from '../../shared.styles.css';
 
-export const LeafDirective = ({
-  directive,
-}: {
-  directive: GraphQLDirective;
-}) => {
+export const LeafDirective = ({ directive }: { directive: GraphQLDirective }) => {
   return (
     <>
       <SectionDescription description={directive.description} />
@@ -48,7 +41,7 @@ export const LeafDirective = ({
             showBorder={true}
           />
         ) : (
-          "This directive has no arguments"
+          'This directive has no arguments'
         )}
       </Section>
       <Section lead="Locations">
@@ -133,7 +126,7 @@ export const LeafObject = ({ type }: { type: GraphQLObjectType }) => {
 export const LeafScalar = ({ type }: { type: GraphQLScalarType }) => {
   return (
     <>
-      {["String", "ID", "Int", "Float", "Boolean"].includes(type.name) && (
+      {['String', 'ID', 'Int', 'Float', 'Boolean'].includes(type.name) && (
         <Section>
           <p className={notificationClass}>This is a built-in scalar type</p>
         </Section>

@@ -1,25 +1,18 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
-import {
-  RESPONSE_EDITOR_ID,
-  RESPONSE_MODEL_NAME,
-} from "@pathfinder-ide/shared";
+import { RESPONSE_EDITOR_ID, RESPONSE_MODEL_NAME } from '@pathfinder-ide/shared';
 import {
   getMonacoEditor,
   pushMonacoEditorEdit,
   useSchemaStore,
   useSessionStore,
-} from "@pathfinder-ide/stores";
+} from '@pathfinder-ide/stores';
 
-import { Editor } from "../editor";
+import { Editor } from '../editor';
 
-import { KBD } from "../kbd";
+import { KBD } from '../kbd';
 
-import {
-  analyzeClass,
-  responseEditorClass,
-  responseNullStateClass,
-} from "./analyze.css";
+import { analyzeClass, responseEditorClass, responseNullStateClass } from './analyze.css';
 
 export const Analyze = () => {
   const isExecuting = useSchemaStore.use.isExecuting();
@@ -38,14 +31,11 @@ export const Analyze = () => {
 
       // this check prevents the push edit if the latest execution response is the same value as what's already in the response editor
       // this is critical because, otherwise, we'd be overwriting the editor value every time the cursor position changes in the document editor
-      if (
-        responseEditor &&
-        value !== (responseEditor && responseEditor.getValue())
-      ) {
+      if (responseEditor && value !== (responseEditor && responseEditor.getValue())) {
         pushMonacoEditorEdit({
           edits: [
             {
-              range: "REPLACE",
+              range: 'REPLACE',
               text: value,
             },
           ],
@@ -61,9 +51,7 @@ export const Analyze = () => {
   return (
     <div className={analyzeClass}>
       {!activeTab && (
-        <div className={responseNullStateClass}>
-          awaiting executable operation
-        </div>
+        <div className={responseNullStateClass}>awaiting executable operation</div>
       )}
 
       {activeTab && !activeTab.latestResponse && (
@@ -82,17 +70,13 @@ export const Analyze = () => {
       >
         <Editor
           editorId={RESPONSE_EDITOR_ID}
-          defaultValue={JSON.stringify(
-            activeTab?.latestResponse?.response.data,
-            null,
-            2,
-          )}
+          defaultValue={JSON.stringify(activeTab?.latestResponse?.response.data, null, 2)}
           modelDetails={{
             fileName: RESPONSE_MODEL_NAME,
-            language: "json",
+            language: 'json',
           }}
           monacoOptionOverrides={{
-            lineNumbers: "off",
+            lineNumbers: 'off',
             readOnly: true,
           }}
         />

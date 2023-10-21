@@ -1,16 +1,16 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import { useSchemaStore, useThemeStore } from "@pathfinder-ide/stores";
-import { RecipeVariants, shared } from "@pathfinder-ide/style";
+import { useSchemaStore, useThemeStore } from '@pathfinder-ide/stores';
+import { RecipeVariants, shared } from '@pathfinder-ide/style';
 
-import { Compass } from "../compass";
-import { Icon, Resizer } from "../components";
-import { ConnectionBar } from "../components/connection-bar";
-import { SchemaDocumentation } from "../schema-documentation";
-import { SchemaView } from "../schema-view";
-import { Scout } from "../scout";
+import { Compass } from '../compass';
+import { Icon, Resizer } from '../components';
+import { ConnectionBar } from '../components/connection-bar';
+import { SchemaDocumentation } from '../schema-documentation';
+import { SchemaView } from '../schema-view';
+import { Scout } from '../scout';
 
-import { IconProps } from "../components/icon/icon.types";
+import { IconProps } from '../components/icon/icon.types';
 
 import {
   navigationButtonClass,
@@ -20,14 +20,14 @@ import {
   panesWrapClass,
   ideClass,
   ideWrapClass,
-} from "./ide.css";
+} from './ide.css';
 
-type AvailablePanes = "pathfinder" | "schema_documentation" | "schema_view";
+type AvailablePanes = 'pathfinder' | 'schema_documentation' | 'schema_view';
 
 const panesMap: Record<AvailablePanes, string> = {
-  pathfinder: "Pathfinder",
-  schema_documentation: "Schema Documentation",
-  schema_view: "SDL",
+  pathfinder: 'Pathfinder',
+  schema_documentation: 'Schema Documentation',
+  schema_view: 'SDL',
 };
 
 const NavButton = ({
@@ -36,7 +36,7 @@ const NavButton = ({
   setVisiblePane,
   visiblePane,
 }: {
-  iconName: IconProps["name"];
+  iconName: IconProps['name'];
   paneName: AvailablePanes;
   setVisiblePane: React.Dispatch<React.SetStateAction<AvailablePanes>>;
   visiblePane: AvailablePanes;
@@ -51,7 +51,7 @@ const NavButton = ({
       })}
       onClick={() => setVisiblePane(paneName)}
     >
-      <Icon name={iconName} size={"large"} />
+      <Icon name={iconName} size={'large'} />
     </button>
   );
 };
@@ -61,14 +61,14 @@ export const IDE = ({
 }: {
   withFetcherOptions?: Pick<
     NonNullable<RecipeVariants<typeof ideWrapClass>>,
-    "withFetcherOptions"
-  >["withFetcherOptions"];
+    'withFetcherOptions'
+  >['withFetcherOptions'];
 }) => {
   const activeTheme = useThemeStore.use.activeTheme();
 
   const schema = useSchemaStore.use.schema();
 
-  const [visiblePane, setVisiblePane] = useState<AvailablePanes>("pathfinder");
+  const [visiblePane, setVisiblePane] = useState<AvailablePanes>('pathfinder');
 
   if (!activeTheme) {
     return <p>Please wrap IDE with the Pathfinder component.</p>;
@@ -84,7 +84,7 @@ export const IDE = ({
       <div className={ideClass}>
         <div
           className={`${navigationWrapClass} ${shared.hairlineBorder({
-            border: "right",
+            border: 'right',
             onSurface: 1,
           })}`}
         >
@@ -112,11 +112,11 @@ export const IDE = ({
         <div className={panesWrapClass}>
           <div
             className={paneClass({
-              isVisible: visiblePane === "pathfinder",
+              isVisible: visiblePane === 'pathfinder',
             })}
           >
             <Resizer
-              resizerName={"ide_resizer"}
+              resizerName={'ide_resizer'}
               onSurface={1}
               orientation="HORIZONTAL"
               pane1={{
@@ -124,13 +124,13 @@ export const IDE = ({
               }}
               pane2={{
                 component: <Scout />,
-                initialSize: { type: "PERCENT", value: 70 },
+                initialSize: { type: 'PERCENT', value: 70 },
               }}
             />
           </div>
           <div
             className={paneClass({
-              isVisible: visiblePane === "schema_documentation",
+              isVisible: visiblePane === 'schema_documentation',
             })}
           >
             {schema ? <SchemaDocumentation schema={schema} /> : <></>}
@@ -138,7 +138,7 @@ export const IDE = ({
 
           <div
             className={paneClass({
-              isVisible: visiblePane === "schema_view",
+              isVisible: visiblePane === 'schema_view',
             })}
           >
             {schema ? <SchemaView schema={schema} /> : <></>}

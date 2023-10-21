@@ -6,7 +6,7 @@ export type HTTPHeaderValue = {
 };
 
 export type UpdateHeaderKeyOrValue = {
-  keyOrValue: "key" | "value";
+  keyOrValue: 'key' | 'value';
   value: string;
 };
 
@@ -16,11 +16,7 @@ export type UpdateHeaderStatus = {
 
 export type HTTPHeadersActions = {
   addEmptyHeader: ({ enabled }: { enabled?: boolean }) => void;
-  getEnabledTTPHeaderValues: ({
-    headers,
-  }: {
-    headers: HTTPHeaderValue[];
-  }) => HeadersInit;
+  getEnabledTTPHeaderValues: ({ headers }: { headers: HTTPHeaderValue[] }) => HeadersInit;
   getEnabledHTTPHeaderValueRecord: ({
     headers,
   }: {

@@ -1,9 +1,9 @@
-import { Icon } from "./icon";
+import { Icon } from './icon';
 
 export const Icons = () => {
   return (
     <div>
-      <div style={{ display: "flex", gap: "24px" }}>
+      <div style={{ display: 'flex', gap: '24px' }}>
         <span>Prettier</span>
         <Icon name="Prettier" />
         <Icon name="Prettier" rotate="90" />

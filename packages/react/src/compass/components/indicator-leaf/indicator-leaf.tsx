@@ -1,6 +1,6 @@
-import { Icon } from "../../../components";
+import { Icon } from '../../../components';
 
-import { indicatorLeafClass } from "./indicator-leaf.css";
+import { indicatorLeafClass } from './indicator-leaf.css';
 
 export const IndicatorLeaf = () => {
   return (

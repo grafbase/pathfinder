@@ -1,1 +1,1 @@
-export { DocumentNotification } from "./document-notification";
+export { DocumentNotification } from './document-notification';

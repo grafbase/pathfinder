@@ -1,26 +1,20 @@
-import {
-  contract,
-  keyframes,
-  recipe,
-  shared,
-  style,
-} from "@pathfinder-ide/style";
+import { contract, keyframes, recipe, shared, style } from '@pathfinder-ide/style';
 
 export const compassAnimatedWrapClass = style({
-  width: "100%",
-  height: "100%",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
+  width: '100%',
+  height: '100%',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
   padding: 0,
 });
 
 const spin = keyframes({
   from: {
-    transform: "rotate(0deg)",
+    transform: 'rotate(0deg)',
   },
   to: {
-    transform: "rotate(360deg)",
+    transform: 'rotate(360deg)',
   },
 });
 
@@ -28,7 +22,7 @@ export const compassAnimatedClass = recipe({
   base: {},
   variants: {
     size: {
-      "x-small": {
+      'x-small': {
         height: 12,
         width: 12,
       },
@@ -50,20 +44,20 @@ export const compassAnimatedClass = recipe({
 
 export const compassAnimatedSpinClass = recipe({
   base: {
-    transformOrigin: "center",
+    transformOrigin: 'center',
     animation: `${spin} 1s ${shared.transitions.authenticMotion} infinite`,
     fill: contract.color.neutral[12],
   },
   variants: {
     speed: {
       slow: {
-        animationDuration: "1.25s",
+        animationDuration: '1.25s',
       },
       standard: {
-        animationDuration: "0.75s",
+        animationDuration: '0.75s',
       },
       fast: {
-        animationDuration: "0.5s",
+        animationDuration: '0.5s',
       },
     },
   },

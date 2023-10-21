@@ -1,31 +1,31 @@
-import { contract, shared, style } from "@pathfinder-ide/style";
+import { contract, shared, style } from '@pathfinder-ide/style';
 
 export const actionsBarClass = style([
   shared.hairlineBorder({
-    border: "bottom",
+    border: 'bottom',
     onSurface: 1,
   }),
   {
     height: 48,
-    display: "flex",
+    display: 'flex',
     flexShrink: 0,
-    justifyContent: "space-between",
-    alignItems: "center",
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 ]);
 
 export const actionsBarLeadClass = style({
-  display: "flex",
+  display: 'flex',
   fontSize: 14,
   color: contract.color.neutral[11],
 });
 
 export const actionsBarLeftClass = style({
-  display: "flex",
+  display: 'flex',
 });
 
 export const actionsBarRightClass = style({
-  display: "flex",
+  display: 'flex',
   gap: contract.space[8],
-  alignItems: "center",
+  alignItems: 'center',
 });

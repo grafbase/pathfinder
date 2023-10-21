@@ -1,56 +1,56 @@
-import { contract, style } from "@pathfinder-ide/style";
+import { contract, style } from '@pathfinder-ide/style';
 
-import { recipe } from "@vanilla-extract/recipes";
+import { recipe } from '@vanilla-extract/recipes';
 
 export const resizerClass = recipe({
   base: {
-    display: "grid",
-    height: "100%",
-    width: "100%",
-    position: "relative",
-    overflow: "hidden",
+    display: 'grid',
+    height: '100%',
+    width: '100%',
+    position: 'relative',
+    overflow: 'hidden',
   },
 
   variants: {
     isInitialized: {
       true: {
         opacity: 1,
-        visibility: "visible",
+        visibility: 'visible',
       },
       false: {
         opacity: 0,
-        visibility: "hidden",
+        visibility: 'hidden',
       },
     },
   },
 });
 
 export const paneClass = style({
-  overflow: "hidden",
+  overflow: 'hidden',
 });
 
 export const handleClass = recipe({
   base: {
-    position: "relative",
+    position: 'relative',
     zIndex: 2,
-    backgroundColor: "transparent",
+    backgroundColor: 'transparent',
 
     selectors: {
       // this pseudo element is a small handle meant to appear on hover
-      "&::after": {
-        content: "",
-        position: "absolute",
+      '&::after': {
+        content: '',
+        position: 'absolute',
         zIndex: 1,
-        left: "50%",
-        top: "50%",
-        transform: "translate3d(-50%, -50%, 0)",
+        left: '50%',
+        top: '50%',
+        transform: 'translate3d(-50%, -50%, 0)',
         borderRadius: 8,
-        transition: "background-color .15s ease",
-        backgroundColor: "transparent",
+        transition: 'background-color .15s ease',
+        backgroundColor: 'transparent',
       },
 
       // this wonky bit of chained selector magic is the state of our small handle when we hover anywhere over the larger handle area
-      "&:hover::after": {
+      '&:hover::after': {
         backgroundColor: contract.color.neutral[6],
       },
     },
@@ -59,26 +59,26 @@ export const handleClass = recipe({
   variants: {
     orientation: {
       VERTICAL: {
-        width: "100%",
+        width: '100%',
         height: 12,
-        top: "-6px",
-        cursor: "row-resize",
+        top: '-6px',
+        cursor: 'row-resize',
 
         selectors: {
-          "&::after": {
+          '&::after': {
             height: 4,
             width: 110,
           },
         },
       },
       HORIZONTAL: {
-        height: "100%",
+        height: '100%',
         width: 12,
-        left: "-6px",
-        cursor: "col-resize",
+        left: '-6px',
+        cursor: 'col-resize',
 
         selectors: {
-          "&::after": {
+          '&::after': {
             width: 4,
             height: 110,
           },

@@ -1,21 +1,21 @@
-import { style } from "@vanilla-extract/css";
-import { contract } from "../theme";
+import { style } from '@vanilla-extract/css';
+import { contract } from '../theme';
 
 export const scrollbars = style({
   // firefox
-  scrollbarWidth: "thin",
+  scrollbarWidth: 'thin',
   scrollbarColor: `${contract.color.neutral[7]} transparent`,
 
   selectors: {
     // Chrome, Edge, and Safari
-    "&::-webkit-scrollbar": {
+    '&::-webkit-scrollbar': {
       width: 2,
       height: 2,
     },
-    "&::-webkit-scrollbar-track": {
-      background: "transparent",
+    '&::-webkit-scrollbar-track': {
+      background: 'transparent',
     },
-    "&::-webkit-scrollbar-thumb": {
+    '&::-webkit-scrollbar-thumb': {
       backgroundColor: contract.color.neutral[7],
       borderRadius: 4,
     },

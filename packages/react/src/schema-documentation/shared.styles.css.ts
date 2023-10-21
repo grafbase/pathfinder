@@ -1,11 +1,11 @@
-import { contract, recipe, shared, style } from "@pathfinder-ide/style";
+import { contract, recipe, shared, style } from '@pathfinder-ide/style';
 
 export const sharedPaneClass = style([
   shared.scrollbars,
   {
     padding: 24,
-    height: "100%",
-    overflowY: "auto",
+    height: '100%',
+    overflowY: 'auto',
   },
 ]);
 
@@ -14,7 +14,7 @@ export const returnTypeButtonClass = style([
   {
     color: contract.color.blue[11],
     selectors: {
-      "&:hover": {
+      '&:hover': {
         textDecoration: `underline`,
       },
     },
@@ -40,7 +40,7 @@ export const tertiaryTriggerButtonClass = recipe({
       color: contract.color.blue[11],
 
       selectors: {
-        "&:hover": {
+        '&:hover': {
           textDecoration: `underline`,
         },
       },

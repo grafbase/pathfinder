@@ -1,15 +1,15 @@
-import { Location } from "graphql";
+import { Location } from 'graphql';
 
-import { DOCUMENT_EDITOR_ID } from "@pathfinder-ide/shared";
+import { DOCUMENT_EDITOR_ID } from '@pathfinder-ide/shared';
 
 import {
   type MonacoIPosition,
   type MonacoIRange,
   pushMonacoEditorEdit,
   useGraphQLDocumentStore,
-} from "@pathfinder-ide/stores";
+} from '@pathfinder-ide/stores';
 
-import { INDENT_SIZE } from "../constants";
+import { INDENT_SIZE } from '../constants';
 
 import {
   AncestorArgument,
@@ -18,7 +18,7 @@ import {
   AncestorRoot,
   AncestorTypes,
   AncestorsArray,
-} from "../compass-store.types";
+} from '../compass-store.types';
 
 import {
   generateText,
@@ -27,7 +27,7 @@ import {
   getPositionAtEndOfLocation,
   hasSiblingSelections as hasSiblingSelectionsFunc,
   insertNewOperation,
-} from "../utils";
+} from '../utils';
 
 export const addTargetField = ({
   ancestors,
@@ -41,7 +41,7 @@ export const addTargetField = ({
   target: AncestorField;
 }) => {
   const hasSiblingSelections = hasSiblingSelectionsFunc({
-    mode: "ADD",
+    mode: 'ADD',
     previousAncestor,
   });
 
@@ -49,13 +49,11 @@ export const addTargetField = ({
     ancestor: previousAncestor,
   }) as Location;
 
-  const isTopLevelField = previousAncestor.type === "ROOT";
+  const isTopLevelField = previousAncestor.type === 'ROOT';
 
-  const previousAncestorIsSelected =
-    !isTopLevelField && previousAncestor.selection;
+  const previousAncestorIsSelected = !isTopLevelField && previousAncestor.selection;
 
-  const documentEntries =
-    useGraphQLDocumentStore.getState().documentEntries.length;
+  const documentEntries = useGraphQLDocumentStore.getState().documentEntries.length;
 
   if (!hasSiblingSelections && documentEntries === 0) {
     // this is an early check for a deep-toggle, meaning a user has expanded one or more levels of a field and is toggling without any ancestors being selected
@@ -65,7 +63,7 @@ export const addTargetField = ({
     // no fancy monaco shenanigans to do here, just feed all the ancestors to insertNewOperation
     // console.log('!hasSiblingSelections && documentEntries === 0')
 
-    return insertNewOperation({ ancestors, range: "END" });
+    return insertNewOperation({ ancestors, range: 'END' });
   }
 
   // begin is top level field
@@ -76,7 +74,7 @@ export const addTargetField = ({
       // this condition can be true for two reasons; 1) the editor is empty 2) the cursor in the editor is not within a definition
       return insertNewOperation({
         ancestors,
-        range: "END",
+        range: 'END',
       });
     }
 
@@ -98,7 +96,7 @@ export const addTargetField = ({
         location: previousAncestorLocation,
       });
 
-      const text = `${" ".repeat(
+      const text = `${' '.repeat(
         previousAncestorLocation.startToken.column * INDENT_SIZE,
       )}${target.field.name}\n`;
 
@@ -142,11 +140,9 @@ export const addTargetField = ({
           location: previousAncestorLocation,
         });
 
-        const text = ` {\n${" ".repeat(
-          previousAncestorLocation.startToken.column + 1,
-        )}${target.field.name}\n${" ".repeat(
-          previousAncestorLocation.startToken.column - 1,
-        )}}`;
+        const text = ` {\n${' '.repeat(previousAncestorLocation.startToken.column + 1)}${
+          target.field.name
+        }\n${' '.repeat(previousAncestorLocation.startToken.column - 1)}}`;
 
         const position = getPositionAtEndOfLocation({
           location: previousAncestorLocation,
@@ -185,9 +181,9 @@ export const addTargetField = ({
           location: previousAncestorLocation,
         });
 
-        const text = `${" ".repeat(
-          previousAncestorLocation.startToken.column + 1,
-        )}${target.field.name}\n`;
+        const text = `${' '.repeat(previousAncestorLocation.startToken.column + 1)}${
+          target.field.name
+        }\n`;
 
         const position = getPositionAtEndOfLocation({
           location: previousAncestorLocation,
@@ -225,7 +221,7 @@ export const addTargetField = ({
       const nearestSelectedAncestorHasSelections = !!(
         nearestSelectedAncestor?.selection &&
         // eslint-disable-next-line no-unsafe-optional-chaining
-        "selectionSet" in nearestSelectedAncestor?.selection &&
+        'selectionSet' in nearestSelectedAncestor?.selection &&
         nearestSelectedAncestor?.selection.selectionSet
       );
 
@@ -236,9 +232,7 @@ export const addTargetField = ({
 
       let position: MonacoIPosition = {
         column:
-          allUnselectedAncestors.length * INDENT_SIZE +
-          1 +
-          target.field.name.length,
+          allUnselectedAncestors.length * INDENT_SIZE + 1 + target.field.name.length,
         lineNumber: location.endToken.line + allUnselectedAncestors.length - 1,
       };
 
@@ -262,12 +256,9 @@ export const addTargetField = ({
         // }
 
         position = {
-          lineNumber:
-            location.endToken.line + allUnselectedAncestors.length - 1,
+          lineNumber: location.endToken.line + allUnselectedAncestors.length - 1,
           column:
-            allUnselectedAncestors.length * INDENT_SIZE +
-            1 +
-            target.field.name.length,
+            allUnselectedAncestors.length * INDENT_SIZE + 1 + target.field.name.length,
         };
 
         range = getAddRangeForFieldFromLocation({
@@ -317,10 +308,8 @@ export const addTargetField = ({
           // }
 
           position = {
-            lineNumber:
-              location.endToken.line + allUnselectedAncestors.length - 1,
-            column:
-              ancestors.length * INDENT_SIZE + target.field.name.length - 1,
+            lineNumber: location.endToken.line + allUnselectedAncestors.length - 1,
+            column: ancestors.length * INDENT_SIZE + target.field.name.length - 1,
           };
           range = getAddRangeForFieldFromLocation({
             hasSelections: true,
@@ -365,8 +354,7 @@ export const addTargetField = ({
 
           position = {
             lineNumber: location.endToken.line + allUnselectedAncestors.length,
-            column:
-              ancestors.length * INDENT_SIZE + target.field.name.length - 1,
+            column: ancestors.length * INDENT_SIZE + target.field.name.length - 1,
           };
           range = getAddRangeForFieldFromLocation({
             hasSelections: false,

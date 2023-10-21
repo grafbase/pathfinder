@@ -1,1 +1,1 @@
-export { EditorTabs } from "./editor-tabs";
+export { EditorTabs } from './editor-tabs';

@@ -1,1 +1,1 @@
-export { RootOperation } from "./root-operation";
+export { RootOperation } from './root-operation';

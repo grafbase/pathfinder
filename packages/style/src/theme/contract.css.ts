@@ -1,9 +1,9 @@
-import { createGlobalThemeContract } from "@vanilla-extract/css";
-import { toTitleCase } from "../utils";
+import { createGlobalThemeContract } from '@vanilla-extract/css';
+import { toTitleCase } from '../utils';
 
-import { color } from "./color";
-import { fonts } from "./fonts";
-import { space } from "./space";
+import { color } from './color';
+import { fonts } from './fonts';
+import { space } from './space';
 
 export const contract = createGlobalThemeContract(
   {
@@ -11,5 +11,5 @@ export const contract = createGlobalThemeContract(
     fonts,
     space,
   },
-  (_value, path) => `${path.map(toTitleCase).join("")}`,
+  (_value, path) => `${path.map(toTitleCase).join('')}`,
 );

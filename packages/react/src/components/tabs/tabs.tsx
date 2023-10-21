@@ -1,4 +1,4 @@
-import { Tab } from "@headlessui/react";
+import { Tab } from '@headlessui/react';
 
 import {
   tabListClass,
@@ -6,11 +6,11 @@ import {
   tabGroupClass,
   tabPanelClass,
   tabPanelsClass,
-} from "./tabs.css";
+} from './tabs.css';
 
-import { shared } from "@pathfinder-ide/style";
+import { shared } from '@pathfinder-ide/style';
 
-import { TabsProps } from "./tabs.types";
+import { TabsProps } from './tabs.types';
 
 export const Tabs = ({
   controlled,
@@ -40,7 +40,7 @@ export const Tabs = ({
             className={`${tabListClass({
               tabListHeight,
             })} ${shared.hairlineBorder({
-              border: "bottom",
+              border: 'bottom',
               onSurface: styles.onSurface,
             })}`}
           >
@@ -62,11 +62,7 @@ export const Tabs = ({
           {tabs.map((tab) => {
             const PanelContent = tab.panelContent;
             return (
-              <Tab.Panel
-                className={tabPanelClass}
-                key={tab.name}
-                unmount={false}
-              >
+              <Tab.Panel className={tabPanelClass} key={tab.name} unmount={false}>
                 <PanelContent />
               </Tab.Panel>
             );

@@ -1,23 +1,16 @@
-import { GraphQLArgument, isInputObjectType } from "graphql";
+import { GraphQLArgument, isInputObjectType } from 'graphql';
 
-import { unwrapType } from "@pathfinder-ide/shared";
+import { unwrapType } from '@pathfinder-ide/shared';
 
-import { useSchemaDocumentationStore } from "../../store";
+import { useSchemaDocumentationStore } from '../../store';
 
-import { DefaultValue } from "../default-value";
-import { Delimiter } from "../delimiter";
-import { Markdown } from "../markdown";
+import { DefaultValue } from '../default-value';
+import { Delimiter } from '../delimiter';
+import { Markdown } from '../markdown';
 
-import {
-  argumentClass,
-  argumentListClass,
-  inputObjectName,
-} from "./arguments-list.css";
+import { argumentClass, argumentListClass, inputObjectName } from './arguments-list.css';
 
-import {
-  returnTypeButtonClass,
-  scalarArgumentNameClass,
-} from "../../shared.styles.css";
+import { returnTypeButtonClass, scalarArgumentNameClass } from '../../shared.styles.css';
 
 export const ArgumentsList = ({
   args,
@@ -66,9 +59,7 @@ export const ArgumentsList = ({
               </button>
               <DefaultValue inputFieldOrArgument={a} />
             </div>
-            {showDescription && a.description && (
-              <Markdown content={a.description} />
-            )}
+            {showDescription && a.description && <Markdown content={a.description} />}
           </div>
         ))}
       </div>

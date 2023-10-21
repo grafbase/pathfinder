@@ -1,4 +1,4 @@
-import { CompassAnimated } from "./compass-animated";
+import { CompassAnimated } from './compass-animated';
 
 export const XSmall = () => {
   return <CompassAnimated size="x-small" speed="standard" />;

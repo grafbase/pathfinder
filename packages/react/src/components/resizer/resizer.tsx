@@ -1,20 +1,20 @@
-import { useCallback, useEffect, useRef } from "react";
-import throttle from "lodash/throttle";
-import { shared } from "@pathfinder-ide/style";
+import { useCallback, useEffect, useRef } from 'react';
+import throttle from 'lodash/throttle';
+import { shared } from '@pathfinder-ide/style';
 
 import {
   getInitialGridTemplate,
   resetPane,
   setResizerState,
   useResizerStore,
-} from "./resizer-store";
+} from './resizer-store';
 
-import { resizerClass, handleClass, paneClass } from "./resizer.css";
-import type { ResizerProps } from "./resizer.types";
+import { resizerClass, handleClass, paneClass } from './resizer.css';
+import type { ResizerProps } from './resizer.types';
 
 export const Resizer = ({
   onSurface,
-  orientation = "HORIZONTAL",
+  orientation = 'HORIZONTAL',
   pane1,
   pane2,
   resizerName,
@@ -29,7 +29,7 @@ export const Resizer = ({
   const throttledOnWindowResize = throttle(() => {
     if (pane2.minimumSize) {
       const containerWidthOrHeight =
-        orientation === "HORIZONTAL"
+        orientation === 'HORIZONTAL'
           ? (containerRef.current?.clientWidth as number)
           : (containerRef.current?.clientHeight as number);
 
@@ -67,13 +67,12 @@ export const Resizer = ({
       }
 
       if (pane2.minimumSize) {
-        window.addEventListener("resize", throttledOnWindowResize);
+        window.addEventListener('resize', throttledOnWindowResize);
       } else {
-        window.removeEventListener("resize", throttledOnWindowResize);
+        window.removeEventListener('resize', throttledOnWindowResize);
       }
 
-      return () =>
-        window.removeEventListener("resize", throttledOnWindowResize);
+      return () => window.removeEventListener('resize', throttledOnWindowResize);
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [],
@@ -88,27 +87,23 @@ export const Resizer = ({
       if (containerEl && pane1El && pane2El) {
         // the distance from the parent container to view left (HORIZONTAL) or view top (VERTICAL)
         const containerOffset =
-          orientation === "HORIZONTAL"
+          orientation === 'HORIZONTAL'
             ? containerEl.getBoundingClientRect().left
             : containerEl.getBoundingClientRect().top;
 
         // the width or height of pane1, depending on orientation
         const containerWidthOrHeight =
-          orientation === "HORIZONTAL"
+          orientation === 'HORIZONTAL'
             ? containerEl.clientWidth
             : containerEl.clientHeight;
 
         // the width or height of pane1, depending on orientation
         const pane1WidthOrHeight =
-          orientation === "HORIZONTAL"
-            ? pane1El.offsetWidth
-            : pane1El.offsetHeight;
+          orientation === 'HORIZONTAL' ? pane1El.offsetWidth : pane1El.offsetHeight;
 
         // the width or height of pane2, depending on orientation
         const pane2WidthOrHeight =
-          orientation === "HORIZONTAL"
-            ? pane2El.offsetWidth
-            : pane2El.offsetHeight;
+          orientation === 'HORIZONTAL' ? pane2El.offsetWidth : pane2El.offsetHeight;
 
         // the minimum size of pane1, depending on whether the minimumSize prop was passed in with pane 1
         const pane1Min = pane1.minimumSize
@@ -122,15 +117,12 @@ export const Resizer = ({
 
         // the distance from the in-motion handle to our parent container left (HORIZONTAL) or parent container top (VERTICAL)
         const handleOffset =
-          mouseEvent[orientation === "HORIZONTAL" ? "clientX" : "clientY"] -
+          mouseEvent[orientation === 'HORIZONTAL' ? 'clientX' : 'clientY'] -
           containerOffset;
 
         // our new size for pane1
         const newPane1Size = Math.min(
-          Math.max(
-            handleOffset / (pane1WidthOrHeight + pane2WidthOrHeight),
-            pane1Min,
-          ),
+          Math.max(handleOffset / (pane1WidthOrHeight + pane2WidthOrHeight), pane1Min),
           pane1Max,
         );
 
@@ -158,12 +150,12 @@ export const Resizer = ({
       e.preventDefault();
 
       const onMouseUp = () => {
-        document.removeEventListener("mousemove", throttledOnMouseMove);
-        document.removeEventListener("mouseup", onMouseUp);
+        document.removeEventListener('mousemove', throttledOnMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
       };
 
-      document.addEventListener("mousemove", throttledOnMouseMove);
-      document.addEventListener("mouseup", onMouseUp);
+      document.addEventListener('mousemove', throttledOnMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
     },
     [throttledOnMouseMove],
   );
@@ -175,14 +167,14 @@ export const Resizer = ({
       })}
       ref={containerRef}
       style={
-        orientation === "HORIZONTAL"
+        orientation === 'HORIZONTAL'
           ? { gridTemplateColumns: resizer.gridTemplate }
           : { gridTemplateRows: resizer.gridTemplate }
       }
     >
       <div
         className={`${paneClass} ${shared.hairlineBorder({
-          border: orientation === "HORIZONTAL" ? "right" : "bottom",
+          border: orientation === 'HORIZONTAL' ? 'right' : 'bottom',
           onSurface,
         })}`}
         ref={pane1Ref}

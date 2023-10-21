@@ -1,13 +1,13 @@
-import type { RecipeVariants } from "@pathfinder-ide/style";
+import type { RecipeVariants } from '@pathfinder-ide/style';
 
-import { useThemeStore } from "@pathfinder-ide/stores";
+import { useThemeStore } from '@pathfinder-ide/stores';
 
-import { spinnerInnerClass, spinnerOuterClass } from "./spinner.css";
+import { spinnerInnerClass, spinnerOuterClass } from './spinner.css';
 
 export const Spinner = ({
   variant,
 }: {
-  variant: Omit<NonNullable<RecipeVariants<typeof spinnerInnerClass>>, "theme">;
+  variant: Omit<NonNullable<RecipeVariants<typeof spinnerInnerClass>>, 'theme'>;
 }) => {
   const activeTheme = useThemeStore.use.activeTheme();
   return (
@@ -15,7 +15,7 @@ export const Spinner = ({
       <div
         className={spinnerInnerClass({
           size: variant?.size,
-          theme: activeTheme || "dark",
+          theme: activeTheme || 'dark',
         })}
       />
     </div>

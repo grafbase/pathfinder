@@ -1,15 +1,12 @@
-import {
-  DOCUMENT_EDITOR_DEFAULT_VALUE,
-  generateCuid,
-} from "@pathfinder-ide/shared";
+import { DOCUMENT_EDITOR_DEFAULT_VALUE, generateCuid } from '@pathfinder-ide/shared';
 
-import type { EditorTab, EditorTabsState } from "./editor-tabs.types";
+import type { EditorTab, EditorTabsState } from './editor-tabs.types';
 
 const INITIAL_EDITOR_TAB_ID = generateCuid({});
 
 export const INITIAL_EDITOR_TAB: EditorTab = {
   tabId: INITIAL_EDITOR_TAB_ID,
-  tabName: "Untitled",
+  tabName: 'Untitled',
   cursorPosition: null,
   documentString: DOCUMENT_EDITOR_DEFAULT_VALUE,
   latestResponse: null,

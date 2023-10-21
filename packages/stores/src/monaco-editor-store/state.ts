@@ -2,9 +2,9 @@ import {
   DOCUMENT_EDITOR_ID,
   RESPONSE_EDITOR_ID,
   VARIABLES_EDITOR_ID,
-} from "@pathfinder-ide/shared";
+} from '@pathfinder-ide/shared';
 
-import type { MonacoEditorStoreState } from "./monaco-editor-store.types";
+import type { MonacoEditorStoreState } from './monaco-editor-store.types';
 
 const INITIAL_MONACO_EDITOR_STORE_STATE: MonacoEditorStoreState = {
   managedEditors: {

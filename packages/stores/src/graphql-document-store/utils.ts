@@ -1,8 +1,8 @@
-import { parse } from "graphql";
+import { parse } from 'graphql';
 
-import type { DefinitionNode, DocumentNode, Location } from "graphql";
+import type { DefinitionNode, DocumentNode, Location } from 'graphql';
 
-import { Range } from "monaco-graphql/esm/monaco-editor";
+import { Range } from 'monaco-graphql/esm/monaco-editor';
 
 export const getLocationAndRangeForDefinition = ({
   definition,

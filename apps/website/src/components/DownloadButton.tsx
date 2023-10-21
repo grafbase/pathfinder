@@ -1,20 +1,20 @@
-import * as React from "react";
-import { useEffect, useState } from "react";
+import * as React from 'react';
+import { useEffect, useState } from 'react';
 
 const DownloadButton = () => {
-  const [platform, setPlatform] = useState<"Mac" | "Windows" | "Linux">("Mac");
+  const [platform, setPlatform] = useState<'Mac' | 'Windows' | 'Linux'>('Mac');
 
   useEffect(() => {
-    if (navigator.platform.indexOf("Mac") > -1) {
-      setPlatform("Mac");
+    if (navigator.platform.indexOf('Mac') > -1) {
+      setPlatform('Mac');
     }
 
-    if (navigator.platform.indexOf("Win") > -1) {
-      setPlatform("Windows");
+    if (navigator.platform.indexOf('Win') > -1) {
+      setPlatform('Windows');
     }
 
-    if (navigator.platform.indexOf("Linux") > -1) {
-      setPlatform("Linux");
+    if (navigator.platform.indexOf('Linux') > -1) {
+      setPlatform('Linux');
     }
   }, []);
 
@@ -23,13 +23,13 @@ const DownloadButton = () => {
       download
       href="https://github.com/grafbase/pathfinder/releases/download/pathfinder-0.1.5/pathfinder-0.1.5-universal-apple-darwin.dmg"
       className={
-        "cursor-pointer bg-gradient-to-r from-purple-500 to-blue-500 px-6 py-4 rounded-md mt-8 flex items-center gap-2 justify-center transition duration-200" +
-        (!platform ? " opacity-0" : " opacity-100") +
-        (platform !== "Mac" ? " pointer-events-none" : "")
+        'cursor-pointer bg-gradient-to-r from-purple-500 to-blue-500 px-6 py-4 rounded-md mt-8 flex items-center gap-2 justify-center transition duration-200' +
+        (!platform ? ' opacity-0' : ' opacity-100') +
+        (platform !== 'Mac' ? ' pointer-events-none' : '')
       }
     >
       {!platform && <div style={{ height: 25, width: 25 }} />}
-      {platform === "Mac" && (
+      {platform === 'Mac' && (
         <svg
           width="25"
           height="24"
@@ -47,7 +47,7 @@ const DownloadButton = () => {
           />
         </svg>
       )}
-      {platform === "Windows" && (
+      {platform === 'Windows' && (
         <svg
           width="25"
           height="25"
@@ -56,18 +56,9 @@ const DownloadButton = () => {
           xmlns="http://www.w3.org/2000/svg"
         >
           <g clip-path="url(#clip0_262_2412)">
-            <path
-              d="M9.50077 0.40004H0.400024V9.50042H9.50077V0.40004Z"
-              fill="white"
-            />
-            <path
-              d="M19.6 0.400047H10.4993V9.50042H19.6V0.400047Z"
-              fill="white"
-            />
-            <path
-              d="M9.50077 10.4997H0.400024V19.6H9.50077V10.4997Z"
-              fill="white"
-            />
+            <path d="M9.50077 0.40004H0.400024V9.50042H9.50077V0.40004Z" fill="white" />
+            <path d="M19.6 0.400047H10.4993V9.50042H19.6V0.400047Z" fill="white" />
+            <path d="M9.50077 10.4997H0.400024V19.6H9.50077V10.4997Z" fill="white" />
             <path d="M19.6 10.4997H10.4993V19.6H19.6V10.4997Z" fill="white" />
           </g>
           <defs>
@@ -82,7 +73,7 @@ const DownloadButton = () => {
           </defs>
         </svg>
       )}
-      {platform === "Linux" && (
+      {platform === 'Linux' && (
         <svg
           width="25"
           height="25"
@@ -109,7 +100,7 @@ const DownloadButton = () => {
         </svg>
       )}
       <span className="text-white font-medium text-lg">
-        {platform === "Mac" ? `Download Beta for ${platform}` : "Coming Soon"}
+        {platform === 'Mac' ? `Download Beta for ${platform}` : 'Coming Soon'}
       </span>
     </a>
   );

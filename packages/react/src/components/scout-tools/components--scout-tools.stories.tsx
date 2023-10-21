@@ -1,4 +1,4 @@
-import { ScoutTools } from "./scout-tools";
+import { ScoutTools } from './scout-tools';
 
 export const Story = () => {
   return <ScoutTools />;

@@ -1,20 +1,20 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from 'react';
 
 import {
   schemaStore,
   type ExecutionResponse,
   useSessionStore,
   clearHistory,
-} from "@pathfinder-ide/stores";
-import { shared } from "@pathfinder-ide/style";
+} from '@pathfinder-ide/stores';
+import { shared } from '@pathfinder-ide/style';
 
-import { HistoryListItem } from "./history-list-item";
-import { HistoryItemRequest } from "./history-item-request";
-import { HistoryItemResponse } from "./history-item-response";
+import { HistoryListItem } from './history-list-item';
+import { HistoryItemRequest } from './history-item-request';
+import { HistoryItemResponse } from './history-item-response';
 
-import { Resizer } from "../resizer";
-import { Dropdown } from "../dropdown";
-import { Tabs } from "../tabs";
+import { Resizer } from '../resizer';
+import { Dropdown } from '../dropdown';
+import { Tabs } from '../tabs';
 
 import {
   historyClass,
@@ -22,13 +22,14 @@ import {
   historyListClass,
   historyListHeaderClass,
   historyNullStateClass,
-} from "./history.css";
+} from './history.css';
 
 export const History = () => {
   const executions = useSessionStore.use.executions();
 
-  const [activeHistoryItem, setActiveHistoryItem] =
-    useState<ExecutionResponse | null>(executions[0]);
+  const [activeHistoryItem, setActiveHistoryItem] = useState<ExecutionResponse | null>(
+    executions[0],
+  );
 
   useEffect(() => {
     if (executions.length === 0) {
@@ -47,10 +48,7 @@ export const History = () => {
           latestResponseRef.current = latestResponse;
 
           return useSessionStore.setState({
-            executions: [
-              ...useSessionStore.getState().executions,
-              latestResponse,
-            ],
+            executions: [...useSessionStore.getState().executions, latestResponse],
           });
         }
       }),
@@ -60,7 +58,7 @@ export const History = () => {
   return (
     <div className={historyClass}>
       <Resizer
-        resizerName={"history_resizer"}
+        resizerName={'history_resizer'}
         onSurface={1}
         orientation="HORIZONTAL"
         pane1={{
@@ -68,7 +66,7 @@ export const History = () => {
             <div className={historyExecutionsClass}>
               <div
                 className={`${historyListHeaderClass} ${shared.hairlineBorder({
-                  border: "bottom",
+                  border: 'bottom',
                   onSurface: 1,
                 })}`}
               >
@@ -77,20 +75,20 @@ export const History = () => {
                   buttons={[
                     {
                       action: () => clearHistory(),
-                      copy: "Clear all items from history",
-                      iconName: "Delete",
+                      copy: 'Clear all items from history',
+                      iconName: 'Delete',
                       onSurface: 3,
-                      size: "medium",
-                      title: "Clear all items from history",
-                      width: "100%",
+                      size: 'medium',
+                      title: 'Clear all items from history',
+                      width: '100%',
                       withBorder: false,
                     },
                   ]}
                   iconButtonProps={{
-                    iconName: "Gear",
+                    iconName: 'Gear',
                     onSurface: 2,
-                    size: "small",
-                    title: "Execution history settings",
+                    size: 'small',
+                    title: 'Execution history settings',
                   }}
                 />
               </div>
@@ -106,9 +104,7 @@ export const History = () => {
                   ))}
                 </ul>
               ) : (
-                <span className={historyNullStateClass}>
-                  No items in history
-                </span>
+                <span className={historyNullStateClass}>No items in history</span>
               )}
             </div>
           ),
@@ -120,7 +116,7 @@ export const History = () => {
               tabs={[
                 {
                   buttonContent: () => <span>Request</span>,
-                  name: "PluginHistoryItemRequest",
+                  name: 'PluginHistoryItemRequest',
                   panelContent: () =>
                     activeHistoryItem ? (
                       <HistoryItemRequest historyItem={activeHistoryItem} />
@@ -130,7 +126,7 @@ export const History = () => {
                 },
                 {
                   buttonContent: () => <span>Response</span>,
-                  name: "PluginHistoryItemResponse",
+                  name: 'PluginHistoryItemResponse',
                   panelContent: () =>
                     activeHistoryItem ? (
                       <HistoryItemResponse historyItem={activeHistoryItem} />
@@ -142,7 +138,7 @@ export const History = () => {
               tabListHeight={40}
             />
           ),
-          initialSize: { type: "PERCENT", value: 40 },
+          initialSize: { type: 'PERCENT', value: 40 },
         }}
       />
     </div>

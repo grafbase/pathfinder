@@ -1,1 +1,1 @@
-export { QuickDocs } from "./quick-docs";
+export { QuickDocs } from './quick-docs';

@@ -1,24 +1,24 @@
-import { Kind, Location, OperationDefinitionNode, TokenKind } from "graphql";
+import { Kind, Location, OperationDefinitionNode, TokenKind } from 'graphql';
 
-import { DOCUMENT_EDITOR_ID } from "@pathfinder-ide/shared";
+import { DOCUMENT_EDITOR_ID } from '@pathfinder-ide/shared';
 import {
   type MonacoEditorITextModel,
   type MonacoIPosition,
   type MonacoIRange,
   getMonacoEditor,
   graphQLDocumentStore,
-} from "@pathfinder-ide/stores";
+} from '@pathfinder-ide/stores';
 
-import { getRangeFromStringInActiveDefinition } from "./get-range-from-string-in-active-definition";
+import { getRangeFromStringInActiveDefinition } from './get-range-from-string-in-active-definition';
 
-import type { AncestorArgument } from "../compass-store.types";
+import type { AncestorArgument } from '../compass-store.types';
 
 export const getRemoveRange = ({
   mode,
   target,
   text,
 }: {
-  mode: "ARGUMENT" | "VARIABLE_DEFINITION";
+  mode: 'ARGUMENT' | 'VARIABLE_DEFINITION';
   target: AncestorArgument;
   text: string;
 }): MonacoIRange | null => {
@@ -32,7 +32,7 @@ export const getRemoveRange = ({
   let endPosition: MonacoIPosition | undefined = undefined;
 
   // let's get our initial start and end positions
-  if (mode === "ARGUMENT") {
+  if (mode === 'ARGUMENT') {
     location = target.selection?.loc as Location;
 
     // if the previous token is "(" and the next token is ")", we're targeting the last remaining argument
@@ -40,14 +40,11 @@ export const getRemoveRange = ({
       target.selection?.loc?.startToken.prev?.kind === TokenKind.PAREN_L &&
       target.selection?.loc?.endToken.next?.kind === TokenKind.PAREN_R;
 
-    startPosition = model?.getPositionAt(
-      target.selection?.loc?.start as number,
-    );
+    startPosition = model?.getPositionAt(target.selection?.loc?.start as number);
     endPosition = model?.getPositionAt(target.selection?.loc?.end as number);
   } else {
     // mode is "VARIABLE_DEFINITION"
-    const activeDocumentEntry =
-      graphQLDocumentStore.getState().activeDocumentEntry;
+    const activeDocumentEntry = graphQLDocumentStore.getState().activeDocumentEntry;
 
     const definition = (
       activeDocumentEntry?.node as OperationDefinitionNode
@@ -109,15 +106,12 @@ export const getRemoveRange = ({
     range = testForTrailingComma;
   }
 
-  const monacoLineContent = model?.getLineContent(
-    startPosition?.lineNumber as number,
-  );
+  const monacoLineContent = model?.getLineContent(startPosition?.lineNumber as number);
 
   const lineIndentCount = monacoLineContent?.search(/\S/) || 0;
 
   const isSingleLine = !!(
-    monacoLineContent &&
-    monacoLineContent.length < lineIndentCount + text.length + 3
+    monacoLineContent && monacoLineContent.length < lineIndentCount + text.length + 3
   );
 
   if (isSingleLine) {

@@ -1,20 +1,20 @@
-import { contract, globalStyle, shared, recipe } from "@pathfinder-ide/style";
+import { contract, globalStyle, shared, recipe } from '@pathfinder-ide/style';
 
 export const iconClass = recipe({
   base: {
-    display: "flex",
-    transform: "rotate(0deg)",
+    display: 'flex',
+    transform: 'rotate(0deg)',
   },
 
   variants: {
     rotate: {
-      "90": {
+      '90': {
         transform: `rotate(90deg)`,
       },
-      "180": {
+      '180': {
         transform: `rotate(180deg)`,
       },
-      "270": {
+      '270': {
         transform: `rotate(270deg)`,
       },
     },

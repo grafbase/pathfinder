@@ -1,43 +1,43 @@
-import { contract, recipe, shared, style } from "@pathfinder-ide/style";
+import { contract, recipe, shared, style } from '@pathfinder-ide/style';
 
 export const ideWrapClass = recipe({
   base: {
-    display: "grid",
-    height: "100%",
-    overflow: "hidden",
+    display: 'grid',
+    height: '100%',
+    overflow: 'hidden',
   },
 
   variants: {
     withFetcherOptions: {
       true: {},
       false: {
-        gridTemplateRows: "48px 1fr",
+        gridTemplateRows: '48px 1fr',
       },
     },
   },
 });
 
 export const ideClass = style({
-  display: "grid",
-  gridTemplateColumns: "60px 1fr",
-  height: "100%",
-  overflow: "hidden",
+  display: 'grid',
+  gridTemplateColumns: '60px 1fr',
+  height: '100%',
+  overflow: 'hidden',
 });
 
 export const navigationWrapClass = style({
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  justifyContent: "space-between",
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'space-between',
   paddingBottom: 12,
 });
 
 export const navigationClass = style({
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
   color: contract.color.neutral[12],
-  overflow: "hidden",
+  overflow: 'hidden',
   gap: 12,
   paddingTop: 12,
   paddingBottom: 12,
@@ -49,16 +49,16 @@ export const navigationButtonClass = recipe({
     {
       height: 40,
       width: 40,
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
       border: `1px solid ${contract.color.neutral[7]}`,
       backgroundColor: contract.color.neutral[4],
       borderRadius: 4,
       transition: `all .15s ${shared.transitions.authenticMotion}`,
 
       selectors: {
-        "&:hover": {
+        '&:hover': {
           opacity: 1,
         },
       },
@@ -77,9 +77,9 @@ export const navigationButtonClass = recipe({
 });
 
 export const panesWrapClass = style({
-  height: "100%",
-  width: "100%",
-  overflow: "hidden",
+  height: '100%',
+  width: '100%',
+  overflow: 'hidden',
 });
 
 export const paneClass = recipe({
@@ -87,13 +87,13 @@ export const paneClass = recipe({
   variants: {
     isVisible: {
       true: {
-        visibility: "visible",
+        visibility: 'visible',
         opacity: 1,
-        height: "100%",
-        width: "100%",
+        height: '100%',
+        width: '100%',
       },
       false: {
-        visibility: "hidden",
+        visibility: 'hidden',
         opacity: 0,
         height: 0,
         width: 0,

@@ -1,9 +1,9 @@
-import { Editor } from "./editor";
+import { Editor } from './editor';
 
 import {
   VARIABLES_EDITOR_DEFAULT_VALUE,
   VARIABLES_EDITOR_ID,
-} from "@pathfinder-ide/shared";
+} from '@pathfinder-ide/shared';
 
 export const JSONEditorWithDefaultValue = () => {
   return (
@@ -11,8 +11,8 @@ export const JSONEditorWithDefaultValue = () => {
       defaultValue={VARIABLES_EDITOR_DEFAULT_VALUE}
       editorId={VARIABLES_EDITOR_ID}
       modelDetails={{
-        fileName: "basic-json-example",
-        language: "json",
+        fileName: 'basic-json-example',
+        language: 'json',
       }}
     />
   );

@@ -1,10 +1,10 @@
-import { FieldNode, GraphQLFieldMap } from "graphql";
+import { FieldNode, GraphQLFieldMap } from 'graphql';
 
-import type { AncestorRoot, AncestorsArray } from "../../compass-store";
+import type { AncestorRoot, AncestorsArray } from '../../compass-store';
 
-import { Field } from "../field";
+import { Field } from '../field';
 
-import { rootOperationClass } from "./root-operation.css";
+import { rootOperationClass } from './root-operation.css';
 
 export const RootOperation = ({
   ancestors,
@@ -37,7 +37,7 @@ export const RootOperation = ({
             ancestors={[
               ...ancestors,
               {
-                type: "FIELD",
+                type: 'FIELD',
                 field: fields[field],
                 selection:
                   operationDefinition?.selectionSet?.selections.find(

@@ -1,1 +1,1 @@
-export { CompassAnimated } from "./compass-animated";
+export { CompassAnimated } from './compass-animated';

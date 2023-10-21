@@ -1,11 +1,11 @@
-import { useEffect } from "react";
-import { GraphQLSchema, printSchema } from "graphql";
+import { useEffect } from 'react';
+import { GraphQLSchema, printSchema } from 'graphql';
 
-import { getMonacoEditor } from "@pathfinder-ide/stores";
+import { getMonacoEditor } from '@pathfinder-ide/stores';
 
-import { Editor } from "../components";
+import { Editor } from '../components';
 
-import { schemaViewInnerClass, schemaViewClass } from "./schema-view.css";
+import { schemaViewInnerClass, schemaViewClass } from './schema-view.css';
 
 type SchemaViewProps = {
   schema: GraphQLSchema;
@@ -14,7 +14,7 @@ type SchemaViewProps = {
 export const SchemaView = ({ schema }: SchemaViewProps) => {
   useEffect(() => {
     const schemaViewEditor = getMonacoEditor({
-      editorId: "schema-view-editor",
+      editorId: 'schema-view-editor',
     });
     schemaViewEditor?.setValue(printSchema(schema));
   }, [schema]);
@@ -27,14 +27,14 @@ export const SchemaView = ({ schema }: SchemaViewProps) => {
     <div className={schemaViewClass}>
       <div className={schemaViewInnerClass}>
         <Editor
-          editorId={"schema-view-editor"}
+          editorId={'schema-view-editor'}
           defaultValue={printSchema(schema)}
           modelDetails={{
-            fileName: "schema-view-editor",
-            language: "graphql",
+            fileName: 'schema-view-editor',
+            language: 'graphql',
           }}
           monacoOptionOverrides={{
-            lineNumbers: "off",
+            lineNumbers: 'off',
             readOnly: true,
           }}
         />

@@ -1,7 +1,7 @@
-import { resizerStore } from "../resizer-store";
-import { ResizerStoreActions } from "../resizer-store.types";
+import { resizerStore } from '../resizer-store';
+import { ResizerStoreActions } from '../resizer-store.types';
 
-export const setResizerState: ResizerStoreActions["setResizerState"] = ({
+export const setResizerState: ResizerStoreActions['setResizerState'] = ({
   name,
   updates,
 }) => {

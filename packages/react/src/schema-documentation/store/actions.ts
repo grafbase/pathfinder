@@ -1,10 +1,10 @@
-import { generateCuid } from "@pathfinder-ide/shared";
+import { generateCuid } from '@pathfinder-ide/shared';
 
 import {
   GetSchemaDocumentationStore,
   SetSchemaDocumentationStore,
   SchemaDocumentationStoreActions,
-} from "./schema-documentation-store.types";
+} from './schema-documentation-store.types';
 
 export const schemaDocumentationStoreActions = (
   set: SetSchemaDocumentationStore,

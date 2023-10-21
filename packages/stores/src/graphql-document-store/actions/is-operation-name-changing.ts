@@ -1,8 +1,8 @@
-import { graphQLDocumentStore } from "../graphql-document-store";
+import { graphQLDocumentStore } from '../graphql-document-store';
 
-import type { GraphQLDocumentStoreActions } from "../graphql-document-store.types";
+import type { GraphQLDocumentStoreActions } from '../graphql-document-store.types';
 
-export const isOperationNameChanging: GraphQLDocumentStoreActions["isOperationNameChanging"] =
+export const isOperationNameChanging: GraphQLDocumentStoreActions['isOperationNameChanging'] =
   ({ definition }) => {
     const foundEntryAtLocation = graphQLDocumentStore
       .getState()

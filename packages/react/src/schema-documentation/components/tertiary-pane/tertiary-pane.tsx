@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import { ReactElement } from 'react';
 
 import {
   isDirective,
@@ -9,9 +9,9 @@ import {
   isObjectType,
   isScalarType,
   isUnionType,
-} from "graphql";
+} from 'graphql';
 
-import { useSchemaDocumentationStore } from "../../store";
+import { useSchemaDocumentationStore } from '../../store';
 
 import {
   LeafScalar,
@@ -22,11 +22,11 @@ import {
   LeafInterface,
   LeafDirective,
   LeafField,
-} from "../leaf";
+} from '../leaf';
 
-import { IconButton } from "../../../components/icon-button";
+import { IconButton } from '../../../components/icon-button';
 
-import { TertiaryPaneType } from "../../types";
+import { TertiaryPaneType } from '../../types';
 
 import {
   tertiaryPaneClass,
@@ -35,7 +35,7 @@ import {
   tertiaryPaneLeadInfoClass,
   tertiaryPaneLeadInfoSpanClass,
   tertiaryPaneNavButtonWrapClass,
-} from "./tertiary-pane.css";
+} from './tertiary-pane.css';
 
 export const TertiaryPane = ({ pane }: { pane: TertiaryPaneType }) => {
   const {
@@ -54,44 +54,44 @@ export const TertiaryPane = ({ pane }: { pane: TertiaryPaneType }) => {
 
   const canNavigateBack = length > 1 && indexOf > 0 && indexOf + 1 <= length;
 
-  let leadType = "";
+  let leadType = '';
   let toRender: ReactElement = <></>;
 
   if (activeTertiaryPane && isNamedType(pane)) {
     if (isScalarType(pane)) {
-      leadType = "Scalar";
+      leadType = 'Scalar';
       toRender = <LeafScalar type={pane} />;
     }
     if (isEnumType(pane)) {
-      leadType = "Enum";
+      leadType = 'Enum';
       toRender = <LeafEnum type={pane} />;
     }
     if (isInputObjectType(pane)) {
-      leadType = "Input object";
+      leadType = 'Input object';
       toRender = <LeafInputObject type={pane} />;
     }
     if (isObjectType(pane)) {
-      leadType = "Object";
+      leadType = 'Object';
       toRender = <LeafObject type={pane} />;
     }
     if (isUnionType(pane)) {
-      leadType = "Union";
+      leadType = 'Union';
       toRender = <LeafUnion type={pane} />;
     }
   }
 
   if (activeTertiaryPane && isInterfaceType(pane)) {
-    leadType = "Interface";
+    leadType = 'Interface';
     toRender = <LeafInterface int={pane} />;
   }
 
   if (activeTertiaryPane && isDirective(pane)) {
-    leadType = "Directive";
+    leadType = 'Directive';
     toRender = <LeafDirective directive={pane} />;
   }
 
-  if (activeTertiaryPane && "args" in pane && !isDirective(pane)) {
-    leadType = "Field";
+  if (activeTertiaryPane && 'args' in pane && !isDirective(pane)) {
+    leadType = 'Field';
     toRender = <LeafField field={pane} />;
   }
 

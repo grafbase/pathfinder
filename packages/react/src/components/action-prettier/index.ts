@@ -1,1 +1,1 @@
-export { ActionPrettier } from "./action-prettier";
+export { ActionPrettier } from './action-prettier';

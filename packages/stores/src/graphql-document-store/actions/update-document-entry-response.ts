@@ -1,21 +1,18 @@
-import { graphQLDocumentStore } from "../graphql-document-store";
+import { graphQLDocumentStore } from '../graphql-document-store';
 
-import { updateActiveEditorTab } from "../../session-store";
+import { updateActiveEditorTab } from '../../session-store';
 
 import type {
   GraphQLDocumentStoreActions,
   OperationEntry,
-} from "../graphql-document-store.types";
+} from '../graphql-document-store.types';
 
-export const updateDocumentEntryResponse: GraphQLDocumentStoreActions["updateDocumentEntryResponse"] =
+export const updateDocumentEntryResponse: GraphQLDocumentStoreActions['updateDocumentEntryResponse'] =
   ({ executionResponse }) => {
-    const operationName =
-      executionResponse.request.graphQLOperationParams.operationName;
+    const operationName = executionResponse.request.graphQLOperationParams.operationName;
     const documentEntries = graphQLDocumentStore.getState().documentEntries;
 
-    const targetEntry = documentEntries.find(
-      (d) => d.node.name?.value === operationName,
-    );
+    const targetEntry = documentEntries.find((d) => d.node.name?.value === operationName);
 
     if (!targetEntry) {
       return undefined;

@@ -1,7 +1,7 @@
-import { SchemaDocumentationStoreState } from "./schema-documentation-store.types";
+import { SchemaDocumentationStoreState } from './schema-documentation-store.types';
 
 export const schemaDocumentationState: SchemaDocumentationStoreState = {
-  activePrimaryPane: "Query",
+  activePrimaryPane: 'Query',
   activeTertiaryPane: null,
   tertiaryPaneStack: [],
 };

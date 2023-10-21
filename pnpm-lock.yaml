@@ -21,21 +21,6 @@ importers:
       '@types/node':
         specifier: 20.8.7
         version: 20.8.7
-      '@types/react':
-        specifier: 18.2.31
-        version: 18.2.31
-      '@types/react-dom':
-        specifier: 18.2.14
-        version: 18.2.14
-      monaco-editor:
-        specifier: 0.40.0
-        version: 0.40.0
-      monaco-graphql:
-        specifier: 1.3.0
-        version: 1.3.0(graphql@16.8.1)(monaco-editor@0.40.0)(prettier@3.0.3)
-      next:
-        specifier: 13.5.3
-        version: 13.5.3(react-dom@18.2.0)(react@18.2.0)
       turbo:
         specifier: 1.10.15
         version: 1.10.15
@@ -208,7 +193,7 @@ importers:
     dependencies:
       '@pathfinder-ide/react':
         specifier: file:../../packages/react
-        version: file:packages/react(@types/react@18.2.18)(prettier@3.0.3)(react-dom@18.2.0)(react@18.2.0)
+        version: file:packages/react(@types/react@18.2.30)(prettier@3.0.3)(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -217,11 +202,11 @@ importers:
         version: 18.2.0(react@18.2.0)
     devDependencies:
       '@types/react':
-        specifier: ^18.2.15
-        version: 18.2.18
+        specifier: ^18.2.28
+        version: 18.2.30
       '@types/react-dom':
-        specifier: ^18.2.7
-        version: 18.2.7
+        specifier: ^18.2.13
+        version: 18.2.14
       '@typescript-eslint/eslint-plugin':
         specifier: ^6.0.0
         version: 6.0.0(@typescript-eslint/parser@6.7.5)(eslint@8.46.0)(typescript@5.1.6)
@@ -305,10 +290,10 @@ importers:
         version: 18.2.0(react@18.2.0)
       react-markdown:
         specifier: 9.0.0
-        version: 9.0.0(@types/react@18.2.31)(react@18.2.0)
+        version: 9.0.0(@types/react@18.2.30)(react@18.2.0)
       zustand:
         specifier: 4.4.3
-        version: 4.4.3(@types/react@18.2.31)(react@18.2.0)
+        version: 4.4.3(@types/react@18.2.30)(react@18.2.0)
     devDependencies:
       '@pathfinder-ide/eslint-config':
         specifier: workspace:*
@@ -337,6 +322,12 @@ importers:
       '@types/lodash':
         specifier: ^4.14.199
         version: 4.14.199
+      '@types/react':
+        specifier: 18.2.30
+        version: 18.2.30
+      '@types/react-dom':
+        specifier: 18.2.14
+        version: 18.2.14
       '@types/testing-library__jest-dom':
         specifier: 5.14.9
         version: 5.14.9
@@ -393,7 +384,7 @@ importers:
         version: 16.8.1
       zustand:
         specifier: 4.4.3
-        version: 4.4.3(@types/react@18.2.31)(react@18.2.0)
+        version: 4.4.3(@types/react@18.2.30)(react@18.2.0)
 
   packages/stores:
     dependencies:
@@ -426,7 +417,7 @@ importers:
         version: 1.3.0(graphql@16.8.1)(monaco-editor@0.40.0)(prettier@3.0.3)
       zustand:
         specifier: 4.4.3
-        version: 4.4.3(@types/react@18.2.31)(react@18.2.0)
+        version: 4.4.3(@types/react@18.2.30)(react@18.2.0)
     devDependencies:
       '@pathfinder-ide/eslint-config':
         specifier: workspace:*
@@ -460,7 +451,7 @@ importers:
         version: 0.5.0(@vanilla-extract/css@1.13.0)
       zustand:
         specifier: 4.4.3
-        version: 4.4.3(@types/react@18.2.31)(react@18.2.0)
+        version: 4.4.3(@types/react@18.2.30)(react@18.2.0)
     devDependencies:
       '@pathfinder-ide/eslint-config':
         specifier: workspace:*
@@ -3025,6 +3016,7 @@ packages:
 
   /@next/env@13.5.3:
     resolution: {integrity: sha512-X4te86vsbjsB7iO4usY9jLPtZ827Mbx+WcwNBGUOIuswuTAKQtzsuoxc/6KLxCMvogKG795MhrR1LDhYgDvasg==}
+    dev: false
 
   /@next/eslint-plugin-next@13.4.12:
     resolution: {integrity: sha512-6rhK9CdxEgj/j1qvXIyLTWEaeFv7zOK8yJMulz3Owel0uek0U9MJCGzmKgYxM3aAUBo3gKeywCZKyQnJKto60A==}
@@ -3038,6 +3030,7 @@ packages:
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
+    dev: false
     optional: true
 
   /@next/swc-darwin-x64@13.5.3:
@@ -3046,6 +3039,7 @@ packages:
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
+    dev: false
     optional: true
 
   /@next/swc-linux-arm64-gnu@13.5.3:
@@ -3054,6 +3048,7 @@ packages:
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
+    dev: false
     optional: true
 
   /@next/swc-linux-arm64-musl@13.5.3:
@@ -3062,6 +3057,7 @@ packages:
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
+    dev: false
     optional: true
 
   /@next/swc-linux-x64-gnu@13.5.3:
@@ -3070,6 +3066,7 @@ packages:
     cpu: [x64]
     os: [linux]
     requiresBuild: true
+    dev: false
     optional: true
 
   /@next/swc-linux-x64-musl@13.5.3:
@@ -3078,6 +3075,7 @@ packages:
     cpu: [x64]
     os: [linux]
     requiresBuild: true
+    dev: false
     optional: true
 
   /@next/swc-win32-arm64-msvc@13.5.3:
@@ -3086,6 +3084,7 @@ packages:
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
+    dev: false
     optional: true
 
   /@next/swc-win32-ia32-msvc@13.5.3:
@@ -3094,6 +3093,7 @@ packages:
     cpu: [ia32]
     os: [win32]
     requiresBuild: true
+    dev: false
     optional: true
 
   /@next/swc-win32-x64-msvc@13.5.3:
@@ -3102,6 +3102,7 @@ packages:
     cpu: [x64]
     os: [win32]
     requiresBuild: true
+    dev: false
     optional: true
 
   /@noble/hashes@1.3.2:
@@ -3209,6 +3210,7 @@ packages:
     resolution: {integrity: sha512-E4KcWTpoLHqwPHLxidpOqQbcrZVgi0rsmmZXUle1jXmJfuIf/UWpczUJ7MZZ5tlxytgJXyp0w4PGkkeLiuIdZw==}
     dependencies:
       tslib: 2.6.2
+    dev: false
 
   /@tauri-apps/api@1.4.0:
     resolution: {integrity: sha512-Jd6HPoTM1PZSFIzq7FB8VmMu3qSSyo/3lSwLpoapW+lQ41CL5Dow2KryLg+gyazA/58DRWI9vu/XpEeHK4uMdw==}
@@ -3560,12 +3562,6 @@ packages:
     resolution: {integrity: sha512-rt40Nk13II9JwQBdeYqmbn2Q6IVTA5uPhvSO+JVqdXw/6/4glI6oR9ezty/A9Hg5u7JH4OmYmuQ+XvjKm0Datg==}
     dev: false
 
-  /@types/node@20.8.5:
-    resolution: {integrity: sha512-SPlobFgbidfIeOYlzXiEjSYeIJiOCthv+9tSQVpvk4PAdIIc+2SmjNVzWXk9t0Y7dl73Zdf+OgXKHX9XtkqUpw==}
-    dependencies:
-      undici-types: 5.25.3
-    dev: true
-
   /@types/node@20.8.7:
     resolution: {integrity: sha512-21TKHHh3eUHIi2MloeptJWALuCu5H7HQTdTrWIFReA8ad+aggoX+lRes3ex7/FtpC+sVUpFMQ+QTfYr74mruiQ==}
     dependencies:
@@ -3591,9 +3587,18 @@ packages:
     resolution: {integrity: sha512-GRaAEriuT4zp9N4p1i8BDBYmEyfo+xQ3yHjJU4eiK5NDa1RmUZG+unZABUTK4/Ox/M+GaHwb6Ow8rUITrtjszA==}
     dependencies:
       '@types/react': 18.2.31
+    dev: false
 
   /@types/react@18.2.18:
     resolution: {integrity: sha512-da4NTSeBv/P34xoZPhtcLkmZuJ+oYaCxHmyHzwaDQo9RQPBeXV+06gEk2FpqEcsX9XrnNLvRpVh6bdavDSjtiQ==}
+    dependencies:
+      '@types/prop-types': 15.7.5
+      '@types/scheduler': 0.16.3
+      csstype: 3.1.2
+    dev: false
+
+  /@types/react@18.2.30:
+    resolution: {integrity: sha512-OfqdJnDsSo4UNw0bqAjFCuBpLYQM7wvZidz0hVxHRjrEkzRlvZL1pJVyOSY55HMiKvRNEo9DUBRuEl7FNlJ/Vg==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.3
@@ -4840,6 +4845,7 @@ packages:
     engines: {node: '>=10.16.0'}
     dependencies:
       streamsearch: 1.1.0
+    dev: false
 
   /bytes@3.1.2:
     resolution: {integrity: sha512-/Nf7TyzTx6S3yRJObOAV7956r8cr2+Oj8AC5dt8wSP3BQAoeX58NoHyCU8P8zGkNXStjTSi6fzO6F0pBdcYbEg==}
@@ -5000,6 +5006,7 @@ packages:
 
   /client-only@0.0.1:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
+    dev: false
 
   /cliui@6.0.0:
     resolution: {integrity: sha512-t6wbgtoCXvAzst7QgXxJYqPt0usEfbgQdftEPbLL/cvv6HPE5VgvqCuAIDR0NgU52ds6rFwqrgakNLrHEjCbrQ==}
@@ -6592,6 +6599,7 @@ packages:
 
   /glob-to-regexp@0.4.1:
     resolution: {integrity: sha512-lkX1HJXwyMcprw/5YUZc2s7DrpAiHB21/V+E1rHUrVNokkvB6bqMzT0VfV6/86ZNabt1k14YOIaT7nDvOX3Iiw==}
+    dev: false
 
   /glob@7.1.6:
     resolution: {integrity: sha512-LwaxwyZ72Lk7vZINtNNrywX0ZuLyStrdDtabefZKAY5ZGJhVtgdznluResxNmPitE0SAO+O26sWTHeKSI2wMBA==}
@@ -6691,6 +6699,7 @@ packages:
       graphql: 16.8.1
       nullthrows: 1.1.1
       vscode-languageserver-types: 3.17.3
+    dev: false
 
   /graphql-sse@2.3.0(graphql@16.8.1):
     resolution: {integrity: sha512-D+NL4X3q4XCkp+QL3y+BGmQcFoq87ONhrAvADMoivt/Z5NpxH/8PUzE1+4pYMtJXPhPSQQTXxvIMcjWfqdatjA==}
@@ -8458,6 +8467,7 @@ packages:
 
   /monaco-editor@0.40.0:
     resolution: {integrity: sha512-1wymccLEuFSMBvCk/jT1YDW/GuxMLYwnFwF9CDyYCxoTw2Pt379J3FUhwy9c43j51JdcxVPjwk0jm0EVDsBS2g==}
+    dev: false
 
   /monaco-graphql@1.3.0(graphql@16.8.1)(monaco-editor@0.40.0)(prettier@3.0.3):
     resolution: {integrity: sha512-Ilz7kUKYfO5KGwandjR+eQbN+fj1fQY9OECIQlzgeWOkLXMZqXTsxf01iQfVw08mMsBz7qa6fZKsESouDcBN2g==}
@@ -8471,6 +8481,7 @@ packages:
       monaco-editor: 0.40.0
       picomatch-browser: 2.2.6
       prettier: 3.0.3
+    dev: false
 
   /moo-color@1.0.3:
     resolution: {integrity: sha512-i/+ZKXMDf6aqYtBhuOcej71YSlbjT3wCO/4H1j8rPvxDJEifdwgg5MaFyu6iYAT8GBZJg2z0dkgK4YMzvURALQ==}
@@ -8582,6 +8593,7 @@ packages:
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
+    dev: false
 
   /nlcst-to-string@3.1.1:
     resolution: {integrity: sha512-63mVyqaqt0cmn2VcI2aH6kxe1rLAmSROqHMA0i4qqg1tidkfExgpb0FGMikMCn86mw5dFtBtEANfmSSK7TjNHw==}
@@ -8645,6 +8657,7 @@ packages:
 
   /nullthrows@1.1.1:
     resolution: {integrity: sha512-2vPPEi+Z7WqML2jZYddDIfy5Dqb0r2fze2zTxNNknZaFpVHU3mFB3R+DWeJWGVx0ecvttSGlJTI+WG+8Z4cDWw==}
+    dev: false
 
   /nwsapi@2.2.7:
     resolution: {integrity: sha512-ub5E4+FBPKwAZx0UwIQOjYWGHTEq5sPqHQNRN8Z9e4A7u3Tj1weLJsL59yH9vmvqEtBHaOmT6cYQKIZOxp35FQ==}
@@ -8942,6 +8955,7 @@ packages:
   /picomatch-browser@2.2.6:
     resolution: {integrity: sha512-0ypsOQt9D4e3hziV8O4elD9uN0z/jtUEfxVRtNaAAtXIyUx9m/SzlO020i8YNL2aL/E6blOvvHQcin6HZlFy/w==}
     engines: {node: '>=8.6'}
+    dev: false
 
   /picomatch@2.3.1:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
@@ -9078,6 +9092,7 @@ packages:
       nanoid: 3.3.6
       picocolors: 1.0.0
       source-map-js: 1.0.2
+    dev: false
 
   /postcss@8.4.27:
     resolution: {integrity: sha512-gY/ACJtJPSmUFPDCHtX78+01fHa64FaU4zaaWfuh1MhGJISufJAH4cun6k/8fwsHYeK4UQmENQK+tRLCFJE8JQ==}
@@ -9356,14 +9371,14 @@ packages:
       - supports-color
     dev: false
 
-  /react-markdown@9.0.0(@types/react@18.2.31)(react@18.2.0):
+  /react-markdown@9.0.0(@types/react@18.2.30)(react@18.2.0):
     resolution: {integrity: sha512-v6yNf3AB8GfJ8lCpUvzxAXKxgsHpdmWPlcVRQ6Nocsezp255E/IDrF31kLQsPJeB/cKto/geUwjU36wH784FCA==}
     peerDependencies:
       '@types/react': '>=18'
       react: '>=18'
     dependencies:
       '@types/hast': 3.0.1
-      '@types/react': 18.2.31
+      '@types/react': 18.2.30
       devlop: 1.1.0
       hast-util-to-jsx-runtime: 2.2.0
       html-url-attributes: 3.0.0
@@ -10075,6 +10090,7 @@ packages:
   /streamsearch@1.1.0:
     resolution: {integrity: sha512-Mcc5wHehp9aXz1ax6bZUyY5afg9u2rv5cqQI3mRrYkGC8rW2hM02jWuwjtL++LS5qinSyhj2QfLyNsuc+VsExg==}
     engines: {node: '>=10.0.0'}
+    dev: false
 
   /streamx@2.15.1:
     resolution: {integrity: sha512-fQMzy2O/Q47rgwErk/eGeLu/roaFWV0jVsogDmrszM9uIw8L5OA+t+V93MgYlufNptfjmYR1tOMWhei/Eh7TQA==}
@@ -10242,6 +10258,7 @@ packages:
     dependencies:
       client-only: 0.0.1
       react: 18.2.0
+    dev: false
 
   /sucrase@3.34.0:
     resolution: {integrity: sha512-70/LQEZ07TEcxiU2dz51FKaE6hCTWC6vr7FOk3Gr0U60C3shtAN+H+BFr9XlYe5xqf3RA8nrc+VIwzCfnxuXJw==}
@@ -11055,7 +11072,7 @@ packages:
       - terser
     dev: true
 
-  /vite-node@0.34.4(@types/node@20.8.5):
+  /vite-node@0.34.4(@types/node@20.8.7):
     resolution: {integrity: sha512-ho8HtiLc+nsmbwZMw8SlghESEE3KxJNp04F/jPUCLVvaURwt0d+r9LxEqCX5hvrrOQ0GSyxbYr5ZfRYhQ0yVKQ==}
     engines: {node: '>=v14.18.0'}
     hasBin: true
@@ -11065,7 +11082,7 @@ packages:
       mlly: 1.4.2
       pathe: 1.1.1
       picocolors: 1.0.0
-      vite: 4.5.0(@types/node@20.8.5)
+      vite: 4.5.0(@types/node@20.8.7)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -11147,42 +11164,6 @@ packages:
         optional: true
     dependencies:
       '@types/node': 20.8.7
-      esbuild: 0.18.20
-      postcss: 8.4.27
-      rollup: 3.29.1
-    optionalDependencies:
-      fsevents: 2.3.3
-    dev: true
-
-  /vite@4.5.0(@types/node@20.8.5):
-    resolution: {integrity: sha512-ulr8rNLA6rkyFAlVWw2q5YJ91v098AFQ2R0PRFwPzREXOUJQPtFUG0t+/ZikhaOCDqFoDhN6/v8Sq0o4araFAw==}
-    engines: {node: ^14.18.0 || >=16.0.0}
-    hasBin: true
-    peerDependencies:
-      '@types/node': '>= 14'
-      less: '*'
-      lightningcss: ^1.21.0
-      sass: '*'
-      stylus: '*'
-      sugarss: '*'
-      terser: ^5.4.0
-    peerDependenciesMeta:
-      '@types/node':
-        optional: true
-      less:
-        optional: true
-      lightningcss:
-        optional: true
-      sass:
-        optional: true
-      stylus:
-        optional: true
-      sugarss:
-        optional: true
-      terser:
-        optional: true
-    dependencies:
-      '@types/node': 20.8.5
       esbuild: 0.18.20
       postcss: 8.4.27
       rollup: 3.29.1
@@ -11278,7 +11259,7 @@ packages:
     dependencies:
       '@types/chai': 4.3.6
       '@types/chai-subset': 1.3.3
-      '@types/node': 20.8.5
+      '@types/node': 20.8.7
       '@vitest/expect': 0.34.4
       '@vitest/runner': 0.34.4
       '@vitest/snapshot': 0.34.4
@@ -11298,8 +11279,8 @@ packages:
       strip-literal: 1.3.0
       tinybench: 2.5.1
       tinypool: 0.7.0
-      vite: 4.5.0(@types/node@20.8.5)
-      vite-node: 0.34.4(@types/node@20.8.5)
+      vite: 4.5.0(@types/node@20.8.7)
+      vite-node: 0.34.4(@types/node@20.8.7)
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
       - less
@@ -11313,6 +11294,7 @@ packages:
 
   /vscode-languageserver-types@3.17.3:
     resolution: {integrity: sha512-SYU4z1dL0PyIMd4Vj8YOqFvHu7Hz/enbWtpfnVbJHU4Nd1YNYx8u0ennumc6h48GQNeOLxmwySmnADouT/AuZA==}
+    dev: false
 
   /vue-template-compiler@2.7.14:
     resolution: {integrity: sha512-zyA5Y3ArvVG0NacJDkkzJuPQDF8RFeRlzV2vLeSnhSpieO6LK2OVbdLPi5MPPs09Ii+gMO8nY4S3iKQxBxDmWQ==}
@@ -11346,6 +11328,7 @@ packages:
     dependencies:
       glob-to-regexp: 0.4.1
       graceful-fs: 4.2.11
+    dev: false
 
   /wcwidth@1.0.1:
     resolution: {integrity: sha512-XHPEwS0q6TaxcvG85+8EYkbiCux2XtWG2mkc47Ng2A77BQu9+DqIOJldST4HgPkuea7dvKSj5VgX3P1d4rW8Tg==}
@@ -11641,6 +11624,7 @@ packages:
 
   /zod@3.21.4:
     resolution: {integrity: sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==}
+    dev: false
 
   /zustand@4.4.3(@types/react@18.2.18)(react@18.2.0):
     resolution: {integrity: sha512-oRy+X3ZazZvLfmv6viIaQmtLOMeij1noakIsK/Y47PWYhT8glfXzQ4j0YcP5i0P0qI1A4rIB//SGROGyZhx91A==}
@@ -11662,7 +11646,7 @@ packages:
       use-sync-external-store: 1.2.0(react@18.2.0)
     dev: false
 
-  /zustand@4.4.3(@types/react@18.2.31)(react@18.2.0):
+  /zustand@4.4.3(@types/react@18.2.30)(react@18.2.0):
     resolution: {integrity: sha512-oRy+X3ZazZvLfmv6viIaQmtLOMeij1noakIsK/Y47PWYhT8glfXzQ4j0YcP5i0P0qI1A4rIB//SGROGyZhx91A==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
@@ -11677,7 +11661,7 @@ packages:
       react:
         optional: true
     dependencies:
-      '@types/react': 18.2.31
+      '@types/react': 18.2.30
       react: 18.2.0
       use-sync-external-store: 1.2.0(react@18.2.0)
 
@@ -11689,6 +11673,7 @@ packages:
     resolution: {directory: packages/react, type: directory}
     id: file:packages/react
     name: '@pathfinder-ide/react'
+    version: 0.2.6
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -11704,6 +11689,32 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
       react-markdown: 9.0.0(@types/react@18.2.18)(react@18.2.0)
       zustand: 4.4.3(@types/react@18.2.18)(react@18.2.0)
+    transitivePeerDependencies:
+      - '@types/react'
+      - immer
+      - prettier
+      - supports-color
+    dev: false
+
+  file:packages/react(@types/react@18.2.30)(prettier@3.0.3)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {directory: packages/react, type: directory}
+    id: file:packages/react
+    name: '@pathfinder-ide/react'
+    version: 0.2.6
+    peerDependencies:
+      react: ^18.2.0
+      react-dom: ^18.2.0
+    dependencies:
+      '@headlessui/react': 1.7.17(react-dom@18.2.0)(react@18.2.0)
+      graphql: 16.8.1
+      idb-keyval: 6.2.1
+      lodash: 4.17.21
+      monaco-editor: 0.40.0
+      monaco-graphql: 1.3.0(graphql@16.8.1)(monaco-editor@0.40.0)(prettier@3.0.3)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      react-markdown: 9.0.0(@types/react@18.2.30)(react@18.2.0)
+      zustand: 4.4.3(@types/react@18.2.30)(react@18.2.0)
     transitivePeerDependencies:
       - '@types/react'
       - immer

@@ -5,28 +5,24 @@ import {
   OperationDefinitionNode,
   SelectionNode,
   print,
-} from "graphql";
+} from 'graphql';
 
-import { DOCUMENT_EDITOR_ID } from "@pathfinder-ide/shared";
+import { DOCUMENT_EDITOR_ID } from '@pathfinder-ide/shared';
 
 import {
   type MonacoIRange,
   pushMonacoEditorEdit,
   useGraphQLDocumentStore,
-} from "@pathfinder-ide/stores";
+} from '@pathfinder-ide/stores';
 
-import type {
-  AncestorField,
-  AncestorRoot,
-  AncestorsArray,
-} from "../compass-store.types";
+import type { AncestorField, AncestorRoot, AncestorsArray } from '../compass-store.types';
 
 export const insertNewOperation = ({
   ancestors,
   range,
 }: {
   ancestors: AncestorsArray;
-  range: MonacoIRange | "END";
+  range: MonacoIRange | 'END';
 }) => {
   const operationType = (ancestors[0] as AncestorRoot).operationType;
   const topLevelFieldName = (ancestors[1] as AncestorField).field.name;
@@ -35,9 +31,7 @@ export const insertNewOperation = ({
     kind: Kind.OPERATION_DEFINITION,
     name: {
       kind: Kind.NAME,
-      value: `${
-        topLevelFieldName.charAt(0).toUpperCase() + topLevelFieldName.slice(1)
-      }`,
+      value: `${topLevelFieldName.charAt(0).toUpperCase() + topLevelFieldName.slice(1)}`,
     },
     operation: operationType,
     selectionSet: {
@@ -48,7 +42,7 @@ export const insertNewOperation = ({
 
   const newNodes = [...ancestors].reverse().reduce(
     (acc, a) => {
-      if (a.type === "FIELD") {
+      if (a.type === 'FIELD') {
         const fieldNode: FieldNode = {
           kind: Kind.FIELD,
           name: {
@@ -62,7 +56,7 @@ export const insertNewOperation = ({
         };
         acc.push(fieldNode);
       }
-      if (a.type === "INLINE_FRAGMENT") {
+      if (a.type === 'INLINE_FRAGMENT') {
         const inlineFragmentNode: InlineFragmentNode = {
           kind: Kind.INLINE_FRAGMENT,
           typeCondition: {
@@ -105,7 +99,7 @@ export const insertNewOperation = ({
   };
 
   const newLines =
-    useGraphQLDocumentStore.getState().documentEntries.length > 0 ? "\n\n" : "";
+    useGraphQLDocumentStore.getState().documentEntries.length > 0 ? '\n\n' : '';
 
   const printedNode = print(newOperationDefinitionNode);
 

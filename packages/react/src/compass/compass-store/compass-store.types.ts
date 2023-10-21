@@ -5,31 +5,31 @@ import {
   OperationDefinitionNode,
   OperationTypeNode,
   SelectionNode,
-} from "graphql";
+} from 'graphql';
 
 type AncestorSelection = SelectionNode | null;
 
 export type AncestorRoot = {
-  type: "ROOT";
+  type: 'ROOT';
   operationType: OperationTypeNode;
   operationDefinition: OperationDefinitionNode | null;
 };
 
 export type AncestorArgument = {
-  type: "ARGUMENT";
+  type: 'ARGUMENT';
   argument: GraphQLArgument;
   selection: ArgumentNode | undefined;
 };
 
 export type AncestorField = {
-  type: "FIELD";
+  type: 'FIELD';
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   field: GraphQLField<any, any>;
   selection: AncestorSelection;
 };
 
 export type AncestorInlineFragment = {
-  type: "INLINE_FRAGMENT";
+  type: 'INLINE_FRAGMENT';
   onType: string;
   selection: AncestorSelection;
 };
@@ -44,7 +44,7 @@ export type AncestorsArray = AncestorTypes[];
 
 type ToggleSignature = ({ ancestors }: { ancestors: AncestorsArray }) => void;
 
-type ArgumentHandlingMode = "INLINE" | "WITH_VARIABLE";
+type ArgumentHandlingMode = 'INLINE' | 'WITH_VARIABLE';
 
 export type CompassState = {
   argumentHandlingMode: ArgumentHandlingMode;

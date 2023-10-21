@@ -1,1 +1,1 @@
-export { CollapseControl } from "./collapse-control";
+export { CollapseControl } from './collapse-control';

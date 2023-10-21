@@ -1,17 +1,13 @@
-import { sessionStore } from "../../../session-store";
+import { sessionStore } from '../../../session-store';
 
-import { setEditorValues } from "./set-editor-values";
+import { setEditorValues } from './set-editor-values';
 
-import type { EditorTabsActions } from "..//editor-tabs.types";
+import type { EditorTabsActions } from '..//editor-tabs.types';
 
-export const closeEditorTab: EditorTabsActions["closeEditorTab"] = ({
-  tabId,
-}) => {
+export const closeEditorTab: EditorTabsActions['closeEditorTab'] = ({ tabId }) => {
   const isActiveTab = tabId === sessionStore.getState().activeTab?.tabId;
 
-  const filteredTabs = sessionStore
-    .getState()
-    .tabs.filter((tab) => tab.tabId !== tabId);
+  const filteredTabs = sessionStore.getState().tabs.filter((tab) => tab.tabId !== tabId);
 
   if (isActiveTab) {
     // if we're closing the active tab, we set the first tab as the activeTab

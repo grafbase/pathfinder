@@ -1,22 +1,22 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import { FieldNode } from "graphql";
+import { FieldNode } from 'graphql';
 
 import {
   type AncestorField,
   type AncestorsArray,
   generateSelectionBreadcrumbsFromAncestors,
-} from "../../compass-store";
+} from '../../compass-store';
 
-import { Argument } from "../argument";
-import { Icon } from "../../../components";
+import { Argument } from '../argument';
+import { Icon } from '../../../components';
 
 import {
   argumentsCollapseTriggerClass,
   argumentsClass,
   argumentsContentClass,
   argumentsListClass,
-} from "./arguments.css";
+} from './arguments.css';
 
 export const Arguments = ({
   ancestors,
@@ -41,15 +41,11 @@ export const Arguments = ({
         onClick={() => {
           setIsExpanded(!isExpanded);
         }}
-        title={`Expand nested content of ${generateSelectionBreadcrumbsFromAncestors(
-          { ancestors },
-        )} ARGUMENTS`}
+        title={`Expand nested content of ${generateSelectionBreadcrumbsFromAncestors({
+          ancestors,
+        })} ARGUMENTS`}
       >
-        <Icon
-          name={"Caret"}
-          rotate={isExpanded ? "90" : undefined}
-          size="small"
-        />
+        <Icon name={'Caret'} rotate={isExpanded ? '90' : undefined} size="small" />
         ARGUMENTS
       </button>
       <div className={argumentsContentClass}>
@@ -61,7 +57,7 @@ export const Arguments = ({
                 ancestors={[
                   ...ancestors,
                   {
-                    type: "ARGUMENT",
+                    type: 'ARGUMENT',
                     argument: arg,
                     selection: selection?.arguments?.find(
                       (a) => a.name.value === arg.name,

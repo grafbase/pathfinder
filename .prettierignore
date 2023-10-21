@@ -1,0 +1,12 @@
+# ignore all examples
+/examples/*
+
+**/node_modules
+
+pnpm-lock.yaml
+
+# Ignore artifacts:
+build
+dist
+public
+coverage

@@ -1,3 +1,3 @@
-export { Resizer } from "./resizer";
+export { Resizer } from './resizer';
 
-export { resetPane, useResizerStore } from "./resizer-store";
+export { resetPane, useResizerStore } from './resizer-store';

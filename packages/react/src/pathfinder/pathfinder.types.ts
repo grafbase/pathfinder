@@ -1,15 +1,15 @@
-import type { ThemeContractOverrides } from "@pathfinder-ide/style";
+import type { ThemeContractOverrides } from '@pathfinder-ide/style';
 
-import { HTTPHeaderValue, SchemaStoreState } from "@pathfinder-ide/stores";
+import { HTTPHeaderValue, SchemaStoreState } from '@pathfinder-ide/stores';
 
 export type PathfinderProps = {
-  mode?: "FULL" | "MINI";
+  mode?: 'FULL' | 'MINI';
   fetcherOptions?: {
     endpoint: string;
-    headers?: Pick<HTTPHeaderValue, "key" | "value">[];
+    headers?: Pick<HTTPHeaderValue, 'key' | 'value'>[];
   };
   schemaPollingOptions?: Partial<
-    Pick<SchemaStoreState["polling"], "enabled" | "interval">
+    Pick<SchemaStoreState['polling'], 'enabled' | 'interval'>
   >;
   themeOptions?: {
     theme?: {

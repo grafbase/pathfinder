@@ -1,13 +1,13 @@
-import { FieldNode, isInterfaceType, isObjectType, isUnionType } from "graphql";
+import { FieldNode, isInterfaceType, isObjectType, isUnionType } from 'graphql';
 
-import { unwrapType } from "@pathfinder-ide/shared";
+import { unwrapType } from '@pathfinder-ide/shared';
 
-import type { AncestorField, AncestorsArray } from "../../compass-store";
+import type { AncestorField, AncestorsArray } from '../../compass-store';
 
-import { Arguments } from "../arguments";
-import { Fields } from "../fields";
-import { ListItem } from "../list-item";
-import { Union } from "../union";
+import { Arguments } from '../arguments';
+import { Fields } from '../fields';
+import { ListItem } from '../list-item';
+import { Union } from '../union';
 
 export const Field = ({ ancestors }: { ancestors: AncestorsArray }) => {
   const { field, selection } = ancestors[ancestors.length - 1] as AncestorField;
@@ -21,7 +21,7 @@ export const Field = ({ ancestors }: { ancestors: AncestorsArray }) => {
     field.args.length > 0;
 
   const parentSelections = () => {
-    if (selection && "selectionSet" in selection && selection.selectionSet) {
+    if (selection && 'selectionSet' in selection && selection.selectionSet) {
       return selection.selectionSet.selections;
     }
     return [];
@@ -55,10 +55,7 @@ export const Field = ({ ancestors }: { ancestors: AncestorsArray }) => {
         isCollapsible
           ? {
               arguments: field.args.length > 0 && (
-                <Arguments
-                  ancestors={ancestors}
-                  selection={selection as FieldNode}
-                />
+                <Arguments ancestors={ancestors} selection={selection as FieldNode} />
               ),
               childFields: childFieldsToRender,
             }

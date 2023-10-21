@@ -1,19 +1,15 @@
-import { Kind } from "graphql";
+import { Kind } from 'graphql';
 
-import { graphQLDocumentStore } from "@pathfinder-ide/stores";
+import { graphQLDocumentStore } from '@pathfinder-ide/stores';
 
-import type {
-  AncestorField,
-  AncestorRoot,
-  AncestorsArray,
-} from "../compass-store.types";
+import type { AncestorField, AncestorRoot, AncestorsArray } from '../compass-store.types';
 
-import { getPreviousAncestor, insertNewOperation } from "../utils";
+import { getPreviousAncestor, insertNewOperation } from '../utils';
 
-import { addTargetArgument } from "./add-target-argument";
-import { addTargetField } from "./add-target-field";
-import { removeTargetArgument } from "./remove-target-argument";
-import { removeTargetField } from "./remove-target-field";
+import { addTargetArgument } from './add-target-argument';
+import { addTargetField } from './add-target-field';
+import { removeTargetArgument } from './remove-target-argument';
+import { removeTargetField } from './remove-target-field';
 
 export const toggle = ({
   ancestors,
@@ -21,8 +17,7 @@ export const toggle = ({
   ancestors: AncestorsArray;
   // eslint-disable-next-line consistent-return
 }) => {
-  const activeDocumentEntry =
-    graphQLDocumentStore.getState().activeDocumentEntry;
+  const activeDocumentEntry = graphQLDocumentStore.getState().activeDocumentEntry;
 
   const rootAncestor = ancestors[0] as AncestorRoot;
 
@@ -33,7 +28,7 @@ export const toggle = ({
   ) {
     return insertNewOperation({
       ancestors,
-      range: "END",
+      range: 'END',
     });
   }
 
@@ -41,9 +36,9 @@ export const toggle = ({
 
   const previousAncestor = getPreviousAncestor({ ancestors, target });
 
-  const isField = target.type === "FIELD";
+  const isField = target.type === 'FIELD';
 
-  const isArgument = target.type === "ARGUMENT";
+  const isArgument = target.type === 'ARGUMENT';
 
   if (isArgument) {
     const isSelected = !!target.selection;

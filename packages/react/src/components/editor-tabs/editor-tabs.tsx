@@ -1,21 +1,21 @@
-import { WheelEvent, useRef } from "react";
+import { WheelEvent, useRef } from 'react';
 
 import {
   closeEditorTab,
   initNewEditorTab,
   switchEditorTab,
   useSessionStore,
-} from "@pathfinder-ide/stores";
+} from '@pathfinder-ide/stores';
 
-import { IconButton } from "../icon-button";
-import { Pill } from "../pill";
+import { IconButton } from '../icon-button';
+import { Pill } from '../pill';
 
 import {
   addTabButtonWrapClass,
   editorTabsClass,
   tabButtonClass,
   tabWrapClass,
-} from "./editor-tabs.css";
+} from './editor-tabs.css';
 
 export const EditorTabs = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -56,8 +56,8 @@ export const EditorTabs = () => {
               onClick={() => switchEditorTab({ destinationTabId: tab.tabId })}
             >
               <Pill
-                copy={tab.documentString.charAt(0).toUpperCase() || "?"}
-                variant={{ color: "green" }}
+                copy={tab.documentString.charAt(0).toUpperCase() || '?'}
+                variant={{ color: 'green' }}
               />
               {tab.tabName}
             </div>

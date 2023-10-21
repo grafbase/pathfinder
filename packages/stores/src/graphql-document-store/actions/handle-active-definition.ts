@@ -1,17 +1,17 @@
-import { getEntryForDefinition } from "./get-entry-for-definition";
-import { getMonacoEditor } from "../../monaco-editor-store";
+import { getEntryForDefinition } from './get-entry-for-definition';
+import { getMonacoEditor } from '../../monaco-editor-store';
 
 import type {
   DocumentEntry,
   GraphQLDocumentStoreActions,
-} from "../graphql-document-store.types";
+} from '../graphql-document-store.types';
 
 import {
   DOCUMENT_EDITOR_ID,
   INACTIVE_DEFINITION_CLASSNAME,
-} from "@pathfinder-ide/shared";
+} from '@pathfinder-ide/shared';
 
-export const handleActiveDefinition: GraphQLDocumentStoreActions["handleActiveDefinition"] =
+export const handleActiveDefinition: GraphQLDocumentStoreActions['handleActiveDefinition'] =
   ({ definition, range }) => {
     const entryForDefinition = getEntryForDefinition({ definition });
 
@@ -23,8 +23,7 @@ export const handleActiveDefinition: GraphQLDocumentStoreActions["handleActiveDe
         .getDecorationsInRange(range)
         ?.filter(
           (decoration) =>
-            decoration.options.inlineClassName ===
-            INACTIVE_DEFINITION_CLASSNAME,
+            decoration.options.inlineClassName === INACTIVE_DEFINITION_CLASSNAME,
         );
 
       const inactiveDefinitionDecorationIdsToRemove =

@@ -1,12 +1,12 @@
-import { HTTPHeaderControl } from "./http-header-control";
+import { HTTPHeaderControl } from './http-header-control';
 
 export const Default = () => {
   return (
     <div
       style={{
         width: `100%`,
-        display: "flex",
-        flexDirection: "column",
+        display: 'flex',
+        flexDirection: 'column',
         gap: 12,
       }}
     >

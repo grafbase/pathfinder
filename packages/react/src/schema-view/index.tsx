@@ -1,1 +1,1 @@
-export { SchemaView } from "./schema-view";
+export { SchemaView } from './schema-view';

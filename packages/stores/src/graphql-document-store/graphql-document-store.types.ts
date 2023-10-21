@@ -1,24 +1,20 @@
-import {
-  DefinitionNode,
-  FragmentDefinitionNode,
-  OperationDefinitionNode,
-} from "graphql";
+import { DefinitionNode, FragmentDefinitionNode, OperationDefinitionNode } from 'graphql';
 
-import type monaco from "monaco-graphql/esm/monaco-editor";
+import type monaco from 'monaco-graphql/esm/monaco-editor';
 
 type MonacoRange = monaco.Range;
 
-import { ExecutionResponse } from "../schema-store";
+import { ExecutionResponse } from '../schema-store';
 
 // document notifications
 export type DocumentNotificationType =
-  | "DUPLICATE_OPERATION_NAME"
-  | "ANONYMOUS_MUST_BE_ONLY_DEFINED"
-  | "DISALLOW_LIVE_FOR_NON_QUERY";
+  | 'DUPLICATE_OPERATION_NAME'
+  | 'ANONYMOUS_MUST_BE_ONLY_DEFINED'
+  | 'DISALLOW_LIVE_FOR_NON_QUERY';
 
 // graphql document state
 type FragmentEntry = {
-  entryType: "FRAGMENT";
+  entryType: 'FRAGMENT';
   node: FragmentDefinitionNode;
 };
 
@@ -78,11 +74,7 @@ export type GraphQLDocumentStoreActions = {
   }: {
     operationEntry: OperationEntry;
   }) => void;
-  setDocumentNotifications: ({
-    definitions,
-  }: {
-    definitions: DefinitionNode[];
-  }) => void;
+  setDocumentNotifications: ({ definitions }: { definitions: DefinitionNode[] }) => void;
   updateDocumentEntryDefinition: ({
     definition,
   }: {

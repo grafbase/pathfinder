@@ -4,9 +4,9 @@ import {
   type InlineFragmentNode,
   Kind,
   type SelectionNode,
-} from "graphql";
+} from 'graphql';
 
-import { useGraphQLDocumentStore } from "@pathfinder-ide/stores";
+import { useGraphQLDocumentStore } from '@pathfinder-ide/stores';
 
 export const findSelection = ({
   fieldName,

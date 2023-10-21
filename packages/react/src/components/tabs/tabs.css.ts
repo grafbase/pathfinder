@@ -1,10 +1,10 @@
-import { contract, recipe, shared, style } from "@pathfinder-ide/style";
+import { contract, recipe, shared, style } from '@pathfinder-ide/style';
 
 export const tabListClass = recipe({
   base: {
-    display: "flex",
+    display: 'flex',
     flexShrink: 0,
-    position: "relative",
+    position: 'relative',
     paddingLeft: 8,
   },
 
@@ -23,23 +23,23 @@ export const tabListClass = recipe({
 export const tabButtonClass = style([
   shared.resets.buttonReset,
   {
-    width: "auto",
-    position: "relative",
+    width: 'auto',
+    position: 'relative',
     paddingBottom: 2,
     paddingLeft: contract.space[12],
     paddingRight: contract.space[12],
-    textAlign: "center",
+    textAlign: 'center',
     fontSize: 14,
     color: contract.color.neutral[9],
 
     selectors: {
-      "&:hover": {
+      '&:hover': {
         color: contract.color.neutral[12],
       },
 
-      "&:after": {
-        content: "",
-        position: "absolute",
+      '&:after': {
+        content: '',
+        position: 'absolute',
         width: `calc(100% - ${contract.space[24]})`,
         height: 2,
         bottom: 1,
@@ -59,23 +59,23 @@ export const tabButtonClass = style([
 ]);
 
 export const tabGroupClass = style({
-  width: "100%",
-  height: "100%",
-  display: "flex",
-  flexDirection: "column",
+  width: '100%',
+  height: '100%',
+  display: 'flex',
+  flexDirection: 'column',
 });
 
 export const tabPanelClass = style({
   color: contract.color.neutral[7],
-  position: "relative",
-  height: "100%",
+  position: 'relative',
+  height: '100%',
 });
 
 export const tabPanelsClass = style([
   shared.scrollbars,
   {
-    height: "100%",
-    overflowY: "auto",
-    overflowX: "hidden",
+    height: '100%',
+    overflowY: 'auto',
+    overflowX: 'hidden',
   },
 ]);

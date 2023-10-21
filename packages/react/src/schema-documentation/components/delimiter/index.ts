@@ -1,1 +1,1 @@
-export { Delimiter } from "./delimiter";
+export { Delimiter } from './delimiter';

@@ -1,1 +1,1 @@
-export { InsertNewOperation } from "./insert-new-operation";
+export { InsertNewOperation } from './insert-new-operation';
