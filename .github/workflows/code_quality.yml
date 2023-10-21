@@ -1,12 +1,9 @@
-name: lint/types
+name: Code quality
 
-on:
-  pull_request:
-    types: [opened, synchronize]
+on: push
 
 jobs:
-  types_check:
-    name: check types
+  code_quality:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,5 +20,8 @@ jobs:
           cache: 'pnpm'
       - run: pnpm install
 
-      - name: Do types check
+      - name: Types check
         run: pnpm types
+
+      - name: Lint check
+        run: pnpm lint        
