@@ -14,6 +14,9 @@ module.exports = {
     'build/',
   ],  
   rules: {
+    // prettier
+    "prettier/prettier": "error",
+
     // eslint
     'no-empty': 'warn',
     'no-extra-boolean-cast': 'warn',
