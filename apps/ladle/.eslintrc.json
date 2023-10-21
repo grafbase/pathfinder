@@ -1,8 +1,4 @@
 {
-  "extends": [
-    "@pathfinder-ide/eslint-config"
-  ],
-  "ignorePatterns": [
-    "!.ladle"
-  ]
+  "extends": ["@pathfinder-ide/eslint-config"],
+  "ignorePatterns": ["!.ladle"]
 }

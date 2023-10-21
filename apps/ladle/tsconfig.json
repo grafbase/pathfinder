@@ -2,5 +2,5 @@
   "extends": "@pathfinder-ide/tsconfig/react.json",
   "compilerOptions": {
     "types": ["vite/client"]
-  },
+  }
 }
