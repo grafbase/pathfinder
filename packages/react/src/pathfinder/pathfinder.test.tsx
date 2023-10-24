@@ -42,7 +42,7 @@ describe('Pathfinder props', () => {
       <Pathfinder
         fetcherOptions={{ endpoint: 'ENDPOINT' }}
         themeOptions={{
-          theme: { overrides },
+          overrides,
         }}
       />,
     );
