@@ -1,6 +1,8 @@
-import type { ThemeContractOverrides } from '@pathfinder-ide/style';
-
-import { HTTPHeaderValue, SchemaStoreState } from '@pathfinder-ide/stores';
+import type {
+  HTTPHeaderValue,
+  SchemaStoreState,
+  ThemeOptions,
+} from '@pathfinder-ide/stores';
 
 export type PathfinderProps = {
   mode?: 'FULL' | 'MINI';
@@ -11,9 +13,5 @@ export type PathfinderProps = {
   schemaPollingOptions?: Partial<
     Pick<SchemaStoreState['polling'], 'enabled' | 'interval'>
   >;
-  themeOptions?: {
-    theme?: {
-      overrides?: ThemeContractOverrides;
-    };
-  };
+  themeOptions?: Partial<ThemeOptions>;
 };

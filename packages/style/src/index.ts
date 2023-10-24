@@ -20,4 +20,4 @@ export { contract } from './theme';
 
 export type { ThemeContractOverrides } from './types';
 
-export { getPrefersColorScheme, toTitleCase } from './utils';
+export { toTitleCase } from './utils';

@@ -32,7 +32,7 @@ export const Pathfinder = ({
 
   useEffect(() => {
     // set the theme and handle overrides if provided
-    initializeTheme({ overrides: themeOptions?.theme?.overrides });
+    initializeTheme({ options: themeOptions });
 
     //set our schema polling options if provided
     if (schemaPollingOptions) {
