@@ -21,7 +21,7 @@ jobs:
           echo "PACKAGE_VERSION=$(cat ${PACKAGE_JSON_PATH}/package.json | jq ".version" | tr -d '""')" >> $GITHUB_ENV
         shell: bash
       - name: Setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18
       - name: Create release
@@ -53,7 +53,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18
       - run: |
