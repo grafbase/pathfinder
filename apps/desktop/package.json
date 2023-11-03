@@ -20,7 +20,7 @@
     "@pathfinder-ide/eslint-config": "workspace:*",
     "@pathfinder-ide/style": "workspace:*",
     "@tauri-apps/cli": "^1.4.0",
-    "@types/react": "18.2.31",
+    "@types/react": "18.2.34",
     "@types/react-dom": "18.2.14",
     "@vanilla-extract/css": "1.13.0",
     "@vanilla-extract/vite-plugin": "3.9.0",
