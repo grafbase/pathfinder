@@ -1,21 +1,21 @@
-import { ThemeContractOverrides, getPrefersColorScheme } from '@pathfinder-ide/style';
 import { setTheme } from './set-theme';
 import { setThemeOverrides } from './set-theme-overrides';
-import { AvailableThemes } from '@pathfinder-ide/shared';
+import { ThemeOptions } from '../theme-store.types';
+import { listenForPrefersColorSchemeChange } from './listen-for-prefers-color-scheme-change';
 
 export const initializeTheme = ({
-  overrides,
+  options = { defaultTheme: 'system' },
 }: {
-  overrides?: ThemeContractOverrides;
+  options?: ThemeOptions;
 }) => {
   // if we receive theme overrides, set them to state here
-  if (overrides) {
-    setThemeOverrides({ overrides });
+  if (options.overrides) {
+    setThemeOverrides({ overrides: options.overrides });
   }
 
-  let preference: AvailableThemes = 'light';
-
-  preference = getPrefersColorScheme();
-
-  return setTheme({ theme: preference });
+  if (options.defaultTheme === 'dark' || options.defaultTheme === 'light') {
+    return setTheme({ theme: options.defaultTheme });
+  } else {
+    return listenForPrefersColorSchemeChange();
+  }
 };

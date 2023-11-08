@@ -1,5 +1,10 @@
 import type { AvailableThemes } from '@pathfinder-ide/shared';
-import { ThemeContractOverrides } from '@pathfinder-ide/style';
+import type { ThemeContractOverrides } from '@pathfinder-ide/style';
+
+export type ThemeOptions = {
+  defaultTheme?: AvailableThemes | 'system';
+  overrides?: ThemeContractOverrides;
+};
 
 type ThemeStoreState = {
   activeTheme: AvailableThemes | null;

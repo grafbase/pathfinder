@@ -1,5 +1,3 @@
-import type { AvailableThemes } from '@pathfinder-ide/shared';
-
 import type monaco from 'monaco-graphql/esm/monaco-editor';
 
 type MonacoEditorStandaloneThemeData = monaco.editor.IStandaloneThemeData;
@@ -48,7 +46,7 @@ export const colorsForEditor = {
 export const editorTheme = ({
   variant,
 }: {
-  variant: AvailableThemes;
+  variant: 'dark' | 'light';
 }): MonacoEditorStandaloneThemeData => ({
   base: variant === 'light' ? 'vs' : 'vs-dark',
   inherit: true,

@@ -43,6 +43,39 @@ export const FullModeWithoutSchemaProps = () => {
   return <Pathfinder />;
 };
 
+export const FullModeWithDefaultThemeDark = () => {
+  return (
+    <Pathfinder
+      fetcherOptions={fetcherOptions}
+      themeOptions={{
+        defaultTheme: 'dark',
+      }}
+    />
+  );
+};
+
+export const FullModeWithDefaultThemeLight = () => {
+  return (
+    <Pathfinder
+      fetcherOptions={fetcherOptions}
+      themeOptions={{
+        defaultTheme: 'light',
+      }}
+    />
+  );
+};
+
+export const FullModeWithDefaultThemeSystem = () => {
+  return (
+    <Pathfinder
+      fetcherOptions={fetcherOptions}
+      themeOptions={{
+        defaultTheme: 'system',
+      }}
+    />
+  );
+};
+
 export const FullModeWithThemeOverrides = () => {
   return (
     <Pathfinder
@@ -51,7 +84,7 @@ export const FullModeWithThemeOverrides = () => {
         enabled: true,
       }}
       themeOptions={{
-        theme: { overrides },
+        overrides,
       }}
     />
   );
