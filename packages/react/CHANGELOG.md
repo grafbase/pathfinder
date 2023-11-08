@@ -1,5 +1,11 @@
 # @pathfinder-ide/react
 
+## 0.3.0
+
+### Minor Changes
+
+- fa14fb9: Updates the `themeOptions` prop to include a `defaultTheme` ("light" | "dark" | "system"). If the `defaultTheme` is either "light" or "dark", Pathfinder will respect the choice. If the prop is not passed, or passed as "system", Pathfinder will listen for changes to `prefers-color-scheme` and respond accordingly.
+
 ## 0.2.6
 
 ### Patch Changes
