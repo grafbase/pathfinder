@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.2",
-    "@types/node": "20.8.7",
+    "@types/node": "18.18.9",
     "turbo": "1.10.16",
     "typescript": "5.2.2"
   },

@@ -1,5 +1,12 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:base"],
-  "ignoreDeps": ["@ladle/react", "monaco-editor", "monaco-graphql", "vitest", "next"]
+  "packageRules": [
+    {
+      "groupName": "dependencies-major",
+      "matchUpdateTypes": ["major"],
+      "excludePackageNames": ["node", "@types/node"]
+    }
+  ],
+  "ignoreDeps": ["@ladle/react", "monaco-editor", "monaco-graphql", "vitest"]
 }
