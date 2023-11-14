@@ -24,4 +24,7 @@ jobs:
         run: pnpm types
 
       - name: Lint check
-        run: pnpm lint        
+        run: pnpm lint
+
+      - name: Prettier write
+        run: pnpm prettier:write
