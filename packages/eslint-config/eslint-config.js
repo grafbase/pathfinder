@@ -3,7 +3,6 @@ module.exports = {
     'eslint:recommended',
     'plugin:react-hooks/recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
   ],
   ignorePatterns: [
     'node_modules/',
@@ -14,9 +13,6 @@ module.exports = {
     'build/',
   ],
   rules: {
-    // prettier
-    'prettier/prettier': 'error',
-
     // eslint
     'no-empty': 'warn',
     'no-extra-boolean-cast': 'warn',
