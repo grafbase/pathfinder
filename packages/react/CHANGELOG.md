@@ -1,5 +1,11 @@
 # @pathfinder-ide/react
 
+## 0.3.1
+
+### Patch Changes
+
+- 44758d5: Updates Pathfinder mode options, but keeps the default mode as the complete view with schema documentation and SDL view.
+
 ## 0.3.0
 
 ### Minor Changes
