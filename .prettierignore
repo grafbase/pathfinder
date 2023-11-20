@@ -1,12 +1,16 @@
-# ignore all examples
+# all examples
 /examples/*
+
+# built workers
+/packages/react/workers/*.bundle.js
 
 **/node_modules
 
 pnpm-lock.yaml
 
-# Ignore artifacts:
+# artifacts:
 build
 dist
 public
 coverage
+/apps/desktop/src-tauri/target/*
