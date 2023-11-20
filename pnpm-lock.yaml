@@ -11875,6 +11875,7 @@ packages:
     resolution: {directory: packages/react, type: directory}
     id: file:packages/react
     name: '@pathfinder-ide/react'
+    version: 0.3.0
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -11900,6 +11901,7 @@ packages:
     resolution: {directory: packages/react, type: directory}
     id: file:packages/react
     name: '@pathfinder-ide/react'
+    version: 0.3.0
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0

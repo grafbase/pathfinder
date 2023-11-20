@@ -5,7 +5,7 @@ import type {
 } from '@pathfinder-ide/stores';
 
 export type PathfinderProps = {
-  mode?: 'FULL' | 'MINI';
+  mode?: 'IDE' | 'SCOUT' | 'REFERENCE';
   fetcherOptions?: {
     endpoint: string;
     headers?: Pick<HTTPHeaderValue, 'key' | 'value'>[];

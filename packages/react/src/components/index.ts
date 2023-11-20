@@ -2,6 +2,10 @@ export { Analyze } from './analyze';
 
 export { Dropdown } from './dropdown';
 
+export { CompassAnimated } from './compass-animated';
+
+export { Connect } from './connect';
+
 export { Editor } from './editor';
 
 export { EditorTabs } from './editor-tabs';

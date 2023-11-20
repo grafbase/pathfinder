@@ -4,9 +4,9 @@ export {
   useThemeStore as usePathfinderThemeStore,
 } from '@pathfinder-ide/stores';
 
-// components
 export { Pathfinder } from './pathfinder';
 
+// schema-dependent components
 export { SchemaDocumentation } from './schema-documentation';
 
 export { SchemaView } from './schema-view';

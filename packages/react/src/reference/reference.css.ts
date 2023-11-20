@@ -1,6 +1,6 @@
 import { contract, recipe, shared, style } from '@pathfinder-ide/style';
 
-export const ideWrapClass = recipe({
+export const referenceWrapClass = recipe({
   base: {
     display: 'grid',
     height: '100%',
@@ -17,7 +17,7 @@ export const ideWrapClass = recipe({
   },
 });
 
-export const ideClass = style({
+export const referenceClass = style({
   display: 'grid',
   gridTemplateColumns: '60px 1fr',
   height: '100%',

@@ -13,17 +13,17 @@ import {
   schemaStore,
 } from '@pathfinder-ide/stores';
 
-import { Connect } from '../components/connect';
-import { IDE } from '../ide';
+import { Connect, CompassAnimated } from '../components';
 import { Scout } from '../scout';
+import { Reference } from '../reference';
 
 import { connectWrapClass, pathfinderClass } from './pathfinder.css';
 
 import type { PathfinderProps } from './pathfinder.types';
-import { CompassAnimated } from '../components/compass-animated';
+import { IDE } from '../ide';
 
 export const Pathfinder = ({
-  mode = 'FULL',
+  mode = 'REFERENCE',
   fetcherOptions,
   schemaPollingOptions,
   themeOptions,
@@ -99,8 +99,11 @@ export const Pathfinder = ({
 
   return (
     <div className={pathfinderClass}>
-      {mode === 'FULL' && <IDE withFetcherOptions={fetcherOptions ? true : false} />}
-      {mode === 'MINI' && <Scout />}
+      {mode === 'REFERENCE' && (
+        <Reference withFetcherOptions={fetcherOptions ? true : false} />
+      )}
+      {mode === 'IDE' && <IDE />}
+      {mode === 'SCOUT' && <Scout />}
     </div>
   );
 };
