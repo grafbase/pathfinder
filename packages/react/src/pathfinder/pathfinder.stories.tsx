@@ -28,7 +28,7 @@ const fetcherOptions: PathfinderProps['fetcherOptions'] = {
   ],
 };
 
-export const FullMode = () => {
+export const ReferenceMode = () => {
   return (
     <Pathfinder
       fetcherOptions={fetcherOptions}
@@ -39,11 +39,11 @@ export const FullMode = () => {
   );
 };
 
-export const FullModeWithoutSchemaProps = () => {
+export const ReferenceModeWithoutSchemaProps = () => {
   return <Pathfinder />;
 };
 
-export const FullModeWithDefaultThemeDark = () => {
+export const ReferenceModeWithDefaultThemeDark = () => {
   return (
     <Pathfinder
       fetcherOptions={fetcherOptions}
@@ -54,7 +54,7 @@ export const FullModeWithDefaultThemeDark = () => {
   );
 };
 
-export const FullModeWithDefaultThemeLight = () => {
+export const ReferenceModeWithDefaultThemeLight = () => {
   return (
     <Pathfinder
       fetcherOptions={fetcherOptions}
@@ -65,7 +65,7 @@ export const FullModeWithDefaultThemeLight = () => {
   );
 };
 
-export const FullModeWithDefaultThemeSystem = () => {
+export const ReferenceModeWithDefaultThemeSystem = () => {
   return (
     <Pathfinder
       fetcherOptions={fetcherOptions}
@@ -76,7 +76,7 @@ export const FullModeWithDefaultThemeSystem = () => {
   );
 };
 
-export const FullModeWithThemeOverrides = () => {
+export const ReferenceModeWithThemeOverrides = () => {
   return (
     <Pathfinder
       fetcherOptions={fetcherOptions}
@@ -90,10 +90,18 @@ export const FullModeWithThemeOverrides = () => {
   );
 };
 
-export const MiniMode = () => {
-  return <Pathfinder mode="MINI" fetcherOptions={fetcherOptions} />;
+export const IDEMode = () => {
+  return <Pathfinder mode="IDE" fetcherOptions={fetcherOptions} />;
 };
 
-export const MiniModeWithoutSchemaProps = () => {
-  return <Pathfinder mode="MINI" />;
+export const IDEModeWithoutSchemaProps = () => {
+  return <Pathfinder mode="IDE" />;
+};
+
+export const ScoutMode = () => {
+  return <Pathfinder mode="SCOUT" fetcherOptions={fetcherOptions} />;
+};
+
+export const ScoutModeWithoutSchemaProps = () => {
+  return <Pathfinder mode="SCOUT" />;
 };
