@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {  
-    "@pathfinder-ide/react": "file:../../packages/react",
+    "@pathfinder-ide/react": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
