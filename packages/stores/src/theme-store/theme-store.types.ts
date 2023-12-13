@@ -7,7 +7,7 @@ export type ThemeOptions = {
 };
 
 type ThemeStoreState = {
-  activeTheme: AvailableThemes | null;
+  activeTheme: AvailableThemes;
   themeOverrides: ThemeContractOverrides | null;
 };
 
