@@ -1,7 +1,6 @@
 import { setTheme } from './set-theme';
 import { setThemeOverrides } from './set-theme-overrides';
 import { ThemeOptions } from '../theme-store.types';
-import { listenForPrefersColorSchemeChange } from './listen-for-prefers-color-scheme-change';
 
 export const initializeTheme = ({
   options = { defaultTheme: 'system' },
@@ -13,9 +12,5 @@ export const initializeTheme = ({
     setThemeOverrides({ overrides: options.overrides });
   }
 
-  if (options.defaultTheme === 'dark' || options.defaultTheme === 'light') {
-    return setTheme({ theme: options.defaultTheme });
-  } else {
-    return listenForPrefersColorSchemeChange();
-  }
+  return setTheme({ theme: options.defaultTheme ?? 'system' });
 };
