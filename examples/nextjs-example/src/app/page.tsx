@@ -14,23 +14,43 @@ import "@pathfinder-ide/react/dist/style.css";
 
 export default function Home() {
   return (
-    <main className="flex h-full flex-col items-center">
+    <main className="flex h-full flex-col items-center overflow-hidden">
       <div className="flex items-center gap-4 text-blue-700">
         <h1>My cool Next.js app</h1>
+
         <button 
-        className="text-pink-700"
-        onClick={async () => {
-          // these imports include calls to navigator (via monaco editor), so we dynamically import the data and function that we need to adjust the theme
-          const activeTheme = (await import('@pathfinder-ide/react')).usePathfinderThemeStore.getState().activeTheme
-          const setPathfinderTheme = (await import('@pathfinder-ide/react')).setPathfinderTheme
-          
-          if (activeTheme === "dark") {
-            setPathfinderTheme({theme: "light"})
-          }
-          if (activeTheme === "light") {
+          className="text-pink-700"
+          onClick={async () => {
+            const setPathfinderTheme = (await import('@pathfinder-ide/react')).setPathfinderTheme
             setPathfinderTheme({theme: "dark"})
-          }          
-        }}>Toggle theme</button>
+          }}
+        >
+          go dark
+        </button>
+
+
+        <button 
+          className="text-pink-700"
+          onClick={async () => {
+            const setPathfinderTheme = (await import('@pathfinder-ide/react')).setPathfinderTheme
+            setPathfinderTheme({theme: "light"})
+          }}
+        >
+          go light
+        </button>
+
+        <button 
+          className="text-pink-700"
+          onClick={async () => {
+            const setPathfinderTheme = (await import('@pathfinder-ide/react')).setPathfinderTheme
+            setPathfinderTheme({theme: "system"})
+          }}
+        >
+          go system
+        </button> 
+
+
+  
       </div>
     
       <Pathfinder 
@@ -39,6 +59,24 @@ export default function Home() {
         }}
         schemaPollingOptions={{
           enabled: true
+        }}
+        themeOptions={{
+          overrides:{
+            dark:{
+              color:{
+                neutral:{
+                  "1": 'green'
+                }
+              }
+            },
+            light:{
+              color:{
+                neutral:{
+                  "1": 'blue'
+                }
+              }
+            }            
+          }
         }}
       />
     </main>        
