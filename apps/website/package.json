@@ -13,7 +13,7 @@
   "dependencies": {
     "@astrojs/react": "3.0.7",
     "@astrojs/tailwind": "5.0.2",
-    "@fontsource/inter": "5.0.15",
+    "@fontsource/inter": "5.0.16",
     "astro": "3.5.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
