@@ -1,7 +1,7 @@
 {
   "name": "vite-example",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite --force",
@@ -9,7 +9,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
-  "dependencies": {  
+  "dependencies": {
     "@pathfinder-ide/react": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

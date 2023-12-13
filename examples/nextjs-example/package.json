@@ -9,7 +9,7 @@
     "types:check": "tsc --noEmit"
   },
   "dependencies": {
-    "@pathfinder-ide/react": "workspace:*",    
+    "@pathfinder-ide/react": "workspace:*",
     "@types/node": "20.4.5",
     "@types/react": "18.2.18",
     "@types/react-dom": "18.2.7",
