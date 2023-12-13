@@ -5,12 +5,20 @@ import { THEME_MODE_ATTRIBUTE } from '@pathfinder-ide/style';
 
 import { mungeThemeOverrides } from '../utils';
 import { setMonacoEditorTheme } from '../../monaco-editor-store';
+import { listenForPrefersColorSchemeChange } from './listen-for-prefers-color-scheme-change';
 
-export const setTheme = ({ theme }: { theme: AvailableThemes }) => {
+export const setTheme = ({ theme }: { theme: AvailableThemes | 'system' }) => {
   const rootEl = document.documentElement;
+  let mode: AvailableThemes = 'light';
 
-  themeStore.setState({ activeTheme: theme });
-  setMonacoEditorTheme({ theme });
+  if (theme === 'system') {
+    return listenForPrefersColorSchemeChange();
+  } else {
+    mode = theme;
+  }
+
+  themeStore.setState({ activeTheme: mode });
+  setMonacoEditorTheme({ theme: mode });
 
   // pull out the overrides for the theme we're setting
   const overrides = themeStore.getState().themeOverrides;
@@ -46,5 +54,5 @@ export const setTheme = ({ theme }: { theme: AvailableThemes }) => {
   }
 
   // finally, we set the theme mode on our top element
-  return rootEl.setAttribute(THEME_MODE_ATTRIBUTE, theme);
+  return rootEl.setAttribute(THEME_MODE_ATTRIBUTE, mode);
 };
