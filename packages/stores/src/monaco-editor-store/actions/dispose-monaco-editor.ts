@@ -18,6 +18,7 @@ export const disposeMonacoEditor: MonacoEditorStoreActions['disposeMonacoEditor'
 
   // if so, we call dispose() to remove it from monaco's global instance
   if (editorToDispose) {
+    editorToDispose.getModel()?.dispose();
     editorToDispose.dispose();
 
     if (
