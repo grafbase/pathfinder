@@ -19,3 +19,5 @@ export type {
   MonacoEditorITextModel,
   MonacoEditorIActionDescriptor,
 } from './monaco-editor-store.types';
+
+export { INITIAL_MONACO_EDITOR_STORE_STATE } from './state';
