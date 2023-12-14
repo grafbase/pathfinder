@@ -11,7 +11,7 @@ export const editorClass = recipe({
     minWidth: 0,
 
     // a little hack to prevent the potential flash of alternate editor theme colors on initialization
-    transition: 'opacity .15s ease',
+    transition: 'opacity 0.35s ease',
   },
 
   variants: {
