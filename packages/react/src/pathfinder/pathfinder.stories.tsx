@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Pathfinder } from './pathfinder';
 import { PathfinderProps } from './pathfinder.types';
 
@@ -28,10 +29,73 @@ const fetcherOptions: PathfinderProps['fetcherOptions'] = {
   ],
 };
 
-export const ReferenceMode = () => {
+export const ToggleReference = () => {
+  const [visibleP, setVisibleP] = useState<'X' | 'N'>('X');
+  return (
+    <>
+      <div style={{ display: 'flex', gap: 12 }}>
+        <button
+          style={{
+            all: 'unset',
+            padding: 12,
+            backgroundColor: visibleP === 'X' ? 'green' : 'red',
+            cursor: 'pointer',
+          }}
+          onClick={() => setVisibleP('X')}
+        >
+          ENV API
+        </button>
+        <button
+          style={{
+            all: 'unset',
+            padding: 12,
+            backgroundColor: visibleP === 'N' ? 'green' : 'red',
+            cursor: 'pointer',
+          }}
+          onClick={() => setVisibleP('N')}
+        >
+          NASA API
+        </button>
+      </div>
+      {visibleP === 'X' && (
+        <Pathfinder
+          fetcherOptions={fetcherOptions}
+          schemaPollingOptions={{
+            enabled: true,
+          }}
+        />
+      )}
+      {visibleP === 'N' && (
+        <Pathfinder
+          fetcherOptions={{
+            endpoint: 'https://graphql.earthdata.nasa.gov/api',
+          }}
+          schemaPollingOptions={{
+            enabled: true,
+          }}
+        />
+      )}
+    </>
+  );
+};
+
+export const ReferenceModeENVAPI = () => {
   return (
     <Pathfinder
       fetcherOptions={fetcherOptions}
+      schemaPollingOptions={{
+        enabled: true,
+      }}
+    />
+  );
+};
+
+export const ReferenceModeNASA = () => {
+  return (
+    <Pathfinder
+      fetcherOptions={{
+        endpoint: 'https://graphql.earthdata.nasa.gov/api',
+      }}
       schemaPollingOptions={{
         enabled: true,
       }}
