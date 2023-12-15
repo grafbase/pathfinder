@@ -5,8 +5,8 @@ import { Kind, OperationTypeNode } from 'graphql';
 import { useGraphQLDocumentStore, useSchemaStore } from '@pathfinder-ide/stores';
 
 import { QuickDocs, RootOperation } from './components';
-import { compassClass } from './compass.css';
-import { Tabs } from '../components';
+import { compassClass, compassSkeletonClass } from './compass.css';
+import { CompassAnimated, Tabs } from '../components';
 import { TabsProps } from '../components/tabs/tabs.types';
 
 import {
@@ -54,7 +54,12 @@ const CompassComponent = () => {
   }, [operationDefinition, schema]);
 
   if (!schema) {
-    return null;
+    return (
+      <div className={compassSkeletonClass}>
+        <span>Loading schema...</span>
+        <CompassAnimated size="small" speed="standard" />
+      </div>
+    );
   }
 
   const buildTabData = () => {
