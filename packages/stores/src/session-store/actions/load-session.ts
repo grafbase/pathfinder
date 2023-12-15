@@ -3,14 +3,14 @@ import { loadSchema } from '../../schema-store';
 import { setEditorValues } from '../slices/editor-tabs/actions/set-editor-values';
 import { useSessionStore } from '../use-session-store';
 
-export const loadSession = ({ sessionName }: { sessionName: string }) => {
+export const loadSession = async ({ sessionName }: { sessionName: string }) => {
   // if we have an existing session is storage, we set the name/rehydrate/load the schema
   useSessionStore.persist.setOptions({
     name: sessionName,
   });
 
   // manually rehydrate
-  useSessionStore.persist.rehydrate();
+  await useSessionStore.persist.rehydrate();
 
   // wait a short amount of time to allow for rehydration
   setTimeout(() => {

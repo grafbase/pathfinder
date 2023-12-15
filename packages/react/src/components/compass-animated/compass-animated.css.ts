@@ -1,8 +1,6 @@
 import { contract, keyframes, recipe, shared, style } from '@pathfinder-ide/style';
 
 export const compassAnimatedWrapClass = style({
-  width: '100%',
-  height: '100%',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',

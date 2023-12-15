@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { get as findSession } from 'idb-keyval';
 
 import { STORAGE_NAME_SESSION, generateCuid } from '@pathfinder-ide/shared';
@@ -6,11 +6,12 @@ import { STORAGE_NAME_SESSION, generateCuid } from '@pathfinder-ide/shared';
 import {
   getNamespacedStorageName,
   initializeTheme,
-  resetSchemaPolling,
   useSchemaStore,
   initSession,
   loadSession,
   schemaStore,
+  uiStore,
+  cleanupStores,
 } from '@pathfinder-ide/stores';
 
 import { Connect, CompassAnimated } from '../components';
@@ -29,6 +30,16 @@ export const Pathfinder = ({
   themeOptions,
 }: PathfinderProps) => {
   const schema = useSchemaStore.use.schema();
+
+  const [isHydrated, setIsHydrated] = useState<boolean>(false);
+
+  useEffect(
+    () =>
+      uiStore.subscribe(({ isHydrated }) => {
+        setIsHydrated(isHydrated);
+      }),
+    [],
+  );
 
   useEffect(() => {
     // set the theme and handle overrides if provided
@@ -79,11 +90,14 @@ export const Pathfinder = ({
     }
 
     return () => {
-      // clear our polling timer if it exists
-      resetSchemaPolling();
+      cleanupStores();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetcherOptions?.endpoint]);
+
+  if (!isHydrated) {
+    return null;
+  }
 
   if (!fetcherOptions && !schema) {
     return (

@@ -13,6 +13,7 @@ import { variablesState } from './slices/variables';
 import { sessionStoreState } from './session-store-state';
 
 import { SessionStoreState } from './session-store.types';
+import { uiStore } from '../ui-store';
 
 type StateToPersist = Omit<SessionStoreState, '_hasHydrated' | 'connectionDialogOpen'>;
 
@@ -33,8 +34,11 @@ export const sessionStore = createStore<SessionStoreState>()(
       onRehydrateStorage: () => {
         return (_state, error) => {
           if (error) {
-            console.warn('an error occurred during sessionStore hydration', error);
+            return console.warn('an error occurred during sessionStore hydration', error);
           }
+          uiStore.setState({
+            isHydrated: true,
+          });
         };
       },
       partialize: (state) => ({
