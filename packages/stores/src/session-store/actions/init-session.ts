@@ -11,6 +11,7 @@ import { useSessionStore } from '../use-session-store';
 import { INITIAL_EDITOR_TAB } from '../slices/editor-tabs/editor-tabs-state';
 import { setEditorValues } from '../slices/editor-tabs/actions/set-editor-values';
 import { INITIAL_HTTP_HEADERS_STATE } from '../slices/http-headers/http-headers-state';
+import { uiStore } from '../../ui-store';
 
 export const initSession = async ({
   fetchOptions,
@@ -38,6 +39,10 @@ export const initSession = async ({
     activeTab: INITIAL_EDITOR_TAB,
     tabs: [INITIAL_EDITOR_TAB],
     variablesString: VARIABLES_EDITOR_DEFAULT_VALUE,
+  });
+
+  uiStore.setState({
+    isHydrated: true,
   });
 
   loadSchema({
