@@ -13,7 +13,7 @@
     "@vanilla-extract/css": "1.14.0",
     "@vanilla-extract/dynamic": "2.1.0",
     "@vanilla-extract/recipes": "0.5.1",
-    "zustand": "4.4.6"
+    "zustand": "4.4.7"
   },
   "devDependencies": {
     "@pathfinder-ide/eslint-config": "workspace:*",
