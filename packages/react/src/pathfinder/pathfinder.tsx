@@ -33,13 +33,15 @@ export const Pathfinder = ({
 
   const [isHydrated, setIsHydrated] = useState<boolean>(false);
 
-  useEffect(
-    () =>
-      uiStore.subscribe(({ isHydrated }) => {
-        setIsHydrated(isHydrated);
-      }),
-    [],
-  );
+  useEffect(() => {
+    uiStore.subscribe(({ isHydrated }) => {
+      setIsHydrated(isHydrated);
+    });
+
+    return () => {
+      cleanupStores();
+    };
+  }, []);
 
   useEffect(() => {
     // set the theme and handle overrides if provided
@@ -88,16 +90,7 @@ export const Pathfinder = ({
         }
       });
     }
-
-    return () => {
-      cleanupStores();
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [fetcherOptions?.endpoint]);
-
-  if (!isHydrated) {
-    return null;
-  }
+  }, [fetcherOptions, schemaPollingOptions, themeOptions]);
 
   if (!fetcherOptions && !schema) {
     return (
@@ -105,6 +98,10 @@ export const Pathfinder = ({
         <Connect />
       </div>
     );
+  }
+
+  if (!isHydrated) {
+    return null;
   }
 
   if (fetcherOptions && !schema) {
