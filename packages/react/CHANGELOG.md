@@ -1,5 +1,11 @@
 # @pathfinder-ide/react
 
+## 0.3.4
+
+### Patch Changes
+
+- cf31398: Fixes an issue with Monaco editors disposing prematurely when PathfinderProps change.
+
 ## 0.3.3
 
 ### Patch Changes
