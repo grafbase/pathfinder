@@ -30,7 +30,7 @@
     "types": "tsc --noEmit"
   },
   "dependencies": {
-    "@headlessui/react": "1.7.17",
+    "@headlessui/react": "1.7.18",
     "graphql": "16.8.1",
     "idb-keyval": "6.2.1",
     "lodash": "^4.17.21",
