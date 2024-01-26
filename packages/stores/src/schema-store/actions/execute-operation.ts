@@ -96,7 +96,11 @@ export const executeOperation: SchemaStoreActions['executeOperation'] = async ()
       variables,
     };
 
-    const useSse = usingDefer(activeDocumentEntry?.node.selectionSet);
+      const isSubscription =
+        activeDocumentEntry?.node.operation === "subscription";
+
+      const useSse =
+        usingDefer(activeDocumentEntry?.node.selectionSet) || isSubscription;
 
     if (useSse) {
       const client = createClient({
