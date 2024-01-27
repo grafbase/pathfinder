@@ -11,7 +11,7 @@
   "dependencies": {
     "@pathfinder-ide/react": "workspace:*",
     "@types/node": "20.4.5",
-    "@types/react": "18.2.18",
+    "@types/react": "18.2.48",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.14",
     "eslint": "8.46.0",
@@ -21,7 +21,7 @@
     "postcss": "8.4.27",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "tailwindcss": "3.3.3",
+    "tailwindcss": "3.4.1",
     "typescript": "5.1.6"
   }
 }
