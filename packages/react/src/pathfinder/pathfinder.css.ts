@@ -4,6 +4,7 @@ export const pathfinderClass = style({
   height: '100%',
   width: '100%',
   backgroundColor: contract.color.neutral[1],
+  fontFamily: contract.fonts.body,
 });
 
 export const connectWrapClass = style({

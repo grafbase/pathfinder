@@ -1,15 +1,9 @@
 import { globalStyle } from '@vanilla-extract/css';
 
-import { contract } from './contract.css';
-
 import { HAIRLINE_BORDER_VAR } from '../constants';
 
 export const globalAllCSS = globalStyle('*', {
   boxSizing: 'border-box',
-});
-
-export const globalBodyCSS = globalStyle('body', {
-  fontFamily: contract.fonts.body,
 });
 
 export const globalRootCss = globalStyle(':root', {
