@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import {
   SchemaDocumentationStoreProvider,
   useSchemaDocumentationStore,
@@ -5,7 +6,7 @@ import {
 
 import { sortTypes } from '../../utils';
 
-import { Resizer } from '../../../components';
+import { LoadingSchema, Resizer } from '../../../components';
 import { SecondaryPane } from '../secondary-pane/secondary-pane';
 import { Section, SectionDescription } from '../section';
 import { TertiaryPane } from '../tertiary-pane';
@@ -21,26 +22,28 @@ import {
 } from './schema-documentation.css';
 
 import { sharedPaneClass } from '../../shared.styles.css';
-import { GraphQLSchema } from 'graphql';
+import { initializeTheme } from '@pathfinder-ide/stores';
+import { SharedComponentProps } from '../../../types';
 
-type SchemaDocumentationProps = {
-  schema: GraphQLSchema;
-};
-
-export const SchemaDocumentation = ({ schema }: SchemaDocumentationProps) => {
+export const SchemaDocumentation = ({ schema, themeOptions }: SharedComponentProps) => {
   return (
     <SchemaDocumentationStoreProvider>
-      <SchemaDocumentationComponent schema={schema} />
+      <SchemaDocumentationComponent schema={schema} themeOptions={themeOptions} />
     </SchemaDocumentationStoreProvider>
   );
 };
 
-const SchemaDocumentationComponent = ({ schema }: SchemaDocumentationProps) => {
+const SchemaDocumentationComponent = ({ schema, themeOptions }: SharedComponentProps) => {
   const { activePrimaryPane, activeTertiaryPane, tertiaryPaneStack } =
     useSchemaDocumentationStore();
 
+  useEffect(() => {
+    // set the theme and handle overrides if provided
+    initializeTheme({ options: themeOptions });
+  });
+
   if (!schema) {
-    return null;
+    return <LoadingSchema />;
   }
 
   const typeMap = schema.getTypeMap();

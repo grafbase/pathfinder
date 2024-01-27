@@ -11,6 +11,8 @@ export const schemaDocumentationClass = style([
     flexDirection: 'column',
     overflow: 'hidden',
     fontSize: 14,
+    backgroundColor: contract.color.neutral[1],
+    fontFamily: contract.fonts.body,
   },
 ]);
 

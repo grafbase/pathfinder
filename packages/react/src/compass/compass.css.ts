@@ -1,4 +1,4 @@
-import { contract, style } from '@pathfinder-ide/style';
+import { style } from '@pathfinder-ide/style';
 
 export const compassClass = style({
   position: 'relative',
@@ -6,17 +6,4 @@ export const compassClass = style({
   width: '100%',
   boxSizing: 'border-box',
   overflow: 'hidden',
-});
-
-export const compassSkeletonClass = style({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  gap: 12,
-  position: 'relative',
-  height: '100%',
-  width: '100%',
-  color: contract.color.neutral[11],
-  fontFamily: contract.fonts.mono,
-  fontSize: 12,
 });

@@ -12,6 +12,8 @@ export { EditorTabs } from './editor-tabs';
 
 export { Icon } from './icon';
 
+export { LoadingSchema } from './loading-schema';
+
 export { Operate } from './operate';
 
 export { Pill } from './pill';
