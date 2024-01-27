@@ -5,5 +5,6 @@ import { getUserPreferredTheme } from './utils';
 
 export const themeStore = createStore<ThemeStore>()(() => ({
   activeTheme: getUserPreferredTheme()(),
+  isInitialized: false,
   themeOverrides: null,
 }));

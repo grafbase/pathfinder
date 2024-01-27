@@ -1,26 +1,30 @@
 import { useEffect } from 'react';
-import { GraphQLSchema, printSchema } from 'graphql';
+import { printSchema } from 'graphql';
 
-import { getMonacoEditor } from '@pathfinder-ide/stores';
+import { getMonacoEditor, initializeTheme } from '@pathfinder-ide/stores';
 
-import { Editor } from '../components';
+import { Editor, LoadingSchema } from '../components';
 
 import { schemaViewInnerClass, schemaViewClass } from './schema-view.css';
+import { SharedComponentProps } from '../types';
 
-type SchemaViewProps = {
-  schema: GraphQLSchema;
-};
-
-export const SchemaView = ({ schema }: SchemaViewProps) => {
+export const SchemaView = ({ schema, themeOptions }: SharedComponentProps) => {
   useEffect(() => {
-    const schemaViewEditor = getMonacoEditor({
-      editorId: 'schema-view-editor',
-    });
-    schemaViewEditor?.setValue(printSchema(schema));
+    if (schema) {
+      const schemaViewEditor = getMonacoEditor({
+        editorId: 'schema-view-editor',
+      });
+      schemaViewEditor?.setValue(printSchema(schema));
+    }
   }, [schema]);
 
+  useEffect(() => {
+    // set the theme and handle overrides if provided
+    initializeTheme({ options: themeOptions });
+  });
+
   if (!schema) {
-    return null;
+    return <LoadingSchema />;
   }
 
   return (

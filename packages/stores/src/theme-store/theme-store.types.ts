@@ -8,6 +8,7 @@ export type ThemeOptions = {
 
 type ThemeStoreState = {
   activeTheme: AvailableThemes;
+  isInitialized: boolean;
   themeOverrides: ThemeContractOverrides | null;
 };
 

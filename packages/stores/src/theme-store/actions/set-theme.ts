@@ -53,6 +53,8 @@ export const setTheme = ({ theme }: { theme: AvailableThemes | 'system' }) => {
     });
   }
 
-  // finally, we set the theme mode on our top element
-  return rootEl.setAttribute(THEME_MODE_ATTRIBUTE, mode);
+  // set the theme mode on our top element
+  rootEl.setAttribute(THEME_MODE_ATTRIBUTE, mode);
+
+  return themeStore.setState({ isInitialized: true });
 };

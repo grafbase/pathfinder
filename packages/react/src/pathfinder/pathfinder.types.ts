@@ -1,10 +1,7 @@
-import type {
-  HTTPHeaderValue,
-  SchemaStoreState,
-  ThemeOptions,
-} from '@pathfinder-ide/stores';
+import type { HTTPHeaderValue, SchemaStoreState } from '@pathfinder-ide/stores';
+import { SharedComponentProps } from '../types';
 
-export type PathfinderProps = {
+export type PathfinderProps = SharedComponentProps & {
   mode?: 'IDE' | 'SCOUT' | 'REFERENCE';
   fetcherOptions?: {
     endpoint: string;
@@ -13,5 +10,4 @@ export type PathfinderProps = {
   schemaPollingOptions?: Partial<
     Pick<SchemaStoreState['polling'], 'enabled' | 'interval'>
   >;
-  themeOptions?: Partial<ThemeOptions>;
 };
