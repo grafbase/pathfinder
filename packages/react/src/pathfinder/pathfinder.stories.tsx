@@ -215,6 +215,32 @@ export const ReferenceModeWithLocalGraphQLServer = () => {
   );
 };
 
+export const ReferenceModeWithRemoteGraphQLServer = () => {
+  return (
+    <Pathfinder
+      fetcherOptions={{
+        endpoint: import.meta.env.VITE_REMOTE_GRAPHQL_ENDPOINT,
+        headers: [
+          {
+            key: 'x-api-key',
+            value: import.meta.env.VITE_REMOTE_GRAPHQL_API_KEY,
+          },
+        ],
+      }}
+      watchHeaders={[
+        {
+          headerName: 'x-grafbase-cache',
+          responseMap: {
+            HIT: { value: 'CACHE: HIT', color: 'green' },
+            MISS: { value: 'CACHE: MISS', color: 'red' },
+            BYPASS: { value: 'CACHE: BYPASS', color: 'yellow' },
+          },
+        },
+      ]}
+    />
+  );
+};
+
 export const IDEMode = () => {
   return <Pathfinder mode="IDE" fetcherOptions={LOCAL_ENDPOINT.fetcherOptions} />;
 };
