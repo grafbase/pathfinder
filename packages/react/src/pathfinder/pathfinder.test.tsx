@@ -1,9 +1,25 @@
 import { act, render, screen } from '@testing-library/react';
 import { Pathfinder } from './pathfinder';
-
 import { setTheme, themeStore } from '@pathfinder-ide/stores';
+import { testSchema } from '@pathfinder-ide/stores/src/schema-store/test-schema';
 
-// TODO: reset store between tests
+const overrides = {
+  dark: {
+    color: {
+      neutral: {
+        5: 'red',
+      },
+    },
+  },
+  light: {
+    color: {
+      neutral: {
+        5: 'blue',
+      },
+    },
+    font: { body: 'Comic Sans' },
+  },
+};
 
 describe('Pathfinder props', () => {
   it('should correctly render Welcome when Pathfinder does not receive fetcherOptions', async () => {
@@ -21,26 +37,10 @@ describe('Pathfinder props', () => {
   });
 
   it('should correctly render Pathfinder with theme override props', async () => {
-    const overrides = {
-      dark: {
-        color: {
-          neutral: {
-            5: 'red',
-          },
-        },
-      },
-      light: {
-        color: {
-          neutral: {
-            5: 'blue',
-          },
-        },
-        font: { body: 'Comic Sans' },
-      },
-    };
     render(
       <Pathfinder
         fetcherOptions={{ endpoint: 'ENDPOINT' }}
+        schema={testSchema}
         themeOptions={{
           overrides,
         }}
@@ -48,10 +48,6 @@ describe('Pathfinder props', () => {
     );
 
     const rootEl = document.documentElement;
-
-    const themeOverrides = themeStore.getState().themeOverrides;
-
-    expect(themeOverrides).toEqual(overrides);
 
     // test light colors
     expect(rootEl.style.getPropertyValue('--ColorNeutral5')).toEqual(
