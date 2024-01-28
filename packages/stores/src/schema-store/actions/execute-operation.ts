@@ -20,7 +20,11 @@ import {
 import { httpFetcher } from './http-fetcher';
 import { schemaStore } from '../schema-store';
 
-import type { ExecutionResponse, SchemaStoreActions } from '../schema-store.types';
+import type {
+  ExecutionResponse,
+  SchemaStoreActions,
+  WatchHeadersResponse,
+} from '../schema-store.types';
 
 enum Directive {
   Defer = 'defer',
@@ -166,6 +170,19 @@ export const executeOperation: SchemaStoreActions['executeOperation'] = async ()
       return schemaStore.setState({ isExecuting: false });
     }
 
+    const data = await fetchResponse.json();
+
+    const watchHeaders = schemaStore.getState().watchHeaders;
+
+    const caughtHeaders: WatchHeadersResponse[] = [];
+
+    if (watchHeaders) {
+      watchHeaders.forEach((watchHeader) => {
+        const caughtHeader = fetchResponse.headers.get(watchHeader.headerName);
+        caughtHeaders.push(watchHeader.responseMap[`${caughtHeader}`]);
+      });
+    }
+
     const executionResponse: ExecutionResponse = {
       duration: t1 - t0,
       request: {
@@ -174,10 +191,11 @@ export const executeOperation: SchemaStoreActions['executeOperation'] = async ()
         graphQLOperationParams: graphQLParams,
       },
       response: {
-        data: await fetchResponse.json(),
+        data,
         status: fetchResponse.status,
       },
       timestamp: new Date(),
+      watchHeaders: caughtHeaders.length > 0 ? caughtHeaders : undefined,
     };
 
     updateDocumentEntryResponse({

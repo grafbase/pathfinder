@@ -29,6 +29,7 @@ export const Pathfinder = ({
   schema,
   schemaPollingOptions,
   themeOptions,
+  watchHeaders,
 }: PathfinderProps) => {
   const schemaFromStore = useSchemaStore.use.schema();
 
@@ -47,6 +48,10 @@ export const Pathfinder = ({
   useEffect(() => {
     // set the theme and handle overrides if provided
     initializeTheme({ options: themeOptions });
+
+    if (watchHeaders) {
+      schemaStore.setState({ watchHeaders });
+    }
 
     //set our schema polling options if provided
     if (schemaPollingOptions) {
@@ -92,7 +97,7 @@ export const Pathfinder = ({
         }
       });
     }
-  }, [fetcherOptions, schema, schemaPollingOptions, themeOptions]);
+  }, [fetcherOptions, schema, schemaPollingOptions, themeOptions, watchHeaders]);
 
   if (!fetcherOptions && !schemaFromStore) {
     return (

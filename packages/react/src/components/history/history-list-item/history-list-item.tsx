@@ -95,6 +95,15 @@ export const HistoryListItem = ({
         )}
       </div>
       <div className={historyListItemSectionClass({ gap: 8 })}>
+        {item.watchHeaders &&
+          item.watchHeaders.length > 0 &&
+          item.watchHeaders.map((watchHeader) =>
+            watchHeader && watchHeader.value ? (
+              <Pill copy={watchHeader.value} variant={{ color: watchHeader.color }} />
+            ) : (
+              <Pill copy={'NO VALUE'} variant={{ color: 'neutral' }} />
+            ),
+          )}
         {'errors' in item.response.data && (
           <Pill copy={'Graphql Error'} variant={{ color: 'red' }} />
         )}

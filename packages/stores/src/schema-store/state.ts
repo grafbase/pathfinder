@@ -12,6 +12,7 @@ export const INITIAL_SCHEMA_STORE_STATE: SchemaStoreState = {
     timer: null,
   },
   schema: null,
+  watchHeaders: null,
 };
 
 export const schemaStoreState = {

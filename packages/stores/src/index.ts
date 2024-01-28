@@ -33,7 +33,7 @@ export {
   useSchemaStore,
 } from './schema-store';
 
-export type { ExecutionResponse, SchemaStoreState } from './schema-store';
+export type { ExecutionResponse, SchemaStoreState, WatchHeaders } from './schema-store';
 
 export { getNamespacedStorageName } from './storage';
 

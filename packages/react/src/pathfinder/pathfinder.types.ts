@@ -1,4 +1,8 @@
-import type { HTTPHeaderValue, SchemaStoreState } from '@pathfinder-ide/stores';
+import type {
+  HTTPHeaderValue,
+  SchemaStoreState,
+  WatchHeaders,
+} from '@pathfinder-ide/stores';
 import { SharedComponentProps } from '../types';
 
 export type PathfinderProps = SharedComponentProps & {
@@ -10,4 +14,5 @@ export type PathfinderProps = SharedComponentProps & {
   schemaPollingOptions?: Partial<
     Pick<SchemaStoreState['polling'], 'enabled' | 'interval'>
   >;
+  watchHeaders?: WatchHeaders;
 };
