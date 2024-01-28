@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Pathfinder } from './pathfinder';
 import { PathfinderProps } from './pathfinder.types';
+import { testSchema } from '@pathfinder-ide/stores/src/schema-store/test-schema';
 
 const overrides = {
   dark: {
@@ -16,24 +17,19 @@ const overrides = {
         1: 'blue',
       },
     },
+    font: { body: 'Comic Sans' },
   },
 };
 
 type ToggleReferenceProps = {
   fetcherOptions: PathfinderProps['fetcherOptions'];
-  name: 'NASA_API' | 'ENV_API';
+  name: 'NASA_API' | 'LOCAL_ENDPOINT';
 };
 
-const ENV_API: ToggleReferenceProps = {
-  name: 'ENV_API',
+const LOCAL_ENDPOINT: ToggleReferenceProps = {
+  name: 'LOCAL_ENDPOINT',
   fetcherOptions: {
-    endpoint: import.meta.env.VITE_GRAPHQL_ENDPOINT,
-    headers: [
-      {
-        key: import.meta.env.VITE_GRAPHQL_AUTHHEADER_KEY,
-        value: import.meta.env.VITE_GRAPHQL_AUTHHEADER_VALUE,
-      },
-    ],
+    endpoint: import.meta.env.VITE_LOCAL_GRAPHQL_ENDPOINT,
   },
 };
 
@@ -47,7 +43,7 @@ const NASA_API: ToggleReferenceProps = {
 export const ToggleReference = () => {
   const [endpoint, setEndpoint] = useState<ToggleReferenceProps>(NASA_API);
   const [visibleTogglePane, setVisibleTogglePane] = useState<
-    null | 'NASA_API' | 'ENV_API'
+    null | 'NASA_API' | 'LOCAL_ENDPOINT'
   >(null);
   console.log('ToggleReference', { endpoint });
   return (
@@ -69,16 +65,16 @@ export const ToggleReference = () => {
               padding: 12,
               backgroundColor: 'white',
               color: 'black',
-              opacity: endpoint.name === 'ENV_API' ? 1 : 0.35,
+              opacity: endpoint.name === 'LOCAL_ENDPOINT' ? 1 : 0.35,
 
               cursor: 'pointer',
             }}
             onClick={() => {
-              setEndpoint(ENV_API);
+              setEndpoint(LOCAL_ENDPOINT);
               setVisibleTogglePane(null);
             }}
           >
-            ENV API
+            Local yoga server
           </button>
           <button
             style={{
@@ -100,13 +96,13 @@ export const ToggleReference = () => {
           <button
             style={{
               padding: 12,
-              backgroundColor: visibleTogglePane === 'ENV_API' ? 'green' : 'red',
+              backgroundColor: visibleTogglePane === 'LOCAL_ENDPOINT' ? 'green' : 'red',
               color: 'black',
               cursor: 'pointer',
             }}
-            onClick={() => setVisibleTogglePane('ENV_API')}
+            onClick={() => setVisibleTogglePane('LOCAL_ENDPOINT')}
           >
-            ENV API
+            Local yoga server
           </button>
           <button
             style={{
@@ -123,8 +119,8 @@ export const ToggleReference = () => {
       {visibleTogglePane === null && (
         <Pathfinder fetcherOptions={endpoint.fetcherOptions} />
       )}
-      {visibleTogglePane === 'ENV_API' && (
-        <Pathfinder fetcherOptions={ENV_API.fetcherOptions} />
+      {visibleTogglePane === 'LOCAL_ENDPOINT' && (
+        <Pathfinder fetcherOptions={LOCAL_ENDPOINT.fetcherOptions} />
       )}
       {visibleTogglePane === 'NASA_API' && (
         <Pathfinder fetcherOptions={NASA_API.fetcherOptions} />
@@ -133,10 +129,10 @@ export const ToggleReference = () => {
   );
 };
 
-export const ReferenceModeENVAPI = () => {
+export const ReferenceModeLocalAPI = () => {
   return (
     <Pathfinder
-      fetcherOptions={ENV_API.fetcherOptions}
+      fetcherOptions={LOCAL_ENDPOINT.fetcherOptions}
       schemaPollingOptions={{
         enabled: true,
       }}
@@ -164,7 +160,7 @@ export const ReferenceModeWithoutSchemaProps = () => {
 export const ReferenceModeWithDefaultThemeDark = () => {
   return (
     <Pathfinder
-      fetcherOptions={ENV_API.fetcherOptions}
+      fetcherOptions={LOCAL_ENDPOINT.fetcherOptions}
       themeOptions={{
         defaultTheme: 'dark',
       }}
@@ -175,7 +171,7 @@ export const ReferenceModeWithDefaultThemeDark = () => {
 export const ReferenceModeWithDefaultThemeLight = () => {
   return (
     <Pathfinder
-      fetcherOptions={ENV_API.fetcherOptions}
+      fetcherOptions={LOCAL_ENDPOINT.fetcherOptions}
       themeOptions={{
         defaultTheme: 'light',
       }}
@@ -186,7 +182,7 @@ export const ReferenceModeWithDefaultThemeLight = () => {
 export const ReferenceModeWithDefaultThemeSystem = () => {
   return (
     <Pathfinder
-      fetcherOptions={ENV_API.fetcherOptions}
+      fetcherOptions={LOCAL_ENDPOINT.fetcherOptions}
       themeOptions={{
         defaultTheme: 'system',
       }}
@@ -197,7 +193,7 @@ export const ReferenceModeWithDefaultThemeSystem = () => {
 export const ReferenceModeWithThemeOverrides = () => {
   return (
     <Pathfinder
-      fetcherOptions={ENV_API.fetcherOptions}
+      fetcherOptions={LOCAL_ENDPOINT.fetcherOptions}
       schemaPollingOptions={{
         enabled: true,
       }}
@@ -208,16 +204,41 @@ export const ReferenceModeWithThemeOverrides = () => {
   );
 };
 
-export const IDEMode = () => {
-  return <Pathfinder mode="IDE" fetcherOptions={ENV_API.fetcherOptions} />;
+export const ReferenceModeWithLocalGraphQLServer = () => {
+  return (
+    <Pathfinder
+      fetcherOptions={{
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        endpoint: LOCAL_ENDPOINT.fetcherOptions!.endpoint,
+      }}
+    />
+  );
 };
 
-export const IDEModeWithoutSchemaProps = () => {
+export const IDEMode = () => {
+  return <Pathfinder mode="IDE" fetcherOptions={LOCAL_ENDPOINT.fetcherOptions} />;
+};
+
+export const IDEModeWithSchema = () => {
+  return (
+    <Pathfinder
+      mode="IDE"
+      fetcherOptions={LOCAL_ENDPOINT.fetcherOptions}
+      schema={testSchema}
+    />
+  );
+};
+
+export const IDEModeWithoutSchema = () => {
+  return <Pathfinder mode="IDE" fetcherOptions={LOCAL_ENDPOINT.fetcherOptions} />;
+};
+
+export const IDEModeWithoutFetcherOptions = () => {
   return <Pathfinder mode="IDE" />;
 };
 
 export const ScoutMode = () => {
-  return <Pathfinder mode="SCOUT" fetcherOptions={ENV_API.fetcherOptions} />;
+  return <Pathfinder mode="SCOUT" fetcherOptions={LOCAL_ENDPOINT.fetcherOptions} />;
 };
 
 export const ScoutModeWithoutSchemaProps = () => {
