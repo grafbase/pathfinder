@@ -10,7 +10,7 @@
     "types": "tsc --noEmit"
   },
   "dependencies": {
-    "@ladle/react": "2.5.1",
+    "@ladle/react": "4.0.2",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
@@ -24,6 +24,6 @@
     "@vanilla-extract/vite-plugin": "3.9.5",
     "@vitejs/plugin-react": "4.2.1",
     "concurrently": "^8.2.2",
-    "vite": "4.5.2"
+    "vite": "5.0.12"
   }
 }

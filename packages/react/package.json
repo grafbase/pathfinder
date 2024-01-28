@@ -60,9 +60,9 @@
     "fake-indexeddb": "5.0.2",
     "jsdom": "22.1.0",
     "ts-node": "^10.9.1",
-    "vite": "4.5.2",
+    "vite": "5.0.12",
     "vite-plugin-dts": "3.6.4",
-    "vitest": "0.34.4",
+    "vitest": "1.2.2",
     "vitest-canvas-mock": "0.3.3"
   },
   "peerDependencies": {
