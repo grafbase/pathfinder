@@ -2,8 +2,15 @@ import { DOCUMENT_EDITOR_DEFAULT_VALUE } from '@pathfinder-ide/shared';
 import { loadSchema } from '../../schema-store';
 import { setEditorValues } from '../slices/editor-tabs/actions/set-editor-values';
 import { useSessionStore } from '../use-session-store';
+import { GraphQLSchema } from 'graphql';
 
-export const loadSession = async ({ sessionName }: { sessionName: string }) => {
+export const loadSession = async ({
+  schema,
+  sessionName,
+}: {
+  schema?: GraphQLSchema;
+  sessionName: string;
+}) => {
   // if we have an existing session is storage, we set the name/rehydrate/load the schema
   useSessionStore.persist.setOptions({
     name: sessionName,
@@ -19,6 +26,7 @@ export const loadSession = async ({ sessionName }: { sessionName: string }) => {
         endpoint: useSessionStore.getState().endpoint as string,
         headers: useSessionStore.getState().headers,
       },
+      schema,
     });
 
     setEditorValues({

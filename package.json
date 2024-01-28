@@ -12,6 +12,7 @@
     "react:build": "pnpm --filter @pathfinder-ide/react build",
     "react:build:workers": "pnpm --filter @pathfinder-ide/react build:workers",
     "ladle:build": "pnpm --filter ladle build",
+    "ladle:dev": "pnpm --filter ladle dev",
     "ladle:preview": "pnpm --filter ladle preview",
     "ladle:serve": "pnpm --filter ladle serve",
     "prettier:check": "pnpm prettier --check ./",

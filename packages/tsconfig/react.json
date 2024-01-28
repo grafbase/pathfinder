@@ -6,6 +6,6 @@
     "jsx": "react-jsx",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "module": "ESNext",
-    "target": "es6"
+    "target": "ESNext"
   }
 }

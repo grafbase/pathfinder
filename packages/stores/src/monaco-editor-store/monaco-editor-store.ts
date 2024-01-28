@@ -1,4 +1,4 @@
-import { createStore } from 'zustand/vanilla';
+import { createStore } from 'zustand';
 
 import type { MonacoEditorStoreState } from './monaco-editor-store.types';
 

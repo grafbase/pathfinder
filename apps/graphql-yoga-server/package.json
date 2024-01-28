@@ -1,0 +1,13 @@
+{
+  "name": "graphql-yoga-server",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "ts-node ./index.ts"
+  },
+  "devDependencies": {
+    "@pathfinder-ide/stores": "workspace:*",
+    "graphql-yoga": "^5.1.1",
+    "ts-node": "^10.9.1"
+  }
+}

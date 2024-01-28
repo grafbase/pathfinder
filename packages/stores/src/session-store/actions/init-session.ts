@@ -12,11 +12,14 @@ import { INITIAL_EDITOR_TAB } from '../slices/editor-tabs/editor-tabs-state';
 import { setEditorValues } from '../slices/editor-tabs/actions/set-editor-values';
 import { INITIAL_HTTP_HEADERS_STATE } from '../slices/http-headers/http-headers-state';
 import { uiStore } from '../../ui-store';
+import { GraphQLSchema } from 'graphql';
 
 export const initSession = async ({
   fetchOptions,
+  schema,
 }: {
   fetchOptions: EndpointConnectionDetails;
+  schema?: GraphQLSchema;
 }) => {
   const name = getNamespacedStorageName({
     endpoint: fetchOptions.endpoint,
@@ -50,6 +53,7 @@ export const initSession = async ({
       endpoint: fetchOptions.endpoint,
       headers: fetchOptions.headers,
     },
+    schema,
   });
 
   setEditorValues({

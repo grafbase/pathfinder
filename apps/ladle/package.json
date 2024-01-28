@@ -6,22 +6,24 @@
     "lint": "eslint .",
     "preview": "ladle preview",
     "serve": "NODE_ENV=development ladle serve",
+    "dev": "concurrently \"pnpm serve\" \"pnpm --filter graphql-yoga-server dev\"",
     "types": "tsc --noEmit"
   },
   "dependencies": {
-    "@ladle/react": "2.5.1",
+    "@ladle/react": "4.0.2",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@pathfinder-ide/react": "workspace:*",
     "@pathfinder-ide/eslint-config": "workspace:*",
+    "@pathfinder-ide/react": "workspace:*",
     "@pathfinder-ide/style": "workspace:*",
     "@pathfinder-ide/tsconfig": "workspace:*",
     "@types/react": "18.2.48",
     "@types/react-dom": "18.2.18",
     "@vanilla-extract/vite-plugin": "3.9.5",
     "@vitejs/plugin-react": "4.2.1",
-    "vite": "4.5.2"
+    "concurrently": "^8.2.2",
+    "vite": "5.0.12"
   }
 }

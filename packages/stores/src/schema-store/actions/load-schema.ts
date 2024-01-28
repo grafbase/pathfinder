@@ -7,8 +7,14 @@ import { doSchemaPolling } from './do-schema-polling';
 import { doIntrospection } from './do-introspection';
 
 import type { SchemaStoreActions } from '../schema-store.types';
+import { GraphQLSchema } from 'graphql';
 
-export const loadSchema: SchemaStoreActions['loadSchema'] = async ({ fetchOptions }) => {
+export const loadSchema: SchemaStoreActions['loadSchema'] = async ({
+  fetchOptions,
+  schema,
+}) => {
+  let targetSchema: GraphQLSchema | undefined = schema;
+
   schemaStore.setState({
     introspectionErrors: [],
     isLoadingSchema: true,
@@ -26,18 +32,22 @@ export const loadSchema: SchemaStoreActions['loadSchema'] = async ({ fetchOption
     return testSchema;
   }
 
-  const schema = await doIntrospection({ fetchOptions });
+  if (!targetSchema) {
+    const introspectedSchema = await doIntrospection({ fetchOptions });
 
-  if (!schema) {
-    schemaStore.setState({
-      isLoadingSchema: false,
-      schema,
-    });
+    if (!introspectedSchema) {
+      schemaStore.setState({
+        isLoadingSchema: false,
+        schema: null,
+      });
 
-    return null;
+      return null;
+    } else {
+      targetSchema = introspectedSchema;
+    }
   }
 
-  setMonacoGraphQLSchema({ schema });
+  setMonacoGraphQLSchema({ schema: targetSchema });
 
   if (schemaStore.getState().polling.enabled) {
     doSchemaPolling({ fetchOptions });
@@ -45,8 +55,8 @@ export const loadSchema: SchemaStoreActions['loadSchema'] = async ({ fetchOption
 
   schemaStore.setState({
     isLoadingSchema: false,
-    schema,
+    schema: targetSchema,
   });
 
-  return schema;
+  return targetSchema;
 };
