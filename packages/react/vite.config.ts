@@ -37,9 +37,7 @@ export default defineConfig({
   ],
   test: {
     globals: true,
-    dangerouslyIgnoreUnhandledErrors: true,
     environment: 'jsdom',
     setupFiles: ['./vitest.setup.ts'],
-    threads: false,
   },
 });
