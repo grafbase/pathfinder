@@ -1,5 +1,16 @@
 # @pathfinder-ide/react
 
+## 0.4.0
+
+### Minor Changes
+
+- 96db268: Allows Pathfinder to accept a GraphQLSchema as a prop to prevent introspection.
+- 64413c5: Add Pathfinder prop to allow watching of certain headers and display in history pane
+
+### Patch Changes
+
+- 23157e9: updates SchemaView and SchemaDocumentation components with optional themeOptions props
+
 ## 0.3.4
 
 ### Patch Changes
