@@ -1,4 +1,4 @@
-import { createStore } from 'zustand/vanilla';
+import { createStore } from 'zustand';
 
 import { UIStore } from './ui-store.types';
 

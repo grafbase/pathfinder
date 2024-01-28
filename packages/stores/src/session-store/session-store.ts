@@ -1,4 +1,4 @@
-import { createStore } from 'zustand/vanilla';
+import { createStore } from 'zustand';
 import { persist } from 'zustand/middleware';
 
 import { STORAGE_NAME_SESSION } from '@pathfinder-ide/shared';
