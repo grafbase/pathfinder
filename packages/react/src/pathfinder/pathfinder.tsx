@@ -26,10 +26,11 @@ import { IDE } from '../ide';
 export const Pathfinder = ({
   mode = 'REFERENCE',
   fetcherOptions,
+  schema,
   schemaPollingOptions,
   themeOptions,
 }: PathfinderProps) => {
-  const schema = useSchemaStore.use.schema();
+  const schemaFromStore = useSchemaStore.use.schema();
 
   const [isHydrated, setIsHydrated] = useState<boolean>(false);
 
@@ -73,7 +74,7 @@ export const Pathfinder = ({
       // look up an existing session based on this endpoint
       findSession(name).then((session) => {
         if (session) {
-          loadSession({ sessionName: name });
+          loadSession({ schema, sessionName: name });
         } else {
           // we don't have an existing session using this endpoint, so let's initialize a new session
           initSession({
@@ -86,13 +87,14 @@ export const Pathfinder = ({
                 value: header.value,
               })),
             },
+            schema,
           });
         }
       });
     }
-  }, [fetcherOptions, schemaPollingOptions, themeOptions]);
+  }, [fetcherOptions, schema, schemaPollingOptions, themeOptions]);
 
-  if (!fetcherOptions && !schema) {
+  if (!fetcherOptions && !schemaFromStore) {
     return (
       <div className={connectWrapClass} data-tauri-drag-region="">
         <Connect />
@@ -104,7 +106,7 @@ export const Pathfinder = ({
     return null;
   }
 
-  if (fetcherOptions && !schema) {
+  if (fetcherOptions && !schemaFromStore) {
     <CompassAnimated size="large" speed="standard" />;
   }
 

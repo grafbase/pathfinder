@@ -49,8 +49,10 @@ export type SchemaStoreActions = {
   }) => Promise<Response | void>;
   loadSchema: ({
     fetchOptions,
+    schema,
   }: {
     fetchOptions: EndpointConnectionDetails;
+    schema?: GraphQLSchema;
   }) => Promise<GraphQLSchema | null>;
   resetSchemaPolling: () => void;
   setSchemaPollingTimer: ({ timer }: { timer: NodeJS.Timeout | null }) => void;
