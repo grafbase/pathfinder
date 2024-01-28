@@ -3,8 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "ts-node ./index.ts",
-    "types": "tsc --noEmit"
+    "dev": "ts-node ./index.ts"
   },
   "devDependencies": {
     "@pathfinder-ide/stores": "workspace:*",

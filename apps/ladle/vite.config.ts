@@ -6,8 +6,8 @@ import pluginReact from '@vitejs/plugin-react';
 
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 
-export default defineConfig(({ command, mode, ssrBuild }) => {
-  console.log('launching ladle:', { command, mode, ssrBuild });
+export default defineConfig(({ command, mode }) => {
+  console.log('launching ladle:', { command, mode });
   return {
     server: {
       open: false,
