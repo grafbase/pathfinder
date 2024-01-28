@@ -8,6 +8,18 @@ export type GraphQLOperationParams = {
   variables?: any;
 };
 
+export type WatchHeadersResponse = {
+  value: string;
+  color: 'neutral' | 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple';
+};
+
+export type WatchHeaders = Array<{
+  headerName: string;
+  responseMap: {
+    [key: string]: WatchHeadersResponse;
+  };
+}>;
+
 export type ExecutionResponse = {
   duration: number;
   request: {
@@ -21,6 +33,7 @@ export type ExecutionResponse = {
     status: Response['status'];
   };
   timestamp: Date;
+  watchHeaders?: WatchHeadersResponse[];
 };
 
 export type EndpointConnectionDetails = {
@@ -64,7 +77,6 @@ export type SchemaStoreState = {
   isIntrospecting: boolean;
   isLoadingSchema: boolean;
   latestResponse: ExecutionResponse | null;
-  schema: GraphQLSchema | null;
   polling: {
     /**
      * Whether schema polling is enabled or not
@@ -79,6 +91,8 @@ export type SchemaStoreState = {
      */
     timer: NodeJS.Timeout | null;
   };
+  schema: GraphQLSchema | null;
+  watchHeaders: WatchHeaders | null;
 };
 
 export type SchemaStore = SchemaStoreState;

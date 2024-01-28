@@ -11,6 +11,7 @@ export type {
   ExecutionResponse,
   GraphQLOperationParams,
   SchemaStoreState,
+  WatchHeaders,
 } from './schema-store.types';
 
 export { schemaStore } from './schema-store';
