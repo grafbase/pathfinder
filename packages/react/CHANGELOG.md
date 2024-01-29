@@ -1,5 +1,15 @@
 # @pathfinder-ide/react
 
+## 0.5.0
+
+### Minor Changes
+
+- 89129be: Make the graphql dependency a peer dependency
+
+### Patch Changes
+
+- 48a3057: Add latest response latency to Response pane header
+
 ## 0.4.0
 
 ### Minor Changes
