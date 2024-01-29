@@ -31,7 +31,6 @@
   },
   "dependencies": {
     "@headlessui/react": "1.7.18",
-    "graphql": "16.8.1",
     "idb-keyval": "6.2.1",
     "lodash": "^4.17.21",
     "monaco-editor": "0.40.0",
@@ -67,6 +66,7 @@
   },
   "peerDependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "graphql": ">=16.0.0"
   }
 }

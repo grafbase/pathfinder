@@ -17,7 +17,7 @@ export default defineConfig({
       formats: ['es'],
     },
     rollupOptions: {
-      external: ['react', 'react-dom'],
+      external: ['react', 'react-dom', 'graphql'],
       output: {
         format: 'esm',
         globals: {
