@@ -280,7 +280,7 @@ importers:
         specifier: 1.7.18
         version: 1.7.18(react-dom@18.2.0)(react@18.2.0)
       graphql:
-        specifier: 16.8.1
+        specifier: '>=16.0.0'
         version: 16.8.1
       idb-keyval:
         specifier: 6.2.1
@@ -381,6 +381,10 @@ importers:
         version: 0.3.3(vitest@1.2.2)
 
   packages/shared:
+    dependencies:
+      graphql:
+        specifier: '>=16.0.0'
+        version: 16.8.1
     devDependencies:
       '@paralleldrive/cuid2':
         specifier: ^2.2.2
@@ -391,9 +395,6 @@ importers:
       '@pathfinder-ide/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
-      graphql:
-        specifier: 16.8.1
-        version: 16.8.1
       zustand:
         specifier: 4.4.7
         version: 4.4.7(@types/react@18.2.48)(react@18.2.0)
@@ -407,7 +408,7 @@ importers:
         specifier: workspace:*
         version: link:../style
       graphql:
-        specifier: 16.8.1
+        specifier: '>=16.0.0'
         version: 16.8.1
       graphql-sse:
         specifier: ^2.3.0
