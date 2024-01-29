@@ -179,7 +179,9 @@ export const executeOperation: SchemaStoreActions['executeOperation'] = async ()
     if (watchHeaders) {
       watchHeaders.forEach((watchHeader) => {
         const caughtHeader = fetchResponse.headers.get(watchHeader.headerName);
-        caughtHeaders.push(watchHeader.responseMap[`${caughtHeader}`]);
+        if (caughtHeader) {
+          caughtHeaders.push(watchHeader.responseMap[`${caughtHeader}`]);
+        }
       });
     }
 
