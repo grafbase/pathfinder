@@ -7,11 +7,14 @@ export const analyzeClass = style({
   flexDirection: 'column',
   justifyContent: 'flex-end',
   position: 'relative',
+  paddingRight: contract.space[12],
+  paddingLeft: contract.space[12],
 });
 
 export const responseEditorClass = recipe({
   base: {
     transition: `opacity .10s ${shared.transitions.authenticMotion}`,
+    marginLeft: -8,
   },
 
   variants: {
@@ -50,4 +53,12 @@ export const responseNullStateClass = style({
   color: contract.color.neutral[6],
   fontSize: 14,
   cursor: 'default',
+});
+
+export const latestResponseClass = style({
+  display: 'flex',
+  gap: 12,
+  color: contract.color.neutral[11],
+  fontSize: 12,
+  fontFamily: contract.fonts.mono,
 });
