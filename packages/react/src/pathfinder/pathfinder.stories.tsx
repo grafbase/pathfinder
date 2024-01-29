@@ -211,6 +211,7 @@ export const ReferenceModeWithLocalGraphQLServer = () => {
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         endpoint: LOCAL_ENDPOINT.fetcherOptions!.endpoint,
       }}
+      // the local server doesn't provide this response header, so we shouldn't see values here
       watchHeaders={[
         {
           headerName: 'x-grafbase-cache',
