@@ -25,7 +25,7 @@ export const historyListItemClass = recipe({
   base: {
     all: 'unset',
     boxSizing: 'border-box',
-    height: 36,
+    gridTemplateRows: 36,
     display: 'grid',
     gridTemplateColumns: '12px 1fr 1fr 1fr 32px',
     gap: 8,
@@ -75,22 +75,32 @@ export const historyListItemClass = recipe({
       false: {},
     },
   },
+});
 
-  // "& > span": {
-  //   overflowX: "hidden",
-  //   textOverflow: "ellipsis",
-  //   whiteSpace: "nowrap",
-  // },
+export const historyListItemStatsSectionClass = style({
+  display: 'grid',
+  gridTemplateColumns: '1fr 2.5rem 2.5rem',
+  justifyItems: 'flex-end',
 });
 
 export const historyListItemSectionClass = recipe({
   base: {
     display: 'flex',
     alignItems: 'center',
-    justifyItems: 'center',
   },
 
   variants: {
+    justify: {
+      start: {
+        justifyContent: 'flex-start',
+      },
+      center: {
+        justifyContent: 'center',
+      },
+      end: {
+        justifyContent: 'flex-end',
+      },
+    },
     gap: {
       8: {
         gap: 8,

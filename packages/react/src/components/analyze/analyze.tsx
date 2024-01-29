@@ -12,7 +12,13 @@ import { Editor } from '../editor';
 
 import { KBD } from '../kbd';
 
-import { analyzeClass, responseEditorClass, responseNullStateClass } from './analyze.css';
+import {
+  analyzeClass,
+  latestResponseClass,
+  responseEditorClass,
+  responseNullStateClass,
+} from './analyze.css';
+import { ActionsBar } from '../actions-bar';
 
 export const Analyze = () => {
   const isExecuting = useSchemaStore.use.isExecuting();
@@ -48,8 +54,18 @@ export const Analyze = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeTab]);
 
+  const duration = activeTab?.latestResponse?.duration;
+
   return (
     <div className={analyzeClass}>
+      <ActionsBar
+        actions={[
+          <div className={latestResponseClass}>
+            {duration && <span>{`${Math.round(duration)}ms`}</span>}
+          </div>,
+        ]}
+        title="Response"
+      />
       {!activeTab && (
         <div className={responseNullStateClass}>awaiting executable operation</div>
       )}
