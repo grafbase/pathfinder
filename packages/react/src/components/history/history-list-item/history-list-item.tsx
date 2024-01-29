@@ -7,6 +7,7 @@ import {
   historyListItemClass,
   historyListItemSectionClass,
   historyListItemSectionSpanClass,
+  historyListItemStatsSectionClass,
   historyListItemStatusIndicatorClass,
   historyListItemStatusIndicatorSpanClass,
   STATUS_VARIANTS,
@@ -84,7 +85,7 @@ export const HistoryListItem = ({
           })}
         ></span>
       </div>
-      <div className={historyListItemSectionClass({ gap: 8 })}>
+      <div className={historyListItemSectionClass({ gap: 8, justify: 'start' })}>
         <Pill
           {...operationTypePill({
             operationString: item.request.graphQLOperationParams.query,
@@ -94,24 +95,29 @@ export const HistoryListItem = ({
           <Pill copy={'Anonymous operation'} variant={{ color: 'neutral' }} />
         )}
       </div>
-      <div className={historyListItemSectionClass({ gap: 8 })}>
-        {item.watchHeaders &&
-          item.watchHeaders.length > 0 &&
-          item.watchHeaders.map((watchHeader) =>
-            watchHeader && watchHeader.value ? (
-              <Pill copy={watchHeader.value} variant={{ color: watchHeader.color }} />
-            ) : (
-              <Pill copy={'NO VALUE'} variant={{ color: 'neutral' }} />
-            ),
-          )}
+      <div className={historyListItemSectionClass({ gap: 8, justify: 'end' })}>
         {'errors' in item.response.data && (
           <Pill copy={'Graphql Error'} variant={{ color: 'red' }} />
         )}
+        {item.watchHeaders &&
+          item.watchHeaders.length > 0 &&
+          item.watchHeaders.map(
+            (watchHeader) =>
+              watchHeader &&
+              watchHeader.value && (
+                <Pill
+                  key={watchHeader.value}
+                  copy={watchHeader.value}
+                  variant={{ color: watchHeader.color }}
+                />
+              ),
+          )}
       </div>
-      <div className={historyListItemSectionClass({ gap: 24 })}>
+      <div className={historyListItemStatsSectionClass}>
         <span className={historyListItemSectionSpanClass}>
           {item.timestamp.toLocaleString()}
         </span>
+
         <span className={historyListItemSectionSpanClass}>
           {`${Math.round(item.duration)}ms`}
         </span>
