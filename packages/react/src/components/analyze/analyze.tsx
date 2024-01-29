@@ -55,7 +55,6 @@ export const Analyze = () => {
   }, [activeTab]);
 
   const duration = activeTab?.latestResponse?.duration;
-  const data = activeTab?.latestResponse?.response.data;
 
   return (
     <div className={analyzeClass}>
