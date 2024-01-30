@@ -1,10 +1,4 @@
-import {
-  DirectiveNode,
-  Kind,
-  OperationDefinitionNode,
-  SelectionSetNode,
-  print,
-} from 'graphql';
+import { Kind, OperationDefinitionNode, SelectionSetNode, print } from 'graphql';
 
 import update from 'lodash.update';
 
@@ -27,7 +21,6 @@ import { httpFetcher } from './http-fetcher';
 import { schemaStore } from '../schema-store';
 
 import type { ExecutionResponse, SchemaStoreActions } from '../schema-store.types';
-import { Z_FIXED } from 'zlib';
 
 enum Directive {
   Defer = 'defer',
