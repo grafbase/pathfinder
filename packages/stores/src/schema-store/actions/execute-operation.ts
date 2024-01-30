@@ -1,4 +1,10 @@
-import { Kind, OperationDefinitionNode, SelectionSetNode, print } from 'graphql';
+import {
+  DirectiveNode,
+  Kind,
+  OperationDefinitionNode,
+  SelectionSetNode,
+  print,
+} from 'graphql';
 
 import update from 'lodash.update';
 
@@ -21,6 +27,7 @@ import { httpFetcher } from './http-fetcher';
 import { schemaStore } from '../schema-store';
 
 import type { ExecutionResponse, SchemaStoreActions } from '../schema-store.types';
+import { Z_FIXED } from 'zlib';
 
 enum Directive {
   Defer = 'defer',
@@ -96,11 +103,9 @@ export const executeOperation: SchemaStoreActions['executeOperation'] = async ()
       variables,
     };
 
-      const isSubscription =
-        activeDocumentEntry?.node.operation === "subscription";
+    const isSubscription = activeDocumentEntry?.node.operation === 'subscription';
 
-      const useSse =
-        usingDefer(activeDocumentEntry?.node.selectionSet) || isSubscription;
+    const useSse = usingDefer(activeDocumentEntry?.node.selectionSet) || isSubscription;
 
     if (useSse) {
       const client = createClient({
