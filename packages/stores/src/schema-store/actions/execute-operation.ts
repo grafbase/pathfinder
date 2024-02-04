@@ -68,8 +68,6 @@ const mergeResults = (
 
 // this function is called from the execute button _and_ when using CMD + ENTER
 export const executeOperation: SchemaStoreActions['executeOperation'] = async () => {
-  schemaStore.setState({ isExecuting: true });
-
   const endpoint = useSessionStore.getState().endpoint as string;
 
   const headers = useSessionStore.getState().headers;
@@ -100,7 +98,9 @@ export const executeOperation: SchemaStoreActions['executeOperation'] = async ()
       variables,
     };
 
-    const useSse = usingDefer(activeDocumentEntry?.node.selectionSet);
+    const isSubscription = activeDocumentEntry?.node.operation === 'subscription';
+
+    const useSse = usingDefer(activeDocumentEntry?.node.selectionSet) || isSubscription;
 
     if (useSse) {
       const client = createClient({
@@ -122,7 +122,7 @@ export const executeOperation: SchemaStoreActions['executeOperation'] = async ()
         const combinedResult = mergeResults(result, lastResponse?.response.data);
 
         lastResponse = {
-          duration: t1 - t0,
+          duration: isSubscription ? null : t1 - t0,
           request: {
             endpoint,
             headers: headers.map((header) => [header.key, header.value]) as HeadersInit,
@@ -134,8 +134,9 @@ export const executeOperation: SchemaStoreActions['executeOperation'] = async ()
           },
           timestamp: new Date(),
         };
+
         schemaStore.setState({
-          isExecuting: true,
+          // isExecuting: true,
           latestResponse: lastResponse,
         });
 
@@ -154,6 +155,8 @@ export const executeOperation: SchemaStoreActions['executeOperation'] = async ()
         latestResponse: lastResponse,
       });
     }
+
+    schemaStore.setState({ isExecuting: true });
 
     const fetchResponse = await httpFetcher({
       fetchOptions: {
