@@ -52,7 +52,6 @@ export const toggle = ({
     if (!isSelected) {
       addTargetArgument({
         previousAncestor: previousAncestor as AncestorField,
-        rootAncestor,
         target,
       });
     }

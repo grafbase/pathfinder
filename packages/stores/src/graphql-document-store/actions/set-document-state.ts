@@ -13,11 +13,9 @@ import { updateActiveEditorTab } from '../../session-store';
 
 import { handleActiveDefinition } from './handle-active-definition';
 import { handleInactiveDefinition } from './handle-inactive-definition';
-import { handleNewDefinition } from './handle-new-definition';
 import { isOperationNameChanging } from './is-operation-name-changing';
 import { resetDocumentState } from './reset-document-state';
 import { setDocumentNotifications } from './set-document-notifications';
-import { updateDocumentEntryDefinition } from './update-document-entry-definition';
 import { updateDocumentEntryOperationName } from './update-document-entry-operation-name';
 
 type SetDocumentStateSignature = () => void;
@@ -46,10 +44,10 @@ export const setDocumentState: SetDocumentStateSignature = () => {
         isParseable: false,
       });
     } else {
+      const definitions = [...parsedDocument.definitions];
+
       // check for specific warnings that we display in a simple notification UI
-      setDocumentNotifications({
-        definitions: [...parsedDocument.definitions],
-      });
+      setDocumentNotifications({ definitions });
 
       // if we've set documentNotifications in the function above, we return early to allow the user to fix notifications/warnings
       if (graphQLDocumentStore.getState().documentNotifications.length > 0) {
@@ -58,11 +56,8 @@ export const setDocumentState: SetDocumentStateSignature = () => {
 
       // a list that we can push to as we forEach through our definitions
       // this method for capturing and writing entries allows for "deleting" entries from the state array when a user removes the operation/entry from the document
-      const newEntries: DocumentEntry[] = [];
 
-      parsedDocument.definitions.forEach((definition) => {
-        let entryInProcess: DocumentEntry | undefined = undefined;
-
+      definitions.forEach((definition) => {
         if (!isExecutableDefinitionNode(definition)) {
           // TODO: do we display a documentNotification here to direct users to a (currently non-existent) docs section?
           return console.warn('Not an ExecutableDefinitionNode');
@@ -73,28 +68,10 @@ export const setDocumentState: SetDocumentStateSignature = () => {
           // this is currently just a guard to ensure we're operating over OperationDefinitionNodes
         } else if (definition.kind === Kind.OPERATION_DEFINITION) {
           // if the user is updating this operation name, we need to make that update before anything else
-          if (isOperationNameChanging({ definition })) {
+          if (isOperationNameChanging({ definition, definitions })) {
             updateDocumentEntryOperationName({
               definition,
             });
-          }
-
-          const existingDocumentEntry = graphQLDocumentStore
-            .getState()
-            .documentEntries.find(
-              (existingEntries) =>
-                existingEntries.node.name?.value === definition.name?.value,
-            );
-
-          // if this definition does not exist, we need to add a DocumentEntry
-          if (!existingDocumentEntry) {
-            entryInProcess = handleNewDefinition({ definition });
-          } else {
-            // this entry exists, so we just update it with our new definition
-            const result = updateDocumentEntryDefinition({ definition });
-            if (result) {
-              entryInProcess = result;
-            }
           }
 
           // we get our current cursor position...
@@ -120,14 +97,10 @@ export const setDocumentState: SetDocumentStateSignature = () => {
             handleInactiveDefinition({ range });
           }
         }
-        if (entryInProcess) {
-          newEntries.push(entryInProcess);
-        }
       });
 
       graphQLDocumentStore.setState({
         activeDocumentEntry: newActiveDocumentEntry,
-        documentEntries: newEntries,
         isParseable: true,
       });
 
