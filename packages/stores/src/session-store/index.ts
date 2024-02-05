@@ -4,7 +4,7 @@ export {
   closeEditorTab,
   initNewEditorTab,
   switchEditorTab,
-  updateActiveEditorTab,
+  updateEditorTab,
 } from './slices/editor-tabs/actions';
 
 export { clearHistory, deleteFromHistory } from './slices/history/actions';

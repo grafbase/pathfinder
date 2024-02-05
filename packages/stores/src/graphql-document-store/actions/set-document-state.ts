@@ -9,7 +9,7 @@ import { graphQLDocumentStore } from '../graphql-document-store';
 import type { DocumentEntry } from '../graphql-document-store.types';
 
 import { getMonacoEditor } from '../../monaco-editor-store';
-import { updateActiveEditorTab } from '../../session-store';
+import { updateEditorTab } from '../../session-store';
 
 import { handleActiveDefinition } from './handle-active-definition';
 import { handleInactiveDefinition } from './handle-inactive-definition';
@@ -17,6 +17,7 @@ import { isOperationNameChanging } from './is-operation-name-changing';
 import { resetDocumentState } from './reset-document-state';
 import { setDocumentNotifications } from './set-document-notifications';
 import { updateDocumentEntryOperationName } from './update-document-entry-operation-name';
+import { sessionStore } from '../../session-store/session-store';
 
 type SetDocumentStateSignature = () => void;
 
@@ -104,11 +105,12 @@ export const setDocumentState: SetDocumentStateSignature = () => {
         isParseable: true,
       });
 
-      return updateActiveEditorTab({
+      return updateEditorTab({
         partialTab: {
           documentString: modelValue,
           tabName: (parsedDocument.definitions[0] as OperationDefinitionNode).name?.value,
         },
+        targetTabId: sessionStore.getState().activeTab?.tabId as string,
       });
     }
   }

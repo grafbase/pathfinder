@@ -3,7 +3,7 @@ import { DOCUMENT_EDITOR_ID, DOCUMENT_MODEL_NAME } from '@pathfinder-ide/shared'
 import {
   runExecuteOperation,
   setDocumentState,
-  updateActiveEditorTab,
+  updateEditorTab,
   useGraphQLDocumentStore,
   useSessionStore,
 } from '@pathfinder-ide/stores';
@@ -51,7 +51,7 @@ export const Operate = () => {
           }}
           onDidChangeCursorPositionCallback={({ position }) => {
             setDocumentState();
-            updateActiveEditorTab({
+            updateEditorTab({
               partialTab: {
                 cursorPosition: position,
               },

@@ -10,12 +10,13 @@ import { VARIABLES_EDITOR_ID } from '@pathfinder-ide/shared';
 
 import { getMonacoEditor } from '../../monaco-editor-store';
 
-import { getEnabledHTTPHeaderValueRecord, useSessionStore } from '../../session-store';
-
 import {
-  graphQLDocumentStore,
-  updateDocumentEntryResponse,
-} from '../../graphql-document-store';
+  getEnabledHTTPHeaderValueRecord,
+  updateEditorTab,
+  useSessionStore,
+} from '../../session-store';
+
+import { graphQLDocumentStore } from '../../graphql-document-store';
 
 import { httpFetcher } from './http-fetcher';
 import { schemaStore } from '../schema-store';
@@ -25,6 +26,7 @@ import type {
   SchemaStoreActions,
   WatchHeadersResponse,
 } from '../schema-store.types';
+import { sessionStore } from '../../session-store/session-store';
 
 enum Directive {
   Defer = 'defer',
@@ -78,6 +80,8 @@ export const executeOperation: SchemaStoreActions['executeOperation'] = async ()
   // pull out the activeOperation and operationName
   const activeOperation = print(activeDocumentEntry?.node as OperationDefinitionNode);
   const operationName = activeDocumentEntry?.node.name?.value as string;
+
+  const targetTabId = sessionStore.getState().activeTab?.tabId as string;
 
   // get our ui-defined variables
   const uiVariables = getMonacoEditor({
@@ -136,13 +140,14 @@ export const executeOperation: SchemaStoreActions['executeOperation'] = async ()
         };
 
         schemaStore.setState({
-          // isExecuting: true,
           latestResponse: lastResponse,
         });
 
-        // TODO this displays all history entries with the same body
-        updateDocumentEntryResponse({
-          executionResponse: lastResponse,
+        updateEditorTab({
+          partialTab: {
+            latestResponse: lastResponse,
+          },
+          targetTabId,
         });
       }
 
@@ -203,8 +208,11 @@ export const executeOperation: SchemaStoreActions['executeOperation'] = async ()
       watchHeaders: caughtHeaders.length > 0 ? caughtHeaders : undefined,
     };
 
-    updateDocumentEntryResponse({
-      executionResponse,
+    updateEditorTab({
+      partialTab: {
+        latestResponse: executionResponse,
+      },
+      targetTabId,
     });
 
     return schemaStore.setState({
