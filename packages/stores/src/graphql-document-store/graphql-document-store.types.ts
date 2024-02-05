@@ -4,8 +4,6 @@ import type monaco from 'monaco-graphql/esm/monaco-editor';
 
 type MonacoRange = monaco.Range;
 
-import { ExecutionResponse } from '../schema-store';
-
 // document notifications
 export type DocumentNotificationType =
   | 'DUPLICATE_OPERATION_NAME'
