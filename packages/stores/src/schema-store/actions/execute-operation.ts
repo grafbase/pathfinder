@@ -8,25 +8,29 @@ import { createClient, ExecutionResult } from 'graphql-sse';
 
 import { VARIABLES_EDITOR_ID } from '@pathfinder-ide/shared';
 
+import { httpFetcher } from './http-fetcher';
+
+// stores
+import { graphQLDocumentStore } from '../../graphql-document-store';
+
 import { getMonacoEditor } from '../../monaco-editor-store';
 
 import {
   getEnabledHTTPHeaderValueRecord,
   updateEditorTab,
   useSessionStore,
+  sessionStore,
 } from '../../session-store';
-
-import { graphQLDocumentStore } from '../../graphql-document-store';
-
-import { httpFetcher } from './http-fetcher';
-import { schemaStore } from '../schema-store';
 
 import type {
   ExecutionResponse,
   SchemaStoreActions,
   WatchHeadersResponse,
 } from '../schema-store.types';
-import { sessionStore } from '../../session-store/session-store';
+
+import { schemaStore } from '../schema-store';
+
+import { uiStore } from '../../ui-store';
 
 enum Directive {
   Defer = 'defer',
@@ -104,7 +108,9 @@ export const executeOperation: SchemaStoreActions['executeOperation'] = async ()
 
     const isSubscription = activeDocumentEntry?.node.operation === 'subscription';
 
-    const useSse = usingDefer(activeDocumentEntry?.node.selectionSet) || isSubscription;
+    const isDefer = usingDefer(activeDocumentEntry?.node.selectionSet);
+
+    const useSse = isDefer || isSubscription;
 
     if (useSse) {
       const client = createClient({
@@ -113,17 +119,33 @@ export const executeOperation: SchemaStoreActions['executeOperation'] = async ()
         credentials: 'same-origin',
       });
 
-      const results = client.iterate<Record<string, unknown>, unknown>({
-        query: graphQLParams.query,
-        operationName: graphQLParams.operationName,
-        variables: graphQLParams.variables,
-      });
-
       let lastResponse: ExecutionResponse | undefined;
 
-      for await (const result of results) {
+      let i = 0;
+
+      let unsubscribe = () => {
+        client.dispose();
+      };
+
+      const onNext = (data: Record<string, unknown>) => {
         const t1 = performance.now();
-        const combinedResult = mergeResults(result, lastResponse?.response.data);
+
+        const combinedResults = mergeResults(data, lastResponse?.response.data);
+
+        const updatedData = isDefer ? combinedResults : data;
+
+        if (isSubscription && i === 0) {
+          uiStore.setState({
+            activeSubscriptions: [
+              ...uiStore.getState().activeSubscriptions,
+              {
+                dispose: unsubscribe,
+                operationName: graphQLParams.operationName || '',
+                tabId: sessionStore.getState().activeTab?.tabId as string,
+              },
+            ],
+          });
+        }
 
         lastResponse = {
           duration: isSubscription ? null : t1 - t0,
@@ -133,7 +155,7 @@ export const executeOperation: SchemaStoreActions['executeOperation'] = async ()
             graphQLOperationParams: graphQLParams,
           },
           response: {
-            data: combinedResult,
+            data: updatedData,
             status: 200,
           },
           timestamp: new Date(),
@@ -149,15 +171,26 @@ export const executeOperation: SchemaStoreActions['executeOperation'] = async ()
           },
           targetTabId,
         });
-      }
+        i++;
+      };
 
-      if (!lastResponse) {
-        return schemaStore.setState({ isExecuting: false });
-      }
+      await new Promise((resolve, reject) => {
+        unsubscribe = client.subscribe(
+          {
+            query: graphQLParams.query,
+            operationName: graphQLParams.operationName,
+            variables: graphQLParams.variables,
+          },
+          {
+            next: onNext,
+            error: reject,
+            complete: () => resolve,
+          },
+        );
+      });
 
       return schemaStore.setState({
         isExecuting: false,
-        latestResponse: lastResponse,
       });
     }
 

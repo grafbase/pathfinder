@@ -20,3 +20,5 @@ export {
 export type { HTTPHeaderValue } from './slices/http-headers/http-headers.types';
 
 export { useSessionStore } from './use-session-store';
+
+export { sessionStore } from './session-store';
