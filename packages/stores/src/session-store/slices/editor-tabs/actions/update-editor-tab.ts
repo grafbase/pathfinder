@@ -10,7 +10,7 @@ export const updateEditorTab: EditorTabsActions['updateEditorTab'] = ({
 
   const activeTab = sessionStore.getState().activeTab as EditorTab;
 
-  const isTargetTabActive = activeTab.tabId === targetTabId;
+  const isTargetTabActive = sessionStore.getState().activeTab?.tabId === targetTabId;
 
   const targetTab = sessionStore
     .getState()
@@ -23,10 +23,19 @@ export const updateEditorTab: EditorTabsActions['updateEditorTab'] = ({
     ...partialTab,
   };
 
-  const foundTab = tabs.indexOf(isTargetTabActive ? activeTab : targetTab);
+  const index = tabs.findIndex((tab) => {
+    if (
+      (isTargetTabActive && tab.tabId === activeTab.tabId) ||
+      (!isTargetTabActive && tab.tabId === targetTab.tabId)
+    ) {
+      return true;
+    }
 
-  if (foundTab !== -1) {
-    tabs[foundTab] = updatedTab;
+    return false;
+  });
+
+  if (index !== -1) {
+    tabs[index] = updatedTab;
   }
 
   return sessionStore.setState({
