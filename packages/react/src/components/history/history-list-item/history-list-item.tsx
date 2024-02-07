@@ -48,7 +48,7 @@ const operationTypePill = ({
   if (operationString.startsWith('s')) {
     return {
       copy: 'S',
-      variant: { color: 'orange' },
+      variant: { color: 'yellow' },
     };
   }
   return {
@@ -119,7 +119,7 @@ export const HistoryListItem = ({
         </span>
 
         <span className={historyListItemSectionSpanClass}>
-          {`${Math.round(item.duration)}ms`}
+          {item.duration ? `${Math.round(item.duration)}ms` : '--'}
         </span>
 
         <span className={historyListItemSectionSpanClass}>
