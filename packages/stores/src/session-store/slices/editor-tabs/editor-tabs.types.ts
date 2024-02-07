@@ -28,5 +28,14 @@ export type EditorTabsActions = {
   closeEditorTab: ({ tabId }: { tabId: string }) => void;
   initNewEditorTab: () => void;
   switchEditorTab: ({ destinationTabId }: { destinationTabId: string }) => void;
-  updateActiveEditorTab: ({ partialTab }: { partialTab: Partial<EditorTab> }) => void;
+  /**
+   * Without targetTabId, assumes targetTab is the activeTab
+   */
+  updateEditorTab: ({
+    partialTab,
+    targetTabId,
+  }: {
+    partialTab: Partial<EditorTab>;
+    targetTabId?: string;
+  }) => void;
 };

@@ -1,14 +1,16 @@
+import { OperationTypeNode } from 'graphql';
 import { DOCUMENT_EDITOR_ID, DOCUMENT_MODEL_NAME } from '@pathfinder-ide/shared';
 
 import {
   runExecuteOperation,
   setDocumentState,
-  updateActiveEditorTab,
+  updateEditorTab,
   useGraphQLDocumentStore,
   useSessionStore,
 } from '@pathfinder-ide/stores';
 
 import { ActionExecute } from '../action-execute';
+import { ActionExecuteSubscription } from '../action-execute-subscription';
 import { ActionPrettier } from '../action-prettier';
 import { ActionsBar } from '../actions-bar';
 import { DocumentNotification } from '../document-notification';
@@ -21,8 +23,10 @@ export const Operate = () => {
 
   const activeTab = useSessionStore.use.activeTab();
 
+  const activeDocumentEntry = useGraphQLDocumentStore.use.activeDocumentEntry();
+
   if (!activeTab) {
-    return <p>no activeTab</p>;
+    return null;
   }
 
   return (
@@ -31,7 +35,11 @@ export const Operate = () => {
         actions={[
           <ActionPrettier />,
           <div className={separatorClass} />,
-          <ActionExecute />,
+          activeDocumentEntry?.node.operation === OperationTypeNode.SUBSCRIPTION ? (
+            <ActionExecuteSubscription />
+          ) : (
+            <ActionExecute />
+          ),
         ]}
         title="Document"
       />
@@ -51,7 +59,7 @@ export const Operate = () => {
           }}
           onDidChangeCursorPositionCallback={({ position }) => {
             setDocumentState();
-            updateActiveEditorTab({
+            updateEditorTab({
               partialTab: {
                 cursorPosition: position,
               },

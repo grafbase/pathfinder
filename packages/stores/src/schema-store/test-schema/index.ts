@@ -349,9 +349,9 @@ const TestSubscriptionType = new GraphQLObjectType({
   description:
     'This is a simple subscription type. Learn more at https://www.npmjs.com/package/graphql-ws',
   fields: {
-    message: {
+    hello: {
       type: GraphQLString,
-      description: 'Subscribe to a message',
+      description: 'Subscribe to a hello message',
       args: {
         delay: delayArgument(600),
       },
@@ -360,7 +360,22 @@ const TestSubscriptionType = new GraphQLObjectType({
           if (args && args.delay) {
             await sleep(args.delay);
           }
-          yield { message: hi };
+          yield { hello: hi };
+        }
+      },
+    },
+    count: {
+      type: GraphQLString,
+      description: 'Subscribe to a count',
+      args: {
+        delay: delayArgument(600),
+      },
+      async *subscribe(_root, args) {
+        for (const count of ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']) {
+          if (args && args.delay) {
+            await sleep(args.delay);
+          }
+          yield { count };
         }
       },
     },

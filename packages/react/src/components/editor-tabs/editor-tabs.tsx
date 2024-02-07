@@ -42,6 +42,8 @@ export const EditorTabs = () => {
   return (
     <div ref={ref} onWheel={onWheel} className={editorTabsClass}>
       {tabs.map((tab) => {
+        const operationType = tab.documentString.charAt(0).toUpperCase();
+
         return (
           <div
             key={tab.tabId}
@@ -56,8 +58,15 @@ export const EditorTabs = () => {
               onClick={() => switchEditorTab({ destinationTabId: tab.tabId })}
             >
               <Pill
-                copy={tab.documentString.charAt(0).toUpperCase() || '?'}
-                variant={{ color: 'green' }}
+                copy={operationType || '?'}
+                variant={{
+                  color:
+                    operationType === 'Q'
+                      ? 'blue'
+                      : operationType === 'M'
+                        ? 'purple'
+                        : 'yellow',
+                }}
               />
               {tab.tabName}
             </div>

@@ -4,7 +4,6 @@ import {
   MonacoIRange,
   getMonacoEditor,
   pushMonacoEditorEdit,
-  useGraphQLDocumentStore,
 } from '@pathfinder-ide/stores';
 import { DOCUMENT_EDITOR_ID } from '@pathfinder-ide/shared';
 
@@ -19,6 +18,7 @@ import {
   getRemoveRangeForFieldFromLocation,
   hasSiblingSelections as hasSiblingSelectionsFunc,
 } from '../utils';
+import { getParsedDocument } from '@pathfinder-ide/stores';
 
 export const removeTargetField = ({
   ancestors,
@@ -29,9 +29,9 @@ export const removeTargetField = ({
   previousAncestor: AncestorTypes;
   target: AncestorField;
 }) => {
-  const documentEntries = useGraphQLDocumentStore.getState().documentEntries.length;
-
   const documentEditor = getMonacoEditor({ editorId: DOCUMENT_EDITOR_ID });
+
+  const definitions = getParsedDocument()?.definitions.length;
 
   const position = documentEditor?.getPosition() || {
     column: 1,
@@ -57,9 +57,9 @@ export const removeTargetField = ({
   // begin isTopLevelField
   if (isTopLevelField) {
     if (!hasSiblingSelections) {
-      if (documentEntries < 2) {
+      if (definitions && definitions < 2) {
         // console.log(
-        //   'REMOVE: isTopLevelField && !hasSiblingSelections && documentEntries < 2'
+        //   'REMOVE: isTopLevelField && !hasSiblingSelections && definitions < 2'
         // )
         // start
         // query isTest {
@@ -83,9 +83,9 @@ export const removeTargetField = ({
         });
       }
 
-      if (documentEntries >= 2) {
+      if (definitions && definitions >= 2) {
         // console.log(
-        //   'REMOVE: isTopLevelField && !hasSiblingSelections && documentEntries >= 2'
+        //   'REMOVE: isTopLevelField && !hasSiblingSelections && definitions >= 2'
         // )
         const range = getRemoveRangeForFieldFromLocation({
           location: locationFromPreviousAncestor as Location,
