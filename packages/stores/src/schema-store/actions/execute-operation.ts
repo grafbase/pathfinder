@@ -1,14 +1,14 @@
-import { Kind, OperationDefinitionNode, SelectionSetNode, print } from 'graphql';
+import { OperationDefinitionNode, print } from 'graphql';
 
-import update from 'lodash.update';
-
-import merge from 'lodash.merge';
-
-import { createClient, ExecutionResult } from 'graphql-sse';
+import { createClient } from 'graphql-sse';
 
 import { VARIABLES_EDITOR_ID } from '@pathfinder-ide/shared';
 
 import { httpFetcher } from './http-fetcher';
+
+// helpers
+import { usingDefer } from '../helpers/using-defer';
+import { mergeResults } from '../helpers/merge-results';
 
 // stores
 import { graphQLDocumentStore } from '../../graphql-document-store';
@@ -31,46 +31,6 @@ import type {
 import { schemaStore } from '../schema-store';
 
 import { uiStore } from '../../ui-store';
-
-enum Directive {
-  Defer = 'defer',
-}
-
-const usingDefer = (set: SelectionSetNode | undefined): boolean =>
-  set?.selections.some((selection) => {
-    // add Kind.FRAGMENT_SPREAD once we support named fragments
-    const inlineFragment = selection.kind == Kind.INLINE_FRAGMENT;
-    const usingDeferOnCurrentSelection =
-      inlineFragment &&
-      (selection.directives?.some((node) => node.name.value === Directive.Defer) ??
-        false);
-    const hasSelectionSet = 'selectionSet' in selection;
-    return (
-      usingDeferOnCurrentSelection ||
-      (hasSelectionSet && usingDefer(selection.selectionSet))
-    );
-  }) ?? false;
-
-const mergeResults = (
-  result: ExecutionResult<Record<string, unknown>, unknown>,
-  lastResult?: ExecutionResult<Record<string, unknown>, unknown>,
-) => {
-  // bit of weird typing here, result should probably be returned as ExecutionResult | ExecutionPatchResult from graphql-sse
-  // but that isn't the case
-  if (!('path' in result) || lastResult === undefined) {
-    return result;
-  }
-
-  const path = result.path as string[];
-
-  const combined = update(lastResult, ['data', ...path], (value) =>
-    merge(value, result.data),
-  );
-
-  const errors = [...(lastResult?.errors ?? []), ...(result.errors ?? [])];
-
-  return { ...combined, ...(errors.length > 0 ? { errors } : undefined) };
-};
 
 // this function is called from the execute button _and_ when using CMD + ENTER
 export const executeOperation: SchemaStoreActions['executeOperation'] = async () => {
