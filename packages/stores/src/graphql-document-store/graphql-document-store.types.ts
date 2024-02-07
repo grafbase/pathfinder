@@ -4,8 +4,6 @@ import type monaco from 'monaco-graphql/esm/monaco-editor';
 
 type MonacoRange = monaco.Range;
 
-import { ExecutionResponse } from '../schema-store';
-
 // document notifications
 export type DocumentNotificationType =
   | 'DUPLICATE_OPERATION_NAME'
@@ -19,7 +17,6 @@ type FragmentEntry = {
 };
 
 export type OperationEntry = {
-  latestResponse: ExecutionResponse | null;
   node: OperationDefinitionNode;
 };
 
@@ -32,10 +29,6 @@ export type GraphQLDocumentStoreState = {
    */
   activeDocumentEntry: OperationEntry | null;
   /**
-   * Definitions within the editor along with their run history
-   */
-  documentEntries: DocumentEntry[];
-  /**
    * Notifications to display within the document editor UI
    */
   documentNotifications: DocumentNotificationType[];
@@ -46,11 +39,6 @@ export type GraphQLDocumentStoreState = {
 };
 
 export type GraphQLDocumentStoreActions = {
-  getEntryForDefinition: ({
-    definition,
-  }: {
-    definition: OperationDefinitionNode;
-  }) => DocumentEntry | undefined;
   handleActiveDefinition: ({
     definition,
     range,
@@ -59,14 +47,11 @@ export type GraphQLDocumentStoreActions = {
     range: MonacoRange;
   }) => DocumentEntry | null;
   handleInactiveDefinition: ({ range }: { range: MonacoRange }) => void;
-  handleNewDefinition: ({
-    definition,
-  }: {
-    definition: OperationDefinitionNode;
-  }) => OperationEntry;
   isOperationNameChanging: ({
     definition,
+    definitions,
   }: {
+    definitions: DefinitionNode[];
     definition: OperationDefinitionNode;
   }) => boolean | undefined;
   setActiveDocumentEntry: ({
@@ -75,19 +60,9 @@ export type GraphQLDocumentStoreActions = {
     operationEntry: OperationEntry;
   }) => void;
   setDocumentNotifications: ({ definitions }: { definitions: DefinitionNode[] }) => void;
-  updateDocumentEntryDefinition: ({
-    definition,
-  }: {
-    definition: OperationDefinitionNode;
-  }) => DocumentEntry | null;
   updateDocumentEntryOperationName: ({
     definition,
   }: {
     definition: OperationDefinitionNode;
-  }) => void;
-  updateDocumentEntryResponse: ({
-    executionResponse,
-  }: {
-    executionResponse: ExecutionResponse;
   }) => void;
 };

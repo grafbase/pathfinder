@@ -6,7 +6,7 @@ import {
   type SelectionNode,
 } from 'graphql';
 
-import { useGraphQLDocumentStore } from '@pathfinder-ide/stores';
+import { getParsedDocument } from '@pathfinder-ide/stores';
 
 export const findSelection = ({
   fieldName,
@@ -39,18 +39,15 @@ export const findSelection = ({
       // }
 
       // attempt to find the fragment definition for this fragment spread
-      const fragmentEntry = useGraphQLDocumentStore
-        .getState()
-        .documentEntries.find(
-          (d) =>
-            d.node.kind === Kind.FRAGMENT_DEFINITION &&
-            d.node.name.value === selection.name.value,
-        );
+      const fragmentEntry = getParsedDocument()?.definitions.find(
+        (d) =>
+          d.kind === Kind.FRAGMENT_DEFINITION && d.name.value === selection.name.value,
+      );
 
       // attempt to find within the fragment definition our fieldName
       const possibleSelectionNode =
-        fragmentEntry?.node?.kind === Kind.FRAGMENT_DEFINITION &&
-        fragmentEntry.node.selectionSet.selections.find(
+        fragmentEntry?.kind === Kind.FRAGMENT_DEFINITION &&
+        fragmentEntry.selectionSet.selections.find(
           (s) => (s as FieldNode).name.value === fieldName,
         );
 

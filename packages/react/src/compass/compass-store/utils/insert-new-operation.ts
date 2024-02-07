@@ -9,13 +9,10 @@ import {
 
 import { DOCUMENT_EDITOR_ID } from '@pathfinder-ide/shared';
 
-import {
-  type MonacoIRange,
-  pushMonacoEditorEdit,
-  useGraphQLDocumentStore,
-} from '@pathfinder-ide/stores';
+import { type MonacoIRange, pushMonacoEditorEdit } from '@pathfinder-ide/stores';
 
 import type { AncestorField, AncestorRoot, AncestorsArray } from '../compass-store.types';
+import { getParsedDocument } from '@pathfinder-ide/stores';
 
 export const insertNewOperation = ({
   ancestors,
@@ -98,8 +95,9 @@ export const insertNewOperation = ({
     },
   };
 
-  const newLines =
-    useGraphQLDocumentStore.getState().documentEntries.length > 0 ? '\n\n' : '';
+  const definitions = getParsedDocument()?.definitions;
+
+  const newLines = definitions && definitions.length > 0 ? '\n\n' : '';
 
   const printedNode = print(newOperationDefinitionNode);
 

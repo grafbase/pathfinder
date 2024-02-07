@@ -50,18 +50,19 @@ export const Analyze = () => {
         });
       }
     }
-    // }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeTab]);
 
-  const duration = activeTab?.latestResponse?.duration;
+  const duration = activeTab?.latestResponse?.duration
+    ? `${Math.round(activeTab?.latestResponse?.duration)}ms`
+    : '--';
 
   return (
     <div className={analyzeClass}>
       <ActionsBar
         actions={[
           <div className={latestResponseClass}>
-            {duration && <span>{`${Math.round(duration)}ms`}</span>}
+            <span>{duration}</span>
           </div>,
         ]}
         title="Response"

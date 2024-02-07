@@ -4,7 +4,7 @@ export {
   closeEditorTab,
   initNewEditorTab,
   switchEditorTab,
-  updateActiveEditorTab,
+  updateEditorTab,
 } from './slices/editor-tabs/actions';
 
 export { clearHistory, deleteFromHistory } from './slices/history/actions';
@@ -20,3 +20,5 @@ export {
 export type { HTTPHeaderValue } from './slices/http-headers/http-headers.types';
 
 export { useSessionStore } from './use-session-store';
+
+export { sessionStore } from './session-store';
