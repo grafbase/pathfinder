@@ -34,7 +34,7 @@ export const historyListHeaderClass = style({
   flexShrink: 0,
   alignItems: 'center',
   justifyContent: 'space-between',
-  height: 32,
+  height: 40,
   padding: `0 ${contract.space[16]}`,
   fontSize: 12,
   color: contract.color.neutral[12],

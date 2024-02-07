@@ -2,17 +2,9 @@ import { type GraphQLSchema, Location } from 'graphql';
 
 import { DOCUMENT_EDITOR_ID } from '@pathfinder-ide/shared';
 
-import type {
-  AncestorArgument,
-  AncestorField,
-  AncestorRoot,
-} from '../compass-store.types';
+import type { AncestorArgument, AncestorField } from '../compass-store.types';
 
-import {
-  generateArgumentText, // generateVariableText,
-  getAddEdit,
-  getSelectedArgumentsCount, // getVariableDefinitionsCount
-} from '../utils';
+import { generateArgumentText, getAddEdit, getSelectedArgumentsCount } from '../utils';
 
 import {
   type EditorEdit,
@@ -23,21 +15,15 @@ import {
 
 export const addTargetArgument = ({
   previousAncestor,
-  // rootAncestor,
   target,
 }: {
   previousAncestor: AncestorField;
-  rootAncestor: AncestorRoot;
   target: AncestorArgument;
 }) => {
-  // const argumentHandlingMode =
-  //   useVisualOperationBuilder.getState().argumentHandlingMode
-
   // console.log('addTargetArgument', { previousAncestor, target })
 
   const schema = useSchemaStore.getState().schema;
 
-  // const { documentEditor } = getDocumentEditor();
   const documentEditor = getMonacoEditor({ editorId: DOCUMENT_EDITOR_ID });
 
   const edits: EditorEdit[] = [];

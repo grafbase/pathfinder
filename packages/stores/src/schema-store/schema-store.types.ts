@@ -21,7 +21,8 @@ export type WatchHeaders = Array<{
 }>;
 
 export type ExecutionResponse = {
-  duration: number;
+  // null for subscriptions
+  duration: number | null;
   request: {
     endpoint: string;
     headers: HeadersInit;

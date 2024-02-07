@@ -5,6 +5,6 @@ export type {
   OperationEntry,
 } from './graphql-document-store.types';
 
-export { setDocumentState, updateDocumentEntryResponse } from './actions';
+export { getParsedDocument, setDocumentState } from './actions';
 
 export { useGraphQLDocumentStore } from './use-graphql-document-store';

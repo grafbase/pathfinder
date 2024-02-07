@@ -6,7 +6,6 @@ import {
   type MonacoIPosition,
   type MonacoIRange,
   pushMonacoEditorEdit,
-  useGraphQLDocumentStore,
 } from '@pathfinder-ide/stores';
 
 import { INDENT_SIZE } from '../constants';
@@ -28,6 +27,7 @@ import {
   hasSiblingSelections as hasSiblingSelectionsFunc,
   insertNewOperation,
 } from '../utils';
+import { getParsedDocument } from '@pathfinder-ide/stores';
 
 export const addTargetField = ({
   ancestors,
@@ -53,15 +53,15 @@ export const addTargetField = ({
 
   const previousAncestorIsSelected = !isTopLevelField && previousAncestor.selection;
 
-  const documentEntries = useGraphQLDocumentStore.getState().documentEntries.length;
+  const definitions = getParsedDocument()?.definitions.length;
 
-  if (!hasSiblingSelections && documentEntries === 0) {
+  if (!hasSiblingSelections && definitions === 0) {
     // this is an early check for a deep-toggle, meaning a user has expanded one or more levels of a field and is toggling without any ancestors being selected
-    // `documentEntries === 0` tells us that the document editor doesn't have any parseable operations
+    // `definitions === 0` tells us that the document editor doesn't have any parseable operations
     // `!hasSiblingSelections` is critical here because it tells us that there isn't an in-progress operation definition somewhere in the document editor
     // if we didn't have the `!hasSiblingSelections` check, we'd wipe out any in-progress operation definition(s) in the document editor
     // no fancy monaco shenanigans to do here, just feed all the ancestors to insertNewOperation
-    // console.log('!hasSiblingSelections && documentEntries === 0')
+    // console.log('!hasSiblingSelections && definitions === 0')
 
     return insertNewOperation({ ancestors, range: 'END' });
   }

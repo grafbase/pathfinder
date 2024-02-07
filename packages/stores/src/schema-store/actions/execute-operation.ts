@@ -1,24 +1,26 @@
-import { Kind, OperationDefinitionNode, SelectionSetNode, print } from 'graphql';
+import { OperationDefinitionNode, print } from 'graphql';
 
-import update from 'lodash.update';
-
-import merge from 'lodash.merge';
-
-import { createClient, ExecutionResult } from 'graphql-sse';
+import { createClient } from 'graphql-sse';
 
 import { VARIABLES_EDITOR_ID } from '@pathfinder-ide/shared';
 
+import { httpFetcher } from './http-fetcher';
+
+// helpers
+import { usingDefer } from '../helpers/using-defer';
+import { mergeResults } from '../helpers/merge-results';
+
+// stores
+import { graphQLDocumentStore } from '../../graphql-document-store';
+
 import { getMonacoEditor } from '../../monaco-editor-store';
 
-import { getEnabledHTTPHeaderValueRecord, useSessionStore } from '../../session-store';
-
 import {
-  graphQLDocumentStore,
-  updateDocumentEntryResponse,
-} from '../../graphql-document-store';
-
-import { httpFetcher } from './http-fetcher';
-import { schemaStore } from '../schema-store';
+  getEnabledHTTPHeaderValueRecord,
+  updateEditorTab,
+  useSessionStore,
+  sessionStore,
+} from '../../session-store';
 
 import type {
   ExecutionResponse,
@@ -26,50 +28,12 @@ import type {
   WatchHeadersResponse,
 } from '../schema-store.types';
 
-enum Directive {
-  Defer = 'defer',
-}
+import { schemaStore } from '../schema-store';
 
-const usingDefer = (set: SelectionSetNode | undefined): boolean =>
-  set?.selections.some((selection) => {
-    // add Kind.FRAGMENT_SPREAD once we support named fragments
-    const inlineFragment = selection.kind == Kind.INLINE_FRAGMENT;
-    const usingDeferOnCurrentSelection =
-      inlineFragment &&
-      (selection.directives?.some((node) => node.name.value === Directive.Defer) ??
-        false);
-    const hasSelectionSet = 'selectionSet' in selection;
-    return (
-      usingDeferOnCurrentSelection ||
-      (hasSelectionSet && usingDefer(selection.selectionSet))
-    );
-  }) ?? false;
-
-const mergeResults = (
-  result: ExecutionResult<Record<string, unknown>, unknown>,
-  lastResult?: ExecutionResult<Record<string, unknown>, unknown>,
-) => {
-  // bit of weird typing here, result should probably be returned as ExecutionResult | ExecutionPatchResult from graphql-sse
-  // but that isn't the case
-  if (!('path' in result) || lastResult === undefined) {
-    return result;
-  }
-
-  const path = result.path as string[];
-
-  const combined = update(lastResult, ['data', ...path], (value) =>
-    merge(value, result.data),
-  );
-
-  const errors = [...(lastResult?.errors ?? []), ...(result.errors ?? [])];
-
-  return { ...combined, ...(errors.length > 0 ? { errors } : undefined) };
-};
+import { uiStore } from '../../ui-store';
 
 // this function is called from the execute button _and_ when using CMD + ENTER
 export const executeOperation: SchemaStoreActions['executeOperation'] = async () => {
-  schemaStore.setState({ isExecuting: true });
-
   const endpoint = useSessionStore.getState().endpoint as string;
 
   const headers = useSessionStore.getState().headers;
@@ -80,6 +44,8 @@ export const executeOperation: SchemaStoreActions['executeOperation'] = async ()
   // pull out the activeOperation and operationName
   const activeOperation = print(activeDocumentEntry?.node as OperationDefinitionNode);
   const operationName = activeDocumentEntry?.node.name?.value as string;
+
+  const targetTabId = sessionStore.getState().activeTab?.tabId as string;
 
   // get our ui-defined variables
   const uiVariables = getMonacoEditor({
@@ -100,7 +66,11 @@ export const executeOperation: SchemaStoreActions['executeOperation'] = async ()
       variables,
     };
 
-    const useSse = usingDefer(activeDocumentEntry?.node.selectionSet);
+    const isSubscription = activeDocumentEntry?.node.operation === 'subscription';
+
+    const isDefer = usingDefer(activeDocumentEntry?.node.selectionSet);
+
+    const useSse = isDefer || isSubscription;
 
     if (useSse) {
       const client = createClient({
@@ -109,51 +79,82 @@ export const executeOperation: SchemaStoreActions['executeOperation'] = async ()
         credentials: 'same-origin',
       });
 
-      const results = client.iterate<Record<string, unknown>, unknown>({
-        query: graphQLParams.query,
-        operationName: graphQLParams.operationName,
-        variables: graphQLParams.variables,
-      });
-
       let lastResponse: ExecutionResponse | undefined;
 
-      for await (const result of results) {
+      let i = 0;
+
+      let unsubscribe = () => {
+        client.dispose();
+      };
+
+      const onNext = (data: Record<string, unknown>) => {
         const t1 = performance.now();
-        const combinedResult = mergeResults(result, lastResponse?.response.data);
+
+        const combinedResults = mergeResults(data, lastResponse?.response.data);
+
+        const updatedData = isDefer ? combinedResults : data;
+
+        if (isSubscription && i === 0) {
+          uiStore.setState({
+            activeSubscriptions: [
+              ...uiStore.getState().activeSubscriptions,
+              {
+                dispose: unsubscribe,
+                operationName: graphQLParams.operationName || '',
+                tabId: sessionStore.getState().activeTab?.tabId as string,
+              },
+            ],
+          });
+        }
 
         lastResponse = {
-          duration: t1 - t0,
+          duration: isSubscription ? null : t1 - t0,
           request: {
             endpoint,
             headers: headers.map((header) => [header.key, header.value]) as HeadersInit,
             graphQLOperationParams: graphQLParams,
           },
           response: {
-            data: combinedResult,
+            data: updatedData,
             status: 200,
           },
           timestamp: new Date(),
         };
+
         schemaStore.setState({
-          isExecuting: true,
           latestResponse: lastResponse,
         });
 
-        // TODO this displays all history entries with the same body
-        updateDocumentEntryResponse({
-          executionResponse: lastResponse,
+        updateEditorTab({
+          partialTab: {
+            latestResponse: lastResponse,
+          },
+          targetTabId,
         });
-      }
+        i++;
+      };
 
-      if (!lastResponse) {
-        return schemaStore.setState({ isExecuting: false });
-      }
+      await new Promise((resolve, reject) => {
+        unsubscribe = client.subscribe(
+          {
+            query: graphQLParams.query,
+            operationName: graphQLParams.operationName,
+            variables: graphQLParams.variables,
+          },
+          {
+            next: onNext,
+            error: reject,
+            complete: () => resolve,
+          },
+        );
+      });
 
       return schemaStore.setState({
         isExecuting: false,
-        latestResponse: lastResponse,
       });
     }
+
+    schemaStore.setState({ isExecuting: true });
 
     const fetchResponse = await httpFetcher({
       fetchOptions: {
@@ -200,8 +201,11 @@ export const executeOperation: SchemaStoreActions['executeOperation'] = async ()
       watchHeaders: caughtHeaders.length > 0 ? caughtHeaders : undefined,
     };
 
-    updateDocumentEntryResponse({
-      executionResponse,
+    updateEditorTab({
+      partialTab: {
+        latestResponse: executionResponse,
+      },
+      targetTabId,
     });
 
     return schemaStore.setState({

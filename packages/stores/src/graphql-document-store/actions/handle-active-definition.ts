@@ -1,4 +1,3 @@
-import { getEntryForDefinition } from './get-entry-for-definition';
 import { getMonacoEditor } from '../../monaco-editor-store';
 
 import type {
@@ -13,8 +12,6 @@ import {
 
 export const handleActiveDefinition: GraphQLDocumentStoreActions['handleActiveDefinition'] =
   ({ definition, range }) => {
-    const entryForDefinition = getEntryForDefinition({ definition });
-
     const documentEditor = getMonacoEditor({ editorId: DOCUMENT_EDITOR_ID });
 
     if (documentEditor) {
@@ -32,11 +29,7 @@ export const handleActiveDefinition: GraphQLDocumentStoreActions['handleActiveDe
       documentEditor.removeDecorations(inactiveDefinitionDecorationIdsToRemove);
     }
 
-    if (entryForDefinition) {
-      return {
-        ...entryForDefinition,
-        node: definition,
-      } as DocumentEntry;
-    }
-    return null;
+    return {
+      node: definition,
+    } as DocumentEntry;
   };

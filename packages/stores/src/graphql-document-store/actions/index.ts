@@ -1,10 +1,8 @@
-export { getEntryForDefinition } from './get-entry-for-definition';
+export { getParsedDocument } from './get-parsed-document';
 
 export { handleActiveDefinition } from './handle-active-definition';
 
 export { handleInactiveDefinition } from './handle-inactive-definition';
-
-export { handleNewDefinition } from './handle-new-definition';
 
 export { isOperationNameChanging } from './is-operation-name-changing';
 
@@ -16,8 +14,4 @@ export { setDocumentNotifications } from './set-document-notifications';
 
 export { setDocumentState } from './set-document-state';
 
-export { updateDocumentEntryDefinition } from './update-document-entry-definition';
-
 export { updateDocumentEntryOperationName } from './update-document-entry-operation-name';
-
-export { updateDocumentEntryResponse } from './update-document-entry-response';
