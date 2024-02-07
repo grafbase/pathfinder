@@ -11,9 +11,11 @@ export const actionExecuteSubscriptionStyle = {
       gap: 4,
       paddingLeft: 4,
       paddingRight: 8,
+      backgroundColor: 'transparent',
       borderRadius: 2,
-      border: `1px solid ${contract.color.neutral[3]}`,
+      border: `1px solid ${contract.color.neutral[4]}`,
       cursor: 'pointer',
+      transition: `all .15s ease`,
 
       selectors: {
         '&:hover': {
@@ -25,8 +27,15 @@ export const actionExecuteSubscriptionStyle = {
     variants: {
       isConnected: {
         true: {
-          backgroundColor: contract.color.yellow[2],
-          border: `1px solid ${contract.color.yellow[3]}`,
+          backgroundColor: contract.color.green[1],
+          border: `1px solid ${contract.color.green[3]}`,
+
+          selectors: {
+            '&:hover': {
+              backgroundColor: contract.color.red[2],
+              border: `1px solid ${contract.color.red[4]}`,
+            },
+          },
         },
         false: {},
       },

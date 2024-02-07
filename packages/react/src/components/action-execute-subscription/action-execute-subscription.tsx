@@ -15,6 +15,8 @@ export const ActionExecuteSubscription = () => {
   const activeTab = useSessionStore.use.activeTab();
   const activeDocumentEntry = useGraphQLDocumentStore.use.activeDocumentEntry();
 
+  const [isHovering, setIsHovering] = useState<boolean>(false);
+
   const [activeSubscription, setActiveSubscription] =
     useState<null | ActiveSubscriptionEntry>(null);
 
@@ -65,8 +67,16 @@ export const ActionExecuteSubscription = () => {
         activeSubscription ? disposeSubscription() : executeOperation();
       }}
       title={activeSubscription ? 'Dispose subscription' : 'Execute subscription'}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
     >
-      {activeSubscription ? <BeaconAnimated /> : <Icon name="Caret" size="medium" />}
+      {isHovering && activeSubscription ? (
+        <Icon name="Pause" size="large" />
+      ) : activeSubscription ? (
+        <BeaconAnimated />
+      ) : (
+        <Icon name="Caret" size="large" />
+      )}
       <div className={actionExecuteSubscriptionStyle.content}>
         <span
           className={actionExecuteSubscriptionStyle.span({
