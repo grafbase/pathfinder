@@ -1,5 +1,11 @@
 # @pathfinder-ide/react
 
+## 0.6.0
+
+### Minor Changes
+
+- dba122c: Add subscription support via SSE exclusively.
+
 ## 0.5.0
 
 ### Minor Changes
