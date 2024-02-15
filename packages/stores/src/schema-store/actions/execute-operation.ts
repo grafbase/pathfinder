@@ -2,7 +2,7 @@ import { OperationDefinitionNode, print } from 'graphql';
 
 import { createClient } from 'graphql-sse';
 
-import { VARIABLES_EDITOR_ID } from '@pathfinder-ide/shared';
+import { DOCUMENT_EDITOR_ID, VARIABLES_EDITOR_ID } from '@pathfinder-ide/shared';
 
 import { httpFetcher } from './http-fetcher';
 
@@ -41,9 +41,11 @@ export const executeOperation: SchemaStoreActions['executeOperation'] = async ()
   // get our activeDocumentEntry
   const activeDocumentEntry = graphQLDocumentStore.getState().activeDocumentEntry;
 
-  // pull out the activeOperation and operationName
-  const activeOperation = print(activeDocumentEntry?.node as OperationDefinitionNode);
   const operationName = activeDocumentEntry?.node.name?.value as string;
+
+  const document = getMonacoEditor({ editorId: DOCUMENT_EDITOR_ID })
+    ?.getModel()
+    ?.getValue();
 
   const targetTabId = sessionStore.getState().activeTab?.tabId as string;
 
@@ -62,7 +64,7 @@ export const executeOperation: SchemaStoreActions['executeOperation'] = async ()
 
     const graphQLParams = {
       operationName: operationName || undefined,
-      query: activeOperation,
+      query: document as string,
       variables,
     };
 
