@@ -1,5 +1,3 @@
-import { OperationDefinitionNode, print } from 'graphql';
-
 import { createClient } from 'graphql-sse';
 
 import { DOCUMENT_EDITOR_ID, VARIABLES_EDITOR_ID } from '@pathfinder-ide/shared';
