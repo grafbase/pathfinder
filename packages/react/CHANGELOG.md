@@ -1,5 +1,11 @@
 # @pathfinder-ide/react
 
+## 0.7.0
+
+### Minor Changes
+
+- 5bb9d39: Unlock fragments by passing entire active document through each request rather than just the active operation.
+
 ## 0.6.0
 
 ### Minor Changes
