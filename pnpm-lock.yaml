@@ -62,8 +62,8 @@ importers:
         specifier: ^1.4.0
         version: 1.4.0
       '@types/react':
-        specifier: 18.2.55
-        version: 18.2.55
+        specifier: 18.2.58
+        version: 18.2.58
       '@types/react-dom':
         specifier: 18.2.19
         version: 18.2.19
@@ -103,7 +103,7 @@ importers:
     dependencies:
       '@ladle/react':
         specifier: 4.0.2
-        version: 4.0.2(@types/node@18.19.18)(@types/react@18.2.55)(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2)
+        version: 4.0.2(@types/node@18.19.18)(@types/react@18.2.58)(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2)
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -124,8 +124,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/tsconfig
       '@types/react':
-        specifier: 18.2.55
-        version: 18.2.55
+        specifier: 18.2.58
+        version: 18.2.58
       '@types/react-dom':
         specifier: 18.2.19
         version: 18.2.19
@@ -146,7 +146,7 @@ importers:
     dependencies:
       '@astrojs/react':
         specifier: 3.0.10
-        version: 3.0.10(@types/react-dom@18.2.19)(@types/react@18.2.55)(react-dom@18.2.0)(react@18.2.0)(vite@5.0.12)
+        version: 3.0.10(@types/react-dom@18.2.19)(@types/react@18.2.58)(react-dom@18.2.0)(react@18.2.0)(vite@5.0.12)
       '@astrojs/tailwind':
         specifier: 5.1.0
         version: 5.1.0(astro@3.6.4)(tailwindcss@3.4.1)
@@ -306,10 +306,10 @@ importers:
         version: 18.2.0(react@18.2.0)
       react-markdown:
         specifier: 9.0.1
-        version: 9.0.1(@types/react@18.2.55)(react@18.2.0)
+        version: 9.0.1(@types/react@18.2.58)(react@18.2.0)
       zustand:
         specifier: 4.4.7
-        version: 4.4.7(@types/react@18.2.55)(react@18.2.0)
+        version: 4.4.7(@types/react@18.2.58)(react@18.2.0)
     devDependencies:
       '@pathfinder-ide/eslint-config':
         specifier: workspace:*
@@ -339,8 +339,8 @@ importers:
         specifier: ^4.14.199
         version: 4.14.199
       '@types/react':
-        specifier: 18.2.55
-        version: 18.2.55
+        specifier: 18.2.58
+        version: 18.2.58
       '@types/react-dom':
         specifier: 18.2.19
         version: 18.2.19
@@ -401,7 +401,7 @@ importers:
         version: link:../tsconfig
       zustand:
         specifier: 4.4.7
-        version: 4.4.7(@types/react@18.2.55)(react@18.2.0)
+        version: 4.4.7(@types/react@18.2.58)(react@18.2.0)
 
   packages/stores:
     dependencies:
@@ -434,7 +434,7 @@ importers:
         version: 1.3.0(graphql@16.8.1)(monaco-editor@0.40.0)(prettier@3.1.1)
       zustand:
         specifier: 4.4.7
-        version: 4.4.7(@types/react@18.2.55)(react@18.2.0)
+        version: 4.4.7(@types/react@18.2.58)(react@18.2.0)
     devDependencies:
       '@pathfinder-ide/eslint-config':
         specifier: workspace:*
@@ -468,7 +468,7 @@ importers:
         version: 0.5.1(@vanilla-extract/css@1.14.1)
       zustand:
         specifier: 4.4.7
-        version: 4.4.7(@types/react@18.2.55)(react@18.2.0)
+        version: 4.4.7(@types/react@18.2.58)(react@18.2.0)
     devDependencies:
       '@pathfinder-ide/eslint-config':
         specifier: workspace:*
@@ -540,7 +540,7 @@ packages:
       prismjs: 1.29.0
     dev: false
 
-  /@astrojs/react@3.0.10(@types/react-dom@18.2.19)(@types/react@18.2.55)(react-dom@18.2.0)(react@18.2.0)(vite@5.0.12):
+  /@astrojs/react@3.0.10(@types/react-dom@18.2.19)(@types/react@18.2.58)(react-dom@18.2.0)(react@18.2.0)(vite@5.0.12):
     resolution: {integrity: sha512-uGRIwKMAn7tva2vxXMyoVIGxWFr0rjZ8ZWIlkTG/vIpnAjD2nM8Cz6B8j7yzj176jvl6gZ6xTbTVPm09aeK0Yw==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
@@ -549,7 +549,7 @@ packages:
       react: ^17.0.2 || ^18.0.0
       react-dom: ^17.0.2 || ^18.0.0
     dependencies:
-      '@types/react': 18.2.55
+      '@types/react': 18.2.58
       '@types/react-dom': 18.2.19
       '@vitejs/plugin-react': 4.2.1(vite@5.0.12)
       react: 18.2.0
@@ -1993,7 +1993,7 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@ladle/react@4.0.2(@types/node@18.19.18)(@types/react@18.2.55)(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2):
+  /@ladle/react@4.0.2(@types/node@18.19.18)(@types/react@18.2.58)(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2):
     resolution: {integrity: sha512-SnYniR/U7kJX1Zh199jhjxqiFa5e5eA8chuX6uYEZYAUtCCY/hQqGr7/7Grr0j6Q4FYu9iQyyV2K1NJKDdUZIw==}
     engines: {node: '>=18.0.0'}
     hasBin: true
@@ -2010,7 +2010,7 @@ packages:
       '@babel/types': 7.23.6
       '@ladle/react-context': 1.0.1(react-dom@18.2.0)(react@18.2.0)
       '@mdx-js/mdx': 3.0.0
-      '@mdx-js/react': 3.0.0(@types/react@18.2.55)(react@18.2.0)
+      '@mdx-js/react': 3.0.0(@types/react@18.2.58)(react@18.2.0)
       '@vitejs/plugin-react': 4.2.1(vite@5.0.12)
       '@vitejs/plugin-react-swc': 3.5.0(vite@5.0.12)
       axe-core: 4.8.3
@@ -2106,14 +2106,14 @@ packages:
       - supports-color
     dev: false
 
-  /@mdx-js/react@3.0.0(@types/react@18.2.55)(react@18.2.0):
+  /@mdx-js/react@3.0.0(@types/react@18.2.58)(react@18.2.0):
     resolution: {integrity: sha512-nDctevR9KyYFyV+m+/+S4cpzCWHqj+iHDHq3QrsWezcC+B17uZdIWgCguESUkwFhM3n/56KxWVE3V6EokrmONQ==}
     peerDependencies:
       '@types/react': '>=16'
       react: '>=16'
     dependencies:
       '@types/mdx': 2.0.10
-      '@types/react': 18.2.55
+      '@types/react': 18.2.58
       react: 18.2.0
     dev: false
 
@@ -3009,18 +3009,18 @@ packages:
   /@types/react-dom@18.2.14:
     resolution: {integrity: sha512-V835xgdSVmyQmI1KLV2BEIUgqEuinxp9O4G6g3FqO/SqLac049E53aysv0oEFD2kHfejeKU+ZqL2bcFWj9gLAQ==}
     dependencies:
-      '@types/react': 18.2.55
+      '@types/react': 18.2.58
     dev: true
 
   /@types/react-dom@18.2.19:
     resolution: {integrity: sha512-aZvQL6uUbIJpjZk4U8JZGbau9KDeAwMfmhyWorxgBkqDIEf6ROjRozcmPIicqsUwPUjbkDfHKgGee1Lq65APcA==}
     dependencies:
-      '@types/react': 18.2.55
+      '@types/react': 18.2.58
 
   /@types/react-dom@18.2.7:
     resolution: {integrity: sha512-GRaAEriuT4zp9N4p1i8BDBYmEyfo+xQ3yHjJU4eiK5NDa1RmUZG+unZABUTK4/Ox/M+GaHwb6Ow8rUITrtjszA==}
     dependencies:
-      '@types/react': 18.2.55
+      '@types/react': 18.2.58
     dev: false
 
   /@types/react@18.2.48:
@@ -3030,8 +3030,8 @@ packages:
       '@types/scheduler': 0.16.3
       csstype: 3.1.2
 
-  /@types/react@18.2.55:
-    resolution: {integrity: sha512-Y2Tz5P4yz23brwm2d7jNon39qoAtMMmalOQv6+fEFt1mT+FcM3D841wDpoUvFXhaYenuROCy3FZYqdTjM7qVyA==}
+  /@types/react@18.2.58:
+    resolution: {integrity: sha512-TaGvMNhxvG2Q0K0aYxiKfNDS5m5ZsoIBBbtfUorxdH4NGSXIlYvZxLJI+9Dd3KjeB3780bciLyAb7ylO8pLhPw==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.3
@@ -9425,14 +9425,14 @@ packages:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
     dev: true
 
-  /react-markdown@9.0.1(@types/react@18.2.55)(react@18.2.0):
+  /react-markdown@9.0.1(@types/react@18.2.58)(react@18.2.0):
     resolution: {integrity: sha512-186Gw/vF1uRkydbsOIkcGXw7aHq0sZOCRFFjGrr7b9+nVZg4UfA4enXCaxm4fUzecU38sWfrNDitGhshuU7rdg==}
     peerDependencies:
       '@types/react': '>=18'
       react: '>=18'
     dependencies:
       '@types/hast': 3.0.1
-      '@types/react': 18.2.55
+      '@types/react': 18.2.58
       devlop: 1.1.0
       hast-util-to-jsx-runtime: 2.2.0
       html-url-attributes: 3.0.0
@@ -11750,7 +11750,7 @@ packages:
     resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
     dev: false
 
-  /zustand@4.4.7(@types/react@18.2.55)(react@18.2.0):
+  /zustand@4.4.7(@types/react@18.2.58)(react@18.2.0):
     resolution: {integrity: sha512-QFJWJMdlETcI69paJwhSMJz7PPWjVP8Sjhclxmxmxv/RYI7ZOvR5BHX+ktH0we9gTWQMxcne8q1OY8xxz604gw==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
@@ -11765,7 +11765,7 @@ packages:
       react:
         optional: true
     dependencies:
-      '@types/react': 18.2.55
+      '@types/react': 18.2.58
       react: 18.2.0
       use-sync-external-store: 1.2.0(react@18.2.0)
 
