@@ -44,7 +44,6 @@ export const tabButtonClass = style([
         height: 2,
         bottom: 1,
         left: contract.space[12],
-        zIndex: 1,
       },
 
       '&[data-headlessui-state="selected"]': {
