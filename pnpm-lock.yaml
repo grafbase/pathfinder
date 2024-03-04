@@ -154,8 +154,8 @@ importers:
         specifier: ^7.3.4
         version: 7.3.4(astro@3.6.4)(react@18.2.0)
       '@fontsource/inter':
-        specifier: 5.0.16
-        version: 5.0.16
+        specifier: 5.0.17
+        version: 5.0.17
       astro:
         specifier: 3.6.4
         version: 3.6.4(@types/node@18.19.18)(typescript@5.2.2)
@@ -1847,8 +1847,8 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@fontsource/inter@5.0.16:
-    resolution: {integrity: sha512-qF0aH5UiZvCmneX5orJbVRoc2VTyLTV3X/7laMp03Qt28L+B9tFlZODOGUL64wDWc69YVdi1LeJB0cIgd51lvw==}
+  /@fontsource/inter@5.0.17:
+    resolution: {integrity: sha512-2meBGx1kt7u5LwzGc5Sz5rka6ZDrydg6nT3x6Wkt310vHXUchIywrO8pooWMzZdHYcyFY/cv4lEpJZgMD94bCg==}
     dev: false
 
   /@graphql-tools/executor@1.2.0(graphql@16.8.1):
