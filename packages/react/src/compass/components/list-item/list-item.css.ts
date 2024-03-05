@@ -102,3 +102,12 @@ export const listItemChildFieldsClass = style({
   flexDirection: 'column',
   gap: 2,
 });
+
+export const listItemDeprecationReasonClass = style({
+  fontSize: 12,
+  color: contract.color.amber[10],
+  backgroundColor: contract.color.amber[2],
+  borderRadius: 4,
+  padding: 8,
+  border: `1px dashed ${contract.color.amber[6]}`,
+});

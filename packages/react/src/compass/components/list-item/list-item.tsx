@@ -10,6 +10,7 @@ import {
   listItemChildFieldsClass,
   listItemClass,
   listItemContentClass,
+  listItemDeprecationReasonClass,
   listItemLeadClass,
 } from './list-item.css';
 
@@ -66,7 +67,7 @@ export const ListItem = ({
           {isExpanded && (
             <>
               {'deprecationReason' in type && type.deprecationReason && (
-                <p>{type.deprecationReason}</p>
+                <p className={listItemDeprecationReasonClass}>{type.deprecationReason}</p>
               )}
 
               {collapsibleContent.arguments && collapsibleContent.arguments}
