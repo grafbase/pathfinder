@@ -1,5 +1,11 @@
 # @pathfinder-ide/react
 
+## 0.7.2
+
+### Patch Changes
+
+- 1013845: Visual operation builder viz updates for deprecation notices and inline fragments.
+
 ## 0.7.1
 
 ### Patch Changes
