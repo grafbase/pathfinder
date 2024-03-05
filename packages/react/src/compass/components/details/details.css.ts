@@ -65,14 +65,17 @@ export const detailsClass = style({
 });
 
 export const inlineFragmentClass = recipe({
-  base: {},
+  base: {
+    fontSize: 14,
+  },
   variants: {
     isSelected: {
       true: {
-        color: contract.color.orange[7],
+        color: contract.color.neutral[12],
+        fontWeight: 600,
       },
       false: {
-        color: contract.color.orange[5],
+        color: contract.color.neutral[11],
       },
     },
   },

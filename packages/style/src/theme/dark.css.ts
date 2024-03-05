@@ -11,6 +11,7 @@ import { ROOT_SELECTOR, THEME_MODE_ATTRIBUTE } from '../constants';
 import {
   grayDark,
   grayDarkA,
+  amberDark,
   blueDark,
   redDark,
   greenDark,
@@ -48,6 +49,20 @@ export const dark = {
       10: grayDarkA.grayA10,
       11: grayDarkA.grayA11,
       12: grayDarkA.grayA12,
+    },
+    amber: {
+      1: amberDark.amber1,
+      2: amberDark.amber2,
+      3: amberDark.amber3,
+      4: amberDark.amber4,
+      5: amberDark.amber5,
+      6: amberDark.amber6,
+      7: amberDark.amber7,
+      8: amberDark.amber8,
+      9: amberDark.amber9,
+      10: amberDark.amber10,
+      11: amberDark.amber11,
+      12: amberDark.amber12,
     },
     yellow: {
       1: yellowDark.yellow1,

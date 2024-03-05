@@ -18,10 +18,11 @@ const colorObject: ColorRange = {
 export const color = {
   neutral: colorObject,
   neutralAlpha: colorObject,
-  red: colorObject,
-  orange: colorObject,
-  yellow: colorObject,
-  green: colorObject,
+  amber: colorObject,
   blue: colorObject,
+  green: colorObject,
+  orange: colorObject,
   purple: colorObject,
+  red: colorObject,
+  yellow: colorObject,
 };
