@@ -7,7 +7,17 @@ import { fonts } from './fonts';
 import { space } from './space';
 
 import { ROOT_SELECTOR, THEME_MODE_ATTRIBUTE } from '../constants';
-import { gray, grayA, yellow, red, orange, blue, green, purple } from '@radix-ui/colors';
+import {
+  amber,
+  gray,
+  grayA,
+  yellow,
+  red,
+  orange,
+  blue,
+  green,
+  purple,
+} from '@radix-ui/colors';
 
 export const light = {
   color: {
@@ -38,6 +48,20 @@ export const light = {
       10: grayA.grayA10,
       11: grayA.grayA11,
       12: grayA.grayA12,
+    },
+    amber: {
+      1: amber.amber1,
+      2: amber.amber2,
+      3: amber.amber3,
+      4: amber.amber4,
+      5: amber.amber5,
+      6: amber.amber6,
+      7: amber.amber7,
+      8: amber.amber8,
+      9: amber.amber9,
+      10: amber.amber10,
+      11: amber.amber11,
+      12: amber.amber12,
     },
     yellow: {
       1: yellow.yellow1,
