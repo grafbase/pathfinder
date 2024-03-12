@@ -1,4 +1,4 @@
-import { contract, style } from '@pathfinder-ide/style';
+import { style } from '@pathfinder-ide/style';
 
 export const schemaViewClass = style({
   height: '100%',
