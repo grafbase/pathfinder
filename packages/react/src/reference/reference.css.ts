@@ -101,3 +101,15 @@ export const paneClass = recipe({
     },
   },
 });
+
+export const schemaViewWrapOuterClass = style({
+  height: '100%',
+  width: '100%',
+  paddingLeft: 24,
+});
+
+export const schemaViewWrapInnerClass = style({
+  height: '100%',
+  width: '100%',
+  border: `1px solid ${contract.color.neutral[4]}`,
+});
