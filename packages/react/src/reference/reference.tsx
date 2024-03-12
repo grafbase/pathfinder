@@ -18,6 +18,8 @@ import {
   panesWrapClass,
   referenceClass,
   referenceWrapClass,
+  schemaViewWrapInnerClass,
+  schemaViewWrapOuterClass,
 } from './reference.css';
 import { IDE } from '../ide';
 
@@ -129,7 +131,11 @@ export const Reference = ({
               isVisible: visiblePane === 'schema_view',
             })}
           >
-            {schema ? <SchemaView schema={schema} /> : <></>}
+            <div className={schemaViewWrapOuterClass}>
+              <div className={schemaViewWrapInnerClass}>
+                {schema ? <SchemaView schema={schema} /> : <></>}
+              </div>
+            </div>
           </div>
         </div>
       </div>
