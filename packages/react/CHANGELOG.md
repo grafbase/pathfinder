@@ -1,5 +1,11 @@
 # @pathfinder-ide/react
 
+## 0.7.3
+
+### Patch Changes
+
+- f6f82cc: Removes border styling from core SchemaView component
+
 ## 0.7.2
 
 ### Patch Changes
