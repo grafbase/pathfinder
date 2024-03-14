@@ -1,5 +1,11 @@
 # @pathfinder-ide/react
 
+## 0.7.4
+
+### Patch Changes
+
+- e6da8b9: Change SchemaView component to accept schema as a string
+
 ## 0.7.3
 
 ### Patch Changes
