@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { printSchema } from 'graphql';
 
 import { useSchemaStore, useThemeStore } from '@pathfinder-ide/stores';
 import { RecipeVariants, shared } from '@pathfinder-ide/style';
@@ -9,6 +10,8 @@ import { SchemaDocumentation } from '../schema-documentation';
 import { SchemaView } from '../schema-view';
 
 import { IconProps } from '../components/icon/icon.types';
+
+import { IDE } from '../ide';
 
 import {
   navigationButtonClass,
@@ -21,7 +24,6 @@ import {
   schemaViewWrapInnerClass,
   schemaViewWrapOuterClass,
 } from './reference.css';
-import { IDE } from '../ide';
 
 type AvailablePanes = 'pathfinder' | 'schema_documentation' | 'schema_view';
 
@@ -133,7 +135,7 @@ export const Reference = ({
           >
             <div className={schemaViewWrapOuterClass}>
               <div className={schemaViewWrapInnerClass}>
-                {schema ? <SchemaView schema={schema} /> : <></>}
+                {schema ? <SchemaView schemaString={printSchema(schema)} /> : <></>}
               </div>
             </div>
           </div>

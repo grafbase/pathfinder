@@ -1,29 +1,34 @@
 import { useEffect } from 'react';
-import { printSchema } from 'graphql';
 
 import { getMonacoEditor, initializeTheme } from '@pathfinder-ide/stores';
 
 import { Editor, LoadingSchema } from '../components';
 
 import { schemaViewInnerClass, schemaViewClass } from './schema-view.css';
-import { SharedComponentProps } from '../types';
 
-export const SchemaView = ({ schema, themeOptions }: SharedComponentProps) => {
+import type { ThemeOptions } from '@pathfinder-ide/stores';
+
+type SchemaViewProps = {
+  schemaString?: string;
+  themeOptions?: Partial<ThemeOptions>;
+};
+
+export const SchemaView = ({ schemaString, themeOptions }: SchemaViewProps) => {
   useEffect(() => {
-    if (schema) {
+    if (schemaString) {
       const schemaViewEditor = getMonacoEditor({
         editorId: 'schema-view-editor',
       });
-      schemaViewEditor?.setValue(printSchema(schema));
+      schemaViewEditor?.setValue(schemaString);
     }
-  }, [schema]);
+  }, [schemaString]);
 
   useEffect(() => {
     // set the theme and handle overrides if provided
     initializeTheme({ options: themeOptions });
   });
 
-  if (!schema) {
+  if (!schemaString) {
     return <LoadingSchema />;
   }
 
@@ -32,7 +37,7 @@ export const SchemaView = ({ schema, themeOptions }: SharedComponentProps) => {
       <div className={schemaViewInnerClass}>
         <Editor
           editorId={'schema-view-editor'}
-          defaultValue={printSchema(schema)}
+          defaultValue={schemaString}
           modelDetails={{
             fileName: 'schema-view-editor',
             language: 'graphql',
