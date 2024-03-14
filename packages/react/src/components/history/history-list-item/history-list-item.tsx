@@ -138,7 +138,6 @@ export const HistoryListItem = ({
               onSurface: 3,
               size: 'small',
               title: 'Delete item from history',
-              width: '100%',
               withBorder: false,
             },
           ]}

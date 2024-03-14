@@ -25,7 +25,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       onSurface,
       size,
       title,
-      width = 'fit-content',
+      width = 'auto',
       withBorder,
     }: ButtonProps,
     ref,
