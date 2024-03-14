@@ -1,8 +1,12 @@
 import { useEffect } from 'react';
+import { GraphQLSchema } from 'graphql';
+
 import {
   SchemaDocumentationStoreProvider,
   useSchemaDocumentationStore,
 } from '../../store';
+
+import { initializeTheme, type ThemeOptions } from '@pathfinder-ide/stores';
 
 import { sortTypes } from '../../utils';
 
@@ -22,10 +26,16 @@ import {
 } from './schema-documentation.css';
 
 import { sharedPaneClass } from '../../shared.styles.css';
-import { initializeTheme } from '@pathfinder-ide/stores';
-import { SharedComponentProps } from '../../../types';
 
-export const SchemaDocumentation = ({ schema, themeOptions }: SharedComponentProps) => {
+type SchemaDocumentationProps = {
+  schema?: GraphQLSchema;
+  themeOptions?: Partial<ThemeOptions>;
+};
+
+export const SchemaDocumentation = ({
+  schema,
+  themeOptions,
+}: SchemaDocumentationProps) => {
   return (
     <SchemaDocumentationStoreProvider>
       <SchemaDocumentationComponent schema={schema} themeOptions={themeOptions} />
@@ -33,7 +43,10 @@ export const SchemaDocumentation = ({ schema, themeOptions }: SharedComponentPro
   );
 };
 
-const SchemaDocumentationComponent = ({ schema, themeOptions }: SharedComponentProps) => {
+const SchemaDocumentationComponent = ({
+  schema,
+  themeOptions,
+}: SchemaDocumentationProps) => {
   const { activePrimaryPane, activeTertiaryPane, tertiaryPaneStack } =
     useSchemaDocumentationStore();
 

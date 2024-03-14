@@ -1,21 +1,21 @@
-import { GraphQLSchema } from 'graphql';
+import { printSchema } from 'graphql';
 import { SchemaView } from './schema-view';
 import { testSchema } from '@pathfinder-ide/stores/src/schema-store/test-schema';
 import { useEffect, useState } from 'react';
 
 export const WithSchema = () => {
-  return <SchemaView schema={testSchema} />;
+  return <SchemaView schemaString={printSchema(testSchema)} />;
 };
 
 export const WithDelayedSchema = () => {
-  const [schema, setSchema] = useState<GraphQLSchema | null>(null);
+  const [schema, setSchema] = useState<string | null>(null);
   useEffect(() => {
     setTimeout(() => {
-      setSchema(testSchema);
+      setSchema(printSchema(testSchema));
     }, 2000);
   });
 
-  return <SchemaView schema={schema || undefined} />;
+  return <SchemaView schemaString={schema || undefined} />;
 };
 
 export const WithoutSchema = () => {
