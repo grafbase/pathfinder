@@ -69,6 +69,9 @@ export const buttonClass = recipe({
       },
     },
     width: {
+      auto: {
+        width: 'auto',
+      },
       '100%': {
         width: '100%',
       },
