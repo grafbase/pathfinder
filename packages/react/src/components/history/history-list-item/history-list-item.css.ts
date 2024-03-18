@@ -79,7 +79,7 @@ export const historyListItemClass = recipe({
 
 export const historyListItemStatsSectionClass = style({
   display: 'grid',
-  gridTemplateColumns: '1fr 2.5rem 2.5rem',
+  gridTemplateColumns: '1fr 2.5rem 3.5rem',
   justifyItems: 'flex-end',
 });
 
