@@ -1,5 +1,11 @@
 # @pathfinder-ide/react
 
+## 0.7.5
+
+### Patch Changes
+
+- 89ce794: HistoryListItem: add formatBytes function and improve space available for readout.
+
 ## 0.7.4
 
 ### Patch Changes
