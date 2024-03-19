@@ -450,7 +450,7 @@ importers:
         version: 4.6.9
       '@types/lodash.update':
         specifier: ^4.10.7
-        version: 4.10.7
+        version: 4.10.9
 
   packages/style:
     dependencies:
@@ -3554,10 +3554,10 @@ packages:
       '@types/lodash': 4.17.0
     dev: true
 
-  /@types/lodash.update@4.10.7:
-    resolution: {integrity: sha512-S+s8ORbtkYZl+9EfhVyRZ7TAr7wEl/YRUzNdoTbjiiL2Ef8U/4mjiFo/J5bhWLJ8b8/GCnujXRCAv8EN9BI1VA==}
+  /@types/lodash.update@4.10.9:
+    resolution: {integrity: sha512-5qFtUDaJKM33gBYNRO7HwJfCSY0H7V133E1N7uKH6YbEIOqcxRfrH8WGp7qQ37C5OeTJOOKcEgWjC9M77NZVIw==}
     dependencies:
-      '@types/lodash': 4.14.202
+      '@types/lodash': 4.17.0
     dev: true
 
   /@types/lodash@4.14.202:
