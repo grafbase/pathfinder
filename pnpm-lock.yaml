@@ -354,8 +354,8 @@ importers:
         specifier: 1.14.1
         version: 1.14.1
       '@vanilla-extract/recipes':
-        specifier: 0.5.1
-        version: 0.5.1(@vanilla-extract/css@1.14.1)
+        specifier: 0.5.2
+        version: 0.5.2(@vanilla-extract/css@1.14.1)
       '@vanilla-extract/vite-plugin':
         specifier: 3.9.5
         version: 3.9.5(@types/node@20.4.5)(ts-node@10.9.1)(vite@5.0.12)
@@ -467,8 +467,8 @@ importers:
         specifier: 2.1.0
         version: 2.1.0
       '@vanilla-extract/recipes':
-        specifier: 0.5.1
-        version: 0.5.1(@vanilla-extract/css@1.14.1)
+        specifier: 0.5.2
+        version: 0.5.2(@vanilla-extract/css@1.14.1)
       zustand:
         specifier: 4.4.7
         version: 4.4.7(@types/react@18.2.58)(react@18.2.0)
@@ -4087,8 +4087,8 @@ packages:
   /@vanilla-extract/private@1.0.3:
     resolution: {integrity: sha512-17kVyLq3ePTKOkveHxXuIJZtGYs+cSoev7BlP+Lf4916qfDhk/HBjvlYDe8egrea7LNPHKwSZJK/bzZC+Q6AwQ==}
 
-  /@vanilla-extract/recipes@0.5.1(@vanilla-extract/css@1.14.1):
-    resolution: {integrity: sha512-7dCuBgPQQ/89siQ0w2lkfjgkmToPUUDzFlHf5DRmt9ykiiycfA52tmPJ2RI/mr7jXi7U/vEN2aGP9QJSXEpGlA==}
+  /@vanilla-extract/recipes@0.5.2(@vanilla-extract/css@1.14.1):
+    resolution: {integrity: sha512-IcDw3tFOcSJ+DUxL8MIGbg03eyccYb6NBO/rcgp439PDuHxo5GIQefVeGc1L5mIr/lUVPwDc1N5OXTHiGpiz1A==}
     peerDependencies:
       '@vanilla-extract/css': ^1.0.0
     dependencies:
