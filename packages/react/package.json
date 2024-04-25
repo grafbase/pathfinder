@@ -51,7 +51,7 @@
     "@types/testing-library__jest-dom": "5.14.9",
     "@types/react": "18.2.58",
     "@types/react-dom": "18.2.19",
-    "@vanilla-extract/css": "1.14.1",
+    "@vanilla-extract/css": "1.14.2",
     "@vanilla-extract/recipes": "0.5.2",
     "@vanilla-extract/vite-plugin": "3.9.5",
     "@vitejs/plugin-react": "4.2.1",
