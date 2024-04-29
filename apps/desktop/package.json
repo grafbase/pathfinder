@@ -11,8 +11,8 @@
     "types": "tsc --noEmit"
   },
   "dependencies": {
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "@tauri-apps/api": "^1.4.0"
   },
   "devDependencies": {
@@ -20,8 +20,8 @@
     "@pathfinder-ide/eslint-config": "workspace:*",
     "@pathfinder-ide/style": "workspace:*",
     "@tauri-apps/cli": "^1.4.0",
-    "@types/react": "18.2.58",
-    "@types/react-dom": "18.2.19",
+    "@types/react": "18.3.1",
+    "@types/react-dom": "18.3.0",
     "@vanilla-extract/css": "1.14.2",
     "@vanilla-extract/vite-plugin": "3.9.5",
     "@vitejs/plugin-react": "4.2.1",

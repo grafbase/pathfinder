@@ -11,16 +11,16 @@
   },
   "dependencies": {
     "@ladle/react": "4.0.2",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
   },
   "devDependencies": {
     "@pathfinder-ide/eslint-config": "workspace:*",
     "@pathfinder-ide/react": "workspace:*",
     "@pathfinder-ide/style": "workspace:*",
     "@pathfinder-ide/tsconfig": "workspace:*",
-    "@types/react": "18.2.58",
-    "@types/react-dom": "18.2.19",
+    "@types/react": "18.3.1",
+    "@types/react-dom": "18.3.0",
     "@vanilla-extract/vite-plugin": "3.9.5",
     "@vitejs/plugin-react": "4.2.1",
     "concurrently": "^8.2.2",
