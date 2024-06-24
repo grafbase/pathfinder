@@ -52,7 +52,7 @@
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
     "@vanilla-extract/css": "1.14.2",
-    "@vanilla-extract/recipes": "0.5.2",
+    "@vanilla-extract/recipes": "0.5.3",
     "@vanilla-extract/vite-plugin": "3.9.5",
     "@vitejs/plugin-react": "4.2.1",
     "esbuild": "0.20.2",
