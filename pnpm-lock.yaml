@@ -464,8 +464,8 @@ importers:
         specifier: 1.14.2
         version: 1.14.2
       '@vanilla-extract/dynamic':
-        specifier: 2.1.0
-        version: 2.1.0
+        specifier: 2.1.1
+        version: 2.1.1
       '@vanilla-extract/recipes':
         specifier: 0.5.2
         version: 0.5.2(@vanilla-extract/css@1.14.2)
@@ -3792,10 +3792,10 @@ packages:
       modern-ahocorasick: 1.0.0
       outdent: 0.8.0
 
-  /@vanilla-extract/dynamic@2.1.0:
-    resolution: {integrity: sha512-8zl0IgBYRtgD1h+56Zu13wHTiMTJSVEa4F7RWX9vTB/5Xe2KtjoiqApy/szHPVFA56c+ex6A4GpCQjT1bKXbYw==}
+  /@vanilla-extract/dynamic@2.1.1:
+    resolution: {integrity: sha512-iqf736036ujEIKsIq28UsBEMaLC2vR2DhwKyrG3NDb/fRy9qL9FKl1TqTtBV4daU30Uh3saeik4vRzN8bzQMbw==}
     dependencies:
-      '@vanilla-extract/private': 1.0.3
+      '@vanilla-extract/private': 1.0.5
     dev: false
 
   /@vanilla-extract/integration@6.3.0(@types/node@18.19.38):
@@ -3852,12 +3852,12 @@ packages:
       - terser
     dev: true
 
-  /@vanilla-extract/private@1.0.3:
-    resolution: {integrity: sha512-17kVyLq3ePTKOkveHxXuIJZtGYs+cSoev7BlP+Lf4916qfDhk/HBjvlYDe8egrea7LNPHKwSZJK/bzZC+Q6AwQ==}
-    dev: false
-
   /@vanilla-extract/private@1.0.4:
     resolution: {integrity: sha512-8FGD6AejeC/nXcblgNCM5rnZb9KXa4WNkR03HCWtdJBpANjTgjHEglNLFnhuvdQ78tC6afaxBPI+g7F2NX3tgg==}
+
+  /@vanilla-extract/private@1.0.5:
+    resolution: {integrity: sha512-6YXeOEKYTA3UV+RC8DeAjFk+/okoNz/h88R+McnzA2zpaVqTR/Ep+vszkWYlGBcMNO7vEkqbq5nT/JMMvhi+tw==}
+    dev: false
 
   /@vanilla-extract/recipes@0.5.2(@vanilla-extract/css@1.14.2):
     resolution: {integrity: sha512-IcDw3tFOcSJ+DUxL8MIGbg03eyccYb6NBO/rcgp439PDuHxo5GIQefVeGc1L5mIr/lUVPwDc1N5OXTHiGpiz1A==}
