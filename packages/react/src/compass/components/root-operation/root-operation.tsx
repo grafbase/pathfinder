@@ -1,4 +1,4 @@
-import { FieldNode, GraphQLFieldMap } from 'graphql';
+import { GraphQLFieldMap } from 'graphql';
 
 import type { AncestorRoot, AncestorsArray } from '../../compass-store';
 
@@ -41,7 +41,7 @@ export const RootOperation = ({
                 field: fields[field],
                 selection:
                   operationDefinition?.selectionSet?.selections.find(
-                    (s) => (s as FieldNode).name.value === fields[field].name,
+                    (s) => ("name" in s) ? s.name.value === fields[field].name : false
                   ) || null,
               },
             ]}
