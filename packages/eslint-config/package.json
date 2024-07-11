@@ -7,7 +7,7 @@
     "@typescript-eslint/eslint-plugin": "6.10.0",
     "@typescript-eslint/parser": "6.10.0",
     "eslint": "8.57.0",
-    "eslint-plugin-jest-dom": "5.1.0",
+    "eslint-plugin-jest-dom": "5.4.0",
     "eslint-plugin-react-hooks": "4.6.2",
     "eslint-plugin-testing-library": "6.2.2"
   }
