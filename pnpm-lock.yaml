@@ -154,8 +154,8 @@ importers:
         specifier: ^7.3.4
         version: 7.7.2(astro@3.6.5(@types/node@20.14.10)(typescript@5.4.2))(next@13.5.3(@babel/core@7.24.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       '@fontsource/inter':
-        specifier: 5.0.18
-        version: 5.0.18
+        specifier: 5.0.19
+        version: 5.0.19
       astro:
         specifier: 3.6.5
         version: 3.6.5(@types/node@20.14.10)(typescript@5.4.2)
@@ -1313,8 +1313,8 @@ packages:
     resolution: {integrity: sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
-  '@fontsource/inter@5.0.18':
-    resolution: {integrity: sha512-YCsoYPTcs713sI7tLtxaPrIhXAXvEetGg5Ry02ivA8qUOb3fQHojbK/X9HLD5OOKvFUNR2Ynkwb1kR1hVKQHpw==}
+  '@fontsource/inter@5.0.19':
+    resolution: {integrity: sha512-tVU77yjKnsoUotrXGYbbYxmL9nbm/MSo3deZietmf8V2FEDlbi9fvkJHMrYbo7ZsOqR1AYBBqRYmemz4pSE5Mg==}
 
   '@graphql-tools/executor@1.2.8':
     resolution: {integrity: sha512-0qZs/iuRiYRir7bBkA7oN+21wwmSMPQuFK8WcAcxUYJZRhvnlrJ8Nid++PN4OCzTgHPV70GNFyXOajseVCCffA==}
@@ -7291,7 +7291,7 @@ snapshots:
 
   '@eslint/js@8.57.0': {}
 
-  '@fontsource/inter@5.0.18': {}
+  '@fontsource/inter@5.0.19': {}
 
   '@graphql-tools/executor@1.2.8(graphql@16.9.0)':
     dependencies:
