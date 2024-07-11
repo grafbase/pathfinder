@@ -1,5 +1,12 @@
 # @pathfinder-ide/react
 
+## 0.7.5
+
+### Patch Changes
+
+- 5b048a9: fix: dont crash on spreads in operation root
+- 89ce794: HistoryListItem: add formatBytes function and improve space available for readout.
+
 ## 0.7.4
 
 ### Patch Changes
