@@ -55,7 +55,7 @@
     "@vanilla-extract/recipes": "0.5.3",
     "@vanilla-extract/vite-plugin": "3.9.5",
     "@vitejs/plugin-react": "4.3.1",
-    "esbuild": "0.20.2",
+    "esbuild": "0.23.0",
     "fake-indexeddb": "5.0.2",
     "jsdom": "22.1.0",
     "ts-node": "^10.9.1",
