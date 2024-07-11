@@ -2,6 +2,7 @@
   "name": "ladle",
   "version": "0.0.1",
   "private": true,
+  "type": "module",
   "scripts": {
     "lint": "eslint .",
     "preview": "ladle preview",

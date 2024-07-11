@@ -23,7 +23,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
       - name: Create release
         id: create-release
         uses: actions/github-script@v6
@@ -55,14 +55,14 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
       - run: |
           PACKAGE_JSON_PATH="./apps/desktop"
           echo "PACKAGE_VERSION=$(cat ${PACKAGE_JSON_PATH}/package.json | jq ".version" | tr -d '""')" >> $GITHUB_ENV
         shell: bash
-      - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v3
         with:
-          version: 8
+          version: 9
       - name: Install Rust stable
         uses: dtolnay/rust-toolchain@stable
       - name: Install aarch64-apple-darwin toolchain (macos only)
