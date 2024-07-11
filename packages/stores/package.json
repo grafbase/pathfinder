@@ -25,6 +25,6 @@
     "@types/lodash.update": "^4.10.7"
   },
   "peerDependencies": {
-    "graphql": ">=16.0.0"
+    "graphql": "16.9.0"
   }
 }
