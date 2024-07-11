@@ -35,8 +35,8 @@
     "typescript": "5.2.2"
   },
   "engines": {
-    "node": "18.x",
-    "pnpm": "^8"
+    "node": "20.x",
+    "pnpm": "^9"
   },
   "lint-staged": {
     "*.{js,ts,tsx,css,md,json}": "prettier --write"
