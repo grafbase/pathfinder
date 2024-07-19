@@ -340,7 +340,7 @@ importers:
         version: 14.5.2(@testing-library/dom@9.3.4)
       '@types/lodash':
         specifier: ^4.14.199
-        version: 4.17.6
+        version: 4.17.7
       '@types/react':
         specifier: 18.3.3
         version: 18.3.3
@@ -2115,8 +2115,8 @@ packages:
   '@types/lodash.update@4.10.9':
     resolution: {integrity: sha512-5qFtUDaJKM33gBYNRO7HwJfCSY0H7V133E1N7uKH6YbEIOqcxRfrH8WGp7qQ37C5OeTJOOKcEgWjC9M77NZVIw==}
 
-  '@types/lodash@4.17.6':
-    resolution: {integrity: sha512-OpXEVoCKSS3lQqjx9GGGOapBeuW5eUboYHRlHP9urXPX25IKZ6AnP5ZRxtVf63iieUbsHxLn8NQ5Nlftc6yzAA==}
+  '@types/lodash@4.17.7':
+    resolution: {integrity: sha512-8wTvZawATi/lsmNu10/j2hk1KEP0IvjubqPE3cu1Xz7xfXXt5oCq3SNUz4fMIP4XGF9Ky+Ue2tBA3hcS7LSBlA==}
 
   '@types/mdast@3.0.15':
     resolution: {integrity: sha512-LnwD+mUEfxWMa1QpDraczIn6k0Ee3SMicuYSSzS6ZYl2gKS09EClnJYGd8Du6rfc5r/GZEk5o1mRb8TaTj03sQ==}
@@ -8111,13 +8111,13 @@ snapshots:
 
   '@types/lodash.merge@4.6.9':
     dependencies:
-      '@types/lodash': 4.17.6
+      '@types/lodash': 4.17.7
 
   '@types/lodash.update@4.10.9':
     dependencies:
-      '@types/lodash': 4.17.6
+      '@types/lodash': 4.17.7
 
-  '@types/lodash@4.17.6': {}
+  '@types/lodash@4.17.7': {}
 
   '@types/mdast@3.0.15':
     dependencies:
