@@ -330,8 +330,8 @@ importers:
         specifier: workspace:*
         version: link:../tsconfig
       '@testing-library/jest-dom':
-        specifier: 6.4.6
-        version: 6.4.6(@types/jest@29.5.12)(vitest@1.2.2(@types/node@20.14.10)(jsdom@22.1.0))
+        specifier: 6.4.8
+        version: 6.4.8
       '@testing-library/react':
         specifier: 14.3.1
         version: 14.3.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -2002,26 +2002,9 @@ packages:
     resolution: {integrity: sha512-FlS4ZWlp97iiNWig0Muq8p+3rVDjRiYE+YKGbAqXOu9nwJFFOdL00kFpz42M+4huzYi86vAK1sOOfyOG45muIQ==}
     engines: {node: '>=14'}
 
-  '@testing-library/jest-dom@6.4.6':
-    resolution: {integrity: sha512-8qpnGVincVDLEcQXWaHOf6zmlbwTKc6Us6PPu4CRnPXCzo2OGBS5cwgMMOWdxDpEz1mkbvXHpEy99M5Yvt682w==}
+  '@testing-library/jest-dom@6.4.8':
+    resolution: {integrity: sha512-JD0G+Zc38f5MBHA4NgxQMR5XtO5Jx9g86jqturNTt2WUfRmLDIY7iKkWHDCCTiDuFMre6nxAD5wHw9W5kI4rGw==}
     engines: {node: '>=14', npm: '>=6', yarn: '>=1'}
-    peerDependencies:
-      '@jest/globals': '>= 28'
-      '@types/bun': latest
-      '@types/jest': '>= 28'
-      jest: '>= 28'
-      vitest: '>= 0.32'
-    peerDependenciesMeta:
-      '@jest/globals':
-        optional: true
-      '@types/bun':
-        optional: true
-      '@types/jest':
-        optional: true
-      jest:
-        optional: true
-      vitest:
-        optional: true
 
   '@testing-library/react@14.3.1':
     resolution: {integrity: sha512-H99XjUhWQw0lTgyMN05W3xQG1Nh4lq574D8keFf1dDoNTJgp66VbJozRaczoF+wsiaPJNt/TcnfpLGufGxSrZQ==}
@@ -5601,6 +5584,7 @@ packages:
 
   shikiji@0.6.13:
     resolution: {integrity: sha512-4T7X39csvhT0p7GDnq9vysWddf2b6BeioiN3Ymhnt3xcy9tXmDcnsEFVxX18Z4YcQgEE/w48dLJ4pPPUcG9KkA==}
+    deprecated: Shikiji is merged back to Shiki v1.0, please migrate over to get the latest updates
 
   side-channel@1.0.6:
     resolution: {integrity: sha512-fDW/EZ6Q9RiO8eFG8Hj+7u/oW+XrPTIChwCOM2+th2A6OblDtYYIpve9m+KvI9Z4C9qSEXlaGR6bTEYHReuglA==}
@@ -8005,7 +7989,7 @@ snapshots:
       lz-string: 1.5.0
       pretty-format: 27.5.1
 
-  '@testing-library/jest-dom@6.4.6(@types/jest@29.5.12)(vitest@1.2.2(@types/node@20.14.10)(jsdom@22.1.0))':
+  '@testing-library/jest-dom@6.4.8':
     dependencies:
       '@adobe/css-tools': 4.4.0
       '@babel/runtime': 7.24.8
@@ -8015,9 +7999,6 @@ snapshots:
       dom-accessibility-api: 0.6.3
       lodash: 4.17.21
       redent: 3.0.0
-    optionalDependencies:
-      '@types/jest': 29.5.12
-      vitest: 1.2.2(@types/node@20.14.10)(jsdom@22.1.0)
 
   '@testing-library/react@14.3.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
