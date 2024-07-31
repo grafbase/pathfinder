@@ -1,4 +1,4 @@
-import { GraphQLSchema, printSchema } from 'graphql';
+import { printSchema } from 'graphql';
 import { useState, useEffect } from 'react';
 import { SchemaView } from '../schema-view';
 import { SchemaDocumentation } from './components/schema-documentation';
@@ -34,6 +34,15 @@ export const WithSchemaAndThemeOptions = () => {
 
 export const WithSchema = () => {
   return <SchemaDocumentation schema={testSchema} />;
+};
+
+export const WithSchemaAndTertiaryPaneFieldSlotComponent = () => {
+  return (
+    <SchemaDocumentation
+      schema={testSchema}
+      tertiaryPaneFieldSlotComponent={<>I'm a tertiaryPaneFieldSlotComponent!</>}
+    />
+  );
 };
 
 export const WithDelayedSchema = () => {
