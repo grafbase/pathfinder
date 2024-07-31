@@ -36,15 +36,11 @@ export const SchemaDocumentation = ({
   const activePrimaryPane = useSchemaDocumenationStore.use.activePrimaryPane();
   const activeTertiaryPane = useSchemaDocumenationStore.use.activeTertiaryPane();
   const tertiaryPaneStack = useSchemaDocumenationStore.use.tertiaryPaneStack();
-  const clearTertiaryPaneStack =
-    useSchemaDocumenationStore.getState().clearTertiaryPaneStack;
 
   useEffect(() => {
     // set the theme and handle overrides if provided
     initializeTheme({ options: themeOptions });
-
-    return () => clearTertiaryPaneStack();
-  }, [clearTertiaryPaneStack, themeOptions]);
+  }, [themeOptions]);
 
   if (!schema) {
     return <LoadingSchema />;
