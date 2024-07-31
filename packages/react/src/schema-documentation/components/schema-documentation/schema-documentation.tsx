@@ -1,10 +1,7 @@
 import { useEffect } from 'react';
 import { GraphQLSchema } from 'graphql';
 
-import {
-  SchemaDocumentationStoreProvider,
-  useSchemaDocumentationStore,
-} from '../../store';
+import { useSchemaDocumenationStore } from '../../store';
 
 import { initializeTheme, type ThemeOptions } from '@pathfinder-ide/stores';
 
@@ -36,24 +33,22 @@ export const SchemaDocumentation = ({
   schema,
   themeOptions,
 }: SchemaDocumentationProps) => {
-  return (
-    <SchemaDocumentationStoreProvider>
-      <SchemaDocumentationComponent schema={schema} themeOptions={themeOptions} />
-    </SchemaDocumentationStoreProvider>
-  );
-};
-
-const SchemaDocumentationComponent = ({
-  schema,
-  themeOptions,
-}: SchemaDocumentationProps) => {
-  const { activePrimaryPane, activeTertiaryPane, tertiaryPaneStack } =
-    useSchemaDocumentationStore();
+  const activePrimaryPane = useSchemaDocumenationStore.use.activePrimaryPane();
+  const activeTertiaryPane = useSchemaDocumenationStore.use.activeTertiaryPane();
+  const tertiaryPaneStack = useSchemaDocumenationStore.use.tertiaryPaneStack();
+  const clearTertiaryPaneStack =
+    useSchemaDocumenationStore.getState().clearTertiaryPaneStack;
 
   useEffect(() => {
+    clearTertiaryPaneStack();
+
     // set the theme and handle overrides if provided
     initializeTheme({ options: themeOptions });
-  });
+
+    return () => {
+      return clearTertiaryPaneStack();
+    };
+  }, [clearTertiaryPaneStack, themeOptions]);
 
   if (!schema) {
     return <LoadingSchema />;

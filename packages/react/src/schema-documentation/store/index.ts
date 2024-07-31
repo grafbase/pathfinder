@@ -1,4 +1,1 @@
-export {
-  SchemaDocumentationStoreProvider,
-  useSchemaDocumentationStore,
-} from './schema-documentation-store';
+export { useSchemaDocumenationStore } from './schema-documentation-store';

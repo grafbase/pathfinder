@@ -9,24 +9,15 @@ import { compassClass } from './compass.css';
 import { LoadingSchema, Tabs } from '../components';
 import { TabsProps } from '../components/tabs/tabs.types';
 
-import {
-  SchemaDocumentationStoreProvider,
-  useSchemaDocumentationStore,
-} from '../schema-documentation';
+import { useSchemaDocumenationStore } from '../schema-documentation';
 
 export const Compass = () => {
-  return (
-    <SchemaDocumentationStoreProvider>
-      <CompassComponent />
-    </SchemaDocumentationStoreProvider>
-  );
-};
-
-const CompassComponent = () => {
   // local state to control whether we should show the query or mutation tab
   const [selectedTabIndex, setSelectedTabIndex] = useState<number>(0);
 
-  const { activeTertiaryPane } = useSchemaDocumentationStore();
+  const activeTertiaryPane = useSchemaDocumenationStore.use.activeTertiaryPane();
+  const clearTertiaryPaneStack =
+    useSchemaDocumenationStore.getState().clearTertiaryPaneStack;
 
   const schema = useSchemaStore.use.schema();
 
@@ -52,6 +43,17 @@ const CompassComponent = () => {
     // "subscription"
     return setSelectedTabIndex(2);
   }, [operationDefinition, schema]);
+
+  useEffect(() => {
+    // clear tertiary stack when compass mounts and dismounts
+    clearTertiaryPaneStack();
+
+    return () => {
+      return clearTertiaryPaneStack();
+    };
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (!schema) {
     return <LoadingSchema />;
