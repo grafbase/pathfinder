@@ -40,8 +40,8 @@ export const RootOperation = ({
                 type: 'FIELD',
                 field: fields[field],
                 selection:
-                  operationDefinition?.selectionSet?.selections.find(
-                    (s) => ("name" in s) ? s.name.value === fields[field].name : false
+                  operationDefinition?.selectionSet?.selections.find((s) =>
+                    'name' in s ? s.name.value === fields[field].name : false,
                   ) || null,
               },
             ]}
