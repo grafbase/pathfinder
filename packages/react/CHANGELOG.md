@@ -1,5 +1,11 @@
 # @pathfinder-ide/react
 
+## 0.7.8
+
+### Patch Changes
+
+- 4a0383d: Fix: fully remove automated tertiaryPaneStack clearing in favor of manual clearing
+
 ## 0.7.7
 
 ### Patch Changes
