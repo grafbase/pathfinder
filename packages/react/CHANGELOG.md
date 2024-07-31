@@ -1,5 +1,11 @@
 # @pathfinder-ide/react
 
+## 0.7.6
+
+### Patch Changes
+
+- ae28b0f: Refactors SchemaDocumentation to no longer require a context provider
+
 ## 0.7.5
 
 ### Patch Changes
