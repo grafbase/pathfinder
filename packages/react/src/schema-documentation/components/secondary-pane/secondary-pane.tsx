@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react';
 import type { GraphQLDirective, GraphQLNamedType, GraphQLObjectType } from 'graphql';
 
-import { useSchemaDocumentationStore } from '../../store';
+import { useSchemaDocumenationStore } from '../../store';
 
 import { SortedTypeMap } from '../../types';
 
@@ -70,7 +70,8 @@ export const SecondaryPane = ({
   subscriptionRootType: GraphQLObjectType | null;
   sortedTypes: SortedTypeMap;
 }) => {
-  const { activePrimaryPane, activeTertiaryPane } = useSchemaDocumentationStore();
+  const activePrimaryPane = useSchemaDocumenationStore.use.activePrimaryPane();
+  const activeTertiaryPane = useSchemaDocumenationStore.use.activeTertiaryPane();
 
   let toRender: ReactElement = <></>;
 

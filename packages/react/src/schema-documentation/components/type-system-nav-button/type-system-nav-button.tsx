@@ -1,4 +1,4 @@
-import { useSchemaDocumentationStore } from '../../store';
+import { useSchemaDocumenationStore } from '../../store';
 
 import { Pill } from '../../../components';
 
@@ -15,8 +15,10 @@ export const TypeSystemNavButton = ({
   copy: string | React.ReactElement;
   count: string;
 }) => {
-  const { activePrimaryPane, setActivePrimaryPane, clearTertiaryPaneStack } =
-    useSchemaDocumentationStore();
+  const { setActivePrimaryPane, clearTertiaryPaneStack } =
+    useSchemaDocumenationStore.getState();
+
+  const activePrimaryPane = useSchemaDocumenationStore.use.activePrimaryPane();
 
   return (
     <button
