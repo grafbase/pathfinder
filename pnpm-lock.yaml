@@ -87,14 +87,14 @@ importers:
     dependencies:
       '@graphql-yoga/plugin-defer-stream':
         specifier: ^3.1.1
-        version: 3.6.0(graphql-yoga@5.6.0(graphql@16.9.0))(graphql@16.9.0)
+        version: 3.6.0(graphql-yoga@5.6.1(graphql@16.9.0))(graphql@16.9.0)
     devDependencies:
       '@pathfinder-ide/stores':
         specifier: workspace:*
         version: link:../../packages/stores
       graphql-yoga:
         specifier: ^5.6.0
-        version: 5.6.0(graphql@16.9.0)
+        version: 5.6.1(graphql@16.9.0)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@swc/core@1.6.13)(@types/node@20.14.10)(typescript@5.4.2)
@@ -340,7 +340,7 @@ importers:
         version: 14.5.2(@testing-library/dom@9.3.4)
       '@types/lodash':
         specifier: ^4.14.199
-        version: 4.17.6
+        version: 4.17.7
       '@types/react':
         specifier: 18.3.3
         version: 18.3.3
@@ -1346,6 +1346,12 @@ packages:
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
 
+  '@graphql-tools/utils@10.3.2':
+    resolution: {integrity: sha512-iaqOHS4f90KNADBHqVsRBjKpM6iSvsUg1q5GhWMK03loYLaDzftrEwcsl0OkSSnRhJvAsT7q4q3r3YzRoV0v1g==}
+    engines: {node: '>=16.0.0'}
+    peerDependencies:
+      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+
   '@graphql-typed-document-node/core@3.2.0':
     resolution: {integrity: sha512-mB9oAsNCm9aM3/SOv4YtBMqZbYj10R7dkq8byBqxGY/ncFwhf2oQzMV+LCRlWoDSEBJ3COiR1yeDvMtsoOsuFQ==}
     peerDependencies:
@@ -2109,8 +2115,8 @@ packages:
   '@types/lodash.update@4.10.9':
     resolution: {integrity: sha512-5qFtUDaJKM33gBYNRO7HwJfCSY0H7V133E1N7uKH6YbEIOqcxRfrH8WGp7qQ37C5OeTJOOKcEgWjC9M77NZVIw==}
 
-  '@types/lodash@4.17.6':
-    resolution: {integrity: sha512-OpXEVoCKSS3lQqjx9GGGOapBeuW5eUboYHRlHP9urXPX25IKZ6AnP5ZRxtVf63iieUbsHxLn8NQ5Nlftc6yzAA==}
+  '@types/lodash@4.17.7':
+    resolution: {integrity: sha512-8wTvZawATi/lsmNu10/j2hk1KEP0IvjubqPE3cu1Xz7xfXXt5oCq3SNUz4fMIP4XGF9Ky+Ue2tBA3hcS7LSBlA==}
 
   '@types/mdast@3.0.15':
     resolution: {integrity: sha512-LnwD+mUEfxWMa1QpDraczIn6k0Ee3SMicuYSSzS6ZYl2gKS09EClnJYGd8Du6rfc5r/GZEk5o1mRb8TaTj03sQ==}
@@ -3720,8 +3726,8 @@ packages:
     peerDependencies:
       graphql: '>=0.11 <=16'
 
-  graphql-yoga@5.6.0:
-    resolution: {integrity: sha512-MqzHRPmiMSilYLDbJtAnXN7oyggd446a4F9dyj/H4gCmM/3YllCYw3vtKcmsykorsfiSKCYpCf5CimNXIVaHHg==}
+  graphql-yoga@5.6.1:
+    resolution: {integrity: sha512-eYWxCLP/qykU/zrmuMtGTZW9J2FTRZzGfaJuYieV3ATbZCfUr2se7OtsK6cm1k3QJQwx9ty87q1GjpxjBOdR3Q==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       graphql: ^15.2.0 || ^16.0.0
@@ -7304,7 +7310,7 @@ snapshots:
 
   '@graphql-tools/executor@1.2.8(graphql@16.9.0)':
     dependencies:
-      '@graphql-tools/utils': 10.3.1(graphql@16.9.0)
+      '@graphql-tools/utils': 10.3.2(graphql@16.9.0)
       '@graphql-typed-document-node/core': 3.2.0(graphql@16.9.0)
       '@repeaterjs/repeater': 3.0.6
       graphql: 16.9.0
@@ -7313,19 +7319,27 @@ snapshots:
 
   '@graphql-tools/merge@9.0.4(graphql@16.9.0)':
     dependencies:
-      '@graphql-tools/utils': 10.3.1(graphql@16.9.0)
+      '@graphql-tools/utils': 10.3.2(graphql@16.9.0)
       graphql: 16.9.0
       tslib: 2.6.3
 
   '@graphql-tools/schema@10.0.4(graphql@16.9.0)':
     dependencies:
       '@graphql-tools/merge': 9.0.4(graphql@16.9.0)
-      '@graphql-tools/utils': 10.3.1(graphql@16.9.0)
+      '@graphql-tools/utils': 10.3.2(graphql@16.9.0)
       graphql: 16.9.0
       tslib: 2.6.3
       value-or-promise: 1.0.12
 
   '@graphql-tools/utils@10.3.1(graphql@16.9.0)':
+    dependencies:
+      '@graphql-typed-document-node/core': 3.2.0(graphql@16.9.0)
+      cross-inspect: 1.0.0
+      dset: 3.1.3
+      graphql: 16.9.0
+      tslib: 2.6.3
+
+  '@graphql-tools/utils@10.3.2(graphql@16.9.0)':
     dependencies:
       '@graphql-typed-document-node/core': 3.2.0(graphql@16.9.0)
       cross-inspect: 1.0.0
@@ -7341,11 +7355,11 @@ snapshots:
     dependencies:
       tslib: 2.6.3
 
-  '@graphql-yoga/plugin-defer-stream@3.6.0(graphql-yoga@5.6.0(graphql@16.9.0))(graphql@16.9.0)':
+  '@graphql-yoga/plugin-defer-stream@3.6.0(graphql-yoga@5.6.1(graphql@16.9.0))(graphql@16.9.0)':
     dependencies:
       '@graphql-tools/utils': 10.3.1(graphql@16.9.0)
       graphql: 16.9.0
-      graphql-yoga: 5.6.0(graphql@16.9.0)
+      graphql-yoga: 5.6.1(graphql@16.9.0)
 
   '@graphql-yoga/subscription@5.0.1':
     dependencies:
@@ -8097,13 +8111,13 @@ snapshots:
 
   '@types/lodash.merge@4.6.9':
     dependencies:
-      '@types/lodash': 4.17.6
+      '@types/lodash': 4.17.7
 
   '@types/lodash.update@4.10.9':
     dependencies:
-      '@types/lodash': 4.17.6
+      '@types/lodash': 4.17.7
 
-  '@types/lodash@4.17.6': {}
+  '@types/lodash@4.17.7': {}
 
   '@types/mdast@3.0.15':
     dependencies:
@@ -10380,12 +10394,12 @@ snapshots:
     dependencies:
       graphql: 16.9.0
 
-  graphql-yoga@5.6.0(graphql@16.9.0):
+  graphql-yoga@5.6.1(graphql@16.9.0):
     dependencies:
       '@envelop/core': 5.0.1
       '@graphql-tools/executor': 1.2.8(graphql@16.9.0)
       '@graphql-tools/schema': 10.0.4(graphql@16.9.0)
-      '@graphql-tools/utils': 10.3.1(graphql@16.9.0)
+      '@graphql-tools/utils': 10.3.2(graphql@16.9.0)
       '@graphql-yoga/logger': 2.0.0
       '@graphql-yoga/subscription': 5.0.1
       '@whatwg-node/fetch': 0.9.18

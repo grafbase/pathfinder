@@ -7,7 +7,7 @@ import type {
 
 import { unwrapType } from '@pathfinder-ide/shared';
 
-import { useSchemaDocumentationStore } from '../../store';
+import { useSchemaDocumenationStore } from '../../store';
 
 import { ArgumentsList } from '../arguments-list';
 import { DefaultValue } from '../default-value';
@@ -20,6 +20,7 @@ import {
   scalarArgumentNameClass,
   tertiaryTriggerButtonClass,
 } from '../../shared.styles.css';
+
 import { Delimiter } from '../delimiter';
 
 export const SummaryField = ({
@@ -30,7 +31,7 @@ export const SummaryField = ({
   field: GraphQLField<any, any, any>;
   resetTertiaryPaneOnClick: boolean;
 }) => {
-  const { setActiveTertiaryPane } = useSchemaDocumentationStore();
+  const { setActiveTertiaryPane } = useSchemaDocumenationStore.getState();
 
   return (
     <div className={summaryFieldClass}>
@@ -74,7 +75,7 @@ export const SummaryField = ({
 };
 
 export const SummaryInputField = ({ inputField }: { inputField: GraphQLInputField }) => {
-  const { setActiveTertiaryPane } = useSchemaDocumentationStore();
+  const { setActiveTertiaryPane } = useSchemaDocumenationStore.getState();
 
   return (
     <div className={summaryFieldClass}>
@@ -106,7 +107,7 @@ export const SummaryType = ({
   showDescription: boolean;
   type: GraphQLNamedType | GraphQLDirective;
 }) => {
-  const { setActiveTertiaryPane } = useSchemaDocumentationStore();
+  const { setActiveTertiaryPane } = useSchemaDocumenationStore.getState();
 
   return (
     <div className={summaryTypeClass}>

@@ -6,7 +6,8 @@ export {
 
 export { Pathfinder } from './pathfinder';
 
+export { useSchemaDocumenationStore } from './schema-documentation/index';
+
 // schema-dependent components
 export { SchemaDocumentation } from './schema-documentation';
-
 export { SchemaView } from './schema-view';

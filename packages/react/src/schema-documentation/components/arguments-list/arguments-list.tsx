@@ -2,7 +2,7 @@ import { GraphQLArgument, isInputObjectType } from 'graphql';
 
 import { unwrapType } from '@pathfinder-ide/shared';
 
-import { useSchemaDocumentationStore } from '../../store';
+import { useSchemaDocumenationStore } from '../../store';
 
 import { DefaultValue } from '../default-value';
 import { Delimiter } from '../delimiter';
@@ -23,7 +23,7 @@ export const ArgumentsList = ({
   showBorder?: boolean;
   showDescription?: boolean;
 }) => {
-  const { setActiveTertiaryPane } = useSchemaDocumentationStore();
+  const { setActiveTertiaryPane } = useSchemaDocumenationStore.getState();
 
   if (args.length < 1) {
     return null;
@@ -37,7 +37,6 @@ export const ArgumentsList = ({
               showDescription,
             })}
             key={a.name}
-            data-testid="dsfsdfdsfdsf"
           >
             <div>
               {isInputObjectType(a.type) ? (

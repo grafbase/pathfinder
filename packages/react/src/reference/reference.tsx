@@ -6,7 +6,7 @@ import { RecipeVariants, shared } from '@pathfinder-ide/style';
 
 import { Icon } from '../components';
 import { ConnectionBar } from '../components/connection-bar';
-import { SchemaDocumentation } from '../schema-documentation';
+import { SchemaDocumentation, useSchemaDocumenationStore } from '../schema-documentation';
 import { SchemaView } from '../schema-view';
 
 import { IconProps } from '../components/icon/icon.types';
@@ -45,6 +45,10 @@ const NavButton = ({
   visiblePane: AvailablePanes;
 }) => {
   const title = `View ${panesMap[paneName]}`;
+
+  const clearTertiaryPaneStack =
+    useSchemaDocumenationStore.getState().clearTertiaryPaneStack;
+
   return (
     <button
       aria-label={title}
@@ -52,7 +56,10 @@ const NavButton = ({
       className={navigationButtonClass({
         isActive: visiblePane === paneName,
       })}
-      onClick={() => setVisiblePane(paneName)}
+      onClick={() => {
+        clearTertiaryPaneStack();
+        return setVisiblePane(paneName);
+      }}
     >
       <Icon name={iconName} size={'large'} />
     </button>

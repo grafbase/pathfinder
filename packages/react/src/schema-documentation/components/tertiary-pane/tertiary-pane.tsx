@@ -11,8 +11,6 @@ import {
   isUnionType,
 } from 'graphql';
 
-import { useSchemaDocumentationStore } from '../../store';
-
 import {
   LeafScalar,
   LeafEnum,
@@ -37,13 +35,13 @@ import {
   tertiaryPaneNavButtonWrapClass,
 } from './tertiary-pane.css';
 
+import { useSchemaDocumenationStore } from '../../store';
+
 export const TertiaryPane = ({ pane }: { pane: TertiaryPaneType }) => {
-  const {
-    activeTertiaryPane,
-    clearTertiaryPaneStack,
-    navigateTertiaryPaneStack,
-    tertiaryPaneStack,
-  } = useSchemaDocumentationStore();
+  const activeTertiaryPane = useSchemaDocumenationStore.use.activeTertiaryPane();
+  const tertiaryPaneStack = useSchemaDocumenationStore.use.tertiaryPaneStack();
+  const { clearTertiaryPaneStack, navigateTertiaryPaneStack } =
+    useSchemaDocumenationStore.getState();
 
   if (!activeTertiaryPane) {
     return null;
