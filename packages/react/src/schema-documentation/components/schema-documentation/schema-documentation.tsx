@@ -40,14 +40,10 @@ export const SchemaDocumentation = ({
     useSchemaDocumenationStore.getState().clearTertiaryPaneStack;
 
   useEffect(() => {
-    clearTertiaryPaneStack();
-
     // set the theme and handle overrides if provided
     initializeTheme({ options: themeOptions });
 
-    return () => {
-      return clearTertiaryPaneStack();
-    };
+    return () => clearTertiaryPaneStack();
   }, [clearTertiaryPaneStack, themeOptions]);
 
   if (!schema) {
