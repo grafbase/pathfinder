@@ -45,12 +45,8 @@ export const Compass = () => {
   }, [operationDefinition, schema]);
 
   useEffect(() => {
-    // clear tertiary stack when compass mounts and dismounts
-    clearTertiaryPaneStack();
-
-    return () => {
-      return clearTertiaryPaneStack();
-    };
+    // clear tertiary stack when compass dismounts
+    return () => clearTertiaryPaneStack();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
