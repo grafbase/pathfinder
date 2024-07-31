@@ -16,8 +16,6 @@ export const Compass = () => {
   const [selectedTabIndex, setSelectedTabIndex] = useState<number>(0);
 
   const activeTertiaryPane = useSchemaDocumenationStore.use.activeTertiaryPane();
-  const clearTertiaryPaneStack =
-    useSchemaDocumenationStore.getState().clearTertiaryPaneStack;
 
   const schema = useSchemaStore.use.schema();
 
@@ -43,13 +41,6 @@ export const Compass = () => {
     // "subscription"
     return setSelectedTabIndex(2);
   }, [operationDefinition, schema]);
-
-  useEffect(() => {
-    // clear tertiary stack when compass dismounts
-    return () => clearTertiaryPaneStack();
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   if (!schema) {
     return <LoadingSchema />;
