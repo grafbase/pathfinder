@@ -1,5 +1,11 @@
 # @pathfinder-ide/react
 
+## 0.7.7
+
+### Patch Changes
+
+- 9dd3489: Fix tertiary nav stack clearing in SchemaDocs components
+
 ## 0.7.6
 
 ### Patch Changes
