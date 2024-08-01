@@ -1,5 +1,11 @@
 # @pathfinder-ide/react
 
+## 0.7.10
+
+### Patch Changes
+
+- 1c470b6: Add parent ObjectType info to tertiary panes of type GraphQLField
+
 ## 0.7.9
 
 ### Patch Changes
