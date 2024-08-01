@@ -1,5 +1,11 @@
 # @pathfinder-ide/react
 
+## 0.7.9
+
+### Patch Changes
+
+- fb5ecdf: Adds a prop (tertiaryPaneFieldSlotComponent) to the SchemaDocumentation component that accepts a ReactNode to be displayed in the TertiaryPane component when a field pane is active
+
 ## 0.7.8
 
 ### Patch Changes
