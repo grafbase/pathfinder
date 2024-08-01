@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { ReactNode, useEffect } from 'react';
 import { GraphQLSchema } from 'graphql';
 
 import { useSchemaDocumenationStore } from '../../store';
@@ -27,11 +27,13 @@ import { sharedPaneClass } from '../../shared.styles.css';
 type SchemaDocumentationProps = {
   schema?: GraphQLSchema;
   themeOptions?: Partial<ThemeOptions>;
+  tertiaryPaneFieldSlotComponent?: ReactNode;
 };
 
 export const SchemaDocumentation = ({
   schema,
   themeOptions,
+  tertiaryPaneFieldSlotComponent,
 }: SchemaDocumentationProps) => {
   const activePrimaryPane = useSchemaDocumenationStore.use.activePrimaryPane();
   const activeTertiaryPane = useSchemaDocumenationStore.use.activeTertiaryPane();
@@ -148,7 +150,10 @@ export const SchemaDocumentation = ({
                   component: (
                     <>
                       {activeTertiaryPane && (
-                        <TertiaryPane pane={activeTertiaryPane['pane']} />
+                        <TertiaryPane
+                          pane={activeTertiaryPane['pane']}
+                          fieldSlotComponent={tertiaryPaneFieldSlotComponent || undefined}
+                        />
                       )}
                     </>
                   ),

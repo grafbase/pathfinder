@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { ReactElement, ReactNode } from 'react';
 
 import {
   isDirective,
@@ -37,7 +37,13 @@ import {
 
 import { useSchemaDocumenationStore } from '../../store';
 
-export const TertiaryPane = ({ pane }: { pane: TertiaryPaneType }) => {
+export const TertiaryPane = ({
+  pane,
+  fieldSlotComponent,
+}: {
+  pane: TertiaryPaneType;
+  fieldSlotComponent?: ReactNode;
+}) => {
   const activeTertiaryPane = useSchemaDocumenationStore.use.activeTertiaryPane();
   const tertiaryPaneStack = useSchemaDocumenationStore.use.tertiaryPaneStack();
   const { clearTertiaryPaneStack, navigateTertiaryPaneStack } =
@@ -90,7 +96,12 @@ export const TertiaryPane = ({ pane }: { pane: TertiaryPaneType }) => {
 
   if (activeTertiaryPane && 'args' in pane && !isDirective(pane)) {
     leadType = 'Field';
-    toRender = <LeafField field={pane} />;
+    toRender = (
+      <>
+        <LeafField field={pane} />
+        {fieldSlotComponent && fieldSlotComponent}
+      </>
+    );
   }
 
   return (
