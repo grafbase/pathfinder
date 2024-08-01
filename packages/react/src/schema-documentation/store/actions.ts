@@ -4,6 +4,7 @@ import {
   GetSchemaDocumentationStore,
   SetSchemaDocumentationStore,
   SchemaDocumentationStoreActions,
+  TertiaryPaneStackItem,
 } from './schema-documentation-store.types';
 
 export const schemaDocumentationStoreActions = (
@@ -28,11 +29,15 @@ export const schemaDocumentationStoreActions = (
       tertiaryPaneStack: tertiaryPaneStack.slice(0, destinationPaneIndex + 1),
     });
   },
-  setActiveTertiaryPane: ({ destinationPane, reset = false }) => {
+  setActiveTertiaryPane: ({ destinationPane, parentType, reset = false }) => {
     // generate a unique id for our pane
     const paneHash = generateCuid({});
 
-    const pane = { hash: paneHash, pane: destinationPane };
+    const pane: TertiaryPaneStackItem = {
+      hash: paneHash,
+      pane: destinationPane,
+      parentType,
+    };
     if (reset) {
       set({
         activeTertiaryPane: pane,

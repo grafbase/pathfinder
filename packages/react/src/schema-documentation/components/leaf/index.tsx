@@ -64,8 +64,14 @@ export const LeafEnum = ({ type }: { type: GraphQLEnumType }) => {
   );
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const LeafField = ({ field }: { field: GraphQLField<any, any> }) => {
+export const LeafField = ({
+  field,
+  parentType,
+}: {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  field: GraphQLField<any, any>;
+  parentType?: GraphQLObjectType;
+}) => {
   const { setActiveTertiaryPane } = useSchemaDocumenationStore.getState();
 
   return (
@@ -75,7 +81,7 @@ export const LeafField = ({ field }: { field: GraphQLField<any, any> }) => {
         <button
           className={returnTypeButtonClass}
           onClick={() =>
-            setActiveTertiaryPane({ destinationPane: unwrapType(field.type) })
+            setActiveTertiaryPane({ destinationPane: unwrapType(field.type), parentType })
           }
         >
           {field.type.toString()}
@@ -117,7 +123,7 @@ export const LeafObject = ({ type }: { type: GraphQLObjectType }) => {
   return (
     <>
       <SectionDescription description={type.description} />
-      <SectionFields fields={fields} resetTertiaryPaneOnClick={false} />
+      <SectionFields fields={fields} parentType={type} resetTertiaryPaneOnClick={false} />
       <SectionInterface interfaces={interfaces} />
     </>
   );
