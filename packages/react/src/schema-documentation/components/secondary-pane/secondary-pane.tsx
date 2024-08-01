@@ -52,7 +52,11 @@ const RootOperationDetails = ({
         <Markdown content={rootOperationType.name} />
       </Section>
       <SectionDescription description={rootOperationType.description} />
-      <SectionFields fields={fields} resetTertiaryPaneOnClick={true} />
+      <SectionFields
+        fields={fields}
+        parentType={rootOperationType}
+        resetTertiaryPaneOnClick={true}
+      />
     </>
   );
 };

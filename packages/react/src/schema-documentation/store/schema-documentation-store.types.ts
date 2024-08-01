@@ -1,8 +1,14 @@
 import { StoreApi } from 'zustand';
 
 import { TertiaryPaneType, TopLevelPane } from '../types';
+import { GraphQLObjectType } from 'graphql';
 
-type TertiaryPaneStackItem = { hash: string; pane: TertiaryPaneType };
+export type TertiaryPaneStackItem = {
+  hash: string;
+  pane: TertiaryPaneType;
+  /** For TertiaryPaneType of GraphQLField, we'll provide the parent type */
+  parentType?: GraphQLObjectType;
+};
 
 export type SchemaDocumentationStoreActions = {
   setActivePrimaryPane: ({ destinationPane }: { destinationPane: TopLevelPane }) => void;
@@ -14,9 +20,11 @@ export type SchemaDocumentationStoreActions = {
   }) => void;
   setActiveTertiaryPane: ({
     destinationPane,
+    parentType,
     reset,
   }: {
     destinationPane: TertiaryPaneType;
+    parentType?: GraphQLObjectType;
     reset?: boolean;
   }) => void;
 };

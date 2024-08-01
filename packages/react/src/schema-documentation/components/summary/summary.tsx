@@ -3,6 +3,7 @@ import type {
   GraphQLField,
   GraphQLInputField,
   GraphQLNamedType,
+  GraphQLObjectType,
 } from 'graphql';
 
 import { unwrapType } from '@pathfinder-ide/shared';
@@ -25,10 +26,12 @@ import { Delimiter } from '../delimiter';
 
 export const SummaryField = ({
   field,
+  parentType,
   resetTertiaryPaneOnClick,
 }: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   field: GraphQLField<any, any, any>;
+  parentType?: GraphQLObjectType;
   resetTertiaryPaneOnClick: boolean;
 }) => {
   const { setActiveTertiaryPane } = useSchemaDocumenationStore.getState();
@@ -42,6 +45,7 @@ export const SummaryField = ({
         onClick={() =>
           setActiveTertiaryPane({
             destinationPane: field,
+            parentType,
             reset: resetTertiaryPaneOnClick,
           })
         }
