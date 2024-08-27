@@ -1,25 +1,23 @@
-const { promise, resolve, reject } =
-  Promise.withResolvers<typeof import('monaco-editor')>();
+let importingPromise: Promise<typeof import('monaco-editor')> | null = null;
 
 export function importMonaco() {
-  return promise;
+  if (importFn === null)
+    throw new Error(
+      'You have to set the monaco importer first before calling importMonaco',
+    );
+
+  if (importingPromise === null) {
+    importingPromise = importFn();
+  }
+
+  return importingPromise;
 }
 
-let isImporterSet = false;
+let importFn: null | (() => Promise<typeof import('monaco-editor')>) = null;
 
 export function setMonacoImporter(
-  dynamicImport: Promise<{ default: typeof import('monaco-editor') }>,
+  dynamicImport: () => Promise<typeof import('monaco-editor')>,
 ) {
-  if (isImporterSet) return;
-
-  isImporterSet = true;
-  dynamicImport
-    .then(({ default: monacoPackage }) => {
-      resolve(monacoPackage);
-    })
-    .catch(reject);
-}
-
-if (process.env.LITE_MODE !== 'true') {
-  setMonacoImporter(import('monaco-graphql/esm/monaco-editor'));
+  if (importFn !== null) return;
+  importFn = dynamicImport;
 }

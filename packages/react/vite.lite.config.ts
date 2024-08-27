@@ -5,11 +5,12 @@ import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 import dts from 'vite-plugin-dts';
 import pluginReact from '@vitejs/plugin-react';
 
-process.env.LITE_MODE = 'true';
-
 export default defineConfig({
   // 👇 https://github.com/vitejs/vite/issues/11943#issuecomment-1419293906
   base: './',
+  define: {
+    'import.meta.__IS_LITE_MODE_': 'true',
+  },
   build: {
     target: 'ESNext',
     outDir: 'lite-dist',
@@ -20,7 +21,7 @@ export default defineConfig({
       formats: ['es'],
     },
     rollupOptions: {
-      external: ['react', 'react-dom', 'graphql', 'monaco-editor', 'monaco-graphql'],
+      external: ['react', 'react-dom', 'graphql', /^monaco-editor(\/.*)?/],
       output: {
         format: 'esm',
         globals: {

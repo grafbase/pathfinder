@@ -2,5 +2,10 @@
 /// <reference types="react/canary" />
 interface ImportMetaEnv {
   readonly DEV: boolean;
-  VITE_LITE_MODE?: string;
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv;
+
+  readonly __IS_LITE_MODE_?: string;
 }

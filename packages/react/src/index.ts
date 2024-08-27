@@ -1,3 +1,5 @@
+import { setMonacoImporter } from '@pathfinder-ide/stores';
+
 // store functions
 export {
   setTheme as setPathfinderTheme,
@@ -12,3 +14,7 @@ export { useSchemaDocumenationStore } from './schema-documentation/index';
 // schema-dependent components
 export { SchemaDocumentation } from './schema-documentation';
 export { SchemaView } from './schema-view';
+
+if (import.meta.__IS_LITE_MODE_ !== 'true') {
+  setMonacoImporter(() => import('monaco-graphql/esm/monaco-editor'));
+}
