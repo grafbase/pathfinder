@@ -2,6 +2,7 @@
 export {
   setTheme as setPathfinderTheme,
   useThemeStore as usePathfinderThemeStore,
+  setMonacoImporter,
 } from '@pathfinder-ide/stores';
 
 export { Pathfinder } from './pathfinder';

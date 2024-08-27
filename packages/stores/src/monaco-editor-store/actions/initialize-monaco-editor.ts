@@ -2,11 +2,12 @@ import { themeStore } from '../../theme-store';
 import { editorTheme } from '../helpers/editor-theme';
 import { monacoEditorStore } from '../monaco-editor-store';
 import { MonacoEditorStoreActions } from '../monaco-editor-store.types';
+import { importMonaco } from './monaco-import';
 import { setMonacoEditorTheme } from './set-monaco-editor-theme';
 
 export const initializeMonacoEditor: MonacoEditorStoreActions['initializeMonacoEditor'] =
   async () => {
-    const { editor } = await import('monaco-graphql/esm/monaco-editor');
+    const { editor } = await importMonaco();
 
     const activeTheme = themeStore.getState().activeTheme;
 

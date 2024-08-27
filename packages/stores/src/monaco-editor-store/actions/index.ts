@@ -11,3 +11,5 @@ export { pushMonacoEditorEdit } from './push-monaco-editor-edit';
 export { runExecuteOperation } from './run-execute-operation';
 
 export { setMonacoEditorTheme } from './set-monaco-editor-theme';
+
+export { setMonacoImporter } from './monaco-import';

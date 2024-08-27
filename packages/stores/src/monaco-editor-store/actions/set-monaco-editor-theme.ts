@@ -1,9 +1,10 @@
 import { monacoEditorStore } from '../monaco-editor-store';
 import { MonacoEditorStoreActions } from '../monaco-editor-store.types';
+import { importMonaco } from './monaco-import';
 
 export const setMonacoEditorTheme: MonacoEditorStoreActions['setMonacoEditorTheme'] =
   async ({ theme }) => {
-    const { editor } = await import('monaco-graphql/esm/monaco-editor');
+    const { editor } = await importMonaco();
     const isInitialized = monacoEditorStore.getState().isInitialized;
 
     if (!isInitialized) {
