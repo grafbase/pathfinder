@@ -5,12 +5,21 @@ export function importMonaco() {
   return promise;
 }
 
+let isImporterSet = false;
+
 export function setMonacoImporter(
   dynamicImport: Promise<{ default: typeof import('monaco-editor') }>,
 ) {
-  return dynamicImport
+  if (isImporterSet) return;
+
+  isImporterSet = true;
+  dynamicImport
     .then(({ default: monacoPackage }) => {
       resolve(monacoPackage);
     })
     .catch(reject);
+}
+
+if (process.env.LITE_MODE !== 'true') {
+  setMonacoImporter(import('monaco-graphql/esm/monaco-editor'));
 }

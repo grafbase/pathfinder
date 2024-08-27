@@ -13,17 +13,21 @@
     "access": "public"
   },
   "files": [
-    "dist"
+    "dist",
+    "lite-dist"
   ],
   "module": "./dist/pathfinder.es.js",
   "types": "./dist/pathfinder.es.d.ts",
   "exports": {
     ".": "./dist/pathfinder.es.js",
+    "./lite": "./lite-dist/pathfinder.es.js",
     "./dist/style.css": "./dist/style.css"
   },
   "scripts": {
     "build:workers": "ts-node ./workers/build-workers.js",
-    "build": "pnpm run build:workers && vite build",
+    "build:full": "pnpm run build:workers && vite build",
+    "build:lite": "vite build --config vite.lite.config.ts",
+    "build": "pnpm run build:lite && pnpm run build:full",
     "lint": "eslint .",
     "test:once": "vitest run",
     "test:watch": "vitest",
