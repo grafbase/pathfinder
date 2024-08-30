@@ -1,9 +1,9 @@
-import { TertiaryPane, useSchemaDocumenationStore } from '../../../schema-documentation';
+import { TertiaryPane, useSchemaDocumentationStore } from '../../../schema-documentation';
 
 import { quickDocsClass } from './quick-docs.css';
 
 export const QuickDocs = () => {
-  const activeTertiaryPane = useSchemaDocumenationStore.use.activeTertiaryPane();
+  const activeTertiaryPane = useSchemaDocumentationStore.use.activeTertiaryPane();
 
   return (
     <div

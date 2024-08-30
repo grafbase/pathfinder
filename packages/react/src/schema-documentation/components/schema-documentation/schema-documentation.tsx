@@ -1,7 +1,7 @@
 import { ReactNode, useEffect } from 'react';
 import { GraphQLSchema } from 'graphql';
 
-import { useSchemaDocumenationStore } from '../../store';
+import { useSchemaDocumentationStore } from '../../store';
 
 import { initializeTheme, type ThemeOptions } from '@pathfinder-ide/stores';
 
@@ -35,9 +35,9 @@ export const SchemaDocumentation = ({
   themeOptions,
   tertiaryPaneFieldSlotComponent,
 }: SchemaDocumentationProps) => {
-  const activePrimaryPane = useSchemaDocumenationStore.use.activePrimaryPane();
-  const activeTertiaryPane = useSchemaDocumenationStore.use.activeTertiaryPane();
-  const tertiaryPaneStack = useSchemaDocumenationStore.use.tertiaryPaneStack();
+  const activePrimaryPane = useSchemaDocumentationStore.use.activePrimaryPane();
+  const activeTertiaryPane = useSchemaDocumentationStore.use.activeTertiaryPane();
+  const tertiaryPaneStack = useSchemaDocumentationStore.use.tertiaryPaneStack();
 
   useEffect(() => {
     // set the theme and handle overrides if provided

@@ -6,7 +6,10 @@ import { RecipeVariants, shared } from '@pathfinder-ide/style';
 
 import { Icon } from '../components';
 import { ConnectionBar } from '../components/connection-bar';
-import { SchemaDocumentation, useSchemaDocumenationStore } from '../schema-documentation';
+import {
+  SchemaDocumentation,
+  useSchemaDocumentationStore,
+} from '../schema-documentation';
 import { SchemaView } from '../schema-view';
 
 import { IconProps } from '../components/icon/icon.types';
@@ -47,7 +50,7 @@ const NavButton = ({
   const title = `View ${panesMap[paneName]}`;
 
   const clearTertiaryPaneStack =
-    useSchemaDocumenationStore.getState().clearTertiaryPaneStack;
+    useSchemaDocumentationStore.getState().clearTertiaryPaneStack;
 
   return (
     <button
