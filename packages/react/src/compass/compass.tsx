@@ -9,13 +9,13 @@ import { compassClass } from './compass.css';
 import { LoadingSchema, Tabs } from '../components';
 import { TabsProps } from '../components/tabs/tabs.types';
 
-import { useSchemaDocumenationStore } from '../schema-documentation';
+import { useSchemaDocumentationStore } from '../schema-documentation';
 
 export const Compass = () => {
   // local state to control whether we should show the query or mutation tab
   const [selectedTabIndex, setSelectedTabIndex] = useState<number>(0);
 
-  const activeTertiaryPane = useSchemaDocumenationStore.use.activeTertiaryPane();
+  const activeTertiaryPane = useSchemaDocumentationStore.use.activeTertiaryPane();
 
   const schema = useSchemaStore.use.schema();
 

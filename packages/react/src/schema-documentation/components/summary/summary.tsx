@@ -8,7 +8,7 @@ import type {
 
 import { unwrapType } from '@pathfinder-ide/shared';
 
-import { useSchemaDocumenationStore } from '../../store';
+import { useSchemaDocumentationStore } from '../../store';
 
 import { ArgumentsList } from '../arguments-list';
 import { DefaultValue } from '../default-value';
@@ -34,7 +34,7 @@ export const SummaryField = ({
   parentType?: GraphQLObjectType;
   resetTertiaryPaneOnClick: boolean;
 }) => {
-  const { setActiveTertiaryPane } = useSchemaDocumenationStore.getState();
+  const { setActiveTertiaryPane } = useSchemaDocumentationStore.getState();
 
   return (
     <div className={summaryFieldClass}>
@@ -79,7 +79,7 @@ export const SummaryField = ({
 };
 
 export const SummaryInputField = ({ inputField }: { inputField: GraphQLInputField }) => {
-  const { setActiveTertiaryPane } = useSchemaDocumenationStore.getState();
+  const { setActiveTertiaryPane } = useSchemaDocumentationStore.getState();
 
   return (
     <div className={summaryFieldClass}>
@@ -111,7 +111,7 @@ export const SummaryType = ({
   showDescription: boolean;
   type: GraphQLNamedType | GraphQLDirective;
 }) => {
-  const { setActiveTertiaryPane } = useSchemaDocumenationStore.getState();
+  const { setActiveTertiaryPane } = useSchemaDocumentationStore.getState();
 
   return (
     <div className={summaryTypeClass}>
