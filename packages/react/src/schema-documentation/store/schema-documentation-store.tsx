@@ -16,6 +16,6 @@ const schemaDocumentationStore = createStore<
 
 import { createZustandSelectors } from '@pathfinder-ide/shared';
 
-export const useSchemaDocumenationStore = createZustandSelectors(
+export const useSchemaDocumentationStore = createZustandSelectors(
   schemaDocumentationStore,
 );

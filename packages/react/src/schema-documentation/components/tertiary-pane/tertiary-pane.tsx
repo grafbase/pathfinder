@@ -35,7 +35,7 @@ import {
   tertiaryPaneNavButtonWrapClass,
 } from './tertiary-pane.css';
 
-import { useSchemaDocumenationStore } from '../../store';
+import { useSchemaDocumentationStore } from '../../store';
 
 export const TertiaryPane = ({
   pane,
@@ -44,10 +44,10 @@ export const TertiaryPane = ({
   pane: TertiaryPaneType;
   fieldSlotComponent?: ReactNode;
 }) => {
-  const activeTertiaryPane = useSchemaDocumenationStore.use.activeTertiaryPane();
-  const tertiaryPaneStack = useSchemaDocumenationStore.use.tertiaryPaneStack();
+  const activeTertiaryPane = useSchemaDocumentationStore.use.activeTertiaryPane();
+  const tertiaryPaneStack = useSchemaDocumentationStore.use.tertiaryPaneStack();
   const { clearTertiaryPaneStack, navigateTertiaryPaneStack } =
-    useSchemaDocumenationStore.getState();
+    useSchemaDocumentationStore.getState();
 
   if (!activeTertiaryPane) {
     return null;

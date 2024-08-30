@@ -1,4 +1,4 @@
-import { useSchemaDocumenationStore } from '../../store';
+import { useSchemaDocumentationStore } from '../../store';
 
 import { Pill } from '../../../components';
 
@@ -16,9 +16,9 @@ export const TypeSystemNavButton = ({
   count: string;
 }) => {
   const { setActivePrimaryPane, clearTertiaryPaneStack } =
-    useSchemaDocumenationStore.getState();
+    useSchemaDocumentationStore.getState();
 
-  const activePrimaryPane = useSchemaDocumenationStore.use.activePrimaryPane();
+  const activePrimaryPane = useSchemaDocumentationStore.use.activePrimaryPane();
 
   return (
     <button
