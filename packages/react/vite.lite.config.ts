@@ -8,6 +8,7 @@ const overrideConfig = defineConfig({
     'import.meta.__IS_LITE_MODE_': 'true',
   },
   build: {
+    outDir: 'lite-dist',
     rollupOptions: {
       external: [/^monaco-editor(\/.*)?/],
     },
