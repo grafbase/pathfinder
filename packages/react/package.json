@@ -29,7 +29,7 @@
     "build:lite": "vite build --config vite.lite.config.ts",
     "build": "pnpm run build:lite && pnpm run build:full",
     "lint": "eslint .",
-    "test:once": "vitest run",
+    "test:once": "vitest run --config vite.config.ts",
     "test:watch": "vitest",
     "types": "tsc --noEmit"
   },
@@ -63,9 +63,9 @@
     "fake-indexeddb": "5.0.2",
     "jsdom": "22.1.0",
     "ts-node": "^10.9.1",
-    "vite": "5.0.12",
-    "vite-plugin-dts": "3.6.4",
-    "vitest": "1.2.2",
+    "vite": "5.4.2",
+    "vite-plugin-dts": "4.1.0",
+    "vitest": "2.0.5",
     "vitest-canvas-mock": "0.3.3"
   },
   "peerDependencies": {
