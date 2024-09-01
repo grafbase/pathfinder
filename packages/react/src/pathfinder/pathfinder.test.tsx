@@ -3,6 +3,12 @@ import { Pathfinder } from './pathfinder';
 import { setTheme, themeStore } from '@pathfinder-ide/stores';
 import { testSchema } from '@pathfinder-ide/stores/src/schema-store/test-schema';
 
+import { setMonacoImporter } from '../../../stores/src';
+
+beforeAll(() => {
+  setMonacoImporter(() => import('monaco-graphql/esm/monaco-editor'));
+});
+
 const overrides = {
   dark: {
     color: {
