@@ -8,6 +8,9 @@ import { ThemeSwitcher } from '../../../packages/react/src/components/theme-swit
 import './styles.css';
 
 import { contract } from '@pathfinder-ide/style';
+import { setMonacoImporter } from '../../../packages/stores/src';
+
+setMonacoImporter(() => import('monaco-graphql/esm/monaco-editor'));
 
 export const Provider: GlobalProvider = ({ children, globalState }) => {
   return (

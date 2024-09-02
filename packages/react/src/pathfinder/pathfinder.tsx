@@ -36,12 +36,13 @@ export const Pathfinder = ({
   const [isHydrated, setIsHydrated] = useState<boolean>(false);
 
   useEffect(() => {
-    uiStore.subscribe(({ isHydrated }) => {
+    const unsub = uiStore.subscribe(({ isHydrated }) => {
       setIsHydrated(isHydrated);
     });
 
     return () => {
       cleanupStores();
+      unsub();
     };
   }, []);
 

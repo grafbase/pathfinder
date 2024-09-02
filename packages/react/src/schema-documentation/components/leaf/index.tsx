@@ -10,7 +10,7 @@ import {
   GraphQLUnionType,
 } from 'graphql';
 
-import { useSchemaDocumenationStore } from '../../store';
+import { useSchemaDocumentationStore } from '../../store';
 
 import { ArgumentsList } from '../arguments-list';
 import {
@@ -72,7 +72,7 @@ export const LeafField = ({
   field: GraphQLField<any, any>;
   parentType?: GraphQLObjectType;
 }) => {
-  const { setActiveTertiaryPane } = useSchemaDocumenationStore.getState();
+  const { setActiveTertiaryPane } = useSchemaDocumentationStore.getState();
 
   return (
     <>
