@@ -27,7 +27,7 @@
     "build:workers": "ts-node ./workers/build-workers.js",
     "build:full": "pnpm run build:workers && vite build",
     "build:lite": "vite build --config vite.lite.config.ts",
-    "build": "pnpm run build:lite && pnpm run build:full",
+    "build": "pnpm run build:full && pnpm run build:lite",
     "lint": "eslint .",
     "test:once": "vitest run --config vite.config.ts",
     "test:watch": "vitest",
