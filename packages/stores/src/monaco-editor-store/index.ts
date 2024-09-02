@@ -5,6 +5,7 @@ export {
   pushMonacoEditorEdit,
   runExecuteOperation,
   setMonacoEditorTheme,
+  setMonacoImporter,
 } from './actions';
 
 export { monacoEditorStore } from './monaco-editor-store';

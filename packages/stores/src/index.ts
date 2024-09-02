@@ -16,6 +16,7 @@ export {
   runExecuteOperation,
   setMonacoEditorTheme,
   useMonacoEditorStore,
+  setMonacoImporter,
 } from './monaco-editor-store';
 
 export type {
