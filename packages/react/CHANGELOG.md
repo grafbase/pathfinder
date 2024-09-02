@@ -1,5 +1,11 @@
 # @pathfinder-ide/react
 
+## 0.8.0
+
+### Minor Changes
+
+- f362af9: Add a 'lite' variant to pathfinder-ide/react that doesn't include monaco-editor by default and allow the user to supply the monaco instance from his project
+
 ## 0.7.10
 
 ### Patch Changes
