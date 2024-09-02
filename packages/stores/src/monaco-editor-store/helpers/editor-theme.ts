@@ -56,6 +56,7 @@ export const editorTheme = ({
     // if you're developing, it's fun to set this to "#FF0000" (RED) to see non-tokenized bits
     'editor.foreground': colorsForEditor[variant].ui_neutral06, // Editor default foreground color.
     'editorCursor.foreground': colorsForEditor[variant].yellow, // Color of the editor cursor.
+    focusBorder: '#ff000000',
     // background color for selected text within the editor, set to one scale step above the base
     'editor.selectionBackground': colorsForEditor[variant].ui_neutral02,
     'editor.background': '#FFFFFF00', // white with a 00 alpha value

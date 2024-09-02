@@ -16,6 +16,7 @@ import { monacoEditorStore } from '../../monaco-editor-store';
 import { getMonacoEditor } from './get-monaco-editor';
 
 import { initializeMonacoEditor } from './initialize-monaco-editor';
+import { importMonaco } from './monaco-import';
 
 export const createMonacoEditor: MonacoEditorStoreActions['createMonacoEditor'] = async ({
   defaultValue,
@@ -24,7 +25,7 @@ export const createMonacoEditor: MonacoEditorStoreActions['createMonacoEditor'] 
   monacoOptionOverrides,
   ref,
 }) => {
-  const { editor, Uri } = await import('monaco-graphql/esm/monaco-editor');
+  const { editor, Uri } = await importMonaco();
 
   // initialize if necessary
   if (!monacoEditorStore.getState().isInitialized) {
