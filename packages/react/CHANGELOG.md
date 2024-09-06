@@ -1,5 +1,11 @@
 # @pathfinder-ide/react
 
+## 0.8.2
+
+### Patch Changes
+
+- cc84020: Fixes lite mode issues with previous release.
+
 ## 0.8.1
 
 ### Patch Changes
