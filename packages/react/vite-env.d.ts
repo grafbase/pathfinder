@@ -7,5 +7,5 @@ interface ImportMetaEnv {
 interface ImportMeta {
   readonly env: ImportMetaEnv;
 
-  readonly __IS_LITE_MODE_?: string;
+  readonly __IS_LITE_MODE_?: boolean;
 }
