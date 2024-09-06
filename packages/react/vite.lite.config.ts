@@ -10,7 +10,7 @@ const overrideConfig = defineConfig({
   build: {
     outDir: 'lite-dist',
     rollupOptions: {
-      external: [/^monaco-editor(\/.*)?/],
+      external: [/^monaco-editor(\/.*)?/, /^monaco-graphql(\/.*)?/],
     },
   },
 });
