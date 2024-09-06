@@ -1,5 +1,11 @@
 # @pathfinder-ide/react
 
+## 0.8.1
+
+### Patch Changes
+
+- 33c7e3a: Removes worker loading from "lite" mode. Please ensure that your consuming applications are properly implementing and loading the following Monaco workers: editor, json, monaco-graphql.
+
 ## 0.8.0
 
 ### Minor Changes
