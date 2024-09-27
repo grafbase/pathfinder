@@ -27,19 +27,21 @@ export const Field = ({ ancestors }: { ancestors: AncestorsArray }) => {
     return [];
   };
 
-  let childFieldsToRender: React.ReactNode = null;
+  let renderChildFields: undefined | (() => React.ReactNode) = undefined;
 
   if (isObjectType(unwrappedType) || isInterfaceType(unwrappedType)) {
     const fields = unwrappedType.getFields();
-    childFieldsToRender = fields && (
-      <Fields
-        ancestors={ancestors}
-        fields={unwrappedType.getFields()}
-        parentSelections={parentSelections()}
-      />
-    );
+    renderChildFields =
+      fields &&
+      (() => (
+        <Fields
+          ancestors={ancestors}
+          fields={unwrappedType.getFields()}
+          parentSelections={parentSelections()}
+        />
+      ));
   } else if (isUnionType(unwrappedType)) {
-    childFieldsToRender = (
+    renderChildFields = () => (
       <Union
         ancestors={ancestors}
         parentSelections={parentSelections()}
@@ -57,7 +59,7 @@ export const Field = ({ ancestors }: { ancestors: AncestorsArray }) => {
               arguments: field.args.length > 0 && (
                 <Arguments ancestors={ancestors} selection={selection as FieldNode} />
               ),
-              childFields: childFieldsToRender,
+              renderChildFields,
             }
           : undefined
       }

@@ -1,8 +1,10 @@
+import { ReactNode } from 'react';
+
 export type TabItem = {
   action?: () => void;
-  buttonContent: React.ElementType;
+  buttonContent: () => ReactNode;
   name: string;
-  panelContent: React.ElementType;
+  panelContent: () => ReactNode;
 };
 
 export type TabsProps = TabItem[];

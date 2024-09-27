@@ -71,9 +71,9 @@ export const ListItem = ({
               )}
 
               {collapsibleContent.arguments && collapsibleContent.arguments}
-              {isExpanded && collapsibleContent.childFields && (
+              {isExpanded && collapsibleContent.renderChildFields && (
                 <ul className={listItemChildFieldsClass}>
-                  {collapsibleContent.childFields}
+                  {collapsibleContent.renderChildFields()}
                 </ul>
               )}
             </>

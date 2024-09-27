@@ -62,7 +62,7 @@ const UnionMember = ({
     <ListItem
       ancestors={newAncestors}
       collapsibleContent={{
-        childFields: (
+        renderChildFields: () => (
           <Fields
             ancestors={newAncestors}
             fields={objectMember.getFields()}

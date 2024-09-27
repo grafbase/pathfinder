@@ -5,10 +5,9 @@ export const rootOperationClass = style([
   {
     height: '100%',
     width: '100%',
+    overflowY: 'auto',
+    contain: 'strict',
     padding: contract.space[16],
     margin: 0,
-    display: 'flex',
-    flexDirection: 'column',
-    gap: 2,
   },
 ]);
