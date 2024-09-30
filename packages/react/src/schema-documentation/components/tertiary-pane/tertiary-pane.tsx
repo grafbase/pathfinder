@@ -1,4 +1,4 @@
-import { ReactElement, ReactNode } from 'react';
+import { ReactElement, ReactNode, useRef } from 'react';
 
 import {
   isDirective,
@@ -44,6 +44,8 @@ export const TertiaryPane = ({
   pane: TertiaryPaneType;
   fieldSlotComponent?: ReactNode;
 }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
   const activeTertiaryPane = useSchemaDocumentationStore.use.activeTertiaryPane();
   const tertiaryPaneStack = useSchemaDocumentationStore.use.tertiaryPaneStack();
   const { clearTertiaryPaneStack, navigateTertiaryPaneStack } =
@@ -76,7 +78,7 @@ export const TertiaryPane = ({
     }
     if (isObjectType(pane)) {
       leadType = 'Object';
-      toRender = <LeafObject type={pane} />;
+      toRender = <LeafObject type={pane} getScrollElement={() => containerRef.current} />;
     }
     if (isUnionType(pane)) {
       leadType = 'Union';
@@ -86,7 +88,7 @@ export const TertiaryPane = ({
 
   if (activeTertiaryPane && isInterfaceType(pane)) {
     leadType = 'Interface';
-    toRender = <LeafInterface int={pane} />;
+    toRender = <LeafInterface int={pane} getScrollElement={() => containerRef.current} />;
   }
 
   if (activeTertiaryPane && isDirective(pane)) {
@@ -105,7 +107,7 @@ export const TertiaryPane = ({
   }
 
   return (
-    <div className={tertiaryPaneClass}>
+    <div className={tertiaryPaneClass} ref={containerRef}>
       <div className={tertiaryPaneLeadClass}>
         <div className={tertiaryPaneLeadInfoClass}>
           <span className={tertiaryPaneLeadInfoSpanClass}>{leadType}</span>

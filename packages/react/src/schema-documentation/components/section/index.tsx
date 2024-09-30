@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import type {
   GraphQLArgument,
   GraphQLEnumValue,
@@ -13,6 +13,7 @@ import { Markdown } from '../markdown';
 import { SummaryField, SummaryInputField, SummaryType } from '../summary';
 
 import { enumValueClass, sectionClass, sectionLeadClass } from './section.css';
+import { useVirtualizer } from '@tanstack/react-virtual';
 
 export const Section = ({ children, lead }: { children: ReactNode; lead?: string }) => {
   return (
@@ -75,29 +76,69 @@ export const SectionFields = ({
   fields,
   parentType,
   resetTertiaryPaneOnClick,
+  getScrollElement,
 }: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   fields: GraphQLFieldMap<any, any>;
   parentType?: GraphQLObjectType;
   resetTertiaryPaneOnClick: boolean;
+  getScrollElement: () => HTMLElement | null;
 }) => {
+  const fieldsKeysSorted = Object.keys(fields ?? {}).sort();
+
+  const count = fieldsKeysSorted.length;
+  const virtualizer = useVirtualizer({
+    count,
+    getScrollElement,
+    estimateSize: () => 22,
+    scrollMargin: 200, // This is to account for the space taken by the "root property type" & "description" sections
+  });
+
+  const items = virtualizer.getVirtualItems();
+
+  if (fieldsKeysSorted.length === 0) {
+    return null;
+  }
+
   return (
-    <>
-      {Object.keys(fields).length > 0 ? (
-        <Section lead="Fields">
-          {Object.keys(fields)
-            .sort()
-            .map((f) => (
-              <SummaryField
-                key={fields[f].name}
-                field={fields[f]}
-                parentType={parentType}
-                resetTertiaryPaneOnClick={resetTertiaryPaneOnClick}
-              />
-            ))}
-        </Section>
-      ) : null}
-    </>
+    <Section lead="Fields">
+      <div
+        style={{
+          height: virtualizer.getTotalSize(),
+          width: '100%',
+          position: 'relative',
+        }}
+      >
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            transform: `translateY(${(items[0]?.start ?? 0) - virtualizer.options.scrollMargin}px)`,
+          }}
+        >
+          {items.map((virtualRow) => {
+            const fieldKey = fieldsKeysSorted[virtualRow.index];
+
+            return (
+              <div
+                key={virtualRow.key}
+                data-index={virtualRow.index}
+                ref={virtualizer.measureElement}
+              >
+                <SummaryField
+                  key={fields[fieldKey].name}
+                  field={fields[fieldKey]}
+                  parentType={parentType}
+                  resetTertiaryPaneOnClick={resetTertiaryPaneOnClick}
+                />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </Section>
   );
 };
 
