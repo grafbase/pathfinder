@@ -44,7 +44,7 @@ export const sectionFieldsClasses = {
     display: 'flex',
     gap: contract.space[8],
     alignItems: 'center',
-    borderBottom: `1px solid ${contract.color.neutral[9]}`,
+    borderBottom: `1px solid transparent`,
 
     selectors: {
       '&:focus-within': {

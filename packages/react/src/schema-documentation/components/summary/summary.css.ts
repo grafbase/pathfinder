@@ -16,5 +16,4 @@ export const summaryTypeClass = style({
   display: 'flex',
   flexDirection: 'column',
   borderLeft: contract.color.neutral[6],
-  margin: '8px 0',
 });
