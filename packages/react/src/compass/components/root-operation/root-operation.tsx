@@ -8,6 +8,7 @@ import { rootOperationStyles } from './root-operation.css';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import { useMemo, useRef, useState } from 'react';
 import { Icon } from '../../../components';
+import fuzzysort from 'fuzzysort';
 
 export const RootOperation = ({
   ancestors,
@@ -21,19 +22,28 @@ export const RootOperation = ({
 
   const [searchValue, setSearchValue] = useState('');
 
-  const { operationDefinition, operationType } = ancestors[
-    ancestors.length - 1
-  ] as AncestorRoot;
-
-  const fieldsSorted = useMemo(() => {
-    return Object.keys(fields ?? {}).sort();
+  const allFields = useMemo(() => {
+    return Object.keys(fields ?? {})
+      .sort()
+      .map((fieldKey) => ({
+        fieldKey,
+        searchTarget: fuzzysort.prepare(fieldKey),
+      }));
   }, [fields]);
 
   const fieldsFilteredBySearch = useMemo(() => {
-    return fieldsSorted.filter((field) =>
-      field.toLowerCase().includes(searchValue.toLowerCase()),
-    );
-  }, [fieldsSorted, searchValue]);
+    if (!searchValue) return allFields.map((f) => f.fieldKey);
+
+    const results = fuzzysort
+      .go(searchValue, allFields, {
+        threshold: 0.4,
+        limit: 20,
+        key: 'searchTarget',
+      })
+      .map((res) => res.obj.fieldKey);
+
+    return results;
+  }, [allFields, searchValue]);
 
   const count = fieldsFilteredBySearch.length;
   const virtualizer = useVirtualizer({
@@ -41,6 +51,10 @@ export const RootOperation = ({
     getScrollElement: () => parentRef.current,
     estimateSize: () => 22,
   });
+
+  const { operationDefinition, operationType } = ancestors[
+    ancestors.length - 1
+  ] as AncestorRoot;
 
   if (!fields) {
     return (
@@ -51,7 +65,7 @@ export const RootOperation = ({
     );
   }
 
-  const items = virtualizer.getVirtualItems();
+  const virtualItems = virtualizer.getVirtualItems();
 
   return (
     <div className={rootOperationStyles.container}>
@@ -82,10 +96,10 @@ export const RootOperation = ({
               top: 0,
               left: 0,
               width: '100%',
-              transform: `translateY(${items[0]?.start ?? 0}px)`,
+              transform: `translateY(${virtualItems[0]?.start ?? 0}px)`,
             }}
           >
-            {items.map((virtualRow) => {
+            {virtualItems.map((virtualRow) => {
               const fieldKey = fieldsFilteredBySearch[virtualRow.index];
 
               return (

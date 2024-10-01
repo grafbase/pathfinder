@@ -20,6 +20,7 @@ import {
 } from './section.css';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import { Icon } from '../../../components';
+import fuzzysort from 'fuzzysort';
 
 export const Section = ({
   children,
@@ -102,15 +103,28 @@ export const SectionFields = ({
 
   const [searchValue, setSearchValue] = useState('');
 
-  const fieldsSorted = useMemo(() => {
-    return Object.keys(fields ?? {}).sort();
+  const allFields = useMemo(() => {
+    return Object.keys(fields ?? {})
+      .sort()
+      .map((fieldKey) => ({
+        fieldKey,
+        searchTarget: fuzzysort.prepare(fieldKey),
+      }));
   }, [fields]);
 
   const fieldsFilteredBySearch = useMemo(() => {
-    return fieldsSorted.filter((field) =>
-      field.toLowerCase().includes(searchValue.toLowerCase()),
-    );
-  }, [fieldsSorted, searchValue]);
+    if (!searchValue) return allFields.map((f) => f.fieldKey);
+
+    const results = fuzzysort
+      .go(searchValue, allFields, {
+        threshold: 0.4,
+        limit: 20,
+        key: 'searchTarget',
+      })
+      .map((res) => res.obj.fieldKey);
+
+    return results;
+  }, [allFields, searchValue]);
 
   const count = fieldsFilteredBySearch.length;
   const virtualizer = useVirtualizer({
@@ -119,9 +133,9 @@ export const SectionFields = ({
     estimateSize: () => 22,
   });
 
-  const items = virtualizer.getVirtualItems();
+  const virtualItems = virtualizer.getVirtualItems();
 
-  if (fieldsSorted.length === 0) {
+  if (allFields.length === 0) {
     return null;
   }
 
@@ -142,7 +156,7 @@ export const SectionFields = ({
               <input
                 type="text"
                 name="search"
-                placeholder="Search"
+                placeholder="Find field..."
                 value={searchValue}
                 onChange={(e) => setSearchValue(e.target.value)}
                 className={sectionFieldsClasses.searchInput}
@@ -164,10 +178,10 @@ export const SectionFields = ({
                 top: 0,
                 left: 0,
                 width: '100%',
-                transform: `translateY(${(items[0]?.start ?? 0) - virtualizer.options.scrollMargin}px)`,
+                transform: `translateY(${(virtualItems[0]?.start ?? 0) - virtualizer.options.scrollMargin}px)`,
               }}
             >
-              {items.map((virtualRow) => {
+              {virtualItems.map((virtualRow) => {
                 const fieldKey = fieldsFilteredBySearch[virtualRow.index];
 
                 return (

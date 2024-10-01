@@ -13,6 +13,7 @@ import { secondaryPaneClass, secondaryPaneListClasses } from './secondary-pane.c
 import { notificationClass } from '../../shared.styles.css';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import { Icon } from '../../../components';
+import fuzzysort from 'fuzzysort';
 
 const List = ({
   list,
@@ -27,11 +28,26 @@ const List = ({
 
   const [searchValue, setSearchValue] = useState('');
 
+  const listSearchable = useMemo(() => {
+    return list.map((item) => ({
+      item,
+      searchTarget: fuzzysort.prepare(item.name),
+    }));
+  }, [list]);
+
   const listFilteredBySearch = useMemo(() => {
-    return list.filter((field) =>
-      field.name.toLowerCase().includes(searchValue.toLowerCase()),
-    );
-  }, [list, searchValue]);
+    if (!searchValue) return list;
+
+    const results = fuzzysort
+      .go(searchValue, listSearchable, {
+        threshold: 0.4,
+        limit: 20,
+        key: 'searchTarget',
+      })
+      .map((res) => res.obj.item) as typeof list;
+
+    return results;
+  }, [list, listSearchable, searchValue]);
 
   const count = listFilteredBySearch.length;
   const virtualizer = useVirtualizer({
@@ -65,10 +81,10 @@ const List = ({
             />
           </div>
         </div>
-        {count === 0 && (
+        {listSearchable.length === 0 && (
           <p className={notificationClass}>{`This schema does not contain ${name}`}</p>
         )}
-        {count > 0 && (
+        {listSearchable.length > 0 && (
           <div ref={parentRef} className={secondaryPaneListClasses.fieldsListContainer}>
             <div
               style={{

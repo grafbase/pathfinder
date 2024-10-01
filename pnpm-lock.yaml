@@ -298,6 +298,9 @@ importers:
       '@tanstack/react-virtual':
         specifier: ^3.10.8
         version: 3.10.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      fuzzysort:
+        specifier: ^3.0.2
+        version: 3.0.2
       graphql:
         specifier: 16.9.0
         version: 16.9.0
@@ -3649,6 +3652,9 @@ packages:
 
   functions-have-names@1.2.3:
     resolution: {integrity: sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ==}
+
+  fuzzysort@3.0.2:
+    resolution: {integrity: sha512-ZyahVgxvckB1Qosn7YGWLDJJp2XlyaQ2WmZeI+d0AzW0AMqVYnz5N89G6KAKa6m/LOtv+kzJn4lhDF/yVg11Cg==}
 
   gauge@3.0.2:
     resolution: {integrity: sha512-+5J6MS/5XksCuXq++uFRsnUd7Ovu1XenbeuIuNRJxYWjgQbPuFhT14lAvsWfqfAmnwluf1OwMjz39HjfLPci0Q==}
@@ -10359,6 +10365,8 @@ snapshots:
       functions-have-names: 1.2.3
 
   functions-have-names@1.2.3: {}
+
+  fuzzysort@3.0.2: {}
 
   gauge@3.0.2:
     dependencies:
