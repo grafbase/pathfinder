@@ -90,11 +90,13 @@ export const SectionFields = ({
   fields,
   parentType,
   resetTertiaryPaneOnClick,
+  hideSearch,
 }: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   fields: GraphQLFieldMap<any, any>;
   parentType?: GraphQLObjectType;
   resetTertiaryPaneOnClick: boolean;
+  hideSearch?: boolean;
 }) => {
   const parentRef = useRef<HTMLDivElement>(null);
 
@@ -133,19 +135,21 @@ export const SectionFields = ({
           gap: 24,
         }}
       >
-        <div className={sectionFieldsClasses.searchContainer}>
-          <div className={sectionFieldsClasses.searchInputWrapper}>
-            <Icon name="MagnifingGlass" size="small" />
-            <input
-              type="text"
-              name="search"
-              placeholder="Search"
-              value={searchValue}
-              onChange={(e) => setSearchValue(e.target.value)}
-              className={sectionFieldsClasses.searchInput}
-            />
+        {!hideSearch && (
+          <div className={sectionFieldsClasses.searchContainer}>
+            <div className={sectionFieldsClasses.searchInputWrapper}>
+              <Icon name="MagnifingGlass" size="small" />
+              <input
+                type="text"
+                name="search"
+                placeholder="Search"
+                value={searchValue}
+                onChange={(e) => setSearchValue(e.target.value)}
+                className={sectionFieldsClasses.searchInput}
+              />
+            </div>
           </div>
-        </div>
+        )}
         <div ref={parentRef} className={sectionFieldsClasses.fieldsListContainer}>
           <div
             style={{
