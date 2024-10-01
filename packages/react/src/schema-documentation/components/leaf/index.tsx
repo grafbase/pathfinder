@@ -103,48 +103,27 @@ export const LeafInputObject = ({ type }: { type: GraphQLInputObjectType }) => {
   );
 };
 
-export const LeafInterface = ({
-  int,
-  getScrollElement,
-}: {
-  int: GraphQLInterfaceType;
-  getScrollElement: () => HTMLElement | null;
-}) => {
+export const LeafInterface = ({ int }: { int: GraphQLInterfaceType }) => {
   const fields = int.getFields();
   const interfaces = int.getInterfaces();
 
   return (
     <>
       <SectionDescription description={int.description} />
-      <SectionFields
-        fields={fields}
-        resetTertiaryPaneOnClick={false}
-        getScrollElement={getScrollElement}
-      />
+      <SectionFields fields={fields} resetTertiaryPaneOnClick={false} />
       <SectionInterface interfaces={interfaces} />
     </>
   );
 };
 
-export const LeafObject = ({
-  type,
-  getScrollElement,
-}: {
-  type: GraphQLObjectType;
-  getScrollElement: () => HTMLElement | null;
-}) => {
+export const LeafObject = ({ type }: { type: GraphQLObjectType }) => {
   const fields = type.getFields();
   const interfaces = type.getInterfaces();
 
   return (
     <>
       <SectionDescription description={type.description} />
-      <SectionFields
-        fields={fields}
-        parentType={type}
-        resetTertiaryPaneOnClick={false}
-        getScrollElement={getScrollElement}
-      />
+      <SectionFields fields={fields} parentType={type} resetTertiaryPaneOnClick={false} />
       <SectionInterface interfaces={interfaces} />
     </>
   );

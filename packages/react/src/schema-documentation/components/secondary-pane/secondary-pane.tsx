@@ -86,10 +86,8 @@ const List = ({
 
 const RootOperationDetails = ({
   rootOperationType,
-  getScrollElement,
 }: {
   rootOperationType: GraphQLObjectType;
-  getScrollElement: () => HTMLElement | null;
 }) => {
   const fields = rootOperationType.getFields();
 
@@ -103,7 +101,6 @@ const RootOperationDetails = ({
         fields={fields}
         parentType={rootOperationType}
         resetTertiaryPaneOnClick={true}
-        getScrollElement={getScrollElement}
       />
     </>
   );
@@ -130,30 +127,15 @@ export const SecondaryPane = ({
   let toRender: ReactElement = <></>;
 
   if (activePrimaryPane === 'Query' && queryRootType) {
-    toRender = (
-      <RootOperationDetails
-        rootOperationType={queryRootType}
-        getScrollElement={() => containerRef.current}
-      />
-    );
+    toRender = <RootOperationDetails rootOperationType={queryRootType} />;
   }
 
   if (activePrimaryPane === 'Mutation' && mutationRootType) {
-    toRender = (
-      <RootOperationDetails
-        rootOperationType={mutationRootType}
-        getScrollElement={() => containerRef.current}
-      />
-    );
+    toRender = <RootOperationDetails rootOperationType={mutationRootType} />;
   }
 
   if (activePrimaryPane === 'Subscription' && subscriptionRootType) {
-    toRender = (
-      <RootOperationDetails
-        rootOperationType={subscriptionRootType}
-        getScrollElement={() => containerRef.current}
-      />
-    );
+    toRender = <RootOperationDetails rootOperationType={subscriptionRootType} />;
   }
 
   if (activePrimaryPane === 'Directives') {

@@ -1,4 +1,4 @@
-import { type ReactNode } from 'react';
+import { useMemo, useRef, useState, type ReactNode } from 'react';
 import type {
   GraphQLArgument,
   GraphQLEnumValue,
@@ -12,12 +12,26 @@ import { ArgumentsList } from '../arguments-list';
 import { Markdown } from '../markdown';
 import { SummaryField, SummaryInputField, SummaryType } from '../summary';
 
-import { enumValueClass, sectionClass, sectionLeadClass } from './section.css';
+import {
+  enumValueClass,
+  sectionClass,
+  sectionFieldsClasses,
+  sectionLeadClass,
+} from './section.css';
 import { useVirtualizer } from '@tanstack/react-virtual';
+import { Icon } from '../../../components';
 
-export const Section = ({ children, lead }: { children: ReactNode; lead?: string }) => {
+export const Section = ({
+  children,
+  lead,
+  className,
+}: {
+  children: ReactNode;
+  lead?: string;
+  className?: string;
+}) => {
   return (
-    <section className={sectionClass}>
+    <section className={`${sectionClass} ${className ?? ''}`}>
       {lead && <span className={sectionLeadClass}>{lead}</span>}
       {children}
     </section>
@@ -76,66 +90,99 @@ export const SectionFields = ({
   fields,
   parentType,
   resetTertiaryPaneOnClick,
-  getScrollElement,
 }: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   fields: GraphQLFieldMap<any, any>;
   parentType?: GraphQLObjectType;
   resetTertiaryPaneOnClick: boolean;
-  getScrollElement: () => HTMLElement | null;
 }) => {
-  const fieldsKeysSorted = Object.keys(fields ?? {}).sort();
+  const parentRef = useRef<HTMLDivElement>(null);
 
-  const count = fieldsKeysSorted.length;
+  const [searchValue, setSearchValue] = useState('');
+
+  const fieldsSorted = useMemo(() => {
+    return Object.keys(fields ?? {}).sort();
+  }, [fields]);
+
+  const fieldsFilteredBySearch = useMemo(() => {
+    return fieldsSorted.filter((field) =>
+      field.toLowerCase().includes(searchValue.toLowerCase()),
+    );
+  }, [fieldsSorted, searchValue]);
+
+  const count = fieldsFilteredBySearch.length;
   const virtualizer = useVirtualizer({
     count,
-    getScrollElement,
+    getScrollElement: () => parentRef.current,
     estimateSize: () => 22,
-    scrollMargin: 200, // This is to account for the space taken by the "root property type" & "description" sections
   });
 
   const items = virtualizer.getVirtualItems();
 
-  if (fieldsKeysSorted.length === 0) {
+  if (fieldsSorted.length === 0) {
     return null;
   }
 
   return (
-    <Section lead="Fields">
+    <Section lead="Fields" className={sectionFieldsClasses.container}>
       <div
         style={{
-          height: virtualizer.getTotalSize(),
-          width: '100%',
-          position: 'relative',
+          flex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 24,
         }}
       >
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            transform: `translateY(${(items[0]?.start ?? 0) - virtualizer.options.scrollMargin}px)`,
-          }}
-        >
-          {items.map((virtualRow) => {
-            const fieldKey = fieldsKeysSorted[virtualRow.index];
+        <div className={sectionFieldsClasses.searchContainer}>
+          <div className={sectionFieldsClasses.searchInputWrapper}>
+            <Icon name="MagnifingGlass" size="small" />
+            <input
+              type="text"
+              name="search"
+              placeholder="Search"
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+              className={sectionFieldsClasses.searchInput}
+            />
+          </div>
+        </div>
+        <div ref={parentRef} className={sectionFieldsClasses.fieldsListContainer}>
+          <div
+            style={{
+              height: virtualizer.getTotalSize(),
+              width: '100%',
+              position: 'relative',
+            }}
+          >
+            <div
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                transform: `translateY(${(items[0]?.start ?? 0) - virtualizer.options.scrollMargin}px)`,
+              }}
+            >
+              {items.map((virtualRow) => {
+                const fieldKey = fieldsFilteredBySearch[virtualRow.index];
 
-            return (
-              <div
-                key={virtualRow.key}
-                data-index={virtualRow.index}
-                ref={virtualizer.measureElement}
-              >
-                <SummaryField
-                  key={fields[fieldKey].name}
-                  field={fields[fieldKey]}
-                  parentType={parentType}
-                  resetTertiaryPaneOnClick={resetTertiaryPaneOnClick}
-                />
-              </div>
-            );
-          })}
+                return (
+                  <div
+                    key={virtualRow.key}
+                    data-index={virtualRow.index}
+                    ref={virtualizer.measureElement}
+                  >
+                    <SummaryField
+                      key={fields[fieldKey].name}
+                      field={fields[fieldKey]}
+                      parentType={parentType}
+                      resetTertiaryPaneOnClick={resetTertiaryPaneOnClick}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </Section>

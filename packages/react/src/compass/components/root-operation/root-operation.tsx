@@ -4,9 +4,10 @@ import type { AncestorRoot, AncestorsArray } from '../../compass-store';
 
 import { Field } from '../field';
 
-import { rootOperationClass } from './root-operation.css';
+import { rootOperationStyles } from './root-operation.css';
 import { useVirtualizer } from '@tanstack/react-virtual';
-import { useRef } from 'react';
+import { useMemo, useRef, useState } from 'react';
+import { Icon } from '../../../components';
 
 export const RootOperation = ({
   ancestors,
@@ -17,13 +18,24 @@ export const RootOperation = ({
   fields: GraphQLFieldMap<any, any> | undefined;
 }) => {
   const parentRef = useRef<HTMLDivElement>(null);
+
+  const [searchValue, setSearchValue] = useState('');
+
   const { operationDefinition, operationType } = ancestors[
     ancestors.length - 1
   ] as AncestorRoot;
 
-  const fieldsSorted = Object.keys(fields ?? {}).sort();
+  const fieldsSorted = useMemo(() => {
+    return Object.keys(fields ?? {}).sort();
+  }, [fields]);
 
-  const count = fieldsSorted.length;
+  const fieldsFilteredBySearch = useMemo(() => {
+    return fieldsSorted.filter((field) =>
+      field.toLowerCase().includes(searchValue.toLowerCase()),
+    );
+  }, [fieldsSorted, searchValue]);
+
+  const count = fieldsFilteredBySearch.length;
   const virtualizer = useVirtualizer({
     count,
     getScrollElement: () => parentRef.current,
@@ -42,49 +54,64 @@ export const RootOperation = ({
   const items = virtualizer.getVirtualItems();
 
   return (
-    <div ref={parentRef} className={rootOperationClass}>
-      <div
-        style={{
-          height: virtualizer.getTotalSize(),
-          width: '100%',
-          position: 'relative',
-        }}
-      >
+    <div className={rootOperationStyles.container}>
+      <div className={rootOperationStyles.searchContainer}>
+        <div className={rootOperationStyles.searchInputWrapper}>
+          <Icon name="MagnifingGlass" size="small" />
+          <input
+            type="text"
+            name="search"
+            placeholder="Search"
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
+            className={rootOperationStyles.searchInput}
+          />
+        </div>
+      </div>
+      <div ref={parentRef} className={rootOperationStyles.operationsListContainer}>
         <div
           style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
+            height: virtualizer.getTotalSize(),
             width: '100%',
-            transform: `translateY(${items[0]?.start ?? 0}px)`,
+            position: 'relative',
           }}
         >
-          {items.map((virtualRow) => {
-            const fieldKey = fieldsSorted[virtualRow.index];
+          <div
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              transform: `translateY(${items[0]?.start ?? 0}px)`,
+            }}
+          >
+            {items.map((virtualRow) => {
+              const fieldKey = fieldsFilteredBySearch[virtualRow.index];
 
-            return (
-              <div
-                key={virtualRow.key}
-                data-index={virtualRow.index}
-                ref={virtualizer.measureElement}
-              >
-                <Field
+              return (
+                <div
                   key={virtualRow.key}
-                  ancestors={[
-                    ...ancestors,
-                    {
-                      type: 'FIELD',
-                      field: fields[fieldKey],
-                      selection:
-                        operationDefinition?.selectionSet?.selections.find((s) =>
-                          'name' in s ? s.name.value === fields[fieldKey].name : false,
-                        ) || null,
-                    },
-                  ]}
-                />
-              </div>
-            );
-          })}
+                  data-index={virtualRow.index}
+                  ref={virtualizer.measureElement}
+                >
+                  <Field
+                    key={virtualRow.key}
+                    ancestors={[
+                      ...ancestors,
+                      {
+                        type: 'FIELD',
+                        field: fields[fieldKey],
+                        selection:
+                          operationDefinition?.selectionSet?.selections.find((s) =>
+                            'name' in s ? s.name.value === fields[fieldKey].name : false,
+                          ) || null,
+                      },
+                    ]}
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>
