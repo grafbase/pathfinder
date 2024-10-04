@@ -149,7 +149,7 @@ export const SectionFields = ({
           gap: 24,
         }}
       >
-        {!hideSearch && (
+        {/* {!hideSearch && (
           <div className={sectionFieldsClasses.searchContainer}>
             <div className={sectionFieldsClasses.searchInputWrapper}>
               <Icon name="MagnifingGlass" size="small" />
@@ -163,7 +163,7 @@ export const SectionFields = ({
               />
             </div>
           </div>
-        )}
+        )} */}
         <div ref={parentRef} className={sectionFieldsClasses.fieldsListContainer}>
           <div
             style={{

@@ -8,6 +8,7 @@ export const rootOperationStyles = {
     display: 'flex',
     flexDirection: 'column',
     gap: contract.space[16],
+    paddingBlock: contract.space[16],
   }),
 
   searchContainer: style({

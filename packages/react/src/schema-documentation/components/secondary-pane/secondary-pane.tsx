@@ -68,7 +68,7 @@ const List = ({
           gap: 24,
         }}
       >
-        <div className={secondaryPaneListClasses.searchContainer}>
+        {/* <div className={secondaryPaneListClasses.searchContainer}>
           <div className={secondaryPaneListClasses.searchInputWrapper}>
             <Icon name="MagnifingGlass" size="small" />
             <input
@@ -80,7 +80,7 @@ const List = ({
               className={secondaryPaneListClasses.searchInput}
             />
           </div>
-        </div>
+        </div> */}
         {listSearchable.length === 0 && (
           <p className={notificationClass}>{`This schema does not contain ${name}`}</p>
         )}

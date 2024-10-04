@@ -69,7 +69,7 @@ export const RootOperation = ({
 
   return (
     <div className={rootOperationStyles.container}>
-      <div className={rootOperationStyles.searchContainer}>
+      {/* <div className={rootOperationStyles.searchContainer}>
         <div className={rootOperationStyles.searchInputWrapper}>
           <Icon name="MagnifingGlass" size="small" />
           <input
@@ -81,7 +81,7 @@ export const RootOperation = ({
             className={rootOperationStyles.searchInput}
           />
         </div>
-      </div>
+      </div> */}
       <div ref={parentRef} className={rootOperationStyles.operationsListContainer}>
         <div
           style={{
