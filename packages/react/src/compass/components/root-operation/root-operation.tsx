@@ -7,7 +7,6 @@ import { Field } from '../field';
 import { rootOperationStyles } from './root-operation.css';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import { useMemo, useRef, useState } from 'react';
-import { Icon } from '../../../components';
 import fuzzysort from 'fuzzysort';
 
 export const RootOperation = ({
@@ -20,7 +19,7 @@ export const RootOperation = ({
 }) => {
   const parentRef = useRef<HTMLDivElement>(null);
 
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue] = useState('');
 
   const allFields = useMemo(() => {
     return Object.keys(fields ?? {})

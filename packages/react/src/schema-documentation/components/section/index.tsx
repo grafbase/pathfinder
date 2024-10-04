@@ -19,7 +19,6 @@ import {
   sectionLeadClass,
 } from './section.css';
 import { useVirtualizer } from '@tanstack/react-virtual';
-import { Icon } from '../../../components';
 import fuzzysort from 'fuzzysort';
 
 export const Section = ({
@@ -91,7 +90,6 @@ export const SectionFields = ({
   fields,
   parentType,
   resetTertiaryPaneOnClick,
-  hideSearch,
 }: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   fields: GraphQLFieldMap<any, any>;
@@ -101,7 +99,7 @@ export const SectionFields = ({
 }) => {
   const parentRef = useRef<HTMLDivElement>(null);
 
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue] = useState('');
 
   const allFields = useMemo(() => {
     return Object.keys(fields ?? {})

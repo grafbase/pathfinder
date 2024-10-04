@@ -12,7 +12,6 @@ import { Markdown } from '../markdown';
 import { secondaryPaneClass, secondaryPaneListClasses } from './secondary-pane.css';
 import { notificationClass } from '../../shared.styles.css';
 import { useVirtualizer } from '@tanstack/react-virtual';
-import { Icon } from '../../../components';
 import fuzzysort from 'fuzzysort';
 
 const List = ({
@@ -26,7 +25,7 @@ const List = ({
 }) => {
   const parentRef = useRef<HTMLDivElement>(null);
 
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue] = useState('');
 
   const listSearchable = useMemo(() => {
     return list.map((item) => ({
