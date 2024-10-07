@@ -23,7 +23,7 @@ type ListItemBaseProps = {
 type ListItemWithCollapserProps = {
   collapsibleContent?: {
     arguments?: React.ReactNode;
-    childFields?: React.ReactNode;
+    renderChildFields?: () => React.ReactNode;
   };
 };
 

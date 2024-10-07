@@ -44,29 +44,23 @@ export const Tabs = ({
               onSurface: styles.onSurface,
             })}`}
           >
-            {tabs.map((tab) => {
-              const ButtonContent = tab.buttonContent;
-              return (
-                <Tab
-                  className={tabButtonClass}
-                  key={tab.name}
-                  onClick={() => (tab.action ? tab.action() : undefined)}
-                >
-                  <ButtonContent />
-                </Tab>
-              );
-            })}
+            {tabs.map((tab) => (
+              <Tab
+                className={tabButtonClass}
+                key={tab.name}
+                onClick={() => (tab.action ? tab.action() : undefined)}
+              >
+                {tab.buttonContent()}
+              </Tab>
+            ))}
           </div>
         </Tab.List>
         <Tab.Panels className={tabPanelsClass}>
-          {tabs.map((tab) => {
-            const PanelContent = tab.panelContent;
-            return (
-              <Tab.Panel className={tabPanelClass} key={tab.name} unmount={false}>
-                <PanelContent />
-              </Tab.Panel>
-            );
-          })}
+          {tabs.map((tab) => (
+            <Tab.Panel className={tabPanelClass} key={tab.name} unmount={false}>
+              {tab.panelContent()}
+            </Tab.Panel>
+          ))}
         </Tab.Panels>
       </div>
     </Tab.Group>

@@ -1,4 +1,4 @@
-import { ReactNode, useEffect } from 'react';
+import { ReactNode, useEffect, useMemo } from 'react';
 import { GraphQLSchema } from 'graphql';
 
 import { useSchemaDocumentationStore } from '../../store';
@@ -44,12 +44,17 @@ export const SchemaDocumentation = ({
     initializeTheme({ options: themeOptions });
   }, [themeOptions]);
 
+  const typeMap = schema?.getTypeMap();
+  const sortedTypesNullable = useMemo(() => {
+    if (!typeMap) return;
+    return sortTypes({ typeMap });
+  }, [typeMap]);
+
   if (!schema) {
     return <LoadingSchema />;
   }
 
-  const typeMap = schema.getTypeMap();
-  const sortedTypes = sortTypes({ typeMap });
+  const sortedTypes = sortedTypesNullable as ReturnType<typeof sortTypes>;
   const queryRootType = schema?.getQueryType();
   const mutationRootType = schema?.getMutationType();
   const subscriptionRootType = schema?.getSubscriptionType();
