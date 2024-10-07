@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { useMemo, useRef, useState, type ReactNode } from 'react';
 import type {
   GraphQLArgument,
   GraphQLEnumValue,
@@ -12,11 +12,26 @@ import { ArgumentsList } from '../arguments-list';
 import { Markdown } from '../markdown';
 import { SummaryField, SummaryInputField, SummaryType } from '../summary';
 
-import { enumValueClass, sectionClass, sectionLeadClass } from './section.css';
+import {
+  enumValueClass,
+  sectionClass,
+  sectionFieldsClasses,
+  sectionLeadClass,
+} from './section.css';
+import { useVirtualizer } from '@tanstack/react-virtual';
+import fuzzysort from 'fuzzysort';
 
-export const Section = ({ children, lead }: { children: ReactNode; lead?: string }) => {
+export const Section = ({
+  children,
+  lead,
+  className,
+}: {
+  children: ReactNode;
+  lead?: string;
+  className?: string;
+}) => {
   return (
-    <section className={sectionClass}>
+    <section className={`${sectionClass} ${className ?? ''}`}>
       {lead && <span className={sectionLeadClass}>{lead}</span>}
       {children}
     </section>
@@ -80,24 +95,113 @@ export const SectionFields = ({
   fields: GraphQLFieldMap<any, any>;
   parentType?: GraphQLObjectType;
   resetTertiaryPaneOnClick: boolean;
+  hideSearch?: boolean;
 }) => {
+  const parentRef = useRef<HTMLDivElement>(null);
+
+  const [searchValue] = useState('');
+
+  const allFields = useMemo(() => {
+    return Object.keys(fields ?? {})
+      .sort()
+      .map((fieldKey) => ({
+        fieldKey,
+        searchTarget: fuzzysort.prepare(fieldKey),
+      }));
+  }, [fields]);
+
+  const fieldsFilteredBySearch = useMemo(() => {
+    if (!searchValue) return allFields.map((f) => f.fieldKey);
+
+    const results = fuzzysort
+      .go(searchValue, allFields, {
+        threshold: 0.4,
+        limit: 20,
+        key: 'searchTarget',
+      })
+      .map((res) => res.obj.fieldKey);
+
+    return results;
+  }, [allFields, searchValue]);
+
+  const count = fieldsFilteredBySearch.length;
+  const virtualizer = useVirtualizer({
+    count,
+    getScrollElement: () => parentRef.current,
+    estimateSize: () => 22,
+  });
+
+  const virtualItems = virtualizer.getVirtualItems();
+
+  if (allFields.length === 0) {
+    return null;
+  }
+
   return (
-    <>
-      {Object.keys(fields).length > 0 ? (
-        <Section lead="Fields">
-          {Object.keys(fields)
-            .sort()
-            .map((f) => (
-              <SummaryField
-                key={fields[f].name}
-                field={fields[f]}
-                parentType={parentType}
-                resetTertiaryPaneOnClick={resetTertiaryPaneOnClick}
+    <Section lead="Fields" className={sectionFieldsClasses.container}>
+      <div
+        style={{
+          flex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 24,
+        }}
+      >
+        {/* {!hideSearch && (
+          <div className={sectionFieldsClasses.searchContainer}>
+            <div className={sectionFieldsClasses.searchInputWrapper}>
+              <Icon name="MagnifingGlass" size="small" />
+              <input
+                type="text"
+                name="search"
+                placeholder="Find field..."
+                value={searchValue}
+                onChange={(e) => setSearchValue(e.target.value)}
+                className={sectionFieldsClasses.searchInput}
               />
-            ))}
-        </Section>
-      ) : null}
-    </>
+            </div>
+          </div>
+        )} */}
+        <div ref={parentRef} className={sectionFieldsClasses.fieldsListContainer}>
+          <div
+            style={{
+              height: virtualizer.getTotalSize(),
+              width: '100%',
+              position: 'relative',
+            }}
+          >
+            <div
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                transform: `translateY(${(virtualItems[0]?.start ?? 0) - virtualizer.options.scrollMargin}px)`,
+              }}
+            >
+              {virtualItems.map((virtualRow) => {
+                const fieldKey = fieldsFilteredBySearch[virtualRow.index];
+
+                return (
+                  <div
+                    key={virtualRow.key}
+                    data-index={virtualRow.index}
+                    ref={virtualizer.measureElement}
+                  >
+                    <SummaryField
+                      key={fields[fieldKey].name}
+                      field={fields[fieldKey]}
+                      parentType={parentType}
+                      resetTertiaryPaneOnClick={resetTertiaryPaneOnClick}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+    </Section>
   );
 };
 
