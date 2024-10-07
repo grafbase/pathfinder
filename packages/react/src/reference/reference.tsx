@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { printSchema } from 'graphql';
 
 import { useSchemaStore, useThemeStore } from '@pathfinder-ide/stores';
@@ -81,6 +81,11 @@ export const Reference = ({
 
   const schema = useSchemaStore.use.schema();
 
+  const schemaString = useMemo(
+    () => (schema ? printSchema(schema) : undefined),
+    [schema],
+  );
+
   const [visiblePane, setVisiblePane] = useState<AvailablePanes>('pathfinder');
 
   if (!activeTheme) {
@@ -145,7 +150,7 @@ export const Reference = ({
           >
             <div className={schemaViewWrapOuterClass}>
               <div className={schemaViewWrapInnerClass}>
-                {schema ? <SchemaView schemaString={printSchema(schema)} /> : <></>}
+                {schema ? <SchemaView schemaString={schemaString} /> : <></>}
               </div>
             </div>
           </div>

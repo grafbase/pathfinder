@@ -11,6 +11,7 @@ import { Gear } from './gear';
 import { GraphQL } from './graphql';
 import { InsertNewOperation } from './insert-new-operation';
 import { Interpunct } from './interpunct';
+import { MagnifingGlass } from './magnifing-glass';
 import { Pause } from './pause';
 import { Plus } from './plus';
 import { Prettier } from './prettier';
@@ -29,6 +30,7 @@ export const IconMap = {
   GraphQL,
   InsertNewOperation,
   Interpunct,
+  MagnifingGlass,
   Pause,
   Plus,
   Prettier,

@@ -110,7 +110,7 @@ export const LeafInterface = ({ int }: { int: GraphQLInterfaceType }) => {
   return (
     <>
       <SectionDescription description={int.description} />
-      <SectionFields fields={fields} resetTertiaryPaneOnClick={false} />
+      <SectionFields fields={fields} resetTertiaryPaneOnClick={false} hideSearch />
       <SectionInterface interfaces={interfaces} />
     </>
   );
@@ -123,7 +123,12 @@ export const LeafObject = ({ type }: { type: GraphQLObjectType }) => {
   return (
     <>
       <SectionDescription description={type.description} />
-      <SectionFields fields={fields} parentType={type} resetTertiaryPaneOnClick={false} />
+      <SectionFields
+        fields={fields}
+        parentType={type}
+        resetTertiaryPaneOnClick={false}
+        hideSearch
+      />
       <SectionInterface interfaces={interfaces} />
     </>
   );
