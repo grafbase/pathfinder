@@ -19,8 +19,8 @@ importers:
         specifier: ^2.26.2
         version: 2.27.9
       '@types/node':
-        specifier: 18.19.54
-        version: 18.19.54
+        specifier: 18.19.59
+        version: 18.19.59
       husky:
         specifier: ^8.0.3
         version: 8.0.3
@@ -2141,8 +2141,8 @@ packages:
   '@types/node@12.20.55':
     resolution: {integrity: sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ==}
 
-  '@types/node@18.19.54':
-    resolution: {integrity: sha512-+BRgt0G5gYjTvdLac9sIeE0iZcJxi4Jc4PV5EUzqi+88jmQLr+fRZdv2tCTV7IHKSGxM6SaLoOXQWWUiLUItMw==}
+  '@types/node@18.19.59':
+    resolution: {integrity: sha512-vizm2EqwV/7Zay+A6J3tGl9Lhr7CjZe2HmWS988sefiEmsyP9CeXEleho6i4hJk/8UtZAo0bWN4QPZZr83RxvQ==}
 
   '@types/node@20.14.10':
     resolution: {integrity: sha512-MdiXf+nDuMvY0gJKxyfZ7/6UFsETO7mGKF54MVD/ekJS6HdFtpZFBgrh6Pseu64XTb2MLyFPlbW6hj8HYRQNOQ==}
@@ -8249,7 +8249,7 @@ snapshots:
 
   '@types/node@12.20.55': {}
 
-  '@types/node@18.19.54':
+  '@types/node@18.19.59':
     dependencies:
       undici-types: 5.26.5
 
