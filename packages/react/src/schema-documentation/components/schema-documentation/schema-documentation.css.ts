@@ -13,6 +13,10 @@ export const schemaDocumentationClass = style([
     fontSize: 14,
     backgroundColor: contract.color.neutral[1],
     fontFamily: contract.fonts.body,
+
+    MozOsxFontSmoothing: 'grayscale',
+    WebkitFontSmoothing: 'antialiased',
+    textRendering: 'optimizeLegibility',
   },
 ]);
 
