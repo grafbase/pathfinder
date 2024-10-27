@@ -9,20 +9,15 @@ import { sortTypes } from '../../utils';
 
 import { LoadingSchema, Resizer } from '../../../components';
 import { SecondaryPane } from '../secondary-pane/secondary-pane';
-import { Section, SectionDescription } from '../section';
+import { Section } from '../section';
 import { TertiaryPane } from '../tertiary-pane';
 import { TypeSystemNavButton } from '../type-system-nav-button';
-import { TypesNav } from '../types-nav';
 
-import {
-  breadcrumbClass,
-  breadcrumbArrowClass,
-  breadcrumbItemClass,
-  panesClass,
-  schemaDocumentationClass,
-} from './schema-documentation.css';
+import { panesClass, schemaDocumentationStyles } from './schema-documentation.css';
 
 import { sharedPaneClass } from '../../shared.styles.css';
+import { TopLevelPane, SortedTypeMap } from '../../types';
+import { Breadcrumbs } from '../breadcrumbs';
 
 type SchemaDocumentationProps = {
   schema?: GraphQLSchema;
@@ -35,9 +30,7 @@ export const SchemaDocumentation = ({
   themeOptions,
   tertiaryPaneFieldSlotComponent,
 }: SchemaDocumentationProps) => {
-  const activePrimaryPane = useSchemaDocumentationStore.use.activePrimaryPane();
   const activeTertiaryPane = useSchemaDocumentationStore.use.activeTertiaryPane();
-  const tertiaryPaneStack = useSchemaDocumentationStore.use.tertiaryPaneStack();
 
   useEffect(() => {
     // set the theme and handle overrides if provided
@@ -61,19 +54,8 @@ export const SchemaDocumentation = ({
   const directives = schema?.getDirectives();
 
   return (
-    <div className={schemaDocumentationClass}>
-      <div className={breadcrumbClass}>
-        <span>Schema</span>
-        <span className={breadcrumbArrowClass}>{`->`}</span>
-        <span>{activePrimaryPane}</span>
-        {tertiaryPaneStack.length > 0 &&
-          tertiaryPaneStack.map((stackItem) => (
-            <span key={stackItem.hash} className={breadcrumbItemClass}>
-              <span className={breadcrumbArrowClass}>{`->`}</span>
-              {stackItem.pane.name}
-            </span>
-          ))}
-      </div>
+    <div className={schemaDocumentationStyles.container}>
+      <Breadcrumbs />
       <div className={panesClass}>
         <Resizer
           resizerName="schema_docs_1"
@@ -82,49 +64,56 @@ export const SchemaDocumentation = ({
           pane1={{
             component: (
               <div className={sharedPaneClass}>
-                <SectionDescription
-                  description={schema.description}
-                  lead={`Schema description`}
-                />
+                <Section lead={`Root Operation Types`} withSeparator>
+                  <div className={schemaDocumentationStyles.list}>
+                    {queryRootType && (
+                      <TypeSystemNavButton
+                        destinationPane="Query"
+                        copy={'Query'}
+                        count={
+                          Object.keys(
+                            queryRootType.getFields(),
+                          ).length.toString() as string
+                        }
+                      />
+                    )}
+                    {mutationRootType && (
+                      <TypeSystemNavButton
+                        destinationPane="Mutation"
+                        copy={'Mutation'}
+                        count={
+                          Object.keys(
+                            mutationRootType.getFields(),
+                          ).length.toString() as string
+                        }
+                      />
+                    )}
 
-                <Section lead={`Root Operation Types`}>
-                  {queryRootType && (
-                    <TypeSystemNavButton
-                      destinationPane="Query"
-                      copy={'Query'}
-                      count={
-                        Object.keys(queryRootType.getFields()).length.toString() as string
-                      }
-                    />
-                  )}
-                  {mutationRootType && (
-                    <TypeSystemNavButton
-                      destinationPane="Mutation"
-                      copy={'Mutation'}
-                      count={
-                        Object.keys(
-                          mutationRootType.getFields(),
-                        ).length.toString() as string
-                      }
-                    />
-                  )}
-
-                  {subscriptionRootType && (
-                    <TypeSystemNavButton
-                      destinationPane="Subscription"
-                      copy={'Subscription'}
-                      count={
-                        Object.keys(
-                          subscriptionRootType.getFields(),
-                        ).length.toString() as string
-                      }
-                    />
-                  )}
+                    {subscriptionRootType && (
+                      <TypeSystemNavButton
+                        destinationPane="Subscription"
+                        copy={'Subscription'}
+                        count={
+                          Object.keys(
+                            subscriptionRootType.getFields(),
+                          ).length.toString() as string
+                        }
+                      />
+                    )}
+                  </div>
                 </Section>
 
-                <TypesNav sortedTypes={sortedTypes} />
-
-                <Section lead={`Other`}>
+                <Section>
+                  {Object.keys(sortedTypes).map((s) => {
+                    return (
+                      <TypeSystemNavButton
+                        key={s}
+                        destinationPane={s as TopLevelPane}
+                        copy={s}
+                        count={sortedTypes[s as keyof SortedTypeMap].length.toString()}
+                      />
+                    );
+                  })}
                   <TypeSystemNavButton
                     destinationPane="Directives"
                     copy={'Directives'}

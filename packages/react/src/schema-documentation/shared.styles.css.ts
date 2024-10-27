@@ -3,7 +3,6 @@ import { contract, recipe, shared, style } from '@pathfinder-ide/style';
 export const sharedPaneClass = style([
   shared.scrollbars,
   {
-    padding: 24,
     height: '100%',
     overflowY: 'auto',
   },

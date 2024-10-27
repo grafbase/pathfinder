@@ -36,6 +36,15 @@ export const WithSchema = () => {
   return <SchemaDocumentation schema={testSchema} />;
 };
 
+export const WithSchemaAndThemeOverrides = () => {
+  return (
+    <SchemaDocumentation
+      schema={testSchema}
+      themeOptions={{ overrides: { dark: { color: { neutral: { '1': '#000' } } } } }}
+    />
+  );
+};
+
 export const WithSchemaAndTertiaryPaneFieldSlotComponent = () => {
   return (
     <SchemaDocumentation

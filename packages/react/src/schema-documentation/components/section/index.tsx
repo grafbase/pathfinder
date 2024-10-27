@@ -12,27 +12,26 @@ import { ArgumentsList } from '../arguments-list';
 import { Markdown } from '../markdown';
 import { SummaryField, SummaryInputField, SummaryType } from '../summary';
 
-import {
-  enumValueClass,
-  sectionClass,
-  sectionFieldsClasses,
-  sectionLeadClass,
-} from './section.css';
+import { enumValueClass, sectionFieldsClasses, sectionStyles } from './section.css';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import fuzzysort from 'fuzzysort';
 
 export const Section = ({
   children,
-  lead,
   className,
+  lead,
+  withSeparator = false,
 }: {
   children: ReactNode;
-  lead?: string;
   className?: string;
+  lead?: string;
+  withSeparator?: boolean;
 }) => {
   return (
-    <section className={`${sectionClass} ${className ?? ''}`}>
-      {lead && <span className={sectionLeadClass}>{lead}</span>}
+    <section
+      className={`${sectionStyles.container({ withSeparator })} ${className ?? ''}`}
+    >
+      {lead && <span className={sectionStyles.lead}>{lead}</span>}
       {children}
     </section>
   );

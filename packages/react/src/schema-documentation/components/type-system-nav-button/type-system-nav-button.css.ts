@@ -8,27 +8,16 @@ export const typeSystemNavButtonClass = recipe({
       display: 'flex',
       alignItems: 'center',
       gap: 12,
-      width: 'calc(100% + 48px)',
-      marginLeft: -24,
       height: 40,
-      paddingLeft: 24,
-      paddingRight: 24,
-      color: contract.color.neutral[11],
+      paddingLeft: 12,
+      paddingRight: 12,
+      color: contract.color.neutral[12],
+
+      borderRadius: 6,
 
       selectors: {
         '&:hover': {
-          color: contract.color.neutral[12],
-          backgroundColor: contract.color.neutralAlpha[2],
-        },
-
-        '&:after': {
-          content: '',
-          position: 'absolute',
-          width: 2,
-          height: '100%',
-          top: 0,
-          right: 0,
-          backgroundColor: 'transparent',
+          backgroundColor: contract.color.neutral[2],
         },
       },
     },
@@ -37,16 +26,14 @@ export const typeSystemNavButtonClass = recipe({
   variants: {
     isActive: {
       true: {
-        backgroundColor: contract.color.neutralAlpha[3],
+        backgroundColor: contract.color.neutral[3],
         color: contract.color.neutral[12],
+        fontWeight: 500,
 
         selectors: {
           '&:hover': {
-            backgroundColor: contract.color.neutralAlpha[3],
+            backgroundColor: contract.color.neutral[3],
             color: contract.color.neutral[12],
-          },
-          '&:after': {
-            backgroundColor: contract.color.green[10],
           },
         },
       },

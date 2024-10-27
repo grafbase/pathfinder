@@ -1,27 +1,42 @@
-import { contract, shared, style } from '@pathfinder-ide/style';
+import { contract, recipe, shared, style } from '@pathfinder-ide/style';
 
-export const sectionClass = style({
-  display: 'flex',
-  flexDirection: 'column',
-  marginBottom: 24,
-  color: contract.color.neutral[12],
+export const sectionStyles = {
+  container: recipe({
+    base: {
+      display: 'flex',
+      flexDirection: 'column',
+      color: contract.color.neutral[12],
 
-  selectors: {
-    '&:last-child': {
-      marginBottom: 0,
+      padding: 12,
+
+      selectors: {
+        '&:last-child': {
+          marginBottom: 0,
+        },
+      },
     },
-  },
-});
 
-export const sectionLeadClass = style({
-  display: 'flex',
-  textTransform: 'uppercase',
-  lineHeight: 1,
-  fontSize: 10,
-  letterSpacing: 0.5,
-  marginBottom: 12,
-  color: contract.color.neutral[11],
-});
+    variants: {
+      withSeparator: {
+        false: {},
+        true: { borderBottom: `1px solid ${contract.color.neutral[2]}` },
+      },
+    },
+  }),
+
+  lead: style({
+    display: 'flex',
+    textTransform: 'uppercase',
+    lineHeight: 1,
+    fontSize: 9,
+    fontWeight: 500,
+    letterSpacing: 1,
+    marginBottom: 12,
+    color: contract.color.neutral[11],
+
+    paddingLeft: 4,
+  }),
+};
 
 export const enumValueClass = style({
   color: contract.color.green[10],
