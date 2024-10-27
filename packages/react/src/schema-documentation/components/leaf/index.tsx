@@ -108,8 +108,8 @@ export const LeafInterface = ({ int }: { int: GraphQLInterfaceType }) => {
   return (
     <>
       <SectionDescription description={int.description} />
-      <SectionFields fields={fields} resetTertiaryPaneOnClick={false} hideSearch />
       <SectionInterface interfaces={interfaces} />
+      <SectionFields fields={fields} resetTertiaryPaneOnClick={false} hideSearch />
     </>
   );
 };
@@ -121,8 +121,8 @@ export const LeafObject = ({ type }: { type: GraphQLObjectType }) => {
   return (
     <>
       <SectionDescription description={type.description} />
-      <SectionFields fields={fields} resetTertiaryPaneOnClick={false} hideSearch />
       <SectionInterface interfaces={interfaces} />
+      <SectionFields fields={fields} resetTertiaryPaneOnClick={false} hideSearch />
     </>
   );
 };

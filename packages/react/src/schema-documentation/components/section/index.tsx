@@ -10,11 +10,11 @@ import type {
 
 import { ArgumentsList } from '../arguments-list';
 import { Markdown } from '../markdown';
-import { SummaryField, SummaryInputField, SummaryType } from '../summary';
 
 import { enumValueClass, sectionFieldsClasses, sectionStyles } from './section.css';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import fuzzysort from 'fuzzysort';
+import { ListItemField, ListItemInputField, ListItemType } from '../list-item';
 
 export const Section = ({
   children,
@@ -135,15 +135,17 @@ export const SectionFields = ({
   }
 
   return (
-    <div
-      style={{
-        flex: 1,
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 24,
-      }}
-    >
-      {/* {!hideSearch && (
+    <Section lead="Fields" className={sectionFieldsClasses.container}>
+      <div
+        style={{
+          flex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 24,
+          height: '100%',
+        }}
+      >
+        {/* {!hideSearch && (
           <div className={sectionFieldsClasses.searchContainer}>
             <div className={sectionFieldsClasses.searchInputWrapper}>
               <Icon name="MagnifingGlass" size="small" />
@@ -158,46 +160,67 @@ export const SectionFields = ({
             </div>
           </div>
         )} */}
-      <div ref={parentRef} className={sectionFieldsClasses.fieldsListContainer}>
-        <div
-          style={{
-            height: virtualizer.getTotalSize(),
-            width: '100%',
-            position: 'relative',
-          }}
-        >
+        <div ref={parentRef} className={sectionFieldsClasses.fieldsListContainer}>
           <div
             style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
+              height: virtualizer.getTotalSize(),
               width: '100%',
-              transform: `translateY(${(virtualItems[0]?.start ?? 0) - virtualizer.options.scrollMargin}px)`,
+              position: 'relative',
             }}
           >
-            {virtualItems.map((virtualRow) => {
-              const fieldKey = fieldsFilteredBySearch[virtualRow.index];
+            <div
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                transform: `translateY(${(virtualItems[0]?.start ?? 0) - virtualizer.options.scrollMargin}px)`,
+              }}
+            >
+              {virtualItems.map((virtualRow) => {
+                const fieldKey = fieldsFilteredBySearch[virtualRow.index];
 
-              return (
-                <div
-                  key={virtualRow.key}
-                  data-index={virtualRow.index}
-                  ref={virtualizer.measureElement}
-                >
-                  <SummaryField
-                    key={fields[fieldKey].name}
-                    field={fields[fieldKey]}
-                    resetTertiaryPaneOnClick={resetTertiaryPaneOnClick}
-                  />
-                </div>
-              );
-            })}
+                return (
+                  <div
+                    key={virtualRow.key}
+                    data-index={virtualRow.index}
+                    ref={virtualizer.measureElement}
+                  >
+                    <ListItemField
+                      key={fields[fieldKey].name}
+                      field={fields[fieldKey]}
+                      resetTertiaryPaneOnClick={resetTertiaryPaneOnClick}
+                    />
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </Section>
   );
 };
+
+// export const SectionFields = ({ fields }: { fields: GraphQLFieldMap<any, any> }) => {
+//   return (
+//     <>
+//       {Object.keys(fields).length > 0 ? (
+//         <Section lead="Fields">
+//           {Object.keys(fields)
+//             .sort()
+//             .map((f) => (
+//               <ListItemField
+//                 key={fields[f].name}
+//                 field={fields[f]}
+//                 resetTertiaryPaneOnClick={false}
+//               />
+//             ))}
+//         </Section>
+//       ) : null}
+//     </>
+//   );
+// };
 
 export const SectionInputFields = ({ fields }: { fields: GraphQLInputFieldMap }) => {
   return (
@@ -207,7 +230,7 @@ export const SectionInputFields = ({ fields }: { fields: GraphQLInputFieldMap })
           {Object.keys(fields)
             .sort()
             .map((f) => (
-              <SummaryInputField key={fields[f].name} inputField={fields[f]} />
+              <ListItemInputField key={fields[f].name} inputField={fields[f]} />
             ))}
         </Section>
       ) : null}
@@ -225,7 +248,7 @@ export const SectionInterface = ({
       {interfaces.length > 0 ? (
         <Section lead="Implements">
           {[...interfaces].sort().map((inter) => (
-            <SummaryType
+            <ListItemType
               key={inter.name}
               resetTertiaryPaneOnClick={false}
               showDescription={true}
@@ -249,7 +272,7 @@ export const SectionPossibleTypes = ({
       {possibleTypes.length > 0 ? (
         <Section lead="Possible types">
           {possibleTypes.map((f) => (
-            <SummaryType
+            <ListItemType
               key={f.name}
               resetTertiaryPaneOnClick={false}
               showDescription={true}

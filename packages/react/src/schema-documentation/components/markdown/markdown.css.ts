@@ -3,8 +3,8 @@ import { contract, globalStyle, style } from '@pathfinder-ide/style';
 export const markdownClass = style({
   display: 'flex',
   flexDirection: 'column',
-  paddingTop: 4,
-  paddingBottom: 4,
+  paddingTop: 2,
+  paddingBottom: 2,
   color: contract.color.neutral[12],
 });
 

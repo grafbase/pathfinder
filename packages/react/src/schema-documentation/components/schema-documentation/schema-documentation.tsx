@@ -8,7 +8,6 @@ import { initializeTheme, type ThemeOptions } from '@pathfinder-ide/stores';
 import { sortTypes } from '../../utils';
 
 import { LoadingSchema, Resizer } from '../../../components';
-import { SecondaryPane } from '../secondary-pane/secondary-pane';
 import { Section } from '../section';
 import { TertiaryPane } from '../tertiary-pane';
 import { TypeSystemNavButton } from '../type-system-nav-button';
@@ -18,6 +17,7 @@ import { panesClass, schemaDocumentationStyles } from './schema-documentation.cs
 import { sharedPaneClass } from '../../shared.styles.css';
 import { TopLevelPane, SortedTypeMap } from '../../types';
 import { Breadcrumbs } from '../breadcrumbs';
+import { Pane } from '../pane';
 
 type SchemaDocumentationProps = {
   schema?: GraphQLSchema;
@@ -131,7 +131,7 @@ export const SchemaDocumentation = ({
                 orientation="HORIZONTAL"
                 pane1={{
                   component: (
-                    <SecondaryPane
+                    <Pane
                       directives={directives}
                       queryRootType={queryRootType || null}
                       mutationRootType={mutationRootType || null}

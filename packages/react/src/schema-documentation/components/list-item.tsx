@@ -7,23 +7,21 @@ import type {
 
 import { unwrapType } from '@pathfinder-ide/shared';
 
-import { useSchemaDocumentationStore } from '../../store';
+import { useSchemaDocumentationStore } from './../store';
 
-import { DefaultValue } from '../default-value';
-import { Markdown } from '../markdown';
+import { ArgumentsList } from './arguments-list';
+import { DefaultValue } from './default-value';
+import { Delimiter } from './delimiter';
+import { Markdown } from './markdown';
 
-import { summaryTypeClass } from './summary.css';
-
+import { listItemFieldClass, listItemTypeClass } from './list-item.css';
 import {
+  tertiaryTriggerButtonClass,
   returnTypeButtonClass,
   scalarArgumentNameClass,
-  listButtonStyles,
-} from '../../shared.styles.css';
+} from '../shared.styles.css';
 
-import { Delimiter } from '../delimiter';
-import { Icon } from '../../../components';
-
-export const SummaryField = ({
+export const ListItemField = ({
   field,
   resetTertiaryPaneOnClick,
 }: {
@@ -34,28 +32,47 @@ export const SummaryField = ({
   const { setActiveTertiaryPane } = useSchemaDocumentationStore.getState();
 
   return (
-    <button
-      className={listButtonStyles.container({
-        color: 'NEUTRAL',
-      })}
-      onClick={() =>
-        setActiveTertiaryPane({
-          destinationPane: field,
-          reset: resetTertiaryPaneOnClick,
-        })
-      }
-    >
-      <div>
-        {field.name}({field.args.length}): {field.type.toString()}
-      </div>
-      <div className={listButtonStyles.icon}>
-        <Icon name="Chevron" />
-      </div>
-    </button>
+    <div className={listItemFieldClass}>
+      <button
+        className={tertiaryTriggerButtonClass({
+          color: 'VIOLET',
+        })}
+        onClick={() =>
+          setActiveTertiaryPane({
+            destinationPane: field,
+            reset: resetTertiaryPaneOnClick,
+          })
+        }
+      >
+        {field.name}
+      </button>
+      {'args' in field && field.args.length > 0 && (
+        <>
+          <Delimiter value="(" spacing="LEFT_AND_RIGHT" />
+          <ArgumentsList
+            args={field.args}
+            resetTertiaryPaneOnClick={resetTertiaryPaneOnClick}
+          />
+          <Delimiter value=")" spacing="LEFT_AND_RIGHT" />
+        </>
+      )}
+      <Delimiter value=":" spacing="LEFT_AND_RIGHT" />
+      <button
+        className={returnTypeButtonClass}
+        onClick={() =>
+          setActiveTertiaryPane({
+            destinationPane: unwrapType(field.type),
+            reset: resetTertiaryPaneOnClick,
+          })
+        }
+      >
+        {field.type.toString()}
+      </button>
+    </div>
   );
 };
 
-export const SummaryInputField = ({ inputField }: { inputField: GraphQLInputField }) => {
+export const ListItemInputField = ({ inputField }: { inputField: GraphQLInputField }) => {
   const { setActiveTertiaryPane } = useSchemaDocumentationStore.getState();
 
   return (
@@ -79,7 +96,7 @@ export const SummaryInputField = ({ inputField }: { inputField: GraphQLInputFiel
   );
 };
 
-export const SummaryType = ({
+export const ListItemType = ({
   resetTertiaryPaneOnClick,
   showDescription,
   type,
@@ -91,9 +108,9 @@ export const SummaryType = ({
   const { setActiveTertiaryPane } = useSchemaDocumentationStore.getState();
 
   return (
-    <div className={summaryTypeClass}>
+    <div className={listItemTypeClass}>
       <button
-        className={listButtonStyles.container({
+        className={tertiaryTriggerButtonClass({
           color: 'BLUE',
         })}
         onClick={() =>

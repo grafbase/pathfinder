@@ -29,6 +29,7 @@ export type SchemaDocumentationStoreActions = {
 
 export type SchemaDocumentationStoreState = {
   activePrimaryPane: TopLevelPane;
+  panes: any;
   activeTertiaryPane: TertiaryPaneStackItem | null;
   tertiaryPaneStack: TertiaryPaneStackItem[];
 };

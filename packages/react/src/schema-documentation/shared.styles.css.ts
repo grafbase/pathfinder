@@ -32,7 +32,36 @@ export const notificationClass = style({
   backgroundColor: contract.color.orange[1],
 });
 
-export const listButtonStyles = {
+export const tertiaryTriggerButtonClass = recipe({
+  base: [
+    shared.resets.buttonReset,
+    {
+      color: contract.color.blue[11],
+
+      selectors: {
+        '&:hover': {
+          textDecoration: `underline`,
+        },
+      },
+    },
+  ],
+
+  variants: {
+    color: {
+      BLUE: {
+        color: contract.color.blue[11],
+      },
+      GREEN: {
+        color: contract.color.green[11],
+      },
+      VIOLET: {
+        color: contract.color.purple[11],
+      },
+    },
+  },
+});
+
+export const paneItemStyles = {
   container: recipe({
     base: [
       shared.resets.buttonReset,
@@ -41,10 +70,14 @@ export const listButtonStyles = {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
+        gap: 12,
+
         width: '100%',
-        height: 28,
+        minHeight: 28,
         paddingLeft: 12,
         paddingRight: 12,
+        paddingTop: 8,
+        paddingBottom: 8,
 
         selectors: {
           '&:hover': {
@@ -70,6 +103,16 @@ export const listButtonStyles = {
         },
       },
     },
+  }),
+
+  layout: style({
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 4,
+  }),
+
+  description: style({
+    opacity: 0.8,
   }),
 
   icon: style({

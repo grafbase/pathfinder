@@ -33,8 +33,6 @@ export const sectionStyles = {
     letterSpacing: 1,
     marginBottom: 12,
     color: contract.color.neutral[11],
-
-    paddingLeft: 4,
   }),
 };
 
