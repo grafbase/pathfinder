@@ -15,9 +15,9 @@ import { TypeSystemNavButton } from '../type-system-nav-button';
 import { panesClass, schemaDocumentationStyles } from './schema-documentation.css';
 
 import { sharedPaneClass } from '../../shared.styles.css';
-import { TopLevelPane, SortedTypeMap } from '../../types';
 import { Breadcrumbs } from '../breadcrumbs';
-import { Pane } from '../pane';
+import { Panes } from '../panes';
+import { SortedTypeMap } from '../../types';
 
 type SchemaDocumentationProps = {
   schema?: GraphQLSchema;
@@ -53,6 +53,10 @@ export const SchemaDocumentation = ({
   const subscriptionRootType = schema?.getSubscriptionType();
   const directives = schema?.getDirectives();
 
+  const queryFields = queryRootType?.getFields();
+  const mutationFields = mutationRootType?.getFields();
+  const subscriptionFields = subscriptionRootType?.getFields();
+
   return (
     <div className={schemaDocumentationStyles.container}>
       <Breadcrumbs />
@@ -66,37 +70,41 @@ export const SchemaDocumentation = ({
               <div className={sharedPaneClass}>
                 <Section lead={`Root Operation Types`} withSeparator>
                   <div className={schemaDocumentationStyles.list}>
-                    {queryRootType && (
+                    {queryFields && (
                       <TypeSystemNavButton
-                        destinationPane="Query"
-                        copy={'Query'}
-                        count={
-                          Object.keys(
-                            queryRootType.getFields(),
-                          ).length.toString() as string
-                        }
+                        pane={{
+                          id: queryRootType?.name || 'Query',
+                          name: queryRootType?.name || 'Query',
+                          pane: Object.keys(queryFields).map(
+                            (field) => queryFields[field],
+                          ),
+                        }}
+                        count={Object.keys(queryFields).length.toString() as string}
                       />
                     )}
-                    {mutationRootType && (
+                    {mutationFields && (
                       <TypeSystemNavButton
-                        destinationPane="Mutation"
-                        copy={'Mutation'}
-                        count={
-                          Object.keys(
-                            mutationRootType.getFields(),
-                          ).length.toString() as string
-                        }
+                        pane={{
+                          id: mutationRootType?.name || 'Mutation',
+                          name: mutationRootType?.name || 'Mutation',
+                          pane: Object.keys(mutationFields).map(
+                            (field) => mutationFields[field],
+                          ),
+                        }}
+                        count={Object.keys(mutationFields).length.toString() as string}
                       />
                     )}
-
-                    {subscriptionRootType && (
+                    {subscriptionFields && (
                       <TypeSystemNavButton
-                        destinationPane="Subscription"
-                        copy={'Subscription'}
+                        pane={{
+                          id: subscriptionRootType?.name || 'Subscription',
+                          name: subscriptionRootType?.name || 'Subscription',
+                          pane: Object.keys(subscriptionFields).map(
+                            (field) => subscriptionFields[field],
+                          ),
+                        }}
                         count={
-                          Object.keys(
-                            subscriptionRootType.getFields(),
-                          ).length.toString() as string
+                          Object.keys(subscriptionFields).length.toString() as string
                         }
                       />
                     )}
@@ -108,15 +116,21 @@ export const SchemaDocumentation = ({
                     return (
                       <TypeSystemNavButton
                         key={s}
-                        destinationPane={s as TopLevelPane}
-                        copy={s}
+                        pane={{
+                          id: s,
+                          name: s,
+                          pane: sortedTypes[s as keyof SortedTypeMap],
+                        }}
                         count={sortedTypes[s as keyof SortedTypeMap].length.toString()}
                       />
                     );
                   })}
                   <TypeSystemNavButton
-                    destinationPane="Directives"
-                    copy={'Directives'}
+                    pane={{
+                      id: 'Directives',
+                      name: 'Directives',
+                      pane: directives,
+                    }}
                     count={directives.length.toString() as string}
                   />
                 </Section>
@@ -130,15 +144,7 @@ export const SchemaDocumentation = ({
                 onSurface={1}
                 orientation="HORIZONTAL"
                 pane1={{
-                  component: (
-                    <Pane
-                      directives={directives}
-                      queryRootType={queryRootType || null}
-                      mutationRootType={mutationRootType || null}
-                      subscriptionRootType={subscriptionRootType || null}
-                      sortedTypes={sortedTypes}
-                    />
-                  ),
+                  component: <Panes />,
                 }}
                 pane2={{
                   component: (
@@ -151,7 +157,7 @@ export const SchemaDocumentation = ({
                       )}
                     </>
                   ),
-                  initialSize: { type: 'PERCENT', value: 50 },
+                  initialSize: { type: 'PERCENT', value: 25 },
                 }}
               />
             ),

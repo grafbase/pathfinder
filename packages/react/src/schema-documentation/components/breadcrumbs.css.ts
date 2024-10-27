@@ -1,4 +1,5 @@
 import { style, shared, contract } from '@pathfinder-ide/style';
+import { buttonReset } from '@pathfinder-ide/style/src/shared/resets.css';
 
 export const breadcrumbsStyles = {
   container: style([
@@ -25,8 +26,11 @@ export const breadcrumbsStyles = {
     paddingRight: 8,
   }),
 
-  item: style({
-    display: 'flex',
-    gap: 2,
-  }),
+  button: style([
+    buttonReset,
+    {
+      display: 'flex',
+      gap: 2,
+    },
+  ]),
 };

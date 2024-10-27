@@ -2,35 +2,32 @@ import { useSchemaDocumentationStore } from '../../store';
 
 import { Pill } from '../../../components';
 
-import type { TopLevelPane } from '../../types';
-
 import { typeSystemNavButtonClass } from './type-system-nav-button.css';
+import { PaneItem } from '../../store/schema-documentation-store.types';
 
 export const TypeSystemNavButton = ({
-  destinationPane,
-  copy,
+  pane,
   count,
 }: {
-  destinationPane: TopLevelPane;
-  copy: string | React.ReactElement;
+  pane: PaneItem;
   count: string;
 }) => {
-  const { setActivePrimaryPane, clearTertiaryPaneStack } =
+  const { clearTertiaryPaneStack, clearPaneStack, navigatePanes } =
     useSchemaDocumentationStore.getState();
 
-  const activePrimaryPane = useSchemaDocumentationStore.use.activePrimaryPane();
+  const leadPane = useSchemaDocumentationStore.use.panes();
 
   return (
     <button
       className={typeSystemNavButtonClass({
-        isActive: activePrimaryPane === destinationPane,
+        isActive: leadPane[0] ? leadPane[0].name === pane.name : false,
       })}
       onClick={() => {
-        setActivePrimaryPane({ destinationPane });
-        clearTertiaryPaneStack();
+        clearPaneStack(), clearTertiaryPaneStack();
+        navigatePanes({ index: 0, pane });
       }}
     >
-      {copy}
+      {pane.name}
       <Pill copy={count} variant={{ color: 'neutral' }} />
     </button>
   );

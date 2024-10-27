@@ -38,6 +38,9 @@ export const listClasses = {
       flex: 1,
       overflowY: 'auto',
       contain: 'strict',
+      height: '100%',
+      borderRight: `1px solid ${contract.color.neutral[2]}`,
+      minWidth: 380,
     },
   ]),
 };

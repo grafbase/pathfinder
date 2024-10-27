@@ -1,17 +1,26 @@
 import { StoreApi } from 'zustand';
 
-import { TertiaryPaneType, TopLevelPane } from '../types';
-import { GraphQLObjectType } from 'graphql';
+import { TertiaryPaneType } from '../types';
+import { GraphQLDirective, GraphQLField, GraphQLNamedType } from 'graphql';
 
 export type TertiaryPaneStackItem = {
   hash: string;
   pane: TertiaryPaneType;
-  /** For TertiaryPaneType of GraphQLField, we'll provide the parent type */
-  parentType?: GraphQLObjectType;
+};
+
+export type PaneItem = {
+  id: string;
+  name: string;
+  pane:
+    | GraphQLNamedType[]
+    | readonly GraphQLDirective[]
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    | GraphQLField<any, any>[];
 };
 
 export type SchemaDocumentationStoreActions = {
-  setActivePrimaryPane: ({ destinationPane }: { destinationPane: TopLevelPane }) => void;
+  navigatePanes: ({ index, pane }: { index: number; pane?: PaneItem }) => void;
+  clearPaneStack: () => void;
   clearTertiaryPaneStack: () => void;
   navigateTertiaryPaneStack: ({
     destinationPaneIndex,
@@ -28,8 +37,7 @@ export type SchemaDocumentationStoreActions = {
 };
 
 export type SchemaDocumentationStoreState = {
-  activePrimaryPane: TopLevelPane;
-  panes: any;
+  panes: PaneItem[];
   activeTertiaryPane: TertiaryPaneStackItem | null;
   tertiaryPaneStack: TertiaryPaneStackItem[];
 };

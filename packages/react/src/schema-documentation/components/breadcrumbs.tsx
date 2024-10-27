@@ -2,20 +2,22 @@ import { useSchemaDocumentationStore } from '../store';
 import { breadcrumbsStyles } from './breadcrumbs.css';
 
 export const Breadcrumbs = () => {
-  const activePrimaryPane = useSchemaDocumentationStore.use.activePrimaryPane();
-  const tertiaryPaneStack = useSchemaDocumentationStore.use.tertiaryPaneStack();
+  const panes = useSchemaDocumentationStore.use.panes();
+  const { navigatePanes } = useSchemaDocumentationStore.getState();
 
   return (
     <div className={breadcrumbsStyles.container}>
       <span>Schema</span>
-      <span className={breadcrumbsStyles.arrow}>{`->`}</span>
-      <span>{activePrimaryPane}</span>
-      {tertiaryPaneStack.length > 0 &&
-        tertiaryPaneStack.map((stackItem) => (
-          <span key={stackItem.hash} className={breadcrumbsStyles.item}>
+      {panes.length > 0 &&
+        panes.map((pane, i) => (
+          <button
+            key={pane.name}
+            className={breadcrumbsStyles.button}
+            onClick={() => navigatePanes({ index: i })}
+          >
             <span className={breadcrumbsStyles.arrow}>{`->`}</span>
-            {stackItem.pane.name}
-          </span>
+            {pane.name}
+          </button>
         ))}
     </div>
   );

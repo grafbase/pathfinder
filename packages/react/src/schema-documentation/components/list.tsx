@@ -8,24 +8,26 @@ import { listClasses } from './list.css';
 import { PaneItem } from './pane-item';
 
 export const List = ({
-  items,
+  index,
+  propItems,
 }: {
+  index: number;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  items: GraphQLNamedType[] | readonly GraphQLDirective[] | GraphQLField<any, any>[];
+  propItems: GraphQLNamedType[] | readonly GraphQLDirective[] | GraphQLField<any, any>[];
 }) => {
   const parentRef = useRef<HTMLDivElement>(null);
 
   const [searchValue] = useState('');
 
   const listSearchable = useMemo(() => {
-    return items.map((item) => ({
+    return propItems.map((item) => ({
       item,
       searchTarget: fuzzysort.prepare(item.name),
     }));
-  }, [items]);
+  }, [propItems]);
 
   const listFilteredBySearch = useMemo(() => {
-    if (!searchValue) return items;
+    if (!searchValue) return propItems;
 
     const results = fuzzysort
       .go(searchValue, listSearchable, {
@@ -33,10 +35,10 @@ export const List = ({
         limit: 20,
         key: 'searchTarget',
       })
-      .map((res) => res.obj.item) as typeof items;
+      .map((res) => res.obj.item) as typeof propItems;
 
     return results;
-  }, [items, listSearchable, searchValue]);
+  }, [propItems, listSearchable, searchValue]);
 
   const count = listFilteredBySearch.length;
   const virtualizer = useVirtualizer({
@@ -54,6 +56,7 @@ export const List = ({
         display: 'flex',
         flexDirection: 'column',
         gap: 24,
+        height: '100%',
       }}
     >
       {/* <div className={secondaryPaneListClasses.searchContainer}>
@@ -69,6 +72,7 @@ export const List = ({
             />
           </div>
         </div> */}
+
       {listSearchable.length === 0 && (
         <p className={notificationClass}>{`This schema does not contain `}</p>
       )}
@@ -88,9 +92,6 @@ export const List = ({
                 left: 0,
                 width: '100%',
                 transform: `translateY(${(virtualItems[0]?.start ?? 0) - virtualizer.options.scrollMargin}px)`,
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 2,
               }}
             >
               {virtualItems.map((virtualRow) => {
@@ -102,7 +103,12 @@ export const List = ({
                     data-index={virtualRow.index}
                     ref={virtualizer.measureElement}
                   >
-                    <PaneItem key={x.name} resetTertiaryPaneOnClick={true} item={x} />
+                    <PaneItem
+                      key={x.name}
+                      index={index}
+                      item={x}
+                      resetTertiaryPaneOnClick={true}
+                    />
                   </div>
                 );
               })}

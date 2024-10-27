@@ -11,10 +11,12 @@ import type {
 import { ArgumentsList } from '../arguments-list';
 import { Markdown } from '../markdown';
 
-import { enumValueClass, sectionFieldsClasses, sectionStyles } from './section.css';
+import { enumValueClass, sectionStyles } from './section.css';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import fuzzysort from 'fuzzysort';
 import { ListItemField, ListItemInputField, ListItemType } from '../list-item';
+import { listClasses } from '../list.css';
+import { schemaDocumentationStyles } from '../schema-documentation/schema-documentation.css';
 
 export const Section = ({
   children,
@@ -135,7 +137,7 @@ export const SectionFields = ({
   }
 
   return (
-    <Section lead="Fields" className={sectionFieldsClasses.container}>
+    <Section lead="Fields" className={listClasses.container}>
       <div
         style={{
           flex: 1,
@@ -160,7 +162,7 @@ export const SectionFields = ({
             </div>
           </div>
         )} */}
-        <div ref={parentRef} className={sectionFieldsClasses.fieldsListContainer}>
+        <div ref={parentRef} className={listClasses.fieldsListContainer}>
           <div
             style={{
               height: virtualizer.getTotalSize(),
@@ -202,36 +204,18 @@ export const SectionFields = ({
   );
 };
 
-// export const SectionFields = ({ fields }: { fields: GraphQLFieldMap<any, any> }) => {
-//   return (
-//     <>
-//       {Object.keys(fields).length > 0 ? (
-//         <Section lead="Fields">
-//           {Object.keys(fields)
-//             .sort()
-//             .map((f) => (
-//               <ListItemField
-//                 key={fields[f].name}
-//                 field={fields[f]}
-//                 resetTertiaryPaneOnClick={false}
-//               />
-//             ))}
-//         </Section>
-//       ) : null}
-//     </>
-//   );
-// };
-
 export const SectionInputFields = ({ fields }: { fields: GraphQLInputFieldMap }) => {
   return (
     <>
       {Object.keys(fields).length > 0 ? (
         <Section lead="Input Fields">
-          {Object.keys(fields)
-            .sort()
-            .map((f) => (
-              <ListItemInputField key={fields[f].name} inputField={fields[f]} />
-            ))}
+          <div className={schemaDocumentationStyles.list}>
+            {Object.keys(fields)
+              .sort()
+              .map((f) => (
+                <ListItemInputField key={fields[f].name} inputField={fields[f]} />
+              ))}
+          </div>
         </Section>
       ) : null}
     </>

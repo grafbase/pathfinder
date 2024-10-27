@@ -76,7 +76,7 @@ export const ListItemInputField = ({ inputField }: { inputField: GraphQLInputFie
   const { setActiveTertiaryPane } = useSchemaDocumentationStore.getState();
 
   return (
-    <div>
+    <div className={listItemFieldClass}>
       <span className={scalarArgumentNameClass}>{inputField.name}</span>
       <Delimiter value=":" spacing="LEFT_AND_RIGHT" />
       <button

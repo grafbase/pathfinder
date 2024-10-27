@@ -27,15 +27,3 @@ export type TertiaryPaneType =
   | GraphQLDirective
   | GraphQLInterfaceType
   | GraphQLInputField;
-
-export type TopLevelPane =
-  | 'Query'
-  | 'Mutation'
-  | 'Subscription'
-  | 'Directives'
-  | 'Scalars'
-  | 'Enums'
-  | 'Objects'
-  | 'Input Objects'
-  | 'Unions'
-  | 'Interfaces';

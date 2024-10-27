@@ -102,6 +102,10 @@ export const paneItemStyles = {
           color: contract.color.neutral[12],
         },
       },
+      isActive: {
+        false: {},
+        true: { backgroundColor: contract.color.neutral[3] },
+      },
     },
   }),
 
