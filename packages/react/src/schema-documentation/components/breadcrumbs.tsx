@@ -1,3 +1,4 @@
+import { Icon } from '../../components';
 import { useSchemaDocumentationStore } from '../store';
 import { breadcrumbsStyles } from './breadcrumbs.css';
 
@@ -15,7 +16,7 @@ export const Breadcrumbs = () => {
             className={breadcrumbsStyles.button}
             onClick={() => navigatePanes({ index: i })}
           >
-            <span className={breadcrumbsStyles.arrow}>{`->`}</span>
+            <Icon name="ArrowRight" size="medium" />
             {pane.name}
           </button>
         ))}

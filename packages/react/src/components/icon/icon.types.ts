@@ -1,5 +1,6 @@
 import { RecipeVariants } from '@pathfinder-ide/style';
 
+import { ArrowRight } from './arrow-right';
 import { Caret } from './caret';
 import { Chevron } from './chevron';
 import { Close } from './close';
@@ -19,6 +20,7 @@ import { Prettier } from './prettier';
 import { iconClass } from './icon.css';
 
 export const IconMap = {
+  ArrowRight,
   Caret,
   Chevron,
   Close,

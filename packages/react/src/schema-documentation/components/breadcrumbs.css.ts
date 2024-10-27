@@ -10,27 +10,28 @@ export const breadcrumbsStyles = {
     {
       display: 'flex',
       alignItems: 'center',
+      gap: 8,
       flexGrow: 0,
       flexShrink: 0,
       color: contract.color.neutral[11],
-      paddingLeft: 24,
-      paddingRight: 24,
+      paddingLeft: 12,
+      paddingRight: 12,
       height: 40,
       width: '100%',
     },
   ]),
 
-  arrow: style({
-    display: 'flex',
-    paddingLeft: 8,
-    paddingRight: 8,
-  }),
-
   button: style([
     buttonReset,
     {
       display: 'flex',
-      gap: 2,
+      gap: 8,
+
+      selectors: {
+        '&:hover': {
+          color: contract.color.neutral[12],
+        },
+      },
     },
   ]),
 };
