@@ -3,78 +3,55 @@ import type {
   GraphQLField,
   GraphQLInputField,
   GraphQLNamedType,
-  GraphQLObjectType,
 } from 'graphql';
 
 import { unwrapType } from '@pathfinder-ide/shared';
 
 import { useSchemaDocumentationStore } from '../../store';
 
-import { ArgumentsList } from '../arguments-list';
 import { DefaultValue } from '../default-value';
 import { Markdown } from '../markdown';
 
-import { summaryFieldClass, summaryTypeClass } from './summary.css';
+import { summaryTypeClass } from './summary.css';
 
 import {
   returnTypeButtonClass,
   scalarArgumentNameClass,
-  tertiaryTriggerButtonClass,
+  listButtonStyles,
 } from '../../shared.styles.css';
 
 import { Delimiter } from '../delimiter';
+import { Icon } from '../../../components';
 
 export const SummaryField = ({
   field,
-  parentType,
   resetTertiaryPaneOnClick,
 }: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   field: GraphQLField<any, any, any>;
-  parentType?: GraphQLObjectType;
   resetTertiaryPaneOnClick: boolean;
 }) => {
   const { setActiveTertiaryPane } = useSchemaDocumentationStore.getState();
 
   return (
-    <div className={summaryFieldClass}>
-      <button
-        className={tertiaryTriggerButtonClass({
-          color: 'VIOLET',
-        })}
-        onClick={() =>
-          setActiveTertiaryPane({
-            destinationPane: field,
-            parentType,
-            reset: resetTertiaryPaneOnClick,
-          })
-        }
-      >
-        {field.name}
-      </button>
-      {'args' in field && field.args.length > 0 && (
-        <>
-          <Delimiter value="(" spacing="LEFT_AND_RIGHT" />
-          <ArgumentsList
-            args={field.args}
-            resetTertiaryPaneOnClick={resetTertiaryPaneOnClick}
-          />
-          <Delimiter value=")" spacing="LEFT_AND_RIGHT" />
-        </>
-      )}
-      <Delimiter value=":" spacing="LEFT_AND_RIGHT" />
-      <button
-        className={returnTypeButtonClass}
-        onClick={() =>
-          setActiveTertiaryPane({
-            destinationPane: unwrapType(field.type),
-            reset: resetTertiaryPaneOnClick,
-          })
-        }
-      >
-        {field.type.toString()}
-      </button>
-    </div>
+    <button
+      className={listButtonStyles.container({
+        color: 'NEUTRAL',
+      })}
+      onClick={() =>
+        setActiveTertiaryPane({
+          destinationPane: field,
+          reset: resetTertiaryPaneOnClick,
+        })
+      }
+    >
+      <div>
+        {field.name}({field.args.length}): {field.type.toString()}
+      </div>
+      <div className={listButtonStyles.icon}>
+        <Icon name="Chevron" />
+      </div>
+    </button>
   );
 };
 
@@ -82,7 +59,7 @@ export const SummaryInputField = ({ inputField }: { inputField: GraphQLInputFiel
   const { setActiveTertiaryPane } = useSchemaDocumentationStore.getState();
 
   return (
-    <div className={summaryFieldClass}>
+    <div>
       <span className={scalarArgumentNameClass}>{inputField.name}</span>
       <Delimiter value=":" spacing="LEFT_AND_RIGHT" />
       <button
@@ -116,7 +93,7 @@ export const SummaryType = ({
   return (
     <div className={summaryTypeClass}>
       <button
-        className={tertiaryTriggerButtonClass({
+        className={listButtonStyles.container({
           color: 'BLUE',
         })}
         onClick={() =>

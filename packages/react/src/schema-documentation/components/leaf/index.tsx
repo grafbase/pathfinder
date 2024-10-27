@@ -66,11 +66,9 @@ export const LeafEnum = ({ type }: { type: GraphQLEnumType }) => {
 
 export const LeafField = ({
   field,
-  parentType,
 }: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   field: GraphQLField<any, any>;
-  parentType?: GraphQLObjectType;
 }) => {
   const { setActiveTertiaryPane } = useSchemaDocumentationStore.getState();
 
@@ -81,7 +79,7 @@ export const LeafField = ({
         <button
           className={returnTypeButtonClass}
           onClick={() =>
-            setActiveTertiaryPane({ destinationPane: unwrapType(field.type), parentType })
+            setActiveTertiaryPane({ destinationPane: unwrapType(field.type) })
           }
         >
           {field.type.toString()}
@@ -123,12 +121,7 @@ export const LeafObject = ({ type }: { type: GraphQLObjectType }) => {
   return (
     <>
       <SectionDescription description={type.description} />
-      <SectionFields
-        fields={fields}
-        parentType={type}
-        resetTertiaryPaneOnClick={false}
-        hideSearch
-      />
+      <SectionFields fields={fields} resetTertiaryPaneOnClick={false} hideSearch />
       <SectionInterface interfaces={interfaces} />
     </>
   );

@@ -20,11 +20,9 @@ export type SchemaDocumentationStoreActions = {
   }) => void;
   setActiveTertiaryPane: ({
     destinationPane,
-    parentType,
     reset,
   }: {
     destinationPane: TertiaryPaneType;
-    parentType?: GraphQLObjectType;
     reset?: boolean;
   }) => void;
 };

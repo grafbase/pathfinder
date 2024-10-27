@@ -87,12 +87,10 @@ export const SectionEnumValues = ({
 
 export const SectionFields = ({
   fields,
-  parentType,
   resetTertiaryPaneOnClick,
 }: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   fields: GraphQLFieldMap<any, any>;
-  parentType?: GraphQLObjectType;
   resetTertiaryPaneOnClick: boolean;
   hideSearch?: boolean;
 }) => {
@@ -137,16 +135,15 @@ export const SectionFields = ({
   }
 
   return (
-    <Section lead="Fields" className={sectionFieldsClasses.container}>
-      <div
-        style={{
-          flex: 1,
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 24,
-        }}
-      >
-        {/* {!hideSearch && (
+    <div
+      style={{
+        flex: 1,
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 24,
+      }}
+    >
+      {/* {!hideSearch && (
           <div className={sectionFieldsClasses.searchContainer}>
             <div className={sectionFieldsClasses.searchInputWrapper}>
               <Icon name="MagnifingGlass" size="small" />
@@ -161,46 +158,44 @@ export const SectionFields = ({
             </div>
           </div>
         )} */}
-        <div ref={parentRef} className={sectionFieldsClasses.fieldsListContainer}>
+      <div ref={parentRef} className={sectionFieldsClasses.fieldsListContainer}>
+        <div
+          style={{
+            height: virtualizer.getTotalSize(),
+            width: '100%',
+            position: 'relative',
+          }}
+        >
           <div
             style={{
-              height: virtualizer.getTotalSize(),
+              position: 'absolute',
+              top: 0,
+              left: 0,
               width: '100%',
-              position: 'relative',
+              transform: `translateY(${(virtualItems[0]?.start ?? 0) - virtualizer.options.scrollMargin}px)`,
             }}
           >
-            <div
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                transform: `translateY(${(virtualItems[0]?.start ?? 0) - virtualizer.options.scrollMargin}px)`,
-              }}
-            >
-              {virtualItems.map((virtualRow) => {
-                const fieldKey = fieldsFilteredBySearch[virtualRow.index];
+            {virtualItems.map((virtualRow) => {
+              const fieldKey = fieldsFilteredBySearch[virtualRow.index];
 
-                return (
-                  <div
-                    key={virtualRow.key}
-                    data-index={virtualRow.index}
-                    ref={virtualizer.measureElement}
-                  >
-                    <SummaryField
-                      key={fields[fieldKey].name}
-                      field={fields[fieldKey]}
-                      parentType={parentType}
-                      resetTertiaryPaneOnClick={resetTertiaryPaneOnClick}
-                    />
-                  </div>
-                );
-              })}
-            </div>
+              return (
+                <div
+                  key={virtualRow.key}
+                  data-index={virtualRow.index}
+                  ref={virtualizer.measureElement}
+                >
+                  <SummaryField
+                    key={fields[fieldKey].name}
+                    field={fields[fieldKey]}
+                    resetTertiaryPaneOnClick={resetTertiaryPaneOnClick}
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
-    </Section>
+    </div>
   );
 };
 

@@ -29,14 +29,13 @@ export const schemaDocumentationStoreActions = (
       tertiaryPaneStack: tertiaryPaneStack.slice(0, destinationPaneIndex + 1),
     });
   },
-  setActiveTertiaryPane: ({ destinationPane, parentType, reset = false }) => {
+  setActiveTertiaryPane: ({ destinationPane, reset = false }) => {
     // generate a unique id for our pane
     const paneHash = generateCuid({});
 
     const pane: TertiaryPaneStackItem = {
       hash: paneHash,
       pane: destinationPane,
-      parentType,
     };
     if (reset) {
       set({

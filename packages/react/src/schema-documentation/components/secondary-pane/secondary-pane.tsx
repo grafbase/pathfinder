@@ -5,9 +5,8 @@ import { useSchemaDocumentationStore } from '../../store';
 
 import { SortedTypeMap } from '../../types';
 
-import { Section, SectionDescription, SectionFields } from '../section';
+import { Section, SectionFields } from '../section';
 import { SummaryType } from '../summary';
-import { Markdown } from '../markdown';
 
 import { secondaryPaneClass, secondaryPaneListClasses } from './secondary-pane.css';
 import { notificationClass } from '../../shared.styles.css';
@@ -131,28 +130,6 @@ const List = ({
   );
 };
 
-const RootOperationDetails = ({
-  rootOperationType,
-}: {
-  rootOperationType: GraphQLObjectType;
-}) => {
-  const fields = rootOperationType.getFields();
-
-  return (
-    <>
-      <Section lead="Root Type Name">
-        <Markdown content={rootOperationType.name} />
-      </Section>
-      <SectionDescription description={rootOperationType.description} />
-      <SectionFields
-        fields={fields}
-        parentType={rootOperationType}
-        resetTertiaryPaneOnClick={true}
-      />
-    </>
-  );
-};
-
 export const SecondaryPane = ({
   directives,
   queryRootType,
@@ -172,15 +149,27 @@ export const SecondaryPane = ({
   let toRender: ReactElement = <></>;
 
   if (activePrimaryPane === 'Query' && queryRootType) {
-    toRender = <RootOperationDetails rootOperationType={queryRootType} />;
+    toRender = (
+      <SectionFields fields={queryRootType.getFields()} resetTertiaryPaneOnClick={true} />
+    );
   }
 
   if (activePrimaryPane === 'Mutation' && mutationRootType) {
-    toRender = <RootOperationDetails rootOperationType={mutationRootType} />;
+    toRender = (
+      <SectionFields
+        fields={mutationRootType.getFields()}
+        resetTertiaryPaneOnClick={true}
+      />
+    );
   }
 
   if (activePrimaryPane === 'Subscription' && subscriptionRootType) {
-    toRender = <RootOperationDetails rootOperationType={subscriptionRootType} />;
+    toRender = (
+      <SectionFields
+        fields={subscriptionRootType.getFields()}
+        resetTertiaryPaneOnClick={true}
+      />
+    );
   }
 
   if (activePrimaryPane === 'Directives') {

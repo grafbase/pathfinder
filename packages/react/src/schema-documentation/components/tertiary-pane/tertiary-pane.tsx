@@ -98,7 +98,7 @@ export const TertiaryPane = ({
     leadType = 'Field';
     toRender = (
       <>
-        <LeafField field={pane} parentType={activeTertiaryPane.parentType} />
+        <LeafField field={pane} />
         {fieldSlotComponent && fieldSlotComponent}
       </>
     );
