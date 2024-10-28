@@ -4,51 +4,69 @@ import {
   GetSchemaDocumentationStore,
   SetSchemaDocumentationStore,
   SchemaDocumentationStoreActions,
-  TertiaryPaneStackItem,
+  DetailsPaneStackItem,
 } from './schema-documentation-store.types';
 
 export const schemaDocumentationStoreActions = (
   set: SetSchemaDocumentationStore,
   get: GetSchemaDocumentationStore,
 ): SchemaDocumentationStoreActions => ({
-  setActivePrimaryPane: ({ destinationPane }) => {
-    set({ activePrimaryPane: destinationPane });
-  },
-  clearTertiaryPaneStack: () => {
-    set({
-      activeTertiaryPane: null,
-      tertiaryPaneStack: [],
-    });
-  },
-  navigateTertiaryPaneStack: ({ destinationPaneIndex }) => {
-    const tertiaryPaneStack = get().tertiaryPaneStack;
+  navigatePanes: ({ index, pane }) => {
+    const panes = get().panes;
 
-    set({
-      activeTertiaryPane: tertiaryPaneStack[destinationPaneIndex],
-      // remove all panes after the destinationPaneIndex from our nav stack
-      tertiaryPaneStack: tertiaryPaneStack.slice(0, destinationPaneIndex + 1),
+    const slicedPanes = panes.slice(0, index + 1);
+
+    if (pane) {
+      return set({
+        panes: [...slicedPanes, pane],
+      });
+    } else {
+      return set({
+        panes: [...slicedPanes],
+      });
+    }
+  },
+  clearPaneStack: () => {
+    return set({
+      panes: [],
     });
   },
-  setActiveTertiaryPane: ({ destinationPane, parentType, reset = false }) => {
+
+  clearDetailsPaneStack: () => {
+    return set({
+      activeDetailsPane: null,
+      detailsPaneStack: [],
+    });
+  },
+  navigateDetailsPaneStack: ({ destinationPaneIndex }) => {
+    const detailsPaneStack = get().detailsPaneStack;
+
+    return set({
+      activeDetailsPane: detailsPaneStack[destinationPaneIndex],
+      // remove all panes after the destinationPaneIndex from our nav stack
+      detailsPaneStack: detailsPaneStack.slice(0, destinationPaneIndex + 1),
+    });
+  },
+  setActiveDetailsPane: ({ destinationPane, parentType, reset = false }) => {
     // generate a unique id for our pane
     const paneHash = generateCuid({});
 
-    const pane: TertiaryPaneStackItem = {
+    const pane: DetailsPaneStackItem = {
       hash: paneHash,
       pane: destinationPane,
       parentType,
     };
     if (reset) {
-      set({
-        activeTertiaryPane: pane,
-        tertiaryPaneStack: [pane],
+      return set({
+        activeDetailsPane: pane,
+        detailsPaneStack: [pane],
       });
     } else {
-      const tertiaryPaneStack = get().tertiaryPaneStack;
-      set({
-        activeTertiaryPane: pane,
-        tertiaryPaneStack:
-          tertiaryPaneStack[0] !== null ? [...tertiaryPaneStack, pane] : [pane],
+      const detailsPaneStack = get().detailsPaneStack;
+      return set({
+        activeDetailsPane: pane,
+        detailsPaneStack:
+          detailsPaneStack[0] !== null ? [...detailsPaneStack, pane] : [pane],
       });
     }
   },

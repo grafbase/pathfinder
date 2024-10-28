@@ -1,38 +1,56 @@
 import { StoreApi } from 'zustand';
 
-import { TertiaryPaneType, TopLevelPane } from '../types';
-import { GraphQLObjectType } from 'graphql';
+import { DetailsPaneType } from '../types';
+import {
+  GraphQLDirective,
+  GraphQLField,
+  GraphQLNamedType,
+  GraphQLObjectType,
+} from 'graphql';
 
-export type TertiaryPaneStackItem = {
+export type DetailsPaneStackItem = {
   hash: string;
-  pane: TertiaryPaneType;
-  /** For TertiaryPaneType of GraphQLField, we'll provide the parent type */
+  pane: DetailsPaneType;
+  /** optional `parentType` can be valuable when using the details pane slot component prop */
+  parentType?: GraphQLObjectType;
+};
+
+export type PaneItem = {
+  id: string;
+  name: string;
+  items:
+    | GraphQLNamedType[]
+    | readonly GraphQLDirective[]
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    | GraphQLField<any, any>[];
+  /** optional `parentType` here is used as a pass-through so we can access in pane-item.tsx via the panes store */
   parentType?: GraphQLObjectType;
 };
 
 export type SchemaDocumentationStoreActions = {
-  setActivePrimaryPane: ({ destinationPane }: { destinationPane: TopLevelPane }) => void;
-  clearTertiaryPaneStack: () => void;
-  navigateTertiaryPaneStack: ({
+  navigatePanes: ({ index, pane }: { index: number; pane?: PaneItem }) => void;
+  clearPaneStack: () => void;
+  clearDetailsPaneStack: () => void;
+  navigateDetailsPaneStack: ({
     destinationPaneIndex,
   }: {
     destinationPaneIndex: number;
   }) => void;
-  setActiveTertiaryPane: ({
+  setActiveDetailsPane: ({
     destinationPane,
     parentType,
     reset,
   }: {
-    destinationPane: TertiaryPaneType;
+    destinationPane: DetailsPaneType;
     parentType?: GraphQLObjectType;
     reset?: boolean;
   }) => void;
 };
 
 export type SchemaDocumentationStoreState = {
-  activePrimaryPane: TopLevelPane;
-  activeTertiaryPane: TertiaryPaneStackItem | null;
-  tertiaryPaneStack: TertiaryPaneStackItem[];
+  detailsPaneStack: DetailsPaneStackItem[];
+  activeDetailsPane: DetailsPaneStackItem | null;
+  panes: PaneItem[];
 };
 
 export type GetSchemaDocumentationStore = StoreApi<

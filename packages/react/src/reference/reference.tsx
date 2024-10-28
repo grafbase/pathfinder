@@ -49,8 +49,8 @@ const NavButton = ({
 }) => {
   const title = `View ${panesMap[paneName]}`;
 
-  const clearTertiaryPaneStack =
-    useSchemaDocumentationStore.getState().clearTertiaryPaneStack;
+  const clearDetailsPaneStack =
+    useSchemaDocumentationStore.getState().clearDetailsPaneStack;
 
   return (
     <button
@@ -60,7 +60,7 @@ const NavButton = ({
         isActive: visiblePane === paneName,
       })}
       onClick={() => {
-        clearTertiaryPaneStack();
+        clearDetailsPaneStack();
         return setVisiblePane(paneName);
       }}
     >

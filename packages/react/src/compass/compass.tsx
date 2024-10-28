@@ -15,7 +15,7 @@ export const Compass = () => {
   // local state to control whether we should show the query or mutation tab
   const [selectedTabIndex, setSelectedTabIndex] = useState<number>(0);
 
-  const activeTertiaryPane = useSchemaDocumentationStore.use.activeTertiaryPane();
+  const activeDetailsPane = useSchemaDocumentationStore.use.activeDetailsPane();
 
   const schema = useSchemaStore.use.schema();
 
@@ -107,7 +107,7 @@ export const Compass = () => {
 
   return (
     <div className={compassClass}>
-      {activeTertiaryPane ? (
+      {activeDetailsPane ? (
         <QuickDocs />
       ) : (
         <Tabs

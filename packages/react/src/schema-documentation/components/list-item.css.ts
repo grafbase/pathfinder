@@ -1,6 +1,6 @@
 import { style, contract } from '@pathfinder-ide/style';
 
-export const summaryFieldClass = style({
+export const listItemFieldClass = style({
   borderLeft: `1px solid ${contract.color.neutral[4]}`,
   margin: '12px 0',
   paddingLeft: 8,
@@ -12,8 +12,8 @@ export const summaryFieldClass = style({
   },
 });
 
-export const summaryTypeClass = style({
+export const listItemTypeClass = style({
   display: 'flex',
   flexDirection: 'column',
-  borderLeft: contract.color.neutral[6],
+  minHeight: 28,
 });

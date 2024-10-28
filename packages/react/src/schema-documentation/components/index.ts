@@ -1,3 +1,3 @@
 export { SchemaDocumentation } from './schema-documentation';
 
-export { TertiaryPane } from './tertiary-pane';
+export { DetailsPane } from './details-pane';
