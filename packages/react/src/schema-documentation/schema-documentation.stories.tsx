@@ -36,11 +36,25 @@ export const WithSchema = () => {
   return <SchemaDocumentation schema={testSchema} />;
 };
 
-export const WithSchemaAndTertiaryPaneFieldSlotComponent = () => {
+export const WithSchemaAndThemeOverrides = () => {
   return (
     <SchemaDocumentation
       schema={testSchema}
-      tertiaryPaneFieldSlotComponent={<>I'm a tertiaryPaneFieldSlotComponent!</>}
+      themeOptions={{ overrides: { dark: { color: { neutral: { '1': '#000' } } } } }}
+    />
+  );
+};
+
+export const WithSchemaAnddetailsPaneTabSlotComponent = () => {
+  return (
+    <SchemaDocumentation
+      schema={testSchema}
+      detailsPaneTabSlotComponents={[
+        {
+          tabContent: <>I'm a detailsPaneTabSlotComponent!</>,
+          tabName: 'Test',
+        },
+      ]}
     />
   );
 };
