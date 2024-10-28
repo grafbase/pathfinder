@@ -1,5 +1,11 @@
 # @pathfinder-ide/react
 
+## 0.8.3
+
+### Patch Changes
+
+- d23fcaa: Updated UI to assist with navigating through large schemas.
+
 ## 0.8.2
 
 ### Patch Changes
