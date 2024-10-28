@@ -32,7 +32,7 @@ export const detailsPaneStyles = {
     display: 'flex',
     borderLeft: `1px solid ${contract.color.neutral[3]}`,
     height: '100%',
-    paddingRight: 8,
+    paddingRight: 12,
   }),
 
   leadClass: style([
