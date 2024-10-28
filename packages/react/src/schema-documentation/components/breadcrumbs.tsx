@@ -12,7 +12,7 @@ export const Breadcrumbs = () => {
       {panes.length > 0 &&
         panes.map((pane, i) => (
           <button
-            key={pane.name}
+            key={`${pane.name}-${i}`}
             className={breadcrumbsStyles.button}
             onClick={() => navigatePanes({ index: i })}
           >
