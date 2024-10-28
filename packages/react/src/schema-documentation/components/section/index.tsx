@@ -89,10 +89,12 @@ export const SectionEnumValues = ({
 
 export const SectionFields = ({
   fields,
+  parentType,
   resetDetailsPaneOnClick,
 }: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   fields: GraphQLFieldMap<any, any>;
+  parentType?: GraphQLObjectType;
   resetDetailsPaneOnClick: boolean;
   hideSearch?: boolean;
 }) => {
@@ -191,6 +193,7 @@ export const SectionFields = ({
                     <ListItemField
                       key={fields[fieldKey].name}
                       field={fields[fieldKey]}
+                      parentType={parentType}
                       resetDetailsPaneOnClick={resetDetailsPaneOnClick}
                     />
                   </div>

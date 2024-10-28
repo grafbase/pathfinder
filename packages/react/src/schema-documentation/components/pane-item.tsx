@@ -2,6 +2,7 @@ import {
   GraphQLDirective,
   GraphQLField,
   GraphQLNamedType,
+  GraphQLObjectType,
   isInterfaceType,
   isObjectType,
   isUnionType,
@@ -39,12 +40,12 @@ export const PaneItem = ({
       onClick={() => {
         // if a field that returns an object, union, or interface
         if ('args' in item && !('isRepeatable' in item)) {
-          //this is a field
           const unwrappedType = unwrapType(item.type);
           if (isObjectType(unwrappedType) || isInterfaceType(unwrappedType)) {
             const fields = unwrappedType.getFields();
             setActiveDetailsPane({
               destinationPane: item,
+              parentType: panes[index].parentType,
               reset: resetDetailsPaneOnClick,
             });
             navigatePanes({
@@ -52,7 +53,8 @@ export const PaneItem = ({
               pane: {
                 id: title,
                 name: unwrappedType.name,
-                pane: Object.keys(fields).map((field) => fields[field]),
+                items: Object.keys(fields).map((field) => fields[field]),
+                parentType: unwrappedType as GraphQLObjectType,
               },
             });
           } else if (isUnionType(unwrappedType)) {
@@ -66,7 +68,7 @@ export const PaneItem = ({
               pane: {
                 id: title,
                 name: item.name,
-                pane: types.map((_type, i) => types[i]),
+                items: types.map((_type, i) => types[i]),
               },
             });
           } else {
@@ -85,7 +87,7 @@ export const PaneItem = ({
               pane: {
                 id: title,
                 name: item.name,
-                pane: types.map((_type, i) => types[i]),
+                items: types.map((_type, i) => types[i]),
               },
             });
           } else {
@@ -96,7 +98,7 @@ export const PaneItem = ({
               pane: {
                 id: title,
                 name: item.name,
-                pane: Object.keys(fields).map((field) => fields[field]),
+                items: Object.keys(fields).map((field) => fields[field]),
               },
             });
           }

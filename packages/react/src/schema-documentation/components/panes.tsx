@@ -8,7 +8,7 @@ export const Panes = () => {
   return (
     <div className={panesStyles.container}>
       {panes.map((pane, i) => (
-        <List key={`${pane.name}-${i}`} index={i} propItems={pane.pane} />
+        <List key={`${pane.name}-${i}`} index={i} propItems={pane.items} />
       ))}
     </div>
   );

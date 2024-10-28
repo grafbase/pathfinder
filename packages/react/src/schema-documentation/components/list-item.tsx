@@ -3,6 +3,7 @@ import type {
   GraphQLField,
   GraphQLInputField,
   GraphQLNamedType,
+  GraphQLObjectType,
 } from 'graphql';
 
 import { unwrapType } from '@pathfinder-ide/shared';
@@ -23,10 +24,12 @@ import {
 
 export const ListItemField = ({
   field,
+  parentType,
   resetDetailsPaneOnClick,
 }: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   field: GraphQLField<any, any, any>;
+  parentType?: GraphQLObjectType;
   resetDetailsPaneOnClick: boolean;
 }) => {
   const { setActiveDetailsPane } = useSchemaDocumentationStore.getState();
@@ -40,6 +43,7 @@ export const ListItemField = ({
         onClick={() =>
           setActiveDetailsPane({
             destinationPane: field,
+            parentType,
             reset: resetDetailsPaneOnClick,
           })
         }

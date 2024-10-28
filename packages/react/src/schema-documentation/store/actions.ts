@@ -47,13 +47,14 @@ export const schemaDocumentationStoreActions = (
       detailsPaneStack: detailsPaneStack.slice(0, destinationPaneIndex + 1),
     });
   },
-  setActiveDetailsPane: ({ destinationPane, reset = false }) => {
+  setActiveDetailsPane: ({ destinationPane, parentType, reset = false }) => {
     // generate a unique id for our pane
     const paneHash = generateCuid({});
 
     const pane: DetailsPaneStackItem = {
       hash: paneHash,
       pane: destinationPane,
+      parentType,
     };
     if (reset) {
       return set({

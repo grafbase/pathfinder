@@ -70,38 +70,41 @@ export const SchemaDocumentation = ({
               <div className={sharedPaneClass}>
                 <Section lead={`Root Operation Types`} withSeparator>
                   <div className={schemaDocumentationStyles.list}>
-                    {queryFields && (
+                    {queryRootType && queryFields && (
                       <TypeSystemNavButton
                         pane={{
-                          id: queryRootType?.name || 'Query',
-                          name: queryRootType?.name || 'Query',
-                          pane: Object.keys(queryFields).map(
+                          id: queryRootType.name || 'Query',
+                          name: queryRootType.name || 'Query',
+                          items: Object.keys(queryFields).map(
                             (field) => queryFields[field],
                           ),
+                          parentType: queryRootType,
                         }}
                         count={Object.keys(queryFields).length.toString() as string}
                       />
                     )}
-                    {mutationFields && (
+                    {mutationRootType && mutationFields && (
                       <TypeSystemNavButton
                         pane={{
-                          id: mutationRootType?.name || 'Mutation',
-                          name: mutationRootType?.name || 'Mutation',
-                          pane: Object.keys(mutationFields).map(
+                          id: mutationRootType.name || 'Mutation',
+                          name: mutationRootType.name || 'Mutation',
+                          items: Object.keys(mutationFields).map(
                             (field) => mutationFields[field],
                           ),
+                          parentType: mutationRootType,
                         }}
                         count={Object.keys(mutationFields).length.toString() as string}
                       />
                     )}
-                    {subscriptionFields && (
+                    {subscriptionRootType && subscriptionFields && (
                       <TypeSystemNavButton
                         pane={{
-                          id: subscriptionRootType?.name || 'Subscription',
-                          name: subscriptionRootType?.name || 'Subscription',
-                          pane: Object.keys(subscriptionFields).map(
+                          id: subscriptionRootType.name || 'Subscription',
+                          name: subscriptionRootType.name || 'Subscription',
+                          items: Object.keys(subscriptionFields).map(
                             (field) => subscriptionFields[field],
                           ),
+                          parentType: subscriptionRootType,
                         }}
                         count={
                           Object.keys(subscriptionFields).length.toString() as string
@@ -119,7 +122,7 @@ export const SchemaDocumentation = ({
                         pane={{
                           id: s,
                           name: s,
-                          pane: sortedTypes[s as keyof SortedTypeMap],
+                          items: sortedTypes[s as keyof SortedTypeMap],
                         }}
                         count={sortedTypes[s as keyof SortedTypeMap].length.toString()}
                       />
@@ -129,7 +132,7 @@ export const SchemaDocumentation = ({
                     pane={{
                       id: 'Directives',
                       name: 'Directives',
-                      pane: directives,
+                      items: directives,
                     }}
                     count={directives.length.toString() as string}
                   />

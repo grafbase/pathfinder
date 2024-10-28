@@ -90,7 +90,7 @@ export const DetailsPane = ({
 
   if (activeDetailsPane && 'args' in pane && !isDirective(pane)) {
     leadType = 'Field';
-    toRender = <LeafField field={pane} />;
+    toRender = <LeafField field={pane} parentType={activeDetailsPane.parentType} />;
   }
 
   return (
