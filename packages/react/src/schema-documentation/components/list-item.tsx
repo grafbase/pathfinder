@@ -23,13 +23,13 @@ import {
 
 export const ListItemField = ({
   field,
-  resetTertiaryPaneOnClick,
+  resetDetailsPaneOnClick,
 }: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   field: GraphQLField<any, any, any>;
-  resetTertiaryPaneOnClick: boolean;
+  resetDetailsPaneOnClick: boolean;
 }) => {
-  const { setActiveTertiaryPane } = useSchemaDocumentationStore.getState();
+  const { setActiveDetailsPane } = useSchemaDocumentationStore.getState();
 
   return (
     <div className={listItemFieldClass}>
@@ -38,9 +38,9 @@ export const ListItemField = ({
           color: 'VIOLET',
         })}
         onClick={() =>
-          setActiveTertiaryPane({
+          setActiveDetailsPane({
             destinationPane: field,
-            reset: resetTertiaryPaneOnClick,
+            reset: resetDetailsPaneOnClick,
           })
         }
       >
@@ -51,7 +51,7 @@ export const ListItemField = ({
           <Delimiter value="(" spacing="LEFT_AND_RIGHT" />
           <ArgumentsList
             args={field.args}
-            resetTertiaryPaneOnClick={resetTertiaryPaneOnClick}
+            resetDetailsPaneOnClick={resetDetailsPaneOnClick}
           />
           <Delimiter value=")" spacing="LEFT_AND_RIGHT" />
         </>
@@ -60,9 +60,9 @@ export const ListItemField = ({
       <button
         className={returnTypeButtonClass}
         onClick={() =>
-          setActiveTertiaryPane({
+          setActiveDetailsPane({
             destinationPane: unwrapType(field.type),
-            reset: resetTertiaryPaneOnClick,
+            reset: resetDetailsPaneOnClick,
           })
         }
       >
@@ -73,7 +73,7 @@ export const ListItemField = ({
 };
 
 export const ListItemInputField = ({ inputField }: { inputField: GraphQLInputField }) => {
-  const { setActiveTertiaryPane } = useSchemaDocumentationStore.getState();
+  const { setActiveDetailsPane } = useSchemaDocumentationStore.getState();
 
   return (
     <div className={listItemFieldClass}>
@@ -83,7 +83,7 @@ export const ListItemInputField = ({ inputField }: { inputField: GraphQLInputFie
         className={returnTypeButtonClass}
         title="Return type"
         onClick={() =>
-          setActiveTertiaryPane({
+          setActiveDetailsPane({
             destinationPane: unwrapType(inputField.type),
           })
         }
@@ -97,15 +97,15 @@ export const ListItemInputField = ({ inputField }: { inputField: GraphQLInputFie
 };
 
 export const ListItemType = ({
-  resetTertiaryPaneOnClick,
+  resetDetailsPaneOnClick,
   showDescription,
   type,
 }: {
-  resetTertiaryPaneOnClick: boolean;
+  resetDetailsPaneOnClick: boolean;
   showDescription: boolean;
   type: GraphQLNamedType | GraphQLDirective;
 }) => {
-  const { setActiveTertiaryPane } = useSchemaDocumentationStore.getState();
+  const { setActiveDetailsPane } = useSchemaDocumentationStore.getState();
 
   return (
     <div className={listItemTypeClass}>
@@ -114,9 +114,9 @@ export const ListItemType = ({
           color: 'BLUE',
         })}
         onClick={() =>
-          setActiveTertiaryPane({
+          setActiveDetailsPane({
             destinationPane: type,
-            reset: resetTertiaryPaneOnClick,
+            reset: resetDetailsPaneOnClick,
           })
         }
       >

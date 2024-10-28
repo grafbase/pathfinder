@@ -12,7 +12,7 @@ export const TypeSystemNavButton = ({
   pane: PaneItem;
   count: string;
 }) => {
-  const { clearTertiaryPaneStack, clearPaneStack, navigatePanes } =
+  const { clearDetailsPaneStack, clearPaneStack, navigatePanes } =
     useSchemaDocumentationStore.getState();
 
   const leadPane = useSchemaDocumentationStore.use.panes();
@@ -23,7 +23,7 @@ export const TypeSystemNavButton = ({
         isActive: leadPane[0] ? leadPane[0].name === pane.name : false,
       })}
       onClick={() => {
-        clearPaneStack(), clearTertiaryPaneStack();
+        clearPaneStack(), clearDetailsPaneStack();
         navigatePanes({ index: 0, pane });
       }}
     >

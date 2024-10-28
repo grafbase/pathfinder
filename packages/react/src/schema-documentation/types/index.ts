@@ -20,7 +20,7 @@ export type SortedTypeMap = {
   Interfaces: GraphQLInterfaceType[];
 };
 
-export type TertiaryPaneType =
+export type DetailsPaneType =
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   | GraphQLField<any, any>
   | GraphQLNamedType

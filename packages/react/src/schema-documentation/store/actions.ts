@@ -4,7 +4,7 @@ import {
   GetSchemaDocumentationStore,
   SetSchemaDocumentationStore,
   SchemaDocumentationStoreActions,
-  TertiaryPaneStackItem,
+  DetailsPaneStackItem,
 } from './schema-documentation-store.types';
 
 export const schemaDocumentationStoreActions = (
@@ -32,40 +32,40 @@ export const schemaDocumentationStoreActions = (
     });
   },
 
-  clearTertiaryPaneStack: () => {
+  clearDetailsPaneStack: () => {
     return set({
-      activeTertiaryPane: null,
-      tertiaryPaneStack: [],
+      activeDetailsPane: null,
+      detailsPaneStack: [],
     });
   },
-  navigateTertiaryPaneStack: ({ destinationPaneIndex }) => {
-    const tertiaryPaneStack = get().tertiaryPaneStack;
+  navigateDetailsPaneStack: ({ destinationPaneIndex }) => {
+    const detailsPaneStack = get().detailsPaneStack;
 
     return set({
-      activeTertiaryPane: tertiaryPaneStack[destinationPaneIndex],
+      activeDetailsPane: detailsPaneStack[destinationPaneIndex],
       // remove all panes after the destinationPaneIndex from our nav stack
-      tertiaryPaneStack: tertiaryPaneStack.slice(0, destinationPaneIndex + 1),
+      detailsPaneStack: detailsPaneStack.slice(0, destinationPaneIndex + 1),
     });
   },
-  setActiveTertiaryPane: ({ destinationPane, reset = false }) => {
+  setActiveDetailsPane: ({ destinationPane, reset = false }) => {
     // generate a unique id for our pane
     const paneHash = generateCuid({});
 
-    const pane: TertiaryPaneStackItem = {
+    const pane: DetailsPaneStackItem = {
       hash: paneHash,
       pane: destinationPane,
     };
     if (reset) {
       return set({
-        activeTertiaryPane: pane,
-        tertiaryPaneStack: [pane],
+        activeDetailsPane: pane,
+        detailsPaneStack: [pane],
       });
     } else {
-      const tertiaryPaneStack = get().tertiaryPaneStack;
+      const detailsPaneStack = get().detailsPaneStack;
       return set({
-        activeTertiaryPane: pane,
-        tertiaryPaneStack:
-          tertiaryPaneStack[0] !== null ? [...tertiaryPaneStack, pane] : [pane],
+        activeDetailsPane: pane,
+        detailsPaneStack:
+          detailsPaneStack[0] !== null ? [...detailsPaneStack, pane] : [pane],
       });
     }
   },

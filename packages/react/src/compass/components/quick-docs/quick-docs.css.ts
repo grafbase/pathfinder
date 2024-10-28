@@ -4,7 +4,7 @@ export const quickDocsClass = recipe({
   base: [
     shared.scrollbars,
     {
-      backgroundColor: contract.color.neutral[3],
+      backgroundColor: contract.color.neutral[2],
       border: `1px solid ${contract.color.neutral[5]}`,
       paddingBottom: contract.space[12],
       borderRadius: contract.space[4],

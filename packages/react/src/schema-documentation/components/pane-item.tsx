@@ -14,20 +14,20 @@ import { unwrapType } from '@pathfinder-ide/shared';
 export const PaneItem = ({
   index,
   item,
-  resetTertiaryPaneOnClick,
+  resetDetailsPaneOnClick,
 }: {
   index: number;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   item: GraphQLNamedType | GraphQLDirective | GraphQLField<any, any, any>;
-  resetTertiaryPaneOnClick: boolean;
+  resetDetailsPaneOnClick: boolean;
 }) => {
-  const { navigatePanes, setActiveTertiaryPane } = useSchemaDocumentationStore.getState();
+  const { navigatePanes, setActiveDetailsPane } = useSchemaDocumentationStore.getState();
 
   const panes = useSchemaDocumentationStore.use.panes();
 
   const title =
     'args' in item && !('isRepeatable' in item)
-      ? `${item.name}${item.args.length > 0 && `(${item.args.length})`}: ${item.type.toString()}`
+      ? `${item.name}${item.args.length > 0 ? `${item.args.length}` : ``}: ${item.type.toString()}`
       : item.name;
 
   return (
@@ -43,9 +43,9 @@ export const PaneItem = ({
           const unwrappedType = unwrapType(item.type);
           if (isObjectType(unwrappedType) || isInterfaceType(unwrappedType)) {
             const fields = unwrappedType.getFields();
-            setActiveTertiaryPane({
+            setActiveDetailsPane({
               destinationPane: item,
-              reset: resetTertiaryPaneOnClick,
+              reset: resetDetailsPaneOnClick,
             });
             navigatePanes({
               index,
@@ -56,9 +56,9 @@ export const PaneItem = ({
               },
             });
           } else {
-            return setActiveTertiaryPane({
+            return setActiveDetailsPane({
               destinationPane: item,
-              reset: resetTertiaryPaneOnClick,
+              reset: resetDetailsPaneOnClick,
             });
           }
         } else if (isUnionType(item) || isObjectType(item)) {
@@ -86,9 +86,9 @@ export const PaneItem = ({
             });
           }
         } else {
-          return setActiveTertiaryPane({
+          return setActiveDetailsPane({
             destinationPane: item,
-            reset: resetTertiaryPaneOnClick,
+            reset: resetDetailsPaneOnClick,
           });
         }
       }}

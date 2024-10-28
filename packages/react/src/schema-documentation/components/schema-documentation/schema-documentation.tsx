@@ -9,7 +9,7 @@ import { sortTypes } from '../../utils';
 
 import { LoadingSchema, Resizer } from '../../../components';
 import { Section } from '../section';
-import { TertiaryPane } from '../tertiary-pane';
+import { DetailsPane } from '../details-pane';
 import { TypeSystemNavButton } from '../type-system-nav-button';
 
 import { panesClass, schemaDocumentationStyles } from './schema-documentation.css';
@@ -30,7 +30,7 @@ export const SchemaDocumentation = ({
   themeOptions,
   tertiaryPaneFieldSlotComponent,
 }: SchemaDocumentationProps) => {
-  const activeTertiaryPane = useSchemaDocumentationStore.use.activeTertiaryPane();
+  const activeDetailsPane = useSchemaDocumentationStore.use.activeDetailsPane();
 
   useEffect(() => {
     // set the theme and handle overrides if provided
@@ -149,9 +149,9 @@ export const SchemaDocumentation = ({
                 pane2={{
                   component: (
                     <>
-                      {activeTertiaryPane && (
-                        <TertiaryPane
-                          pane={activeTertiaryPane['pane']}
+                      {activeDetailsPane && (
+                        <DetailsPane
+                          pane={activeDetailsPane['pane']}
                           fieldSlotComponent={tertiaryPaneFieldSlotComponent || undefined}
                         />
                       )}

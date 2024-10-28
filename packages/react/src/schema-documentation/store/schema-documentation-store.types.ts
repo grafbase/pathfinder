@@ -1,11 +1,11 @@
 import { StoreApi } from 'zustand';
 
-import { TertiaryPaneType } from '../types';
+import { DetailsPaneType } from '../types';
 import { GraphQLDirective, GraphQLField, GraphQLNamedType } from 'graphql';
 
-export type TertiaryPaneStackItem = {
+export type DetailsPaneStackItem = {
   hash: string;
-  pane: TertiaryPaneType;
+  pane: DetailsPaneType;
 };
 
 export type PaneItem = {
@@ -21,25 +21,25 @@ export type PaneItem = {
 export type SchemaDocumentationStoreActions = {
   navigatePanes: ({ index, pane }: { index: number; pane?: PaneItem }) => void;
   clearPaneStack: () => void;
-  clearTertiaryPaneStack: () => void;
-  navigateTertiaryPaneStack: ({
+  clearDetailsPaneStack: () => void;
+  navigateDetailsPaneStack: ({
     destinationPaneIndex,
   }: {
     destinationPaneIndex: number;
   }) => void;
-  setActiveTertiaryPane: ({
+  setActiveDetailsPane: ({
     destinationPane,
     reset,
   }: {
-    destinationPane: TertiaryPaneType;
+    destinationPane: DetailsPaneType;
     reset?: boolean;
   }) => void;
 };
 
 export type SchemaDocumentationStoreState = {
+  detailsPaneStack: DetailsPaneStackItem[];
+  activeDetailsPane: DetailsPaneStackItem | null;
   panes: PaneItem[];
-  activeTertiaryPane: TertiaryPaneStackItem | null;
-  tertiaryPaneStack: TertiaryPaneStackItem[];
 };
 
 export type GetSchemaDocumentationStore = StoreApi<

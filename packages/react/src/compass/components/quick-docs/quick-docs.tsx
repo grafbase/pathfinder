@@ -1,17 +1,17 @@
-import { TertiaryPane, useSchemaDocumentationStore } from '../../../schema-documentation';
+import { DetailsPane, useSchemaDocumentationStore } from '../../../schema-documentation';
 
 import { quickDocsClass } from './quick-docs.css';
 
 export const QuickDocs = () => {
-  const activeTertiaryPane = useSchemaDocumentationStore.use.activeTertiaryPane();
+  const activeDetailsPane = useSchemaDocumentationStore.use.activeDetailsPane();
 
   return (
     <div
       className={quickDocsClass({
-        dialogActive: !!activeTertiaryPane,
+        dialogActive: !!activeDetailsPane,
       })}
     >
-      {activeTertiaryPane && <TertiaryPane pane={activeTertiaryPane['pane']} />}
+      {activeDetailsPane && <DetailsPane pane={activeDetailsPane['pane']} />}
     </div>
   );
 };

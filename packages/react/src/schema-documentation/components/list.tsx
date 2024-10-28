@@ -107,7 +107,7 @@ export const List = ({
                       key={x.name}
                       index={index}
                       item={x}
-                      resetTertiaryPaneOnClick={true}
+                      resetDetailsPaneOnClick={true}
                     />
                   </div>
                 );

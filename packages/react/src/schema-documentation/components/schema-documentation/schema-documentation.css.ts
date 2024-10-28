@@ -31,5 +31,6 @@ export const schemaDocumentationStyles = {
 export const panesClass = style({
   height: '100%',
   display: 'flex',
+  flexDirection: 'column',
   overflow: 'hidden',
 });

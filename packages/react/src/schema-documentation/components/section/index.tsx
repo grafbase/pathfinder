@@ -45,7 +45,7 @@ export const SectionArguments = ({ args }: { args: readonly GraphQLArgument[] })
       {args.length > 0 ? (
         <ArgumentsList
           args={args}
-          resetTertiaryPaneOnClick={false}
+          resetDetailsPaneOnClick={false}
           showBorder={true}
           showDescription={true}
         />
@@ -89,11 +89,11 @@ export const SectionEnumValues = ({
 
 export const SectionFields = ({
   fields,
-  resetTertiaryPaneOnClick,
+  resetDetailsPaneOnClick,
 }: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   fields: GraphQLFieldMap<any, any>;
-  resetTertiaryPaneOnClick: boolean;
+  resetDetailsPaneOnClick: boolean;
   hideSearch?: boolean;
 }) => {
   const parentRef = useRef<HTMLDivElement>(null);
@@ -191,7 +191,7 @@ export const SectionFields = ({
                     <ListItemField
                       key={fields[fieldKey].name}
                       field={fields[fieldKey]}
-                      resetTertiaryPaneOnClick={resetTertiaryPaneOnClick}
+                      resetDetailsPaneOnClick={resetDetailsPaneOnClick}
                     />
                   </div>
                 );
@@ -234,7 +234,7 @@ export const SectionInterface = ({
           {[...interfaces].sort().map((inter) => (
             <ListItemType
               key={inter.name}
-              resetTertiaryPaneOnClick={false}
+              resetDetailsPaneOnClick={false}
               showDescription={true}
               type={inter}
             />
@@ -258,7 +258,7 @@ export const SectionPossibleTypes = ({
           {possibleTypes.map((f) => (
             <ListItemType
               key={f.name}
-              resetTertiaryPaneOnClick={false}
+              resetDetailsPaneOnClick={false}
               showDescription={true}
               type={f}
             />
