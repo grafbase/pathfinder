@@ -8,45 +8,43 @@ import type {
 
 import { unwrapType } from '@pathfinder-ide/shared';
 
-import { useSchemaDocumentationStore } from '../../store';
+import { useSchemaDocumentationStore } from './../store';
 
-import { ArgumentsList } from '../arguments-list';
-import { DefaultValue } from '../default-value';
-import { Markdown } from '../markdown';
+import { ArgumentsList } from './arguments-list';
+import { DefaultValue } from './default-value';
+import { Delimiter } from './delimiter';
+import { Markdown } from './markdown';
 
-import { summaryFieldClass, summaryTypeClass } from './summary.css';
-
+import { listItemFieldClass, listItemTypeClass } from './list-item.css';
 import {
+  detailsTriggerButtonClass,
   returnTypeButtonClass,
   scalarArgumentNameClass,
-  tertiaryTriggerButtonClass,
-} from '../../shared.styles.css';
+} from '../shared.styles.css';
 
-import { Delimiter } from '../delimiter';
-
-export const SummaryField = ({
+export const ListItemField = ({
   field,
   parentType,
-  resetTertiaryPaneOnClick,
+  resetDetailsPaneOnClick,
 }: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   field: GraphQLField<any, any, any>;
   parentType?: GraphQLObjectType;
-  resetTertiaryPaneOnClick: boolean;
+  resetDetailsPaneOnClick: boolean;
 }) => {
-  const { setActiveTertiaryPane } = useSchemaDocumentationStore.getState();
+  const { setActiveDetailsPane } = useSchemaDocumentationStore.getState();
 
   return (
-    <div className={summaryFieldClass}>
+    <div className={listItemFieldClass}>
       <button
-        className={tertiaryTriggerButtonClass({
+        className={detailsTriggerButtonClass({
           color: 'VIOLET',
         })}
         onClick={() =>
-          setActiveTertiaryPane({
+          setActiveDetailsPane({
             destinationPane: field,
             parentType,
-            reset: resetTertiaryPaneOnClick,
+            reset: resetDetailsPaneOnClick,
           })
         }
       >
@@ -57,7 +55,7 @@ export const SummaryField = ({
           <Delimiter value="(" spacing="LEFT_AND_RIGHT" />
           <ArgumentsList
             args={field.args}
-            resetTertiaryPaneOnClick={resetTertiaryPaneOnClick}
+            resetDetailsPaneOnClick={resetDetailsPaneOnClick}
           />
           <Delimiter value=")" spacing="LEFT_AND_RIGHT" />
         </>
@@ -66,9 +64,9 @@ export const SummaryField = ({
       <button
         className={returnTypeButtonClass}
         onClick={() =>
-          setActiveTertiaryPane({
+          setActiveDetailsPane({
             destinationPane: unwrapType(field.type),
-            reset: resetTertiaryPaneOnClick,
+            reset: resetDetailsPaneOnClick,
           })
         }
       >
@@ -78,18 +76,18 @@ export const SummaryField = ({
   );
 };
 
-export const SummaryInputField = ({ inputField }: { inputField: GraphQLInputField }) => {
-  const { setActiveTertiaryPane } = useSchemaDocumentationStore.getState();
+export const ListItemInputField = ({ inputField }: { inputField: GraphQLInputField }) => {
+  const { setActiveDetailsPane } = useSchemaDocumentationStore.getState();
 
   return (
-    <div className={summaryFieldClass}>
+    <div className={listItemFieldClass}>
       <span className={scalarArgumentNameClass}>{inputField.name}</span>
       <Delimiter value=":" spacing="LEFT_AND_RIGHT" />
       <button
         className={returnTypeButtonClass}
         title="Return type"
         onClick={() =>
-          setActiveTertiaryPane({
+          setActiveDetailsPane({
             destinationPane: unwrapType(inputField.type),
           })
         }
@@ -102,27 +100,27 @@ export const SummaryInputField = ({ inputField }: { inputField: GraphQLInputFiel
   );
 };
 
-export const SummaryType = ({
-  resetTertiaryPaneOnClick,
+export const ListItemType = ({
+  resetDetailsPaneOnClick,
   showDescription,
   type,
 }: {
-  resetTertiaryPaneOnClick: boolean;
+  resetDetailsPaneOnClick: boolean;
   showDescription: boolean;
   type: GraphQLNamedType | GraphQLDirective;
 }) => {
-  const { setActiveTertiaryPane } = useSchemaDocumentationStore.getState();
+  const { setActiveDetailsPane } = useSchemaDocumentationStore.getState();
 
   return (
-    <div className={summaryTypeClass}>
+    <div className={listItemTypeClass}>
       <button
-        className={tertiaryTriggerButtonClass({
+        className={detailsTriggerButtonClass({
           color: 'BLUE',
         })}
         onClick={() =>
-          setActiveTertiaryPane({
+          setActiveDetailsPane({
             destinationPane: type,
-            reset: resetTertiaryPaneOnClick,
+            reset: resetDetailsPaneOnClick,
           })
         }
       >
