@@ -24,16 +24,20 @@ export const detailsPaneStyles = {
       gap: 16,
       paddingTop: 4,
       overflow: 'auto',
-      backgroundColor: contract.color.neutral[2],
     },
   ]),
 
-  navigationControls: style({
-    display: 'flex',
-    borderLeft: `1px solid ${contract.color.neutral[3]}`,
-    height: '100%',
-    paddingRight: 12,
-  }),
+  navigationControls: style([
+    shared.hairlineBorder({
+      border: 'left',
+      onSurface: 1,
+    }),
+    {
+      display: 'flex',
+      height: '100%',
+      paddingRight: 12,
+    },
+  ]),
 
   leadClass: style([
     shared.hairlineBorder({
@@ -85,12 +89,18 @@ export const detailsPaneStyles = {
     flexShrink: 0,
   }),
 
-  tabListClass: style({
-    display: 'flex',
-    flexShrink: 0,
-    position: 'relative',
-    height: 40,
-  }),
+  tabListClass: style([
+    shared.hairlineBorder({
+      border: 'bottom',
+      onSurface: 1,
+    }),
+    {
+      display: 'flex',
+      flexShrink: 0,
+      position: 'relative',
+      height: 40,
+    },
+  ]),
 
   tabButtonClass: style([
     shared.resets.buttonReset,
