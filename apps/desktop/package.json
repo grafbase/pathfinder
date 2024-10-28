@@ -24,7 +24,7 @@
     "@types/react-dom": "18.3.1",
     "@vanilla-extract/css": "1.14.2",
     "@vanilla-extract/vite-plugin": "3.9.5",
-    "@vitejs/plugin-react": "4.3.1",
+    "@vitejs/plugin-react": "4.3.3",
     "typescript": "5.5.4",
     "vite": "5.4.3"
   }
