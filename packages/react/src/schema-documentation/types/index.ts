@@ -10,6 +10,7 @@ import {
   GraphQLScalarType,
   GraphQLUnionType,
 } from 'graphql';
+import { ReactNode } from 'react';
 
 export type SortedTypeMap = {
   Scalars: GraphQLScalarType[];
@@ -27,3 +28,8 @@ export type DetailsPaneType =
   | GraphQLDirective
   | GraphQLInterfaceType
   | GraphQLInputField;
+
+export type DetailsPaneTabSlotComponent = {
+  tabName: string;
+  tabContent: ReactNode;
+};

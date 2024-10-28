@@ -84,4 +84,70 @@ export const detailsPaneStyles = {
     transform: `rotate(90deg)`,
     flexShrink: 0,
   }),
+
+  tabListClass: style({
+    display: 'flex',
+    flexShrink: 0,
+    position: 'relative',
+    height: 40,
+  }),
+
+  tabButtonClass: style([
+    shared.resets.buttonReset,
+    {
+      width: 'auto',
+      position: 'relative',
+      paddingBottom: 2,
+      paddingLeft: contract.space[12],
+      paddingRight: contract.space[12],
+      textAlign: 'center',
+      fontSize: 13,
+      color: contract.color.neutral[9],
+
+      selectors: {
+        '&:hover': {
+          color: contract.color.neutral[12],
+        },
+
+        '&:after': {
+          content: '',
+          position: 'absolute',
+          width: `calc(100% - ${contract.space[24]})`,
+          height: 2,
+          bottom: 1,
+          left: contract.space[12],
+        },
+
+        '&[data-headlessui-state="selected"]': {
+          color: contract.color.neutral[12],
+        },
+
+        '&[data-headlessui-state="selected"]&:after': {
+          backgroundColor: contract.color.green[10],
+        },
+      },
+    },
+  ]),
+
+  tabGroupClass: style({
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+  }),
+
+  tabPanelsClass: style([
+    shared.scrollbars,
+    {
+      height: '100%',
+      overflowY: 'auto',
+      overflowX: 'hidden',
+    },
+  ]),
+
+  tabPanelClass: style({
+    color: contract.color.neutral[7],
+    position: 'relative',
+    height: '100%',
+  }),
 };

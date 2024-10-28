@@ -1,4 +1,4 @@
-import { ReactElement, ReactNode } from 'react';
+import { ReactElement } from 'react';
 
 import {
   isDirective,
@@ -24,18 +24,19 @@ import {
 
 import { IconButton } from '../../components/icon-button';
 
-import { DetailsPaneType } from '../types';
+import { DetailsPaneTabSlotComponent, DetailsPaneType } from '../types';
 
 import { detailsPaneStyles } from './details-pane.css';
 
 import { useSchemaDocumentationStore } from '../store';
+import { Tab } from '@headlessui/react';
 
 export const DetailsPane = ({
   pane,
-  fieldSlotComponent,
+  tabSlotComponents,
 }: {
   pane: DetailsPaneType;
-  fieldSlotComponent?: ReactNode;
+  tabSlotComponents?: DetailsPaneTabSlotComponent[];
 }) => {
   const activeDetailsPane = useSchemaDocumentationStore.use.activeDetailsPane();
   const detailsPaneStack = useSchemaDocumentationStore.use.detailsPaneStack();
@@ -89,12 +90,7 @@ export const DetailsPane = ({
 
   if (activeDetailsPane && 'args' in pane && !isDirective(pane)) {
     leadType = 'Field';
-    toRender = (
-      <>
-        <LeafField field={pane} />
-        {fieldSlotComponent && fieldSlotComponent}
-      </>
-    );
+    toRender = <LeafField field={pane} />;
   }
 
   return (
@@ -137,7 +133,36 @@ export const DetailsPane = ({
           </div>
         </div>
       </div>
-      <div className={detailsPaneStyles.content}>{toRender}</div>
+      <Tab.Group>
+        <div className={detailsPaneStyles.tabGroupClass}>
+          <Tab.List>
+            <div className={detailsPaneStyles.tabListClass}>
+              <Tab className={detailsPaneStyles.tabButtonClass}>Details</Tab>
+              {tabSlotComponents &&
+                tabSlotComponents.map((tab) => (
+                  <Tab key={tab.tabName} className={detailsPaneStyles.tabButtonClass}>
+                    {tab.tabName}
+                  </Tab>
+                ))}
+            </div>
+          </Tab.List>
+          <Tab.Panels className={detailsPaneStyles.tabPanelsClass}>
+            <Tab.Panel className={detailsPaneStyles.tabPanelClass} unmount={false}>
+              <div className={detailsPaneStyles.content}>{toRender}</div>
+            </Tab.Panel>
+            {tabSlotComponents &&
+              tabSlotComponents.map((tab) => (
+                <Tab.Panel
+                  key={tab.tabName}
+                  unmount={false}
+                  className={detailsPaneStyles.tabPanelClass}
+                >
+                  <div className={detailsPaneStyles.content}>{tab.tabContent}</div>
+                </Tab.Panel>
+              ))}
+          </Tab.Panels>
+        </div>
+      </Tab.Group>
     </div>
   );
 };

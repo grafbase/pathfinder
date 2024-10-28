@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { GraphQLSchema } from 'graphql';
 
 import { useSchemaDocumentationStore } from '../../store';
@@ -17,18 +17,18 @@ import { panesClass, schemaDocumentationStyles } from './schema-documentation.cs
 import { sharedPaneClass } from '../../shared.styles.css';
 import { Breadcrumbs } from '../breadcrumbs';
 import { Panes } from '../panes';
-import { SortedTypeMap } from '../../types';
+import { DetailsPaneTabSlotComponent, SortedTypeMap } from '../../types';
 
 type SchemaDocumentationProps = {
   schema?: GraphQLSchema;
   themeOptions?: Partial<ThemeOptions>;
-  tertiaryPaneFieldSlotComponent?: ReactNode;
+  detailsPaneTabSlotComponents?: DetailsPaneTabSlotComponent[];
 };
 
 export const SchemaDocumentation = ({
   schema,
   themeOptions,
-  tertiaryPaneFieldSlotComponent,
+  detailsPaneTabSlotComponents,
 }: SchemaDocumentationProps) => {
   const activeDetailsPane = useSchemaDocumentationStore.use.activeDetailsPane();
 
@@ -152,7 +152,7 @@ export const SchemaDocumentation = ({
                       {activeDetailsPane && (
                         <DetailsPane
                           pane={activeDetailsPane['pane']}
-                          fieldSlotComponent={tertiaryPaneFieldSlotComponent || undefined}
+                          tabSlotComponents={detailsPaneTabSlotComponents || undefined}
                         />
                       )}
                     </>

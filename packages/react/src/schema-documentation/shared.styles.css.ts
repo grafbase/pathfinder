@@ -32,7 +32,7 @@ export const notificationClass = style({
   backgroundColor: contract.color.orange[1],
 });
 
-export const tertiaryTriggerButtonClass = recipe({
+export const detailsTriggerButtonClass = recipe({
   base: [
     shared.resets.buttonReset,
     {

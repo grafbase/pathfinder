@@ -16,7 +16,7 @@ import { Markdown } from './markdown';
 
 import { listItemFieldClass, listItemTypeClass } from './list-item.css';
 import {
-  tertiaryTriggerButtonClass,
+  detailsTriggerButtonClass,
   returnTypeButtonClass,
   scalarArgumentNameClass,
 } from '../shared.styles.css';
@@ -34,7 +34,7 @@ export const ListItemField = ({
   return (
     <div className={listItemFieldClass}>
       <button
-        className={tertiaryTriggerButtonClass({
+        className={detailsTriggerButtonClass({
           color: 'VIOLET',
         })}
         onClick={() =>
@@ -110,7 +110,7 @@ export const ListItemType = ({
   return (
     <div className={listItemTypeClass}>
       <button
-        className={tertiaryTriggerButtonClass({
+        className={detailsTriggerButtonClass({
           color: 'BLUE',
         })}
         onClick={() =>
