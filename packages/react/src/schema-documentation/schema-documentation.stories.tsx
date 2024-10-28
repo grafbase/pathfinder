@@ -45,11 +45,16 @@ export const WithSchemaAndThemeOverrides = () => {
   );
 };
 
-export const WithSchemaAndTertiaryPaneFieldSlotComponent = () => {
+export const WithSchemaAnddetailsPaneTabSlotComponent = () => {
   return (
     <SchemaDocumentation
       schema={testSchema}
-      tertiaryPaneFieldSlotComponent={<>I'm a tertiaryPaneFieldSlotComponent!</>}
+      detailsPaneTabSlotComponents={[
+        {
+          tabContent: <>I'm a detailsPaneTabSlotComponent!</>,
+          tabName: 'Test',
+        },
+      ]}
     />
   );
 };
