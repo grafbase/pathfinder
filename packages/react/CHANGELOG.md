@@ -1,5 +1,11 @@
 # @pathfinder-ide/react
 
+## 0.8.4
+
+### Patch Changes
+
+- cc382f0: SchemaDocs/DetailsPane visual updates (background color removed, borders added)
+
 ## 0.8.3
 
 ### Patch Changes
