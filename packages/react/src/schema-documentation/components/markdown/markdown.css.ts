@@ -9,7 +9,7 @@ export const markdownClass = style({
 });
 
 const sharedMarkdownStyles = {
-  fontSize: 14,
+  fontSize: 13,
   lineHeight: 1.5,
   color: contract.color.neutral[12],
   marginTop: 0,
