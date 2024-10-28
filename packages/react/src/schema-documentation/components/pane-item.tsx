@@ -27,7 +27,7 @@ export const PaneItem = ({
 
   const title =
     'args' in item && !('isRepeatable' in item)
-      ? `${item.name}${item.args.length > 0 ? `${item.args.length}` : ``}: ${item.type.toString()}`
+      ? `${item.name}${item.args.length > 0 ? `(${item.args.length})` : ``}: ${item.type.toString()}`
       : item.name;
 
   return (
