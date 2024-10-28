@@ -37,7 +37,7 @@ export const PaneItem = ({
         isActive: panes[index + 1] ? title === panes[index + 1].id : false,
       })}
       onClick={() => {
-        // if a field that returns an object, union, or object
+        // if a field that returns an object, union, or interface
         if ('args' in item && !('isRepeatable' in item)) {
           //this is a field
           const unwrappedType = unwrapType(item.type);
@@ -55,7 +55,22 @@ export const PaneItem = ({
                 pane: Object.keys(fields).map((field) => fields[field]),
               },
             });
+          } else if (isUnionType(unwrappedType)) {
+            const types = unwrappedType.getTypes();
+            setActiveDetailsPane({
+              destinationPane: item,
+              reset: resetDetailsPaneOnClick,
+            });
+            navigatePanes({
+              index,
+              pane: {
+                id: title,
+                name: item.name,
+                pane: types.map((_type, i) => types[i]),
+              },
+            });
           } else {
+            navigatePanes({ index });
             return setActiveDetailsPane({
               destinationPane: item,
               reset: resetDetailsPaneOnClick,
