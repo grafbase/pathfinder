@@ -10,6 +10,7 @@ import {
   GraphQLScalarType,
   GraphQLUnionType,
 } from 'graphql';
+import { ReactNode } from 'react';
 
 export type SortedTypeMap = {
   Scalars: GraphQLScalarType[];
@@ -20,7 +21,7 @@ export type SortedTypeMap = {
   Interfaces: GraphQLInterfaceType[];
 };
 
-export type TertiaryPaneType =
+export type DetailsPaneType =
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   | GraphQLField<any, any>
   | GraphQLNamedType
@@ -28,14 +29,7 @@ export type TertiaryPaneType =
   | GraphQLInterfaceType
   | GraphQLInputField;
 
-export type TopLevelPane =
-  | 'Query'
-  | 'Mutation'
-  | 'Subscription'
-  | 'Directives'
-  | 'Scalars'
-  | 'Enums'
-  | 'Objects'
-  | 'Input Objects'
-  | 'Unions'
-  | 'Interfaces';
+export type DetailsPaneTabSlotComponent = {
+  tabName: string;
+  tabContent: ReactNode;
+};

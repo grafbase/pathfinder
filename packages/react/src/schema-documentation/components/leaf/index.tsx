@@ -36,7 +36,7 @@ export const LeafDirective = ({ directive }: { directive: GraphQLDirective }) =>
         {directive.args.length > 0 ? (
           <ArgumentsList
             args={directive.args}
-            resetTertiaryPaneOnClick={false}
+            resetDetailsPaneOnClick={false}
             showDescription={true}
             showBorder={true}
           />
@@ -72,7 +72,7 @@ export const LeafField = ({
   field: GraphQLField<any, any>;
   parentType?: GraphQLObjectType;
 }) => {
-  const { setActiveTertiaryPane } = useSchemaDocumentationStore.getState();
+  const { setActiveDetailsPane } = useSchemaDocumentationStore.getState();
 
   return (
     <>
@@ -81,7 +81,7 @@ export const LeafField = ({
         <button
           className={returnTypeButtonClass}
           onClick={() =>
-            setActiveTertiaryPane({ destinationPane: unwrapType(field.type), parentType })
+            setActiveDetailsPane({ destinationPane: unwrapType(field.type), parentType })
           }
         >
           {field.type.toString()}
@@ -110,8 +110,8 @@ export const LeafInterface = ({ int }: { int: GraphQLInterfaceType }) => {
   return (
     <>
       <SectionDescription description={int.description} />
-      <SectionFields fields={fields} resetTertiaryPaneOnClick={false} hideSearch />
       <SectionInterface interfaces={interfaces} />
+      <SectionFields fields={fields} resetDetailsPaneOnClick={false} hideSearch />
     </>
   );
 };
@@ -123,13 +123,13 @@ export const LeafObject = ({ type }: { type: GraphQLObjectType }) => {
   return (
     <>
       <SectionDescription description={type.description} />
+      <SectionInterface interfaces={interfaces} />
       <SectionFields
         fields={fields}
         parentType={type}
-        resetTertiaryPaneOnClick={false}
+        resetDetailsPaneOnClick={false}
         hideSearch
       />
-      <SectionInterface interfaces={interfaces} />
     </>
   );
 };

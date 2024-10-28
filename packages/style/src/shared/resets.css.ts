@@ -7,4 +7,5 @@ export const buttonReset = style({
   backgroundColor: 'transparent',
   margin: 0,
   padding: 0,
+  boxSizing: 'border-box',
 });

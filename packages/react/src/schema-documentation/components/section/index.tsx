@@ -10,29 +10,30 @@ import type {
 
 import { ArgumentsList } from '../arguments-list';
 import { Markdown } from '../markdown';
-import { SummaryField, SummaryInputField, SummaryType } from '../summary';
 
-import {
-  enumValueClass,
-  sectionClass,
-  sectionFieldsClasses,
-  sectionLeadClass,
-} from './section.css';
+import { enumValueClass, sectionStyles } from './section.css';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import fuzzysort from 'fuzzysort';
+import { ListItemField, ListItemInputField, ListItemType } from '../list-item';
+import { listClasses } from '../list.css';
+import { schemaDocumentationStyles } from '../schema-documentation/schema-documentation.css';
 
 export const Section = ({
   children,
-  lead,
   className,
+  lead,
+  withSeparator = false,
 }: {
   children: ReactNode;
-  lead?: string;
   className?: string;
+  lead?: string;
+  withSeparator?: boolean;
 }) => {
   return (
-    <section className={`${sectionClass} ${className ?? ''}`}>
-      {lead && <span className={sectionLeadClass}>{lead}</span>}
+    <section
+      className={`${sectionStyles.container({ withSeparator })} ${className ?? ''}`}
+    >
+      {lead && <span className={sectionStyles.lead}>{lead}</span>}
       {children}
     </section>
   );
@@ -44,7 +45,7 @@ export const SectionArguments = ({ args }: { args: readonly GraphQLArgument[] })
       {args.length > 0 ? (
         <ArgumentsList
           args={args}
-          resetTertiaryPaneOnClick={false}
+          resetDetailsPaneOnClick={false}
           showBorder={true}
           showDescription={true}
         />
@@ -89,12 +90,12 @@ export const SectionEnumValues = ({
 export const SectionFields = ({
   fields,
   parentType,
-  resetTertiaryPaneOnClick,
+  resetDetailsPaneOnClick,
 }: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   fields: GraphQLFieldMap<any, any>;
   parentType?: GraphQLObjectType;
-  resetTertiaryPaneOnClick: boolean;
+  resetDetailsPaneOnClick: boolean;
   hideSearch?: boolean;
 }) => {
   const parentRef = useRef<HTMLDivElement>(null);
@@ -138,13 +139,14 @@ export const SectionFields = ({
   }
 
   return (
-    <Section lead="Fields" className={sectionFieldsClasses.container}>
+    <Section lead="Fields" className={listClasses.container}>
       <div
         style={{
           flex: 1,
           display: 'flex',
           flexDirection: 'column',
           gap: 24,
+          height: '100%',
         }}
       >
         {/* {!hideSearch && (
@@ -162,7 +164,7 @@ export const SectionFields = ({
             </div>
           </div>
         )} */}
-        <div ref={parentRef} className={sectionFieldsClasses.fieldsListContainer}>
+        <div ref={parentRef} className={listClasses.fieldsListContainer}>
           <div
             style={{
               height: virtualizer.getTotalSize(),
@@ -188,11 +190,11 @@ export const SectionFields = ({
                     data-index={virtualRow.index}
                     ref={virtualizer.measureElement}
                   >
-                    <SummaryField
+                    <ListItemField
                       key={fields[fieldKey].name}
                       field={fields[fieldKey]}
                       parentType={parentType}
-                      resetTertiaryPaneOnClick={resetTertiaryPaneOnClick}
+                      resetDetailsPaneOnClick={resetDetailsPaneOnClick}
                     />
                   </div>
                 );
@@ -210,11 +212,13 @@ export const SectionInputFields = ({ fields }: { fields: GraphQLInputFieldMap })
     <>
       {Object.keys(fields).length > 0 ? (
         <Section lead="Input Fields">
-          {Object.keys(fields)
-            .sort()
-            .map((f) => (
-              <SummaryInputField key={fields[f].name} inputField={fields[f]} />
-            ))}
+          <div className={schemaDocumentationStyles.list}>
+            {Object.keys(fields)
+              .sort()
+              .map((f) => (
+                <ListItemInputField key={fields[f].name} inputField={fields[f]} />
+              ))}
+          </div>
         </Section>
       ) : null}
     </>
@@ -231,9 +235,9 @@ export const SectionInterface = ({
       {interfaces.length > 0 ? (
         <Section lead="Implements">
           {[...interfaces].sort().map((inter) => (
-            <SummaryType
+            <ListItemType
               key={inter.name}
-              resetTertiaryPaneOnClick={false}
+              resetDetailsPaneOnClick={false}
               showDescription={true}
               type={inter}
             />
@@ -255,9 +259,9 @@ export const SectionPossibleTypes = ({
       {possibleTypes.length > 0 ? (
         <Section lead="Possible types">
           {possibleTypes.map((f) => (
-            <SummaryType
+            <ListItemType
               key={f.name}
-              resetTertiaryPaneOnClick={false}
+              resetDetailsPaneOnClick={false}
               showDescription={true}
               type={f}
             />
