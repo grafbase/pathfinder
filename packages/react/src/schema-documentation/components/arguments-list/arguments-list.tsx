@@ -14,16 +14,16 @@ import { returnTypeButtonClass, scalarArgumentNameClass } from '../../shared.sty
 
 export const ArgumentsList = ({
   args,
-  resetDetailsPaneOnClick,
+  resetTertiaryPaneOnClick,
   showBorder = false,
   showDescription = false,
 }: {
   args: readonly GraphQLArgument[];
-  resetDetailsPaneOnClick: boolean;
+  resetTertiaryPaneOnClick: boolean;
   showBorder?: boolean;
   showDescription?: boolean;
 }) => {
-  const { setActiveDetailsPane } = useSchemaDocumentationStore.getState();
+  const { setActiveTertiaryPane } = useSchemaDocumentationStore.getState();
 
   if (args.length < 1) {
     return null;
@@ -48,9 +48,9 @@ export const ArgumentsList = ({
               <button
                 className={returnTypeButtonClass}
                 onClick={() =>
-                  setActiveDetailsPane({
+                  setActiveTertiaryPane({
                     destinationPane: unwrapType(a.type),
-                    reset: resetDetailsPaneOnClick,
+                    reset: resetTertiaryPaneOnClick,
                   })
                 }
               >

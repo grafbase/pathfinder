@@ -1,3 +1,3 @@
-export { SchemaDocumentation, DetailsPane } from './components';
+export { SchemaDocumentation, TertiaryPane } from './components';
 
 export { useSchemaDocumentationStore } from './store';

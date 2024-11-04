@@ -1,6 +1,26 @@
-import { contract, shared, style } from '@pathfinder-ide/style';
+import { contract, recipe, shared, style } from '@pathfinder-ide/style';
+import { sharedPaneClass } from '../../shared.styles.css';
 
-export const listClasses = {
+export const secondaryPaneClass = recipe({
+  base: [
+    shared.scrollbars,
+    sharedPaneClass,
+    {
+      display: 'flex',
+      flexDirection: 'column',
+    },
+  ],
+
+  variants: {
+    activeTertiaryPane: {
+      true: {
+        flexGrow: 0,
+      },
+    },
+  },
+});
+
+export const secondaryPaneListClasses = {
   container: style({
     flex: 1,
     display: 'flex',
@@ -38,9 +58,6 @@ export const listClasses = {
       flex: 1,
       overflowY: 'auto',
       contain: 'strict',
-      height: '100%',
-      borderRight: `1px solid ${contract.color.neutral[2]}`,
-      minWidth: 380,
     },
   ]),
 };

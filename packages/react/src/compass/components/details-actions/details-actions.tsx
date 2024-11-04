@@ -26,7 +26,7 @@ export const DetailsActions = ({
   showActions = false,
   type,
 }: DetailsActionsProps) => {
-  const { setActiveDetailsPane } = useSchemaDocumentationStore.getState();
+  const { setActiveTertiaryPane } = useSchemaDocumentationStore.getState();
 
   return (
     <div
@@ -37,7 +37,7 @@ export const DetailsActions = ({
       <div className={detailsActionsControlsClass}>
         <IconButton
           action={() => {
-            setActiveDetailsPane({ destinationPane: type });
+            setActiveTertiaryPane({ destinationPane: type });
           }}
           iconName="Docs"
           title="View Quick Docs"
