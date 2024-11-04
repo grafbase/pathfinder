@@ -1,5 +1,12 @@
 # @pathfinder-ide/react
 
+## 0.8.5
+
+### Patch Changes
+
+- ca0042d: Fix compatibility issue with `graphql-sse`
+- 95870e1: Rollback SchemaDocumentation UI changes
+
 ## 0.8.4
 
 ### Patch Changes
