@@ -1,1 +1,0 @@
-export { Delimiter } from './delimiter';
