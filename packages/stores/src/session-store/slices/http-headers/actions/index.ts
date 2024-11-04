@@ -1,7 +1,7 @@
 export { addEmptyHeader } from './add-empty-header';
 
 export {
-  getEnabledTTPHeaderValues,
+  getEnabledHTTPHeaderValues,
   getEnabledHTTPHeaderValueRecord,
 } from './get-enabled-http-header-values';
 
