@@ -1,6 +1,6 @@
 import { HTTPHeadersActions } from '../http-headers.types';
 
-export const getEnabledTTPHeaderValues: HTTPHeadersActions['getEnabledTTPHeaderValues'] =
+export const getEnabledHTTPHeaderValues: HTTPHeadersActions['getEnabledHTTPHeaderValues'] =
   ({ headers }) => {
     return headers
       .filter((header) => header.enabled)
