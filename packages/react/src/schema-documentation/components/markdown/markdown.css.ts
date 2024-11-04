@@ -3,13 +3,13 @@ import { contract, globalStyle, style } from '@pathfinder-ide/style';
 export const markdownClass = style({
   display: 'flex',
   flexDirection: 'column',
-  paddingTop: 2,
-  paddingBottom: 2,
+  paddingTop: 4,
+  paddingBottom: 4,
   color: contract.color.neutral[12],
 });
 
 const sharedMarkdownStyles = {
-  fontSize: 13,
+  fontSize: 14,
   lineHeight: 1.5,
   color: contract.color.neutral[12],
   marginTop: 0,
