@@ -1,4 +1,4 @@
-import { getEnabledTTPHeaderValues } from '../../session-store';
+import { getEnabledHTTPHeaderValues } from '../../session-store';
 import type { SchemaStoreActions } from '../schema-store.types';
 import { useSchemaStore } from '../use-schema-store';
 
@@ -11,7 +11,7 @@ export const httpFetcher: SchemaStoreActions['httpFetcher'] = async ({
   const fetchResponse = await fetch(fetchOptions.endpoint, {
     method: 'POST',
     headers: fetchOptions.headers
-      ? getEnabledTTPHeaderValues({ headers: fetchOptions.headers })
+      ? getEnabledHTTPHeaderValues({ headers: fetchOptions.headers })
       : undefined,
     credentials: 'same-origin',
     body,
